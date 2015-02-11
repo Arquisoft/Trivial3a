@@ -1,7 +1,7 @@
 # Trivial3a
-- PRIMERA ENTREGA
--- ¿Utilizar una Hash para transformar GIFT a JSON? (Clave: "valor")
--- Parser XML
+## PRIMERA ENTREGA
+- ¿Utilizar una Hash para transformar GIFT a JSON? (Clave: "valor")
+- Parser XML
 
 ========
 ## Equipo formado por: 

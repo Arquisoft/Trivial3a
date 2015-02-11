@@ -1,4 +1,8 @@
 # Trivial3a
+- PRIMERA ENTREGA
+-- ¿Utilizar una Hash para transformar GIFT a JSON? (Clave: "valor")
+-- Parser XML
+
 ========
 ## Equipo formado por: 
 - Álvaro Panizo Romano (UO227748)

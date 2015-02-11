@@ -1,5 +1,4 @@
 # Trivial3a
-========
 ## Equipo formado por: 
 - Álvaro Panizo Romano (UO227748)
 - Carmen Peñalver San Cristóbal (UO229705)

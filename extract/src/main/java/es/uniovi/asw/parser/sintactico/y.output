@@ -1,0 +1,175 @@
+   0  $accept : programa $end
+
+   1  programa : listapreguntas
+
+   2  listapreguntas : pregunta
+   3                 | pregunta listapreguntas
+
+   4  pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'
+
+   5  tiporespuesta : '~'
+   6                | '='
+
+state 0
+	$accept : . programa $end  (0)
+
+	DOBLESPUNTOS  shift 1
+	.  error
+
+	programa  goto 2
+	listapreguntas  goto 3
+	pregunta  goto 4
+
+
+state 1
+	pregunta : DOBLESPUNTOS . ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	ID  shift 5
+	.  error
+
+
+state 2
+	$accept : programa . $end  (0)
+
+	$end  accept
+
+
+state 3
+	programa : listapreguntas .  (1)
+
+	.  reduce 1
+
+
+state 4
+	listapreguntas : pregunta .  (2)
+	listapreguntas : pregunta . listapreguntas  (3)
+
+	DOBLESPUNTOS  shift 1
+	$end  reduce 2
+
+	listapreguntas  goto 6
+	pregunta  goto 4
+
+
+state 5
+	pregunta : DOBLESPUNTOS ID . DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	DOBLESPUNTOS  shift 7
+	.  error
+
+
+state 6
+	listapreguntas : pregunta listapreguntas .  (3)
+
+	.  reduce 3
+
+
+state 7
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS . FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	FR  shift 8
+	.  error
+
+
+state 8
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR . '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	'{'  shift 9
+	.  error
+
+
+state 9
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' . tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	'~'  shift 10
+	'='  shift 11
+	.  error
+
+	tiporespuesta  goto 12
+
+
+state 10
+	tiporespuesta : '~' .  (5)
+
+	.  reduce 5
+
+
+state 11
+	tiporespuesta : '=' .  (6)
+
+	.  reduce 6
+
+
+state 12
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta . FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	FR  shift 13
+	.  error
+
+
+state 13
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR . tiporespuesta FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	'~'  shift 10
+	'='  shift 11
+	.  error
+
+	tiporespuesta  goto 14
+
+
+state 14
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta . FR tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	FR  shift 15
+	.  error
+
+
+state 15
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR . tiporespuesta FR tiporespuesta FR '}'  (4)
+
+	'~'  shift 10
+	'='  shift 11
+	.  error
+
+	tiporespuesta  goto 16
+
+
+state 16
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta . FR tiporespuesta FR '}'  (4)
+
+	FR  shift 17
+	.  error
+
+
+state 17
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR . tiporespuesta FR '}'  (4)
+
+	'~'  shift 10
+	'='  shift 11
+	.  error
+
+	tiporespuesta  goto 18
+
+
+state 18
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta . FR '}'  (4)
+
+	FR  shift 19
+	.  error
+
+
+state 19
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR . '}'  (4)
+
+	'}'  shift 20
+	.  error
+
+
+state 20
+	pregunta : DOBLESPUNTOS ID DOBLESPUNTOS FR '{' tiporespuesta FR tiporespuesta FR tiporespuesta FR tiporespuesta FR '}' .  (4)
+
+	.  reduce 4
+
+
+9 terminals, 5 nonterminals
+7 grammar rules, 21 states

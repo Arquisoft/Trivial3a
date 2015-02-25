@@ -10,7 +10,6 @@ import preguntas.Pregunta;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner s = new Scanner(System.in);
 		System.out.println("Inserte el Nombre del Fichero de Preguntas.");
 		Parser p = new Parser(s.nextLine());

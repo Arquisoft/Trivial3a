@@ -1,5 +1,6 @@
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import parser.Parser;
@@ -14,9 +15,9 @@ public class Main {
 		System.out.println("Inserte el Nombre del Fichero de Preguntas.");
 		Parser p = new Parser(s.nextLine());
 		try {
-			ArrayList<Pregunta> preguntasFinal = p.getPregunta();
-			for(Pregunta pr : preguntasFinal)
-				System.out.println(pr.toString());
+			HashMap<String,Pregunta> preguntasFinal = p.getPregunta();
+			for(Entry<String, Pregunta> entry : preguntasFinal.entrySet())
+				System.out.println(entry.toString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -4,6 +4,8 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 
 import parser.Parser;
+import parser.ParserQTI;
+import parser.ParserXML;
 import preguntas.Pregunta;
 
 
@@ -13,7 +15,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		Scanner s = new Scanner(System.in);
 		System.out.println("Inserte el Nombre del Fichero de Preguntas.");
-		Parser p = new Parser(s.nextLine());
+		Parser p = new ParserQTI(s.nextLine());
 		try {
 			HashMap<String,Pregunta> preguntasFinal = p.getPregunta();
 			for(Entry<String, Pregunta> entry : preguntasFinal.entrySet())

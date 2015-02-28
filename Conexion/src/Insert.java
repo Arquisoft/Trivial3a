@@ -9,36 +9,48 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.DuplicateKeyException;
+import com.mongodb.MongoTimeoutException;
 import com.mongodb.util.JSON;
 import com.mongodb.util.JSONParseException;
-
-
 
 public class Insert {
 
 	private static DB db;
 	private static DBCollection collection;
 	private static FileInputStream archivo;
+	private final static String coll = "Questions";
 	
 	public static void main(String[] args) {
-		db = Connection.DatabaseConnection();
-		collection = db.getCollection("Questions");
-		importJSon("");
-		insert();
-		getElements();
+		try{
+			db = Connection.DatabaseConnection();
+			importJSON("P.JSON");
+			insert(coll);
+			getElements(coll);
+		}catch(MongoTimeoutException e){
+			System.out.println("El servidor no responde, compruebe su conexión");
+		}
 
 	}
 	
-	public static void importJSon(String path){
+	/**
+	 * Método que permite cargar el fichero en el que se encuentran las preguntas
+	 * @param path - Ruta para acceder al fichero
+	 */
+	public static void importJSON(String path){
 		try{
-			archivo = new FileInputStream("P.JSON");
+			archivo = new FileInputStream(path);
 		}catch(FileNotFoundException e){
 			System.out.println("El archivo de preguntas no ha sido encontrado");
 		}
 	}
 	
-	public static void insert(){
+	/**
+	 * Método que inserta las preguntas
+	 * @throws MongoTimeoutException - No recibe respuesta del servidor
+	 */
+	public static void insert(String coll) throws MongoTimeoutException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(archivo));
+		collection = db.getCollection(coll);
 		String line;
 		int cont = 0;
 		try{
@@ -46,7 +58,8 @@ public class Insert {
 			try{
 			cont++;
 			DBObject obj = (DBObject) JSON.parse(line);
-			collection.insert(obj);
+			if(obj != null)
+				collection.insert(obj);
 			}catch(DuplicateKeyException e){
 				System.out.println("La pregunta de la línea "+cont+" ya se encuentra en la base de datos");
 			}catch(JSONParseException e1){
@@ -58,19 +71,25 @@ public class Insert {
 		}
 	}
 
-	/*
-	 * Limpia la colleción
+	/**
+	 * Método que limpia la colección que se le pase por parámetro
+	 * @param coll - Colección que se desea limpiar
+	 * @throws MongoTimeoutException - No recibe respuesta del servidor
 	 */
-	public static void clearCollection(){
-		collection.drop();
+	public static void clearCollection(String coll)throws MongoTimeoutException{
+		db.getCollection(coll).drop();
 	}
 	
-	
-	public static void getElements(){
-		DBCursor cursor = collection.find();
+	/**
+	 * Método que devuelve los elementos de una colección
+	 * @param coll - Colección de la que se desean los elementos
+	 * @throws MongoTimeoutException - No recibe respuesta del servidor
+	 */
+	public static void getElements(String coll)throws MongoTimeoutException{
+		DBCursor cursor = db.getCollection(coll).find();
 		int i=1;
         while (cursor.hasNext()) { 
-	        System.out.println("Inserted Element: "+i); 
+	        System.out.println("Pregunta: "+i); 
 	        System.out.println(cursor.next()); 
 	        i++;
         }

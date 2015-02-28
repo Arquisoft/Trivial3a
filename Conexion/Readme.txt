@@ -33,3 +33,6 @@ Librería de mongodb necesaría para realizar las conexiones.
 		Método que limpia la colección que se pasa por parámetro
 	- public static void getElements(String coll)
 		Método que devuelve los elementos de la colección que se pasa por parámetro
+
+- P.JSON
+	Fichero de prueba con preguntas repetidas, líneas vacías,formatos incorrectos o preguntas repetidas.

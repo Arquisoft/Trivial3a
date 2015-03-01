@@ -49,7 +49,7 @@ public class ParserGIFT extends Parser{
 											// veces)
 				respuestas.add(linea.split("~")[1]);
 				if (respuestas.size() == 3 && respuestaCorrecta != "") {
-					preguntas.put(ID, new Pregunta(ID, pregunta, respuestas,
+					preguntas.put(ID, new Pregunta(ID, "hola", respuestas,
 							respuestaCorrecta));
 					ID = "";
 					pregunta = "";

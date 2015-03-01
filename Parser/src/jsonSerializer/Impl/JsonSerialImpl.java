@@ -15,11 +15,14 @@ public class JsonSerialImpl implements JsonSerial {
 	@Override
 	public void createFile(HashMap<String, Pregunta> preguntas, String localizacion) {
 		
-		String json = gson.toJson(preguntas);
+
 		try {
-			
 			FileWriter writer = new FileWriter(localizacion);
-			writer.write(json);
+			for (Pregunta p : preguntas.values()) {
+				String json = gson.toJson(p);
+				writer.write(json+"\n");
+			}
+
 			writer.close();
 
 		} catch (IOException e) {

@@ -28,6 +28,7 @@ public class Main {
 			HashMap<String,Pregunta> preguntasFinal = p.getPregunta();
 			for(Entry<String, Pregunta> entry : preguntasFinal.entrySet())
 				System.out.println(entry.toString());
+			
 			j.createFile(preguntasFinal,"Salida.JSON");
 		} catch (FileNotFoundException e){
 			System.out.println("No existe el archivo.");

@@ -23,7 +23,7 @@ public class Insert {
 	public static void main(String[] args) {
 		try{
 			db = Connection.DatabaseConnection();
-			importJSON("P.JSON");
+			importJSON("Salida.JSON");
 			insert(coll);
 			getElements(coll);
 		}catch(MongoTimeoutException e){

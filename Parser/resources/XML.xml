@@ -1,0 +1,16 @@
+<cuestionario>
+    <pregunta id="R1">
+        <textoPregunta>Yo la conocí...</textoPregunta>
+        <respuestaIncorrecta>Bailando</respuestaIncorrecta>
+        <respuestaIncorrecta>No me acuerdo, estaba ebrio</respuestaIncorrecta>
+        <respuestaCorrecta>En un taxi</respuestaCorrecta>
+        <respuestaIncorrecta>En el Babia</respuestaIncorrecta>
+    </pregunta>
+    <pregunta id="R2">
+        <textoPregunta>Me lo paró...</textoPregunta>
+        <respuestaCorrecta>El taxi!</respuestaCorrecta>
+        <respuestaIncorrecta>Hay calor en la ciudad hay calor en la bahía</respuestaIncorrecta>
+        <respuestaIncorrecta>Yo conduzco ella me guía</respuestaIncorrecta>
+        <respuestaIncorrecta>Ella se arrebata bata bata bata</respuestaIncorrecta>
+    </pregunta>
+</cuestionario>

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Pregunta {
 
-	private String ID;
+	private String _id;
 	private String pregunta;
 	private ArrayList<String> respuestasIncorrectas;
 	private String respuestaCorrecta;
@@ -13,14 +13,14 @@ public class Pregunta {
 	public Pregunta(String iD, String pregunta, ArrayList<String> respuestas,
 			String respuestaCorrecta) {
 		super();
-		ID = iD;
+		_id = iD;
 		this.pregunta = pregunta;
 		this.respuestasIncorrectas = respuestas;
 		this.respuestaCorrecta = respuestaCorrecta;
 	}
 
 	public String getID() {
-		return ID;
+		return _id;
 	}
 	
 	public String getPregunta() {
@@ -46,7 +46,7 @@ public class Pregunta {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
+		result = prime * result + ((_id == null) ? 0 : _id.hashCode());
 		return result;
 	}
 
@@ -59,10 +59,10 @@ public class Pregunta {
 		if (getClass() != obj.getClass())
 			return false;
 		Pregunta other = (Pregunta) obj;
-		if (ID == null) {
-			if (other.ID != null)
+		if (_id == null) {
+			if (other._id != null)
 				return false;
-		} else if (!ID.equals(other.ID))
+		} else if (!_id.equals(other._id))
 			return false;
 		return true;
 	}

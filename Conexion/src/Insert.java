@@ -54,18 +54,18 @@ public class Insert {
 		String line;
 		int cont = 0;
 		try{
-		while((line = br.readLine()) != null){
-			try{
-			cont++;
-			DBObject obj = (DBObject) JSON.parse(line);
-			if(obj != null)
-				collection.insert(obj);
-			}catch(DuplicateKeyException e){
-				System.out.println("La pregunta de la línea "+cont+" ya se encuentra en la base de datos");
-			}catch(JSONParseException e1){
-				System.out.println("La línea "+cont+" se encuentra en un formato no válido");
+			while((line = br.readLine()) != null){
+				try{
+					cont++;
+					DBObject obj = (DBObject) JSON.parse(line);
+					if(obj != null)
+						collection.insert(obj);
+				}catch(DuplicateKeyException e){
+					System.out.println("La pregunta de la línea "+cont+" ya se encuentra en la base de datos");
+				}catch(JSONParseException e1){
+					System.out.println("La línea "+cont+" se encuentra en un formato no válido");
+				}
 			}
-		}
 		}catch(IOException e){
 			System.out.println("Ha ocurrido un error al leer la línea "+cont);
 		}

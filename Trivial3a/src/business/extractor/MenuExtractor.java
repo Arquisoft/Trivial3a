@@ -45,7 +45,7 @@ public class MenuExtractor {
 	public void handleTime(){
 		try{
 			elapsed_time = Integer.parseInt(s.nextLine())*1000;
-			if(elapsed_time <= 10)
+			if(elapsed_time <= 10*1000)
 				throw new NumberFormatException();
 		}catch(NumberFormatException e){
 			System.out.println("El tiempo elegido no es correcto o es menor a 10 segundos, vuelva a introducir los datos");

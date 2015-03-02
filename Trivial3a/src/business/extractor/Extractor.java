@@ -54,17 +54,18 @@ public class Extractor {
 
 	}
 	
-	
 		
 	public Parser getPar() {
 		return par;
 	}
 	
-	public void setParser(){
+	public void setParser() throws IOException{
 		if(file.toUpperCase().endsWith(".GIFT"))
 			par = new ParserGIFT(file);
 		else if(file.toUpperCase().endsWith(".XML"))
 			par = new ParserQTI(file);
+		else
+			throw new IOException();
 	}
 	
 	public void setPar(Parser par) {

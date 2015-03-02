@@ -40,12 +40,12 @@ public class ParserGIFT extends Parser{
 				linea = br.readLine();
 			}
 
-			else if (linea.contains("{")) {// Texto de la pregunta
+			if (linea.contains("{")) {// Texto de la pregunta
 				pregunta = linea.replace('{', ' ');
 				linea = br.readLine();
 			}
 
-			else if (linea.contains("~")) { // respuesta Incorrecta (entrara 3
+			if (linea.contains("~")) { // respuesta Incorrecta (entrara 3
 											// veces)
 				respuestas.add(linea.split("~")[1]);
 				if (respuestas.size() == 3 && respuestaCorrecta != "") {

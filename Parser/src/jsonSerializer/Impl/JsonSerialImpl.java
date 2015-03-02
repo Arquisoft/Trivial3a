@@ -4,14 +4,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-import jsonSerializer.JsonSerial;
+import jsonSerializer.Serializador;
 import preguntas.Pregunta;
 
 import com.google.gson.Gson;
 
-public class JsonSerialImpl implements JsonSerial {
+public class JsonSerialImpl implements Serializador {
 
-	Gson gson = new Gson();
+	Gson gson = new Gson(); //Se inicializa el serializador
+	
 	@Override
 	public void createFile(HashMap<String, Pregunta> preguntas, String localizacion) {
 		
@@ -24,10 +25,11 @@ public class JsonSerialImpl implements JsonSerial {
 			}
 
 			writer.close();
-
+			
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println("No se ha podido crear el archivo.");
 		}
 	}
+	
 
 }

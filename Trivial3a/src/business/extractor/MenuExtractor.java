@@ -7,7 +7,10 @@ public class MenuExtractor {
 	private boolean automatizado;
 	private int elapsed_time = 1;
 	
-	
+	/**
+	 * Menú de inicio de la aplicación
+	 * 
+	 */
 	public MenuExtractor(){
 		s = new Scanner(System.in);
 		System.out.println("Bienvenido al asistente");
@@ -18,6 +21,11 @@ public class MenuExtractor {
 		handleOptions(s.nextLine());
 	}
 	
+	/**
+	 * Método encargado de relacionar la opción elegida con su acción
+	 * 
+	 * @param opc - Opción elegida
+	 */
 	public void handleOptions(String opc){
 		switch (opc){
 			case "0" :  System.exit(0);
@@ -41,7 +49,10 @@ public class MenuExtractor {
 		
 		}
 	}
-	
+	/**
+	 * Método encargado guardar el tiempo introducido por el usuario
+	 * 
+	 */
 	public void handleTime(){
 		try{
 			elapsed_time = Integer.parseInt(s.nextLine())*1000;
@@ -52,11 +63,18 @@ public class MenuExtractor {
 			handleTime();
 		}
 	}
+	/**
+	 * Método que permite al administrador continuar sus operaciones subiendo a la base de datos sus cambios.
+	 * 
+	 * @return true - Sí / false - No
+	 */
 	public boolean handleConnection(){
 		System.out.println("El archivo ha sido traducido con éxito. ¿Desea subir este archivo a la base de datos?");
 		System.out.println("s/n");
-		String op;
+		String op = null;
 		do{
+			if(op != null)
+				System.out.println("Opción incorrecta, vuelva a introducir los datos");
 			op = s.next();
 		}while(!op.equals("s") && !op.equals("n"));
 		if(op.equals("s"))
@@ -64,10 +82,20 @@ public class MenuExtractor {
 		return false;
 		
 	}
-	
+	/**
+	 * Método que devuelve el atributo automatizado
+	 * 
+	 * @return automatizado
+	 */
 	public boolean getAutomatizado(){
 		return automatizado;
 	}
+	
+	/**
+	 *  Método que devuelve el tiempo entre repeticiones aportado por el usuario
+	 *  
+	 * @return elapsed_time
+	 */
 	
 	public int getElapsed_time(){
 		return elapsed_time;

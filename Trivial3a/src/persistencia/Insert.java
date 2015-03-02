@@ -21,7 +21,13 @@ public class Insert {
 	private static DBCollection collection;
 	private static FileInputStream archivo;
 	private final static String coll = "Questions";
-		
+	
+	/**
+	 * Constructor de la clase insert donde se encuentra el esqueleto
+	 * en el que se conecta a la base de datos, importa el JSON obtenido
+	 * en pasos anteriores e inserta en la colección elegida
+	 * @param ruta
+	 */
 	public Insert(String ruta){
 		try{
 			db = Connection.DatabaseConnection();

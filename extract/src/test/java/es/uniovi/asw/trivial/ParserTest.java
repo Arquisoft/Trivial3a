@@ -1,4 +1,4 @@
-package junit;
+package es.uniovi.asw.trivial;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -28,12 +28,12 @@ public class ParserTest {
 		File file = null;
 		
 		ArrayList<String> rFalsas1 = new ArrayList<String>();
-		rFalsas1.add("El sostén"); rFalsas1.add("De en medio"); rFalsas1.add("El vestido azul y negro, o es blanco y dorado?");
+		rFalsas1.add("El sostÃ©n"); rFalsas1.add("De en medio"); rFalsas1.add("El vestido azul y negro, o es blanco y dorado?");
 		Pregunta p1 = new Pregunta("Q1", "Ay que se quite...", rFalsas1, "El top");
 		
 		ArrayList<String> rFalsas2 = new ArrayList<String>();
 		rFalsas2.add("2"); rFalsas2.add("3.14159"); rFalsas2.add("Soy de magisterio, no se sumar.");
-		Pregunta p2 = new Pregunta("Q2", "¿Cuando fue 1+1", rFalsas2, "El fantástico Ralph!");
+		Pregunta p2 = new Pregunta("Q2", "Â¿Cuando fue 1+1", rFalsas2, "El fantÃ¡stico Ralph!");
 		try {
 			file = File.createTempFile("giftTest", ".gift");
 		} catch (IOException e) {
@@ -78,12 +78,12 @@ public class ParserTest {
 		File file = null;
 		
 		ArrayList<String> rFalsas1 = new ArrayList<String>();
-		rFalsas1.add("El sostén"); rFalsas1.add("De en medio"); rFalsas1.add("El vestido azul y negro, o es blanco y dorado?");
+		rFalsas1.add("El sostÃ©n"); rFalsas1.add("De en medio"); rFalsas1.add("El vestido azul y negro, o es blanco y dorado?");
 		Pregunta p1 = new Pregunta("Q1", "Ay que se quite...", rFalsas1, "El top");
 		
 		ArrayList<String> rFalsas2 = new ArrayList<String>();
 		rFalsas2.add("2"); rFalsas2.add("3.14159"); rFalsas2.add("Soy de magisterio, no se sumar.");
-		Pregunta p2 = new Pregunta("Q2", "¿Cuando fue 1+1", rFalsas2, "El fantástico Ralph!");
+		Pregunta p2 = new Pregunta("Q2", "Â¿Cuando fue 1+1", rFalsas2, "El fantÃ¡stico Ralph!");
 		try {
 			file = File.createTempFile("xmlTest", ".xml");
 		} catch (IOException e) {
@@ -132,12 +132,12 @@ public class ParserTest {
 		File file = null;
 		
 		ArrayList<String> rFalsas1 = new ArrayList<String>();
-		rFalsas1.add("El sostén"); rFalsas1.add("De en medio"); rFalsas1.add("El vestido azul y negro, o es blanco y dorado?");
+		rFalsas1.add("El sostÃ©n"); rFalsas1.add("De en medio"); rFalsas1.add("El vestido azul y negro, o es blanco y dorado?");
 		Pregunta p1 = new Pregunta("Q1", "Ay que se quite...", rFalsas1, "El top");
 		
 		ArrayList<String> rFalsas2 = new ArrayList<String>();
 		rFalsas2.add("2"); rFalsas2.add("3.14159"); rFalsas2.add("Soy de magisterio, no se sumar.");
-		Pregunta p2 = new Pregunta("Q2", "¿Cuando fue 1+1", rFalsas2, "El fantástico Ralph!");
+		Pregunta p2 = new Pregunta("Q2", "Â¿Cuando fue 1+1", rFalsas2, "El fantÃ¡stico Ralph!");
 		try {
 			file = File.createTempFile("qtiTest", ".xml");
 		} catch (IOException e) {

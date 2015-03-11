@@ -9,7 +9,26 @@
 </head>
 <body>
 	<div id="particles-js"></div>
+	<script src="../particles.js"></script>
+	<script src="js/app.js"></script>
 	
+	<!-- stats.js -->
+	<script src="js/lib/stats.js"></script>
+	<script>
+	  var stats = new Stats();
+	  stats.setMode(0); // 0: fps, 1: ms
+	  stats.domElement.style.position = 'absolute';
+	  stats.domElement.style.left = '0px';
+	  stats.domElement.style.top = '0px';
+	  document.body.appendChild( stats.domElement );
+	  var update = function (){
+	    stats.begin();
+	    // monitored code goes here
+	    stats.end();
+	    requestAnimationFrame(update);
+	  };
+	  requestAnimationFrame(update);
+	</script>
 	<header>
 	
 	
@@ -22,7 +41,7 @@
 						<li><a href="juego.html">Juego</a></li>
 						<li><a href="sistema.html">Manual sistema</a></li>
 						<li><a href="usuario.html">Manual usuario</a></li>
-						<li><a href="doc.html">Documentación</a></li>
+						<li><a href="doc.html">DocumentaciÃ³n</a></li>
 						<li><a href="equipo.html">Equipo</a></li>
 					</ul>
 				</nav>
@@ -87,9 +106,5 @@
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</article>
 	</div>
- 
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="javascripts/particles.min.js"></script>
-	<script src="javascripts/particulas.js"></script>
 </body>
 </html>

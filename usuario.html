@@ -22,7 +22,7 @@
 						<li><a href="juego.html">Juego</a></li>
 						<li><a href="sistema.html">Manual sistema</a></li>
 						<li><a href="usuario.html">Manual usuario</a></li>
-						<li><a href="doc.html">Documentaci�n</a></li>
+						<li><a href="doc.html">Documentación</a></li>
 						<li><a href="equipo.html">Equipo</a></li>
 					</ul>
 				</nav>
@@ -30,66 +30,40 @@
 		</div>
 	</header>
  
-		<div class="texto">
-			<h2>User: F4lc0nMast3rs</h2>
-			<br>
-			<p>Pass: www.falconmasters.com</p>
-		</div>
+	<h2>Manual de usuario</h2>
+
 		
 	<div class="principal contenedor">
 		<article>
-			<h2 class="titulo">Titular del Articulo</h2>
-			<p class="fecha">26 de Enero de 2015</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Descripción del funcionamiento de la interfaz que será utilizada por un usuario administrador, 
+			a fin de introducir en la base de datos del sistema una lista de preguntas con respuestas 
+			verdaderas y falsas. Esto, nos servirá más adelante, para implementar diferentes tipos de 
+			juegos que puedan hacer uso de estas preguntas.
+			</p>
 		</article>
  
 		<article>
-			<h2 class="titulo">Titular del Articulo</h2>
-			<p class="fecha">26 de Enero de 2015</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<h2 class="titulo">Administrador</h2>
+			<p>El administrador, al iniciar la aplicación, solo tendrá acceso a una pantalla, en ella, 
+			tendrá una lista de opciones a realizar y se le pedirá que introduzca el número de la opción
+			que desee:<br>
+				•	Introduciendo 0: salir de la aplicación.<br>
+				•	Introduciendo 1: nos pedirá que introduzcamos la ruta del fichero con las preguntas que queramos añadir a
+				la base de datos. Éste fichero debe tener uno de los siguientes formatos:<br>
+				a.	GITF<br>
+				b.	XML simple (QTI)<br>
+				Si la ruta del fichero es correcta, y el fichero no contiene ningún error, las preguntas se almacenarán en 
+				la base de datos.<br>
+				•	Introduciendo 2: esta opción nos permite leer un fichero de manera automática. Nos pedirá que introduzcamos 
+				cada cuanto tiempo queremos que se actualicen los datos del fichero en la base de datos. Por último, nos pedirá que 
+				introduzcamos la ruta del fichero como en el caso anterior.<br>
+				•	Introduciendo otra cosa: nos mostrará un mensaje indicando que la opción elegida no es correcta.
+			</p>
 		</article>
 	</div>
  
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="particles.min.js"></script>
+	<script src="javascripts/particles.min.js"></script>
 	<script src="javascripts/particulas.js"></script>
 </body>
 </html>

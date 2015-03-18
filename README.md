@@ -1,4 +1,6 @@
 # Trivial3a
+[![Build Status](https://travis-ci.org/Arquisoft/Trivial3a.svg?branch=master)](https://travis-ci.org/Arquisoft/Trivial3a)
+
 ## Equipo formado por: 
 - Álvaro Panizo Romano (UO227748)
 - Carmen Peñalver San Cristóbal (UO229705)

@@ -73,7 +73,7 @@ public class Insert {
 				}
 			}
 		}catch(IOException e){
-			System.out.println("Ha ocurrido un error al leer la l�nea "+cont);
+			System.out.println("Ha ocurrido un error al leer la linea "+cont);
 		}
 	}
 

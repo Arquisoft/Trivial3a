@@ -8,49 +8,49 @@ public class MenuExtractor {
 	private int elapsed_time = 1;
 	
 	/**
-	 * Menú de inicio de la aplicación
+	 * Menu de inicio de la aplicacion
 	 * 
 	 */
 	public MenuExtractor(){
 		s = new Scanner(System.in);
 		System.out.println("Bienvenido al asistente");
-		System.out.println("Introduzca el número con la operación que desea realizar");
-		System.out.println("0 - Salir de la aplicación");
+		System.out.println("Introduzca el numero con la operacion que desea realizar");
+		System.out.println("0 - Salir de la aplicacion");
 		System.out.println("1 - Comenzar con la lectura y subida de datos");
 		System.out.println("2 - Automatizar la lectura y subida de datos");
 		handleOptions(s.nextLine());
 	}
 	
 	/**
-	 * Método encargado de relacionar la opción elegida con su acción
+	 * Metodo encargado de relacionar la opcion elegida con su accion
 	 * 
-	 * @param opc - Opción elegida
+	 * @param opc - Opcion elegida
 	 */
 	public void handleOptions(String opc){
 		switch (opc){
 			case "0" :  System.exit(0);
 						break;
 						
-			case "1" :  System.out.println("Opción 1 elegida - Comenzar con la lectura y subida de datos ");
+			case "1" :  System.out.println("Opcion 1 elegida - Comenzar con la lectura y subida de datos ");
 						automatizado = false;
 						System.out.println("Inserte la ruta del fichero.");
 						break;
 				
-			case "2" :  System.out.println("Opción 2 elegida - Automatizar la lectura y subida de datos");
+			case "2" :  System.out.println("Opcion 2 elegida - Automatizar la lectura y subida de datos");
 						automatizado = true;
-						System.out.println("¿Cada cuánto tiempo quiere que se realicen la lectura y subida? Introducir datos en segundos");
+						System.out.println("Â¿Cada cuanto tiempo quiere que se realicen la lectura y subida? Introducir datos en segundos");
 						handleTime();
 						System.out.println("Inserte la ruta del fichero.");
 						break;
 			
-			default :   System.out.println("Opción incorrecta, vuelva a introducir los datos");
+			default :   System.out.println("Opcion incorrecta, vuelva a introducir los datos");
 						handleOptions(s.nextLine());
 						break;
 		
 		}
 	}
 	/**
-	 * Método encargado guardar el tiempo introducido por el usuario
+	 * Metodo encargado guardar el tiempo introducido por el usuario
 	 * 
 	 */
 	public void handleTime(){
@@ -64,17 +64,17 @@ public class MenuExtractor {
 		}
 	}
 	/**
-	 * Método que permite al administrador continuar sus operaciones subiendo a la base de datos sus cambios.
+	 * Metodo que permite al administrador continuar sus operaciones subiendo a la base de datos sus cambios.
 	 * 
-	 * @return true - Sí / false - No
+	 * @return true - S / false - No
 	 */
 	public boolean handleConnection(){
-		System.out.println("El archivo ha sido traducido con éxito. ¿Desea subir este archivo a la base de datos?");
+		System.out.println("El archivo ha sido traducido con exito. Â¿Desea subir este archivo a la base de datos?");
 		System.out.println("s/n");
 		String op = null;
 		do{
 			if(op != null)
-				System.out.println("Opción incorrecta, vuelva a introducir los datos");
+				System.out.println("Opcion incorrecta, vuelva a introducir los datos");
 			op = s.next();
 		}while(!op.equals("s") && !op.equals("n"));
 		if(op.equals("s"))
@@ -83,7 +83,7 @@ public class MenuExtractor {
 		
 	}
 	/**
-	 * Método que devuelve el atributo automatizado
+	 * Metodo que devuelve el atributo automatizado
 	 * 
 	 * @return automatizado
 	 */
@@ -92,7 +92,7 @@ public class MenuExtractor {
 	}
 	
 	/**
-	 *  Método que devuelve el tiempo entre repeticiones aportado por el usuario
+	 *  Metodo que devuelve el tiempo entre repeticiones aportado por el usuario
 	 *  
 	 * @return elapsed_time
 	 */

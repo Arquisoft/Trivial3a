@@ -25,7 +25,7 @@ public class Insert {
 	/**
 	 * Constructor de la clase insert donde se encuentra el esqueleto
 	 * en el que se conecta a la base de datos, importa el JSON obtenido
-	 * en pasos anteriores e inserta en la colección elegida
+	 * en pasos anteriores e inserta en la colecciï¿½n elegida
 	 * @param ruta
 	 */
 	public Insert(String ruta){
@@ -34,11 +34,11 @@ public class Insert {
 			importJSON(ruta);
 			insert(coll);
 		}catch(MongoTimeoutException e){
-			System.out.println("El servidor no responde, compruebe su conexión");
+			System.out.println("El servidor no responde, compruebe su conexiï¿½n");
 		}
 	}
 	/**
-	 * Método que permite cargar el fichero en el que se encuentran las preguntas
+	 * Metodo que permite cargar el fichero en el que se encuentran las preguntas
 	 * @param path - Ruta para acceder al fichero
 	 */
 	public static void importJSON(String path){
@@ -50,7 +50,7 @@ public class Insert {
 	}
 	
 	/**
-	 * Método que inserta las preguntas
+	 * Metodo que inserta las preguntas
 	 * @throws MongoTimeoutException - No recibe respuesta del servidor
 	 */
 	public static void insert(String coll) throws MongoTimeoutException{
@@ -69,17 +69,17 @@ public class Insert {
 				}catch(DuplicateKeyException e){
 					System.out.println("La pregunta con identificador "+obj.get("_id")+" ya se encuentra en la base de datos");
 				}catch(JSONParseException e1){
-					System.out.println("La línea "+cont+" se encuentra en un formato no válido");
+					System.out.println("La linea "+cont+" se encuentra en un formato no valido");
 				}
 			}
 		}catch(IOException e){
-			System.out.println("Ha ocurrido un error al leer la línea "+cont);
+			System.out.println("Ha ocurrido un error al leer la lï¿½nea "+cont);
 		}
 	}
 
 	/**
-	 * Método que limpia la colección que se le pase por parámetro
-	 * @param coll - Colección que se desea limpiar
+	 * Metodo que limpia la coleccion que se le pase por parametro
+	 * @param coll - Coleccion que se desea limpiar
 	 * @throws MongoTimeoutException - No recibe respuesta del servidor
 	 */
 	public static void clearCollection(String coll)throws MongoTimeoutException{
@@ -87,8 +87,8 @@ public class Insert {
 	}
 	
 	/**
-	 * Método que devuelve los elementos de una colección
-	 * @param coll - Colección de la que se desean los elementos
+	 * Metodo que devuelve los elementos de una coleccion
+	 * @param coll - Colecciï¿½n de la que se desean los elementos
 	 * @throws MongoTimeoutException - No recibe respuesta del servidor
 	 */
 	public static void getElements(String coll)throws MongoTimeoutException{

@@ -40,8 +40,8 @@ public class ParserTest {
 			e.printStackTrace();
 			fail("El  fichero de pruebas no pudo ser creado");
 		}
-		try(
-			PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file.getAbsolutePath(), true)))) {
+		try {			
+			PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file.getAbsolutePath(), true)));
 		    out.println("::" + p1.getID() + "::");
 		    out.println(p1.getPregunta() + " {");
 		    out.println("~" + p1.getRespuestasIncorrectas().get(0));
@@ -58,7 +58,7 @@ public class ParserTest {
 		    out.println("}");
 		    out.close();
 		    System.out.println(file.toString());
-		}catch (IOException e) {
+		} catch (Exception e) {
 		    e.printStackTrace();
 		    fail("No se pudo escribir en el fichero temporal.");
 		}

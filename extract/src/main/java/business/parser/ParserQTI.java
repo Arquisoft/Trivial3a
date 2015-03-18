@@ -23,7 +23,7 @@ public class ParserQTI extends Parser{
 
 	public HashMap<String, Pregunta> getPregunta() throws IOException {
 
-		HashMap<String, Pregunta> preguntas = new HashMap<>(); // preguntas
+		HashMap<String, Pregunta> preguntas = new HashMap<String,Pregunta>(); // preguntas
 
 		// preparacion de los parametros de lectura
 		File archivo = new File(nombreArchivo);
@@ -32,7 +32,7 @@ public class ParserQTI extends Parser{
 		try {		
 			String ID = "";
 			String pregunta = "";
-			ArrayList<String> respuestas = new ArrayList<>();
+			ArrayList<String> respuestas = new ArrayList<String>();
 			String respuestaCorrecta = "";
 			
 			Document xml = (Document) constructor.build(archivo);
@@ -58,7 +58,7 @@ public class ParserQTI extends Parser{
 				
 				ID = "";
 				pregunta = "";
-				respuestas = new ArrayList<>();
+				respuestas = new ArrayList<String>();
 				respuestaCorrecta = "";
 				nodoPregunta = null;
 			}

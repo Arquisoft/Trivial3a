@@ -11,7 +11,7 @@ public class Connection {
 	private final static String DB = "TrivialDB";
 	
 	/**
-	 * Método que conecta la aplicación con el servidor
+	 * MÃ©todo que conecta la aplicaciÃ³n con el servidor
 	 * @return base de datos con la que se desea trabajar
 	 */
 	public static DB DatabaseConnection(){
@@ -19,8 +19,8 @@ public class Connection {
 		try {
 			mongo = new MongoClient("localhost");
 			return mongo.getDB(DB);
-		} catch (UnknownHostException e) {
-			System.out.println("No se ha podido realizar la conexión con la base de datos");
+		} catch (Exception e) {
+			System.out.println("No se ha podido realizar la conexiÃ³n con la base de datos");
 			return null;
 		}
 	} 

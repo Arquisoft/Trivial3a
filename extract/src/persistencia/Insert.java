@@ -25,7 +25,7 @@ public class Insert {
 	/**
 	 * Constructor de la clase insert donde se encuentra el esqueleto
 	 * en el que se conecta a la base de datos, importa el JSON obtenido
-	 * en pasos anteriores e inserta en la colecci�n elegida
+	 * en pasos anteriores e inserta en la coleccion elegida
 	 * @param ruta
 	 */
 	public Insert(String ruta){
@@ -34,7 +34,7 @@ public class Insert {
 			importJSON(ruta);
 			insert(coll);
 		}catch(MongoTimeoutException e){
-			System.out.println("El servidor no responde, compruebe su conexi�n");
+			System.out.println("El servidor no responde, compruebe su conexion");
 		}
 	}
 	/**
@@ -88,7 +88,7 @@ public class Insert {
 	
 	/**
 	 * Metodo que devuelve los elementos de una coleccion
-	 * @param coll - Colecci�n de la que se desean los elementos
+	 * @param coll - Coleccion de la que se desean los elementos
 	 * @throws MongoTimeoutException - No recibe respuesta del servidor
 	 */
 	public static void getElements(String coll)throws MongoTimeoutException{

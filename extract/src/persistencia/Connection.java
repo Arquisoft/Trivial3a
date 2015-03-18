@@ -20,7 +20,7 @@ public class Connection {
 			mongo = new MongoClient("localhost");
 			return mongo.getDB(DB);
 		} catch (UnknownHostException e) {
-			System.out.println("No se ha podido realizar la conexi�n con la base de datos");
+			System.out.println("No se ha podido realizar la conexion con la base de datos");
 			return null;
 		}
 	} 

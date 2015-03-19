@@ -135,3 +135,10 @@ article ul li{
 article ul{
 	padding-left:25px;
 }
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 12px;
+}

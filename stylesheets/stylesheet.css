@@ -8,15 +8,14 @@
  
 body {
 	font-family:oswald, helvetica, arial, sans-serif;
-	background: url(bg.jpg);
+	background: url(../images/trivial1.jpg);
 	background-size:cover;
 	background-attachment: fixed;
 	background-position:0 0px;
 }
  
 .contenedor {
-	width: 90%;
-	max-width:1000px;
+	width: 100%;
 	margin:auto;
 }
  
@@ -24,21 +23,25 @@ body {
 	width: 100%;
 	height:100%;
 	position: fixed;
-	background:rgba(0,0,0,.8);
+	background:rgba(1,2,25,.8);
 }
 
 header {
 	position: relative;
-	height: auto;
+	height:80px;
 }
  
 header .menu {
-	background:rgba(255,255,255,.7);
+	background:rgba(0,0,0,1);
 	overflow: hidden;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+	height: 70px;
 }
  
 header .logo {
-	color:rgba(0,0,0,.8);
+	color:rgba(255,255,255,.8);
 	float: left;
 	font-size:30px;
 	line-height:80px;
@@ -57,21 +60,21 @@ header nav ul li {
 }
  
 header nav ul li a {
-	color:rgba(0,0,0,.8);
+	color:rgba(255,255,255,.8);
 	text-decoration: none;
 	display: block;
 	font-size:18px;
-	padding:0 20px;
+	padding:0 25px;
 	line-height:80px;
 }
  
 header nav ul li:hover {
-	background:rgba(0,0,0,.8);
+	background:rgba(255,255,255,.8);
 	border-bottom: inset 5px solid #fff;
 }
  
 header nav ul li a:hover {
-	color:#fff;
+	color:#000000;
 }
  
  h1{
@@ -79,6 +82,30 @@ header nav ul li a:hover {
  	font-size:50px;
  	color:white;
  	padding:20px;
+ }
+
+ h2{
+ 	text-align:center;
+ 	font-size:30px;
+ 	color:white;
+ }
+
+ .container section ul li  {
+ 	color: #979797;
+ }
+
+.container li {
+ 	color: white;
+ }
+
+ a {
+ 	text-decoration: none;
+ 	color: orange;
+ }
+
+ a:hover{
+ 	text-decoration: none;
+ 	color: white;
  }
 /* Texto Inicial */
 .texto {
@@ -89,6 +116,15 @@ header nav ul li a:hover {
 	font-weight: 400;
 }
  
+ .circular h3 {
+ 	color: #979797;
+ 	text-align: center;
+ }
+
+.circular  h3 {
+ 	color: white;
+ 	text-align: center;
+ }
 .texto h2, .texto p {
 	background: rgba(0,0,0,.8);
 	display:inline-block;
@@ -114,20 +150,24 @@ header nav ul li a:hover {
  
 .principal article {
 	padding:20px;
-	background:#fff;
+	background: rgba(0,0,0,1);
 	margin-bottom: 20px;
 }
  
 .principal article p {
 	margin-bottom: 20px;
+	color: white;
 	line-height:24px;
 	font-family:helvetica, arial, sans-serif;
 }
  
-.principal article .fecha {
-	color:#939393;
+.principal article ul, li {
+	color:white;
 }
 
+article {
+	opacity: 80%;
+}
 article ul li{
 	padding-left:5px;
 }
@@ -136,9 +176,10 @@ article ul{
 	padding-left:25px;
 }
 
-img.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 12px;
-}
+.circular {
+	width: 170px;
+	height: 170px;
+	border-radius: 85px;
+	-webkit-border-radius: 85px;
+	-moz-border-radius: 85px;
+	}

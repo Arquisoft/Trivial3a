@@ -28,11 +28,11 @@ body {
 
 header {
 	position: relative;
-	height:80px;
+	height:55px;
 }
  
 header .menu {
-	background:rgba(0,0,0,1);
+	background:rgba(59,61,87,.98);
 	overflow: hidden;
 	position: fixed;
 	width: 100%;
@@ -41,53 +41,34 @@ header .menu {
 }
  
 header .logo {
-	color:rgba(255,255,255,.8);
+	color:rgba(256,256,256,.9);
 	float: left;
 	font-size:30px;
-	line-height:80px;
-}
- 
-header nav {
-	float: right;
-}
- 
-header nav ul {
-	list-style: none;
-}
- 
-header nav ul li {
-	float: left;
-}
- 
-header nav ul li a {
-	color:rgba(255,255,255,.8);
-	text-decoration: none;
-	display: block;
-	font-size:18px;
-	padding:0 25px;
-	line-height:80px;
-}
- 
-header nav ul li:hover {
-	background:rgba(255,255,255,.8);
-	border-bottom: inset 5px solid #fff;
-}
- 
-header nav ul li a:hover {
-	color:#000000;
+	line-height:70px;
 }
  
  h1{
  	text-align:center;
  	font-size:50px;
- 	color:white;
+ 	color:black;
  	padding:20px;
  }
 
- h2{
+.tablero {
+	background: url(../images/tab.jpg);
+	z-index: 2px;
+}
+
+.tablero article {
+	width: 80%; 
+	position: relative;
+	float: center;
+}
+
+ h2 {
  	text-align:center;
  	font-size:30px;
- 	color:white;
+ 	color:black;
  }
 
  .container section ul li  {
@@ -109,11 +90,16 @@ header nav ul li a:hover {
  }
 /* Texto Inicial */
 .texto {
-	padding:200px 0;
+	padding:180px 0;
 	text-align: center;
 	color:#fff;
 	position: relative;
 	font-weight: 400;
+}
+
+.imagen  {
+	text-align: center;
+	position: relative;
 }
  
  .circular h3 {
@@ -144,36 +130,38 @@ header nav ul li a:hover {
  
 /* Principal */
 .principal {
+	border-top: 20px solid #fff;
 	position: relative;
 	color:#000;
 }
  
 .principal article {
 	padding:20px;
-	background: rgba(0,0,0,1);
+	background: rgba(256,256,256,1);
 	margin-bottom: 20px;
 }
  
 .principal article p {
 	margin-bottom: 20px;
-	color: white;
+	color: black;
 	line-height:24px;
+	padding-left: 70px;
+	padding-right: 70px;
 	font-family:helvetica, arial, sans-serif;
 }
  
-.principal article ul, li {
-	color:white;
+.dado {
+ 	padding: 20px;
 }
 
-article {
-	opacity: 80%;
-}
-article ul li{
-	padding-left:5px;
+.logo {
+	padding-left: 25px;
 }
 
-article ul{
-	padding-left:25px;
+.contenido h1,h2,h3{
+	padding-left: 70px;
+	padding-right: 70px;
+	color: black;
 }
 
 .circular {
@@ -183,3 +171,33 @@ article ul{
 	-webkit-border-radius: 85px;
 	-moz-border-radius: 85px;
 	}
+
+header nav {
+	float: right;
+}
+ 
+header nav ul {
+	list-style: none;
+}
+ 
+header nav ul li {
+	float: left;
+}
+ 
+header nav ul li a {
+	color:rgba(256,256,256,.9);
+	text-decoration: none;
+	display: block;
+	font-size:18px;
+	padding:0 25px;
+	line-height:80px;
+}
+ 
+header nav ul li:hover {
+	background:rgba(255,255,255,.8);
+	border-bottom: inset 5px solid #000000;
+}
+ 
+header nav ul li a:hover {
+	color:#000000;
+}

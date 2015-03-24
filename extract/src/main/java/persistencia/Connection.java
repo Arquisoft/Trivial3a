@@ -3,9 +3,6 @@ package persistencia;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 
-
-import java.net.UnknownHostException;
-
 public class Connection {
 
 	private final static String DB = "TrivialDB";

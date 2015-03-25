@@ -59,7 +59,7 @@ header .logo {
  h1{
  	text-align:center;
  	font-size:50px;
- 	color:black;
+ 	color:white;
  	padding:20px;
  }
 
@@ -208,4 +208,8 @@ header nav ul li:hover {
  
 header nav ul li a:hover {
 	color:#000000;
+}
+
+#mainTitle {
+	color:black;
 }

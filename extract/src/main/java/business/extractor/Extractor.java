@@ -36,7 +36,7 @@ public class Extractor {
 				HashMap<String, Pregunta> preguntasFinal = par.getPregunta();
 				JsonSerialImpl j = new JsonSerialImpl();
 				
-				j.createFile(preguntasFinal, "Salida.JSON");
+				j.createFile(preguntasFinal, "/src/main/resources/Salida.JSON");
 				
 				if(ie.getAutomatizado() || ie.handleConnection())
 					new Insert("Salida.JSON");

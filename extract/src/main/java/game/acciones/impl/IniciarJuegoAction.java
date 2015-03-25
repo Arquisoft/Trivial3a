@@ -1,7 +1,7 @@
 package game.acciones.impl;
 
 import game.acciones.Action;
-import game.acciones.util.Color;
+import game.acciones.util.ColorEnum;
 import game.logica.Partida;
 import game.logica.Usuario;
 
@@ -14,7 +14,7 @@ import com.mongodb.DBObject;
 
 public class IniciarJuegoAction extends Action{
 	
-	private Map<Color, Usuario> partida;
+	private Map<ColorEnum, Usuario> partida;
 	
 	public IniciarJuegoAction() {
 		super();
@@ -27,9 +27,9 @@ public class IniciarJuegoAction extends Action{
 		
 		DBObject objeto= new BasicDBObject();
 		objeto.put("_id", nextId());
-		Iterator<Entry<Color, Usuario>> it = partida.entrySet().iterator();
+		Iterator<Entry<ColorEnum, Usuario>> it = partida.entrySet().iterator();
 		while (it.hasNext()) {
-			Entry<Color, Usuario> e = it.next();
+			Entry<ColorEnum, Usuario> e = it.next();
 			objeto.put(e.getKey().toString(), e.getValue().getLogin());
 		}
 		coleccion.insert(objeto);

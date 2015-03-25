@@ -1,7 +1,7 @@
 package game.acciones.impl;
 
 import game.acciones.Action;
-import game.acciones.util.Color;
+import game.acciones.util.ColorEnum;
 import game.logica.Partida;
 import game.logica.Usuario;
 
@@ -16,12 +16,12 @@ public class ValidarseAction extends Action{
 	private String message;
 	public String login;
 	public String password;
-	public Color color;
+	public ColorEnum color;
 	
 	DBObject query;
 	BasicDBObject obj;
 	
-	public ValidarseAction(String login, String password, Color color){
+	public ValidarseAction(String login, String password, ColorEnum color){
 		super();
 		this.login = login;
 		this.password = password;
@@ -56,9 +56,9 @@ public class ValidarseAction extends Action{
 	}
 	
 	private boolean usuarioDuplicado(Usuario u){
-		Iterator<Entry<Color, Usuario>> it = Partida.getPartida().entrySet().iterator();
+		Iterator<Entry<ColorEnum, Usuario>> it = Partida.getPartida().entrySet().iterator();
 		while (it.hasNext()) {
-			Entry<Color, Usuario> e = it.next();
+			Entry<ColorEnum, Usuario> e = it.next();
 			String login = e.getValue().getLogin();
 			if(login.equals(u.getLogin())){
 				

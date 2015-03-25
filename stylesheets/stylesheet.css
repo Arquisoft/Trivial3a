@@ -138,7 +138,6 @@ header .logo {
  
 /* Principal */
 .principal {
-	border-top: 20px solid #fff;
 	position: relative;
 	color:#000;
 }
@@ -147,6 +146,7 @@ header .logo {
 	padding:20px;
 	background: rgba(256,256,256,1);
 	margin-bottom: 20px;
+	border-top: 7px solid rgb(48, 49, 65);
 }
  
 .principal article p {
@@ -203,7 +203,7 @@ header nav ul li a {
  
 header nav ul li:hover {
 	background:rgba(255,255,255,.8);
-	border-bottom: inset 5px solid #000000;
+	border-bottom: inset 2px solid #000000;
 }
  
 header nav ul li a:hover {
@@ -212,4 +212,14 @@ header nav ul li a:hover {
 
 #mainTitle {
 	color:black;
+}
+
+#imgDownload {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.principal ul {
+	padding-left: 100px;
 }

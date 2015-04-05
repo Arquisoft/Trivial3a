@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import business.preguntas.Pregunta;
+import business.preguntas.impl.Pregunta;
 
 
 public class ParserGIFT extends Parser{

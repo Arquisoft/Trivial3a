@@ -2,7 +2,6 @@ package business.preguntas.impl;
 
 import java.util.ArrayList;
 
-import business.preguntas.Pregunta;
 import business.preguntas.ServicePreguntas;
 
 public class SimpleServicePregunta implements ServicePreguntas {

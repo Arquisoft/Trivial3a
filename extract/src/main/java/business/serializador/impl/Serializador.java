@@ -2,7 +2,7 @@ package business.serializador.impl;
 
 import java.util.HashMap;
 
-import business.preguntas.Pregunta;
+import business.preguntas.impl.Pregunta;
 
 
 public interface Serializador {

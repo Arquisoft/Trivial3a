@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-import business.preguntas.Pregunta;
+import business.preguntas.impl.Pregunta;
 import business.serializador.impl.Serializador;
 
 import com.google.gson.Gson;

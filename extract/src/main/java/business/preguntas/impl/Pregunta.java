@@ -1,4 +1,4 @@
-package business.preguntas;
+package business.preguntas.impl;
 
 
 import java.util.ArrayList;

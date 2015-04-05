@@ -12,7 +12,7 @@ import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.input.SAXBuilder;
 
-import business.preguntas.Pregunta;
+import business.preguntas.impl.Pregunta;
 
 
 public class ParserQTI extends Parser{

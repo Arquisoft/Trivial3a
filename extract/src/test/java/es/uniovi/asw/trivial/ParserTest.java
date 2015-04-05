@@ -19,7 +19,7 @@ import business.parser.impl.Parser;
 import business.parser.impl.ParserGIFT;
 import business.parser.impl.ParserQTI;
 import business.parser.impl.ParserXML;
-import business.preguntas.Pregunta;
+import business.preguntas.impl.Pregunta;
 
 public class ParserTest {
 

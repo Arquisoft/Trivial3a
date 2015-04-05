@@ -11,7 +11,7 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
-import business.preguntas.Pregunta;
+import business.preguntas.impl.Pregunta;
 
 
 public class ParserXML extends Parser{

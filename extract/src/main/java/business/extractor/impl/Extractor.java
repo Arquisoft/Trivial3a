@@ -9,7 +9,7 @@ import persistencia.impl.Insert;
 import business.parser.impl.Parser;
 import business.parser.impl.ParserGIFT;
 import business.parser.impl.ParserQTI;
-import business.preguntas.Pregunta;
+import business.preguntas.impl.Pregunta;
 import business.serializador.impl.Serializador;
 import business.serializador.impl.json.JsonSerialImpl;
 

@@ -1,4 +1,4 @@
-package persistencia;
+package persistencia.impl;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;

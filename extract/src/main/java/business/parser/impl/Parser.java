@@ -1,4 +1,4 @@
-package business.parser;
+package business.parser.impl;
 
 import java.io.IOException;
 import java.util.HashMap;

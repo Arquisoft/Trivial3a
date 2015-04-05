@@ -1,4 +1,4 @@
-package business.extractor;
+package business.extractor.impl;
 
 import java.util.Scanner;
 

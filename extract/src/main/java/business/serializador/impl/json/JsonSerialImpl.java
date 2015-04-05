@@ -1,12 +1,11 @@
-package business.serializador.json;
+package business.serializador.impl.json;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-
 import business.preguntas.Pregunta;
-import business.serializador.Serializador;
+import business.serializador.impl.Serializador;
 
 import com.google.gson.Gson;
 

@@ -1,6 +1,6 @@
 package game.acciones;
 
-import persistencia.Connection;
+import persistencia.impl.Connection;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;

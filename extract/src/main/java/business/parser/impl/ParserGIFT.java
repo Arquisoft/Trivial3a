@@ -1,4 +1,4 @@
-package business.parser;
+package business.parser.impl;
 
 import java.io.BufferedReader;
 import java.io.File;

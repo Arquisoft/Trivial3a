@@ -15,10 +15,10 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
-import business.parser.Parser;
-import business.parser.ParserGIFT;
-import business.parser.ParserQTI;
-import business.parser.ParserXML;
+import business.parser.impl.Parser;
+import business.parser.impl.ParserGIFT;
+import business.parser.impl.ParserQTI;
+import business.parser.impl.ParserXML;
 import business.preguntas.Pregunta;
 
 public class ParserTest {

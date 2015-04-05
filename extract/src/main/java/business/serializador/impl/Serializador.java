@@ -1,4 +1,4 @@
-package business.serializador;
+package business.serializador.impl;
 
 import java.util.HashMap;
 

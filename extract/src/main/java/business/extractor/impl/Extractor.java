@@ -1,18 +1,17 @@
-package business.extractor;
+package business.extractor.impl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import business.parser.Parser;
-import business.parser.ParserGIFT;
-import business.parser.ParserQTI;
+import persistencia.impl.Insert;
+import business.parser.impl.Parser;
+import business.parser.impl.ParserGIFT;
+import business.parser.impl.ParserQTI;
 import business.preguntas.Pregunta;
-import business.serializador.Serializador;
-import business.serializador.json.JsonSerialImpl;
-
-import persistencia.Insert;
+import business.serializador.impl.Serializador;
+import business.serializador.impl.json.JsonSerialImpl;
 
 public class Extractor {
 	

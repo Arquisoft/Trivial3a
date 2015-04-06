@@ -58,7 +58,7 @@ public class VentanaRegistro extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/game/img/logo.png")));
 		setTitle("Ventana de registro");
 		this.setvL(vL);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -145,7 +145,7 @@ public class VentanaRegistro extends JFrame {
 			JOptionPane.showMessageDialog(null,"Rellene todo los campos.");
 
 		else if(!getvL().transPassword(password).equals(getvL().transPassword(txPasswordDos.getPassword()))){
-			JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden.");
+			JOptionPane.showMessageDialog(null,"Las contraseï¿½as no coinciden.");
 			txPasswordUno.setText("");
 			txPasswordDos.setText("");
 		}

@@ -1,8 +1,9 @@
-package business.game.tablero.logic.tableros;
+package business.game.tablero.tableros.impl;
 
 import java.io.IOException;
 
-import business.game.tablero.logic.nodos.Nodo;
+import business.game.tablero.nodos.Nodo;
+import business.game.tablero.tableros.Tablero;
 import business.game.tablero.util.ContenedorDeNodos;
 import business.game.tablero.util.lectores.LectorCircular;
 import business.game.tablero.util.lectores.LectorTipoTablero;

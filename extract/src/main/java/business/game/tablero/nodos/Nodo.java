@@ -1,4 +1,4 @@
-package business.game.tablero.logic.nodos;
+package business.game.tablero.nodos;
 
 public interface Nodo {
 	 public Nodo getSiguiente();

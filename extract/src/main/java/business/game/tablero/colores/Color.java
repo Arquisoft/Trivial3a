@@ -1,4 +1,4 @@
-package business.game.tablero.logic.colores;
+package business.game.tablero.colores;
 
 //los colores de las respectivas preguntas
 //est� hecho con implementaci�n de muchas clases 

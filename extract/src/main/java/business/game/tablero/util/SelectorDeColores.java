@@ -1,13 +1,13 @@
 package business.game.tablero.util;
 
-import business.game.tablero.logic.colores.Amarillo;
-import business.game.tablero.logic.colores.Azul;
-import business.game.tablero.logic.colores.Color;
-import business.game.tablero.logic.colores.Incoloro;
-import business.game.tablero.logic.colores.Morado;
-import business.game.tablero.logic.colores.Naranja;
-import business.game.tablero.logic.colores.Rojo;
-import business.game.tablero.logic.colores.Verde;
+import business.game.tablero.colores.Amarillo;
+import business.game.tablero.colores.Azul;
+import business.game.tablero.colores.Color;
+import business.game.tablero.colores.Incoloro;
+import business.game.tablero.colores.Morado;
+import business.game.tablero.colores.Naranja;
+import business.game.tablero.colores.Rojo;
+import business.game.tablero.colores.Verde;
 
 public class SelectorDeColores {
 	// hecho singleton

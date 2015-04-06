@@ -2,8 +2,8 @@ package business.game.tablero.util;
 
 import java.util.ArrayList;
 
-import business.game.tablero.logic.nodos.NodoNormal;
-import business.game.tablero.logic.nodos.NodoQuesito;
+import business.game.tablero.nodos.impl.NodoNormal;
+import business.game.tablero.nodos.impl.NodoQuesito;
 
 //Es una especie de adapter, para tener mejor controlados los tipos de nodos
 public class ContenedorDeNodos {

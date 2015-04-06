@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import business.game.tablero.logic.nodos.NodoNormal;
-import business.game.tablero.logic.nodos.NodoQuesito;
+import business.game.tablero.nodos.impl.NodoNormal;
+import business.game.tablero.nodos.impl.NodoQuesito;
 import business.game.tablero.util.ContenedorDeNodos;
 import business.game.tablero.util.SelectorDeColores;
 

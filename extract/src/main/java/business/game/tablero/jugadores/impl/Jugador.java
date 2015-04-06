@@ -1,9 +1,9 @@
-package business.game.tablero.jugadores;
+package business.game.tablero.jugadores.impl;
 
-import business.game.tablero.logic.colores.Color;
-import business.game.tablero.logic.nodos.Nodo;
-import business.game.tablero.logic.nodos.NodoQuesito;
-import business.game.tablero.logic.tableros.Tablero;
+import business.game.tablero.colores.Color;
+import business.game.tablero.nodos.Nodo;
+import business.game.tablero.nodos.impl.NodoQuesito;
+import business.game.tablero.tableros.Tablero;
 
 public class Jugador {
 	private Color[] quesitos;

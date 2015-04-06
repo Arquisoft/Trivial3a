@@ -4,7 +4,11 @@ import persistencia.PersistenceFactory;
 import persistencia.impl.SimplePersistenceFactory;
 import business.ServicesFactory;
 import business.SimpleServiceFactory;
-
+/**
+ * Clase Factoria
+ * @author Inigo Llaneza Aller
+ *
+ */
 public class Factories {
 
 	/**

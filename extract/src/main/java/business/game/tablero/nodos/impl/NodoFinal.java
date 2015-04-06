@@ -1,9 +1,14 @@
-package business.game.tablero.logic.nodos;
+package business.game.tablero.nodos.impl;
+
+import business.game.tablero.nodos.Nodo;
 
 //nodo �ltimo que posee las 6-7-n entradas 
 public class NodoFinal implements Nodo {
 	private Nodo[] n;
 
+	
+	public NodoFinal(){};
+	
 	public NodoFinal(int tam) {
 		n = new Nodo[tam];
 	}

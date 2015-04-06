@@ -1,6 +1,7 @@
-package business.game.tablero.logic.nodos;
+package business.game.tablero.nodos.impl;
 
-import business.game.tablero.logic.colores.Color;
+import business.game.tablero.colores.Color;
+import business.game.tablero.nodos.Nodo;
 //nodo normal, el color hace referencia al tipo de pregunta
 public class NodoNormal implements Nodo {
 	private Nodo siguiente;
@@ -26,6 +27,9 @@ public class NodoNormal implements Nodo {
 	public NodoNormal(Color color) {
 		super();
 		this.color = color;
+	}
+
+	public NodoNormal() {
 	}
 
 	public Color getColor() {

@@ -1,10 +1,11 @@
-package business.game.tablero.logic.tableros;
+package business.game.tablero.tableros.impl;
 
 import java.io.IOException;
 
-import business.game.tablero.logic.nodos.Nodo;
-import business.game.tablero.logic.nodos.NodoFinal;
-import business.game.tablero.logic.nodos.NodoQuesito;
+import business.game.tablero.nodos.Nodo;
+import business.game.tablero.nodos.impl.NodoFinal;
+import business.game.tablero.nodos.impl.NodoQuesito;
+import business.game.tablero.tableros.Tablero;
 import business.game.tablero.util.ContenedorDeNodos;
 import business.game.tablero.util.lectores.LectorFormaRueda;
 import business.game.tablero.util.lectores.LectorTipoTablero;

@@ -1,4 +1,4 @@
-package presentacion.game.igu;
+package presentacion.login.impl;
 
 
 import java.awt.BorderLayout;

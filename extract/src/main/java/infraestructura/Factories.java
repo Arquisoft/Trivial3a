@@ -2,6 +2,8 @@ package infraestructura;
 
 import persistencia.PersistenceFactory;
 import persistencia.impl.SimplePersistenceFactory;
+import presentacion.PresentationFactory;
+import presentacion.SimplePresentationFactory;
 import business.ServicesFactory;
 import business.SimpleServiceFactory;
 /**
@@ -19,4 +21,6 @@ public class Factories {
 	 * Factoria Persitencia
 	 */
 	public static PersistenceFactory persistence = new SimplePersistenceFactory();
+	
+	public static PresentationFactory presentation = new SimplePresentationFactory();
 }

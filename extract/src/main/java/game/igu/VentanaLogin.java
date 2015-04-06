@@ -4,6 +4,7 @@ import game.acciones.impl.IniciarJuegoAction;
 import game.acciones.impl.RegistrarseAction;
 import game.acciones.impl.ValidarseAction;
 import game.acciones.util.*;
+import game.logica.Partida;
 import game.logica.Usuario;
 
 import java.awt.BorderLayout;
@@ -21,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -35,8 +37,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
 
 public class VentanaLogin extends JFrame {
 
@@ -375,7 +375,14 @@ public class VentanaLogin extends JFrame {
 	public void eliminar(){
 		String prueba = listaJugadores.getSelectedValue();
 		String ultima = prueba.substring(prueba.lastIndexOf(" ")+1);
-		System.out.println(jugadores.containsKey(ultima));
+		for(Usuario user: Partida.getPartida().values()){
+	//	for(Entry<ColorEnum,Usuario> e: Partida.getPartida()){
+			if(user.getLogin().equals(ultima)){
+				user.
+				Partida.getPartida().remove(user);
+				modeloLista.removeElementAt(listaJugadores.getSelectedIndex());
+			}
+		}
 	}
 	
 	protected String transPassword(char[] p){

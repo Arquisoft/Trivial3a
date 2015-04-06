@@ -1,4 +1,4 @@
-package game.acciones;
+package business.game.acciones;
 
 import persistencia.impl.Connection;
 

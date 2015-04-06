@@ -1,4 +1,4 @@
-package game.igu;
+package presentacion.game.igu;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -23,7 +23,7 @@ public class FondoLogin extends JPanel {
 	@Override
 	public void paintComponent(Graphics g){
 		Dimension tam = getSize();
-		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/game/img/fondo.jpg"));
+		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/business/game/img/fondo.jpg"));
 		g.drawImage(imagenFondo.getImage(), 0, 0, tam.width, tam.height, null);
 		setOpaque(false);
 		super.paintComponent(g);

@@ -1,4 +1,4 @@
-package game;
+package business.game;
 
 public class Game {
 	

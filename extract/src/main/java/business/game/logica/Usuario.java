@@ -1,4 +1,4 @@
-package game.logica;
+package business.game.logica;
 
 
 public class Usuario {

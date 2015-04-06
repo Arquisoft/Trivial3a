@@ -1,11 +1,5 @@
-package game.igu;
+package presentacion.game.igu;
 
-import game.acciones.impl.IniciarJuegoAction;
-import game.acciones.impl.RegistrarseAction;
-import game.acciones.impl.ValidarseAction;
-import game.acciones.util.*;
-import game.logica.Partida;
-import game.logica.Usuario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -37,6 +30,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import business.game.acciones.impl.IniciarJuegoAction;
+import business.game.acciones.impl.RegistrarseAction;
+import business.game.acciones.impl.ValidarseAction;
+import business.game.acciones.util.*;
+import business.game.logica.Partida;
 
 public class VentanaLogin extends JFrame {
 
@@ -77,7 +76,6 @@ public class VentanaLogin extends JFrame {
 	private DefaultListModel<String> modeloLista = null;
 	private ValidarseAction valAction;
 	private IniciarJuegoAction iniciarAction;
-	private int cont = 0;
 	private JButton btnEliminarJugador;
 	/**
 	 * Launch the application.
@@ -100,7 +98,7 @@ public class VentanaLogin extends JFrame {
 	 */
 	public VentanaLogin() {
 		setTitle("Trivial");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/game/img/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/business/game/img/logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 951, 425);
 		contentPane = new FondoLogin();
@@ -487,7 +485,7 @@ public class VentanaLogin extends JFrame {
 			btnEliminarJugador.setEnabled(false);
 			btnEliminarJugador.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					eliminar();
+					Partida.eliminarEntrada(listaJugadores,modeloLista);
 				}
 			});
 			btnEliminarJugador.setMargin(new Insets(2, 50, 2, 50));
@@ -499,13 +497,5 @@ public class VentanaLogin extends JFrame {
 		return btnEliminarJugador;
 	}
 	
-	public void eliminar(){
-		String nombre_usuario = listaJugadores.getSelectedValue();
-		for(Entry<ColorEnum, Usuario> user: Partida.getPartida().entrySet()){
-			if(user.getValue().getLogin().equals(nombre_usuario)){
-				Partida.getPartida().remove(user.getKey());
-				modeloLista.removeElementAt(listaJugadores.getSelectedIndex());
-			}
-		}
-	}
+
 }

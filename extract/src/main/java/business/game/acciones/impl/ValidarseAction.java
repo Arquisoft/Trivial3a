@@ -1,14 +1,15 @@
-package game.acciones.impl;
+package business.game.acciones.impl;
 
-import game.acciones.Action;
-import game.acciones.util.ColorEnum;
-import game.logica.Partida;
-import game.logica.Usuario;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
+
+import business.game.acciones.Action;
+import business.game.acciones.util.ColorEnum;
+import business.game.logica.Partida;
+import business.game.logica.Usuario;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;

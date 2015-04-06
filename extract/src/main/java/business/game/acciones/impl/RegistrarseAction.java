@@ -1,10 +1,11 @@
-package game.acciones.impl;
+package business.game.acciones.impl;
 
 
 import javax.swing.JOptionPane;
 
-import game.acciones.Action;
-import game.logica.Usuario;
+
+import business.game.acciones.Action;
+import business.game.logica.Usuario;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
@@ -13,8 +14,8 @@ import com.mongodb.MongoTimeoutException;
 
 public class RegistrarseAction extends Action{
 	
-	private final static String EXITO ="¡Gracias por unirte!";
-	private final static String DUPLICADO = "Lo sentimos, ese usuario ya está en uso";
+	private final static String EXITO ="ï¿½Gracias por unirte!";
+	private final static String DUPLICADO = "Lo sentimos, ese usuario ya estï¿½ en uso";
 	private Usuario u;
 	
 	

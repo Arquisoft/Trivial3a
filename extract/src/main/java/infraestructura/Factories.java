@@ -7,6 +7,6 @@ import business.SimpleServiceFactory;
 
 public class Factories {
 
-	public static ServicesFactory serivices = new SimpleServiceFactory();
+	public static ServicesFactory services = new SimpleServiceFactory();
 	public static PersistenceFactory persistence = new SimplePersistenceFactory();
 }

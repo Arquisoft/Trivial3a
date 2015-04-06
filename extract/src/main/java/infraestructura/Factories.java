@@ -22,5 +22,8 @@ public class Factories {
 	 */
 	public static PersistenceFactory persistence = new SimplePersistenceFactory();
 	
+	/**
+	 * Factoria Presentacion
+	 */
 	public static PresentationFactory presentation = new SimplePresentationFactory();
 }

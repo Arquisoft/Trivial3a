@@ -2,7 +2,11 @@ package business.extractor;
 
 import business.extractor.impl.Extractor;
 import business.extractor.impl.MenuExtractor;
-
+/**
+ * Factoria de Extractores 
+ * @author Inigo Llaneza Aller
+ *
+ */
 public interface ServiceExtractor {
 
 	/**

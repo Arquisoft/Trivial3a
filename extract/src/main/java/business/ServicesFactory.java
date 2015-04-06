@@ -4,7 +4,11 @@ import business.extractor.ServiceExtractor;
 import business.parser.ServiceParser;
 import business.preguntas.ServicePreguntas;
 import business.serializador.ServiceSerializador;
-
+/**
+ * Factoria de la capa Business
+ * @author Inigo Llaneza Aller
+ *
+ */
 public interface ServicesFactory {
 
 	/**

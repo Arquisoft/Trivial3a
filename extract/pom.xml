@@ -13,6 +13,12 @@
 	</properties>
 
 	<dependencies>
+		<!-- LibGDX -->
+		<dependency>
+			<groupId>com.badlogicgames.gdx</groupId>
+			<artifactId>gdx-backend-lwjgl</artifactId>
+			<version>1.5.5</version>
+		</dependency>
 
 		<!--Logging -->
 		<dependency>

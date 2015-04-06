@@ -1,11 +1,10 @@
-package business.game.acciones.impl;
+package business.game.login.acciones.impl;
 
 
 import javax.swing.JOptionPane;
 
-
-import business.game.acciones.Action;
-import business.game.logica.Usuario;
+import business.game.login.acciones.Action;
+import business.game.login.logica.Usuario;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;

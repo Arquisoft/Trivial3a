@@ -1,4 +1,4 @@
-package business.game.acciones.util;
+package business.game.login.acciones.util;
 
 public enum ColorEnum {
 	

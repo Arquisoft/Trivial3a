@@ -31,11 +31,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import business.game.acciones.impl.IniciarJuegoAction;
-import business.game.acciones.impl.RegistrarseAction;
-import business.game.acciones.impl.ValidarseAction;
-import business.game.acciones.util.*;
-import business.game.logica.Partida;
+import business.game.login.acciones.impl.IniciarJuegoAction;
+import business.game.login.acciones.impl.RegistrarseAction;
+import business.game.login.acciones.impl.ValidarseAction;
+import business.game.login.acciones.util.*;
+import business.game.login.logica.Partida;
 
 public class VentanaLogin extends JFrame {
 

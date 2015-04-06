@@ -1,4 +1,4 @@
-package business.game.logica;
+package business.game.login.logica;
 
 
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
-import business.game.acciones.util.ColorEnum;
+import business.game.login.acciones.util.ColorEnum;
 
 public class Partida {
 

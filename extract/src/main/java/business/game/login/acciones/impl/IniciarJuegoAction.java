@@ -1,4 +1,4 @@
-package business.game.acciones.impl;
+package business.game.login.acciones.impl;
 
 
 import java.util.Iterator;
@@ -7,11 +7,10 @@ import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
 
-
-import business.game.acciones.Action;
-import business.game.acciones.util.ColorEnum;
-import business.game.logica.Partida;
-import business.game.logica.Usuario;
+import business.game.login.acciones.Action;
+import business.game.login.acciones.util.ColorEnum;
+import business.game.login.logica.Partida;
+import business.game.login.logica.Usuario;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;

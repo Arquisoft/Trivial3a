@@ -3,8 +3,8 @@ package business.game.login.acciones.impl;
 
 import javax.swing.JOptionPane;
 
+import business.game.login.Usuario;
 import business.game.login.acciones.Action;
-import business.game.login.logica.Usuario;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;

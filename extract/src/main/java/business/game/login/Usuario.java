@@ -1,4 +1,4 @@
-package business.game.login.logica;
+package business.game.login;
 
 
 public class Usuario {
@@ -9,6 +9,8 @@ public class Usuario {
 	private String apellidos;
 	private String email;
 	private int edad;
+	
+	public Usuario(){}
 	
 	public Usuario (String login, String password, String nombre, 
 			String apellidos, String email){

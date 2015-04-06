@@ -1,4 +1,4 @@
-package business.game.login.logica;
+package business.game.login;
 
 
 import java.util.HashMap;
@@ -14,7 +14,8 @@ public class Partida {
 
 	private static Map<ColorEnum, Usuario> partida =  new HashMap<ColorEnum, Usuario>();
 
-
+	public Partida(){}
+	
 	static public Map<ColorEnum, Usuario> getPartida() {
 		return partida;
 	}

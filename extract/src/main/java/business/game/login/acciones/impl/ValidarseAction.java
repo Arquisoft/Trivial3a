@@ -13,7 +13,6 @@ import business.game.login.acciones.util.ColorEnum;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
-import com.mongodb.MongoTimeoutException;
 
 public class ValidarseAction extends Action{
 	
@@ -39,7 +38,7 @@ public class ValidarseAction extends Action{
 		try{
 			obj = (BasicDBObject) coleccion.findOne(query);
 			setServerStatus(true);
-		}catch(MongoTimeoutException e){
+		}catch(Exception e){
 			setServerStatus(false);
 		}
 		

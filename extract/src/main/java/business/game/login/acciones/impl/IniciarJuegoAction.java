@@ -14,7 +14,6 @@ import business.game.login.acciones.util.ColorEnum;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
-import com.mongodb.MongoTimeoutException;
 
 public class IniciarJuegoAction extends Action{
 	
@@ -38,7 +37,7 @@ public class IniciarJuegoAction extends Action{
 				objeto.put(e.getKey().toString(), e.getValue().getLogin());
 			}
 			coleccion.insert(objeto);
-		}catch(MongoTimeoutException e){
+		}catch(Exception e){
 			JOptionPane.showMessageDialog(null,"Ha ocurrido un error con la base de datos, vuelva a intentarlo.");
 		}
 		return null;

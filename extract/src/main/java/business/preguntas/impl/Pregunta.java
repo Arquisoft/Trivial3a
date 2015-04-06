@@ -2,7 +2,6 @@ package business.preguntas.impl;
 
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Pregunta {
 

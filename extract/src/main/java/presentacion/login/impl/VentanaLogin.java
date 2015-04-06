@@ -36,6 +36,8 @@ import business.game.login.acciones.impl.IniciarJuegoAction;
 import business.game.login.acciones.impl.RegistrarseAction;
 import business.game.login.acciones.impl.ValidarseAction;
 import business.game.login.acciones.util.*;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class VentanaLogin extends JFrame {
 
@@ -98,7 +100,7 @@ public class VentanaLogin extends JFrame {
 	 */
 	public VentanaLogin() {
 		setTitle("Trivial");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/business/game/img/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/presentacion/login/img/logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 951, 425);
 		contentPane = new FondoLogin();
@@ -217,7 +219,12 @@ public class VentanaLogin extends JFrame {
 		if (listaJugadores == null) {
 			modeloLista = new DefaultListModel<String>();
 			listaJugadores = new JList<String>(modeloLista);
-
+			listaJugadores.addListSelectionListener(new ListSelectionListener() {
+				public void valueChanged(ListSelectionEvent arg0) {
+					if(!listaJugadores.isSelectionEmpty())
+						btnEliminarJugador.setEnabled(true);
+				}
+			});
 		}
 		return listaJugadores;
 	}
@@ -274,7 +281,6 @@ public class VentanaLogin extends JFrame {
 			btRegistrarse = new JButton("Registrarme");
 			btRegistrarse.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					// CAMBIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
 					if(!txNombre.getText().isEmpty() && !txEmail.getText().isEmpty()){
 						RegistrarseAction ra = new RegistrarseAction(txNombre.getText(),txEmail.getText());
 						if(ra.existUsernameEmail() && ra.getServerStatus())
@@ -341,8 +347,7 @@ public class VentanaLogin extends JFrame {
 			btEntrar = new JButton("Iniciar sesion");
 			btEntrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(validarse())
-						btnEliminarJugador.setEnabled(true);
+					validarse();
 				}
 			});
 			btEntrar.setBackground(Color.BLACK);
@@ -486,6 +491,7 @@ public class VentanaLogin extends JFrame {
 			btnEliminarJugador.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					Partida.eliminarEntrada(listaJugadores,modeloLista);
+					btnEliminarJugador.setEnabled(false);
 				}
 			});
 			btnEliminarJugador.setMargin(new Insets(2, 50, 2, 50));

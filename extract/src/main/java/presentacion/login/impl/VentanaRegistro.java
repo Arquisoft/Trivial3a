@@ -56,7 +56,7 @@ public class VentanaRegistro extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRegistro(VentanaLogin vL) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/game/img/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/presentacion/login/img/logo.png")));
 		setTitle("Ventana de registro");
 		this.setvL(vL);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

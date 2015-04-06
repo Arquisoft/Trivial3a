@@ -9,11 +9,10 @@ import business.game.login.acciones.Action;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.DuplicateKeyException;
-import com.mongodb.MongoTimeoutException;
 
 public class RegistrarseAction extends Action{
 	
-	private final static String EXITO ="�Gracias por unirte!";
+	private final static String EXITO ="¡Gracias por unirte!";
 	private final static String DUPLICADO = "Lo sentimos, ese usuario ya est� en uso";
 	private Usuario u;
 	
@@ -60,7 +59,7 @@ public class RegistrarseAction extends Action{
 			BasicDBObject objEmail = (BasicDBObject) coleccion.findOne(queryEmail);
 			setServerStatus(true);
 			return (objNombre==null && objEmail==null ? false : true);
-		}catch(MongoTimeoutException e){
+		}catch(Exception e){
 			JOptionPane.showMessageDialog(null,"Ha ocurrido un error con la base de datos, vuelva a intentarlo.");
 			setServerStatus(false);
 			return false;

@@ -5,11 +5,6 @@ import business.parser.ServiceParser;
 import business.preguntas.ServicePreguntas;
 import business.serializador.ServiceSerializador;
 
-/**
- * Factoría de la Logica
- * @author TeLoRompoTo
- *
- */
 public interface ServicesFactory {
 
 	/**

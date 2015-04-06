@@ -9,6 +9,7 @@ public abstract class Action {
 	
 	private DB db;
 	protected DBCollection coleccion;
+	private boolean server_status;
 	
 	protected Action(){
 		db = Connection.DatabaseConnection();
@@ -27,6 +28,14 @@ public abstract class Action {
 
 	public void setColeccion(DBCollection coleccion) {
 		this.coleccion = coleccion;
+	}
+	
+	public boolean getServerStatus(){
+		return server_status;
+	}
+	
+	public void setServerStatus(boolean server_status){
+		this.server_status = server_status;
 	}
 
 	public abstract Object execute();

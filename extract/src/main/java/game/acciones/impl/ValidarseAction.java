@@ -8,8 +8,11 @@ import game.logica.Usuario;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import javax.swing.JOptionPane;
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
+import com.mongodb.MongoTimeoutException;
 
 public class ValidarseAction extends Action{
 	
@@ -17,6 +20,7 @@ public class ValidarseAction extends Action{
 	public String login;
 	public String password;
 	public ColorEnum color;
+
 	
 	DBObject query;
 	BasicDBObject obj;
@@ -27,11 +31,16 @@ public class ValidarseAction extends Action{
 		this.password = password;
 		this.color = color;
 		
-		coleccion = getDb().getCollection("Usuario");
+		coleccion = getDb().getCollection("Users");
 		query = new BasicDBObject();
 		query.put("_id", login);
 		query.put("password", password);
-		obj = (BasicDBObject) coleccion.findOne(query);
+		try{
+			obj = (BasicDBObject) coleccion.findOne(query);
+			setServerStatus(true);
+		}catch(MongoTimeoutException e){
+			setServerStatus(false);
+		}
 		
 	}
 
@@ -68,6 +77,7 @@ public class ValidarseAction extends Action{
 		return false;
 	}
 	
+
 	public boolean isCorrecto(){
 		if(obj!= null){
 			Usuario u = getUsuario(obj);
@@ -75,16 +85,19 @@ public class ValidarseAction extends Action{
 				if(!usuarioDuplicado(u))
 					return true;
 				else
-					message="Este usuario ya ha sido registrado para esta partida";
+					JOptionPane.showMessageDialog(null, "Este usuario ya ha sido registrado para esta partida");
 			else
-				message="El color elegido ya ha sido seleccionado";
+				JOptionPane.showMessageDialog(null, "El color elegido ya ha sido seleccionado");
 					
 		}
-		else{
-			message="Usuario o contraseña incorrectos";
+		else if(!getServerStatus()){
+			JOptionPane.showMessageDialog(null,"Ha ocurrido un error con la base de datos, vuelva a intentarlo.");
 		}
+		else
+			JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
 		return false;
 	}
+	
 	
 	public String getMessage(){
 		return this.message;

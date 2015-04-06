@@ -1,8 +1,10 @@
 package game.igu;
 
 import game.acciones.impl.IniciarJuegoAction;
+import game.acciones.impl.RegistrarseAction;
 import game.acciones.impl.ValidarseAction;
 import game.acciones.util.*;
+import game.logica.Usuario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,7 +19,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -32,9 +35,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class VentanaLogin extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel pnTitulo;
 	private JLabel lbTitulo;
@@ -64,10 +73,12 @@ public class VentanaLogin extends JFrame {
 	private JComboBox<String> cbColor;
 	private JPanel pnBoton;
 
+	private static Map<ColorEnum, String> jugadores =  new HashMap<ColorEnum, String>();
 	private DefaultListModel<String> modeloLista = null;
 	private ValidarseAction valAction;
 	private IniciarJuegoAction iniciarAction;
 	private int cont = 0;
+	private JButton btnEliminarJugador;
 	/**
 	 * Launch the application.
 	 */
@@ -181,8 +192,12 @@ public class VentanaLogin extends JFrame {
 			btIniciarJuego = new JButton("Iniciar juego");
 			btIniciarJuego.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					iniciarAction = new IniciarJuegoAction();
-					iniciarAction.execute();
+					if(listaJugadores.getModel().getSize()>0){
+						iniciarAction = new IniciarJuegoAction();
+						iniciarAction.execute();
+					}
+					else
+						JOptionPane.showMessageDialog(null,"Se necesita por lo menos un jugador para iniciar la partida");
 				}
 			});
 			btIniciarJuego.setForeground(Color.WHITE);
@@ -204,6 +219,7 @@ public class VentanaLogin extends JFrame {
 		if (listaJugadores == null) {
 			modeloLista = new DefaultListModel<String>();
 			listaJugadores = new JList<String>(modeloLista);
+
 		}
 		return listaJugadores;
 	}
@@ -260,11 +276,16 @@ public class VentanaLogin extends JFrame {
 			btRegistrarse = new JButton("Registrarme");
 			btRegistrarse.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					// CAMBIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
 					if(!txNombre.getText().isEmpty() && !txEmail.getText().isEmpty()){
-						mostrarVentanaRegistro();
+						RegistrarseAction ra = new RegistrarseAction(txNombre.getText(),txEmail.getText());
+						if(ra.existUsernameEmail() && ra.getServerStatus())
+							JOptionPane.showMessageDialog(null, "El usuario o el email ya se encuentra en uso.");
+						else if(ra.getServerStatus() && !ra.existUsernameEmail() && ra.getServerStatus())
+							mostrarVentanaRegistro();
 					}
-					else{
-						JOptionPane.showMessageDialog(null, "Debe rellenar los campos");
+					else if(txNombre.getText().isEmpty() || txEmail.getText().isEmpty()){
+						JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
 					}
 				}
 			});
@@ -322,7 +343,8 @@ public class VentanaLogin extends JFrame {
 			btEntrar = new JButton("Iniciar sesion");
 			btEntrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					validarse();
+					if(validarse())
+						btnEliminarJugador.setEnabled(true);
 				}
 			});
 			btEntrar.setBackground(Color.BLACK);
@@ -332,21 +354,28 @@ public class VentanaLogin extends JFrame {
 		return btEntrar;
 	}
 	
-	private void validarse(){
+	private boolean validarse(){
 		
-		String login = txNombreEntrar.getText().toString();
+		String nombre_usuario = txNombreEntrar.getText().toString();
 		char[] password = txPassword.getPassword();
 		String color = cbColor.getSelectedItem().toString();
-		valAction = new ValidarseAction(login, transPassword(password), colorUsuario(color));
+		valAction = new ValidarseAction(nombre_usuario, transPassword(password), colorUsuario(color));
 		if(valAction.isCorrecto()){
 			valAction.execute();
+			jugadores.put(colorUsuario(color),nombre_usuario);
 			addJugador(cbColor.getSelectedItem().toString());
 			inicializar();
+			return true;
 		}
 		else{
-			JOptionPane.showMessageDialog(null, valAction.getMessage());
 			inicializar();
+			return false;
 		}
+	}
+	public void eliminar(){
+		String prueba = listaJugadores.getSelectedValue();
+		String ultima = prueba.substring(prueba.lastIndexOf(" ")+1);
+		System.out.println(jugadores.containsKey(ultima));
 	}
 	
 	protected String transPassword(char[] p){
@@ -431,6 +460,7 @@ public class VentanaLogin extends JFrame {
 			pnBoton.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 			pnBoton.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 			pnBoton.setLayout(new FlowLayout(FlowLayout.RIGHT, 0, 0));
+			pnBoton.add(getBtnEliminarJugador());
 			pnBoton.add(getBtIniciarJuego());
 		}
 		return pnBoton;
@@ -456,5 +486,21 @@ public class VentanaLogin extends JFrame {
 		txPassword.setText("");
 		cbColor.getItemAt(0);
 	}
-	
+	private JButton getBtnEliminarJugador() {
+		if (btnEliminarJugador == null) {
+			btnEliminarJugador = new JButton("Eliminar jugador");
+			btnEliminarJugador.setEnabled(false);
+			btnEliminarJugador.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					eliminar();
+				}
+			});
+			btnEliminarJugador.setMargin(new Insets(2, 50, 2, 50));
+			btnEliminarJugador.setHorizontalTextPosition(SwingConstants.CENTER);
+			btnEliminarJugador.setForeground(Color.WHITE);
+			btnEliminarJugador.setFont(new Font("Blackadder ITC", Font.ITALIC, 20));
+			btnEliminarJugador.setBackground(Color.BLACK);
+		}
+		return btnEliminarJugador;
+	}
 }

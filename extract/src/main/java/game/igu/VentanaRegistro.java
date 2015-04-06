@@ -24,6 +24,10 @@ import javax.swing.border.EmptyBorder;
 
 public class VentanaRegistro extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private VentanaLogin vL;
 	private JLabel lbTitulo;
@@ -141,7 +145,7 @@ public class VentanaRegistro extends JFrame {
 			JOptionPane.showMessageDialog(null,"Rellene todo los campos.");
 
 		else if(!getvL().transPassword(password).equals(getvL().transPassword(txPasswordDos.getPassword()))){
-			JOptionPane.showMessageDialog(null,"Las contraseÃ±as no coinciden.");
+			JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden.");
 			txPasswordUno.setText("");
 			txPasswordDos.setText("");
 		}

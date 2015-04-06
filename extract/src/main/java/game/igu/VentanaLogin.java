@@ -372,18 +372,7 @@ public class VentanaLogin extends JFrame {
 			return false;
 		}
 	}
-	public void eliminar(){
-		String prueba = listaJugadores.getSelectedValue();
-		String ultima = prueba.substring(prueba.lastIndexOf(" ")+1);
-		for(Usuario user: Partida.getPartida().values()){
-	//	for(Entry<ColorEnum,Usuario> e: Partida.getPartida()){
-			if(user.getLogin().equals(ultima)){
-				user.
-				Partida.getPartida().remove(user);
-				modeloLista.removeElementAt(listaJugadores.getSelectedIndex());
-			}
-		}
-	}
+
 	
 	protected String transPassword(char[] p){
 		String cadena = "";
@@ -416,28 +405,27 @@ public class VentanaLogin extends JFrame {
 		switch(color){
 		case ("Marron"):	
 			getListaJugadores().setForeground(new Color(102,51,0));
-			String.valueOf(cont++);
-			modeloLista.addElement(String.valueOf(cont++)+". "+jugador);
+			modeloLista.addElement(jugador);
 		break;
 		case ("Verde"):
 			getListaJugadores().setForeground(Color.GREEN);
-			modeloLista.addElement(String.valueOf(cont++)+". "+jugador);
+			modeloLista.addElement(jugador);
 		break;
 		case ("Amarillo"):
 			getListaJugadores().setForeground(Color.YELLOW);
-			modeloLista.addElement(String.valueOf(cont++)+". "+jugador);
+			modeloLista.addElement(jugador);
 		break;
 		case ("Azul"):
 			getListaJugadores().setForeground(Color.BLUE);
-			modeloLista.addElement(String.valueOf(cont++)+". "+jugador);
+			modeloLista.addElement(jugador);
 		break;
 		case ("Rosa"):
 			getListaJugadores().setForeground(Color.PINK);
-			modeloLista.addElement(String.valueOf(cont++)+". "+jugador);
+			modeloLista.addElement(jugador);
 		break;
 		case ("Naranja"):
 			getListaJugadores().setForeground(Color.ORANGE);
-			modeloLista.addElement(String.valueOf(cont++)+". "+jugador);
+			modeloLista.addElement(jugador);
 		break;
 		
 		}
@@ -509,5 +497,15 @@ public class VentanaLogin extends JFrame {
 			btnEliminarJugador.setBackground(Color.BLACK);
 		}
 		return btnEliminarJugador;
+	}
+	
+	public void eliminar(){
+		String nombre_usuario = listaJugadores.getSelectedValue();
+		for(Entry<ColorEnum, Usuario> user: Partida.getPartida().entrySet()){
+			if(user.getValue().getLogin().equals(nombre_usuario)){
+				Partida.getPartida().remove(user.getKey());
+				modeloLista.removeElementAt(listaJugadores.getSelectedIndex());
+			}
+		}
 	}
 }

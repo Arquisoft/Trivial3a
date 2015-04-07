@@ -24,3 +24,4 @@ local.properties
 .target
 .texlipse
 *.vpp~*
+/build/

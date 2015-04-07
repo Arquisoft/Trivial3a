@@ -1,11 +1,11 @@
-import infraestructura.Factories;
-import business.extractor.impl.Extractor;
+import business.core.Core;
+import business.core.impl.CoreImpl;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Extractor e = Factories.services.createServiceExtractor().getExtractor();
-		e.run();
+		Core core = new CoreImpl();
+		core.run();
 	}
 
 }

@@ -1,0 +1,167 @@
+::Q30::
+¿Cual es la tercera mayor isla del archipielago balear junto con Mayorca y Menorca? {
+~ Madagascar
+~ Badalona
+= Ibiza
+~ Australia
+}
+
+::Q31::
+¿De qué nacionalidad es un siciliano? {
+= Italiano
+~ Español
+~ Belga
+~ Frances
+}
+
+::Q32::
+¿Qué isla del Caribe tiene nombre de flor? {
+~ La isla nieves
+~ La isla tortola
+= La isla Margarita
+~ La isla de San Martin
+}
+
+::Q33::
+¿Es la araña un insecto? {
+~ Solo algunas
+~ Si
+= No
+~ Es un mamifero
+}
+
+::Q34::
+¿Cuántos jugadores se pueden sustituir en un partido de fútbol amistoso? {
+~ 2
+= Los acordados por los dos equipos.
+~ 3
+~ 4
+}
+
+::Q35::
+¿Pueden nadar los gorilas? {
+~ Solo cuando tienen miedo
+~ Si.
+= No.
+~ Solo uno de cada tres
+}
+
+::Q36::
+¿Cuál es la moneda de Suiza? {
+~ Euro	
+= Franco suizo
+~ Dolar
+~ Yen
+}
+
+::Q37::
+¿Cuál es el fruto del roble? {
+~ Avellana
+= Bellota
+~ Almendra
+~ Uva
+}
+
+::Q38::
+¿Cuántos años después de que Mickey Mouse debutó se presentó Minnie Mouse? {
+~ 1 año despues
+= El mismo año
+~ 3 años despues
+~ 5 años despues
+}
+
+::Q39::
+¿Cuál es la comida de restaurante que más se vende? {
+~ hamburguesa
+~ pizza
+~ pan
+= patatas fritas
+}
+
+::Q40::
+¿En qué década aparecieron por primera vez los nombres detrás de los suéteres de NFL? {
+~ Decada de 1950
+= Decada de 1960
+~ Decada de 1970
+~ Decada de 1980
+}
+
+::Q41::
+¿Qué pie puso primero Neil Amstrong sobre la Luna? {
+~ Derecho
+= Izquierdo
+~ Los dos a la vez
+~ Ninguno, no llego a pisarla
+}
+
+::Q42::
+¿Qué pie puso primero Neil Amstrong sobre la Luna? {
+= Izquierdo
+~ Derecho
+~ Los dos a la vez
+~ Ninguno, no llego a pisarla
+}
+
+::Q43::
+¿Cual es la edad media de los habitantes de todo el mundo? {
+~ 22 años
+~ 26 años 
+= 28 años
+~ 31 años
+}
+
+::Q44::
+¿Que es la Cynorkis villosa? {
+~ Una pequeña ciudad de Peru
+~ Un animal que habita en Africa
+= Una flor
+~ Una enfermedad
+}
+
+::Q45::
+¿Cuantos habitantes tiene Alemania? {
+~ 66 millones
+~ 73 millones
+~ 79 millones
+= 81 millones
+}
+
+::Q46::
+¿Que estacion comienza en el hemisferio sur el 21 de Diciembre? {
+~ Privavera
+~ Invierno
+~ Otonio
+= Verano
+}
+
+::Q47::
+¿Cual es el rio mas largo del mundo? {
+~ Amazonas
+~ Congo
+~ Ebro
+= Nilo
+}
+
+::Q48::
+¿Cual es el diametro de la tierra? {
+~ 2900 millas
+~ 5600 millas
+= 8000 millas
+~ 2300 millas
+}
+
+::Q49::
+¿Cual es el color principal de la bandera de Suecia? {
+~ Rojo
+~ Verde
+= Azul
+~ Blanco
+}
+
+::Q50::
+¿Cual es la capital de EEUU? {
+= Washington
+~ Nueva York
+~ Tejas
+~ Los Angeles
+}

@@ -65,8 +65,8 @@ public class ScreenSelectDificultad implements Screen {
 			public void clicked(InputEvent event, float x, float y) {
 				Tablero t = new TableroLineal();//Simulamos una partida pa probar y esas cosas, druida.
 				Map<Color, Usuario> jugadores = new HashMap<Color, Usuario>(); //Simulamos unos jugadores
-				jugadores.put(new Azul(), new Usuario("a", "a", "a", "a", "a",0,0));
-				jugadores.put(new Rojo(), new Usuario("b", "b", "b", "b", "b",0,0));
+				jugadores.put(new Azul(), new Usuario("a", "a", "a", "a", "a",0,0,0,0));
+				jugadores.put(new Rojo(), new Usuario("b", "b", "b", "b", "b",0,0,0,0));
 				generateJugadores(t, jugadores);
 				ScreenManager.setScreen(new ScreenJuego(null, null));
 			}

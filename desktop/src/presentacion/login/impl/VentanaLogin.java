@@ -365,7 +365,8 @@ public class VentanaLogin extends JFrame {
 		if(!valAction.getIsAdmin() && valAction.isCorrecto()){
 			valAction.execute();
 			jugadores.put(colorUsuario(color),nombre_usuario);
-			addJugador(cbColor.getSelectedItem().toString());
+			String jugador = txNombreEntrar.getText().toString();
+			modeloLista.addElement(jugador);
 			inicializar();
 			return true;
 		}
@@ -406,37 +407,7 @@ public class VentanaLogin extends JFrame {
 		}
 		return null;
 	}
-	private void addJugador( String color){
-		
-		String jugador = txNombreEntrar.getText().toString();
-		switch(color){
-		case ("Marron"):	
-			getListaJugadores().setForeground(new Color(102,51,0));
-			modeloLista.addElement(jugador);
-		break;
-		case ("Verde"):
-			getListaJugadores().setForeground(Color.GREEN);
-			modeloLista.addElement(jugador);
-		break;
-		case ("Amarillo"):
-			getListaJugadores().setForeground(Color.YELLOW);
-			modeloLista.addElement(jugador);
-		break;
-		case ("Azul"):
-			getListaJugadores().setForeground(Color.BLUE);
-			modeloLista.addElement(jugador);
-		break;
-		case ("Rosa"):
-			getListaJugadores().setForeground(Color.PINK);
-			modeloLista.addElement(jugador);
-		break;
-		case ("Naranja"):
-			getListaJugadores().setForeground(Color.ORANGE);
-			modeloLista.addElement(jugador);
-		break;
-		
-		}
-	}
+	
 	private JPasswordField getTxPassword() {
 		if (txPassword == null) {
 			txPassword = new JPasswordField();
@@ -469,9 +440,10 @@ public class VentanaLogin extends JFrame {
 	}
 	
 	private void mostrarVentanaAdmin(){
-		VentanaAdmin vA = new VentanaAdmin();
+		VentanaAdmin vA = new VentanaAdmin(this);
 		vA.setLocationRelativeTo(this);
-		vA.setVisible(true);		
+		vA.setVisible(true);	
+		setVisible(false);
 	}
 	
 	private void mostrarVentanaRegistro(){

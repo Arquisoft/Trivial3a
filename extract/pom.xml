@@ -41,11 +41,6 @@
 		</dependency>
 		<dependency>
 			<groupId>net.java.jinput</groupId>
-			<artifactId>jinput-platform</artifactId>
-			<version>2.0.5</version>
-		</dependency>
-		<dependency>
-			<groupId>net.java.jinput</groupId>
 			<artifactId>jinput</artifactId>
 			<version>2.0.5</version>
 		</dependency>
@@ -59,11 +54,16 @@
 			<artifactId>jorbis</artifactId>
 			<version>0.0.17-2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.lwjgl.lwjgl</groupId>
-			<artifactId>lwjgl-platform</artifactId>
-			<version>2.9.2</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>net.java.jinput</groupId> -->
+<!-- 			<artifactId>jinput-platform</artifactId> -->
+<!-- 			<version>2.0.5</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.lwjgl.lwjgl</groupId> -->
+<!-- 			<artifactId>lwjgl-platform</artifactId> -->
+<!-- 			<version>2.9.2</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.lwjgl.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>

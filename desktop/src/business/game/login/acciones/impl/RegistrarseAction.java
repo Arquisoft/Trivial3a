@@ -41,6 +41,8 @@ public class RegistrarseAction extends Action{
 			objeto.put("apellidos",u.getApellidos());
 			objeto.put("email",u.getEmail());
 			objeto.put("edad",u.getEdad());
+			objeto.put("numJugadas",0);
+			objeto.put("numGanadas",0);
 			coleccion.insert(objeto);
 			return EXITO;
 		}catch(DuplicateKeyException e){

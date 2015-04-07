@@ -1,4 +1,7 @@
 package business.game.login;
+
+import modelo.usuario.Usuario;
+
 /**
  * Factoria de Login [LOGICA]
  * @author Inigo Llaneza Aller

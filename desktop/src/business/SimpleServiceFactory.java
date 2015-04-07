@@ -1,13 +1,13 @@
 package business;
 
-import business.extractor.ServiceExtractor;
-import business.extractor.impl.SimpleServiceExtractor;
-import business.parser.ServiceParser;
-import business.parser.impl.SimpleServiceParser;
-import business.preguntas.ServicePreguntas;
-import business.preguntas.impl.SimpleServicePregunta;
-import business.serializador.ServiceSerializador;
-import business.serializador.impl.SimpleServiceSerializador;
+import modelo.ServiceModelo;
+import modelo.SimpleServiceModelo;
+import business.herramientas.extractor.ServiceExtractor;
+import business.herramientas.extractor.impl.SimpleServiceExtractor;
+import business.herramientas.parser.ServiceParser;
+import business.herramientas.parser.impl.SimpleServiceParser;
+import business.herramientas.serializador.ServiceSerializador;
+import business.herramientas.serializador.impl.SimpleServiceSerializador;
 
 public class SimpleServiceFactory implements ServicesFactory {
 
@@ -22,8 +22,8 @@ public class SimpleServiceFactory implements ServicesFactory {
 	}
 
 	@Override
-	public ServicePreguntas createServicePreguntas() {
-		return new SimpleServicePregunta();
+	public ServiceModelo createServicePreguntas() {
+		return new SimpleServiceModelo();
 	}
 
 	@Override

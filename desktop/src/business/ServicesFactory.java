@@ -1,9 +1,9 @@
 package business;
 
-import business.extractor.ServiceExtractor;
-import business.parser.ServiceParser;
-import business.preguntas.ServicePreguntas;
-import business.serializador.ServiceSerializador;
+import modelo.ServiceModelo;
+import business.herramientas.extractor.ServiceExtractor;
+import business.herramientas.parser.ServiceParser;
+import business.herramientas.serializador.ServiceSerializador;
 /**
  * Factoria de la capa Business
  * @author Inigo Llaneza Aller
@@ -27,7 +27,7 @@ public interface ServicesFactory {
 	 * Crea el servicio de las preguntas
 	 * @return Clase Pregunta
 	 */
-	ServicePreguntas createServicePreguntas();
+	ServiceModelo createServicePreguntas();
 	
 	/**
 	 * Crea el servicio del Serializador

@@ -6,8 +6,8 @@ import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
 
+import modelo.usuario.Usuario;
 import business.game.login.Partida;
-import business.game.login.Usuario;
 import business.game.login.acciones.Action;
 import business.game.login.acciones.util.ColorEnum;
 
@@ -53,14 +53,20 @@ public class ValidarseAction extends Action{
 		}
 		return null;
 	}
-	
+	/**
+	 * numJugadas= numero de partidas jugadas, numGanadas = numero de partidas ganadas
+	 * @param obj
+	 * @return
+	 */
 	private Usuario getUsuario(BasicDBObject obj){
 		Usuario u = new Usuario(obj.getString("_id"),
 				obj.getString("password"),
 				obj.getString("nombre"),
 				obj.getString("apellidos"),
 				obj.getString("email"),
-				obj.getInt("edad"));
+				obj.getInt("edad"),
+				obj.getInt("numJugadas"),
+				obj.getInt("numGanadas"));
 		return u;
 	}
 	

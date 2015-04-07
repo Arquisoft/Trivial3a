@@ -3,7 +3,7 @@ package business.game.login.acciones.impl;
 
 import javax.swing.JOptionPane;
 
-import business.game.login.Usuario;
+import modelo.usuario.Usuario;
 import business.game.login.acciones.Action;
 
 import com.mongodb.BasicDBObject;
@@ -21,12 +21,12 @@ public class RegistrarseAction extends Action{
 			String apellidos, String email, int edad){
 		super();
 		u = new Usuario(login, password, nombre, apellidos, 
-				email, edad);
+				email, 0, 0);
 	}
 	
 	public RegistrarseAction(String user,String email){
 		super();
-		u = new Usuario(user,"","","",email,0);
+		u = new Usuario(user,"","","",email,0, 0);
 	}
 
 	@Override

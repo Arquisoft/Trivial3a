@@ -13,13 +13,14 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import modelo.preguntas.Pregunta;
+
 import org.junit.Test;
 
-import business.parser.Parser;
-import business.parser.ParserGIFT;
-import business.parser.ParserQTI;
-import business.parser.ParserXML;
-import business.preguntas.Pregunta;
+import business.herramientas.parser.Parser;
+import business.herramientas.parser.ParserGIFT;
+import business.herramientas.parser.ParserQTI;
+import business.herramientas.parser.ParserXML;
 
 public class ParserTest {
 

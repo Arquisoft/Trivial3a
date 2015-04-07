@@ -2,7 +2,7 @@ package presentacion.game;
 
 import java.util.Map;
 
-import business.game.login.Usuario;
+import modelo.usuario.Usuario;
 import business.game.login.acciones.util.ColorEnum;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;

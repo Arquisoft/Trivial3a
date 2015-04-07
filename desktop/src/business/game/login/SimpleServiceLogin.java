@@ -1,5 +1,7 @@
 package business.game.login;
 
+import modelo.usuario.Usuario;
+
 public class SimpleServiceLogin implements ServiceLogin {
 
 	@Override

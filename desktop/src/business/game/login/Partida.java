@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
+import modelo.usuario.Usuario;
 import business.game.login.acciones.util.ColorEnum;
 
 public class Partida {

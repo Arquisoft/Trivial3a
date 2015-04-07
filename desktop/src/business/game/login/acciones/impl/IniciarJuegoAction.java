@@ -7,9 +7,9 @@ import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
 
+import modelo.usuario.Usuario;
 import presentacion.game.DesktopLauncher;
 import business.game.login.Partida;
-import business.game.login.Usuario;
 import business.game.login.acciones.Action;
 import business.game.login.acciones.util.ColorEnum;
 

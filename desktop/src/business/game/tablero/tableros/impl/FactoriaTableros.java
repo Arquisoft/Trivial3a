@@ -6,13 +6,13 @@ import business.game.tablero.tableros.Tablero;
 public class FactoriaTableros implements ServiceFactoriaTableros {
 
 	@Override
-	public Tablero getTableroCircular(int tam) {
-		return new TableroCircular(tam);
+	public Tablero getTableroCircular() {
+		return new TableroCircular();
 	}
 
 	@Override
-	public Tablero getTableroLineal(int tam) {
-		return new TableroLineal(tam);
+	public Tablero getTableroLineal() {
+		return new TableroLineal();
 	}
 
 	@Override

@@ -11,14 +11,14 @@ public interface ServiceFactoriaTableros{
 	 * @param tam
 	 * @return
 	 */
-	Tablero getTableroCircular(int tam);
+	Tablero getTableroCircular();
 	
 	/**
 	 * Creacion de tablero lineal
 	 * @param tam
 	 * @return
 	 */
-	Tablero getTableroLineal(int tam);
+	Tablero getTableroLineal();
 	
 	/**
 	 * Creacion de tablero con forma de Rueda

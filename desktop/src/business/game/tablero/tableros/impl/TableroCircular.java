@@ -19,7 +19,7 @@ public class TableroCircular implements Tablero {
 	// selector de tableros por defecto en forma de rueda
 	private LectorTipoTablero ltt = new LectorCircular();
 
-	public TableroCircular(int tam) {
+	public TableroCircular() {
 		try {
 			cn = ltt.cargarTablero("circular.txt");
 		} catch (IOException e) {

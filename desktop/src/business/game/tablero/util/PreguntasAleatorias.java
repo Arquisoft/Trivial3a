@@ -14,4 +14,6 @@ public class PreguntasAleatorias {
 	public int dado() {
 		return ((int) Math.random()) * 6;
 	}
+	
+	
 }

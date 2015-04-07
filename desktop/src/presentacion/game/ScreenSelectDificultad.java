@@ -1,7 +1,13 @@
 package presentacion.game;
 
+import java.util.List;
+import java.util.Map;
+
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
+import business.game.tablero.colores.Color;
+import business.game.tablero.jugadores.impl.Jugador;
+import business.game.tablero.tableros.Tablero;
 import business.game.tablero.tableros.impl.TableroLineal;
 
 import com.badlogic.gdx.Gdx;
@@ -52,7 +58,8 @@ public class ScreenSelectDificultad implements Screen {
 		btPequeno.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				new TableroLineal(0);
+				Tablero t = new TableroLineal();//Simulamos una partida pa probar y esas cosas, druida.
+				//generateJugadores(t, DesktopLauncher.jugadores);
 				ScreenManager.setScreen(new ScreenJuego(null, null));
 			}
 		});
@@ -72,6 +79,10 @@ public class ScreenSelectDificultad implements Screen {
 				ScreenManager.setScreen(new ScreenSelectDificultad());
 			}
 		});
+	}
+	private List<Jugador> generateJugadores(Tablero t, Map<Color, Jugador> usuarios){
+		//ColorEnum.
+		return null;
 	}
 
 	@Override

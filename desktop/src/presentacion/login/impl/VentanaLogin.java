@@ -30,14 +30,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import business.game.login.Partida;
 import business.game.login.acciones.impl.IniciarJuegoAction;
 import business.game.login.acciones.impl.RegistrarseAction;
 import business.game.login.acciones.impl.ValidarseAction;
-import business.game.login.acciones.util.*;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
 
 public class VentanaLogin extends JFrame {
 
@@ -74,7 +73,7 @@ public class VentanaLogin extends JFrame {
 	private JComboBox<String> cbColor;
 	private JPanel pnBoton;
 
-	private static Map<ColorEnum, String> jugadores =  new HashMap<ColorEnum, String>();
+	private static Map<business.game.tablero.colores.Color, String> jugadores =  new HashMap<business.game.tablero.colores.Color, String>();
 	private DefaultListModel<String> modeloLista = null;
 	private ValidarseAction valAction;
 	private IniciarJuegoAction iniciarAction;
@@ -390,20 +389,20 @@ public class VentanaLogin extends JFrame {
 		return cadena;
 	}
 	
-	private ColorEnum colorUsuario(String color){
+	private business.game.tablero.colores.Color colorUsuario(String color){
 		switch(color){
-		case ("Marron"):	
-			return  ColorEnum.MARRON;
-		case ("Verde"):
-			return ColorEnum.VERDE;
-		case ("Amarillo"):
-			return ColorEnum.AMARILLO;
-		case ("Azul"):
-			return ColorEnum.AZUL;
-		case ("Rosa"):
-			return ColorEnum.ROSA;
-		case ("Naranja"):
-			return ColorEnum.NARANJA;
+		case ("Amarillo"):	
+			return new business.game.tablero.colores.Amarillo();
+		case ("Azul"):	
+			return new business.game.tablero.colores.Azul();
+		case ("Morado"):	
+			return new business.game.tablero.colores.Morado();
+		case ("Naranja"):	
+			return new business.game.tablero.colores.Naranja();
+		case ("Rojo"):	
+			return new business.game.tablero.colores.Rojo();
+		case ("Verde"):	
+			return new business.game.tablero.colores.Verde();
 		}
 		return null;
 	}
@@ -482,7 +481,7 @@ public class VentanaLogin extends JFrame {
 	}
 	
 	private void inicializarComboColor(){
-		String[] colores =  {"Marron","Verde","Amarillo","Azul","Rosa","Naranja"};
+		String[] colores =  {"Amarillo", "Azul", "Morado", "Naranja", "Rojo", "Verde"};
 		for(int i=0; i<colores.length; i++){
 			cbColor.addItem(colores[i]);
 		}

@@ -20,6 +20,7 @@ public class TableroLinealEntity extends TableroEntity{
 		CasillaEntity aux = getCasillaRaiz();
 		Nodo auxNodo = getTablero().getReferencia();
 		while((auxNodo = auxNodo.getSiguiente())!=null){
+			//TODO SET LA POSICION
 			aux.setNextNodo(new CasillaEntity(new Texture(new FileHandle("assets/textures/game/casillaDefault.jpg")), auxNodo));
 			aux = aux.getNextNodo();
 		}

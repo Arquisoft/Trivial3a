@@ -38,7 +38,7 @@ public class IniciarJuegoAction extends Action{
 				objeto.put(e.getKey().toString(), e.getValue().getLogin());
 			}
 			coleccion.insert(objeto);
-			DesktopLauncher.jugadores=partida;
+			DesktopLauncher.jugadores=partida;//Pasamos el control al DesktopLauncher de libgdx y los jugadores con sus colores.
 			DesktopLauncher.main(new String[0]);
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null,"Ha ocurrido un error con la base de datos, vuelva a intentarlo.");

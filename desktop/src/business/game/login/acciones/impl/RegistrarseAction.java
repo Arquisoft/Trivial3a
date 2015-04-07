@@ -21,12 +21,12 @@ public class RegistrarseAction extends Action{
 			String apellidos, String email, int edad){
 		super();
 		u = new Usuario(login, password, nombre, apellidos, 
-				email, 0, 0);
+				email, edad, 0, 0, 0, 0);
 	}
 	
 	public RegistrarseAction(String user,String email){
 		super();
-		u = new Usuario(user,"","","",email,0, 0);
+		u = new Usuario(user,"","","",email,0, 0, 0, 0);
 	}
 
 	@Override
@@ -43,6 +43,8 @@ public class RegistrarseAction extends Action{
 			objeto.put("edad",u.getEdad());
 			objeto.put("numJugadas",0);
 			objeto.put("numGanadas",0);
+			objeto.put("preguntasJugadas",0);
+			objeto.put("preguntasAcertadas",0);
 			coleccion.insert(objeto);
 			return EXITO;
 		}catch(DuplicateKeyException e){

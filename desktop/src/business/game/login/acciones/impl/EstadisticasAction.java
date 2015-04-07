@@ -29,10 +29,10 @@ public class EstadisticasAction extends Action{
 		List<Usuario> filtrados = new ArrayList<Usuario>();
 		coleccion = getDb().getCollection("Users");
 		BasicDBObject q = new BasicDBObject();
-		if(campo.toLowerCase().equals("id"))
+		if(campo.toLowerCase().equals("login"))
 			q.put("_id",  java.util.regex.Pattern.compile(valor));
 		else
-			q.put(campo,  java.util.regex.Pattern.compile(valor));
+			q.put(campo.toLowerCase(),  java.util.regex.Pattern.compile(valor));
 		DBCursor cursor =  coleccion.find(q);
 	    while (cursor.hasNext()) {
 	    	obj = (BasicDBObject) cursor.next();
@@ -50,7 +50,9 @@ public class EstadisticasAction extends Action{
 				obj.getString("email"),
 				obj.getInt("edad"),
 				obj.getInt("numJugadas"),
-				obj.getInt("numGanadas"));
+				obj.getInt("numGanadas"),
+				obj.getInt("preguntasJugadas"),
+				obj.getInt("preguntasAcertadas"));
 		return u;
 	}
 

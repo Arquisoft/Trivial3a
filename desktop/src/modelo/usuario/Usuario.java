@@ -11,11 +11,14 @@ public class Usuario {
 	private int edad;
 	private int numJugadas;
 	private int numGanadas;
+	private int preguntasJugadas;
+	private int preguntasAcertadas;
 	
 	public Usuario(){}
 	
 	public Usuario (String login, String password, String nombre, 
-			String apellidos, String email, int numJugadas, int numGanadas){
+			String apellidos, String email, int numJugadas, int numGanadas,
+			int preguntasJugadas, int preguntasAcertadas){
 		this.login = login;
 		this.password = password;
 		this.nombre =  nombre;
@@ -23,11 +26,15 @@ public class Usuario {
 		this.email = email;
 		this.numJugadas = numJugadas;
 		this.numGanadas = numGanadas;
+		this.preguntasAcertadas = preguntasAcertadas;
+		this.preguntasJugadas = preguntasJugadas;
 	}
 	
 	public Usuario (String login, String password, String nombre, 
-			String apellidos, String email, int edad, int numJugadas, int numGanadas){
-		this(login, password, nombre, apellidos, email, numJugadas, numGanadas);
+			String apellidos, String email, int edad, int numJugadas, 
+			int numGanadas, int preguntasJugadas, int preguntasAcertadas){
+		this(login, password, nombre, apellidos, email, numJugadas, numGanadas,
+				preguntasJugadas, preguntasAcertadas);
 		this.edad = edad;
 		
 	}
@@ -95,6 +102,22 @@ public class Usuario {
 
 	public String toString(){
 		return "login:" + getLogin() + ", pass:" + getPassword(); 
+	}
+
+	public int getRespuestasJugadas() {
+		return preguntasJugadas;
+	}
+
+	public void setRespuestasJugadas(int respuestasJugadas) {
+		this.preguntasJugadas = respuestasJugadas;
+	}
+
+	public int getRespuestasAcertadas() {
+		return preguntasAcertadas;
+	}
+
+	public void setRespuestasAcertadas(int respuestasAcertadas) {
+		this.preguntasAcertadas = respuestasAcertadas;
 	}
 
 

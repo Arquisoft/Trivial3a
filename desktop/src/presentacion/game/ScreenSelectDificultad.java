@@ -1,16 +1,16 @@
 package presentacion.game;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 import modelo.usuario.Usuario;
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
-import business.game.tablero.colores.Azul;
+import business.game.tablero.JuegoEnTableroLineal;
 import business.game.tablero.colores.Color;
-import business.game.tablero.colores.Rojo;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.tableros.Tablero;
 import business.game.tablero.tableros.impl.TableroLineal;
@@ -63,11 +63,10 @@ public class ScreenSelectDificultad implements Screen {
 		btPequeno.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				Tablero t = new TableroLineal();//Simulamos una partida pa probar y esas cosas, druida.
-				Map<Color, Usuario> jugadores = new HashMap<Color, Usuario>(); //Simulamos unos jugadores
-				jugadores.put(new Azul(), new Usuario("a", "a", "a", "a", "a",0,0));
-				jugadores.put(new Rojo(), new Usuario("b", "b", "b", "b", "b",0,0));
-				generateJugadores(t, jugadores);
+				TableroLineal tablero = new TableroLineal();
+				List<Jugador> jugadores = generateJugadores(tablero, DesktopLauncher.jugadores);
+				Queue<Jugador> cola = new LinkedList<Jugador>(jugadores);
+				JuegoEnTableroLineal juego = new JuegoEnTableroLineal(cola);
 				ScreenManager.setScreen(new ScreenJuego(null, null));
 			}
 		});
@@ -88,10 +87,17 @@ public class ScreenSelectDificultad implements Screen {
 			}
 		});
 	}
-	private List<Jugador> generateJugadores(Tablero t, Map<Color, Usuario> usuarios){
+	
+	/**
+	 * Transforma los usuarios de la base de datos a una lista de jugadores con sus colores
+	 * @param t
+	 * @param usuarios
+	 * @return
+	 */
+	private List<Jugador> generateJugadores(Tablero tablero, Map<Color, Usuario> usuarios){
 		List<Jugador> jugadores = new ArrayList<Jugador>();
-		for(Color c: usuarios.keySet()){
-			System.out.println(usuarios.get(c).getNombre());
+		for(Color color: usuarios.keySet()){
+			jugadores.add(new Jugador(tablero, usuarios.get(color), color));//
 		}
 		return jugadores;
 	}

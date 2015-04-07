@@ -48,5 +48,11 @@ public class TableroLineal implements Tablero{
 			// TODO Auto-generated method stub
 			return raiz;
 		}
+
+		@Override
+		public int getTamaño() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 	}
 

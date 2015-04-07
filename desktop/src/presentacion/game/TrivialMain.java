@@ -15,6 +15,6 @@ public class TrivialMain extends Game {
 	@Override
 	public void create () {
 		AssetsManager.initialize();
-		ScreenManager.setScreen(new Inicio());
+		ScreenManager.setScreen(new ScreenInicio());
 	}
 }

@@ -1,6 +1,10 @@
 package presentacion.game;
 
+import java.util.List;
+
+import presentacion.game.entities.TableroEntity;
 import presentacion.game.managers.AssetsManager;
+import business.game.tablero.jugadores.impl.Jugador;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -16,7 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
-public class Juego implements Screen {
+public class ScreenJuego implements Screen {
 	public final static float BUTTON_W=0.3f*Gdx.graphics.getWidth();//Width
 	public final static float BUTTON_H=0.1f*Gdx.graphics.getHeight();//Height
 	public final static float BUTTON_S=0.05f*Gdx.graphics.getHeight();//Spacing
@@ -31,6 +35,14 @@ public class Juego implements Screen {
 	private Image bgPregunta;
 	private Table tableTablero;
 	private Image bgTablero;
+	
+	private TableroEntity tablero;
+	private List<Jugador> jugadores;
+	
+	public ScreenJuego(TableroEntity tablero, List<Jugador> jugadores){
+		setTablero(tablero);
+		setJugadores(jugadores);	
+	}
 	
 	@Override
 	public void show () {
@@ -131,4 +143,22 @@ public class Juego implements Screen {
 		// TODO Auto-generated method stub
 		
 	}
+	//GETTERS AND SETTERS
+
+	public TableroEntity getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(TableroEntity tablero) {
+		this.tablero = tablero;
+	}
+
+	public List<Jugador> getJugadores() {
+		return jugadores;
+	}
+
+	public void setJugadores(List<Jugador> jugadores) {
+		this.jugadores = jugadores;
+	}
+	
 }

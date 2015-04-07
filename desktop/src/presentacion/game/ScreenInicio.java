@@ -18,7 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
-public class Inicio implements Screen {
+public class ScreenInicio implements Screen {
 	public final static float BUTTON_W=0.3f*Gdx.graphics.getWidth();//Width
 	public final static float BUTTON_H=0.1f*Gdx.graphics.getHeight();//Height
 	public final static float BUTTON_S=0.05f*Gdx.graphics.getHeight();//Spacing

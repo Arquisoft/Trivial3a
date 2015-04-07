@@ -6,5 +6,5 @@ package business.game.tablero.colores;
 //sea m�s facil en mi opini�n gestionar los accesos a una 
 //base de datos en funci�n de las categor�as de la pregunta
 public interface Color {
-
+	public com.badlogic.gdx.graphics.Color getColorLibgdx();
 }

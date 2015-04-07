@@ -2,6 +2,7 @@ package presentacion.game;
 
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
+import business.game.tablero.tableros.impl.TableroLineal;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -51,8 +52,8 @@ public class ScreenSelectDificultad implements Screen {
 		btPequeno.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				
-				ScreenManager.setScreen(new Juego());
+				new TableroLineal(0);
+				ScreenManager.setScreen(new ScreenJuego(null, null));
 			}
 		});
 		final TextButton btMedio = new TextButton(AssetsManager.LOCALIZATION.get("btMedio"), AssetsManager.skin, "default");

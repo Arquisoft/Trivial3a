@@ -2,6 +2,8 @@ package presentacion.game.entities;
 
 import business.game.tablero.tableros.Tablero;
 
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
@@ -9,25 +11,31 @@ public abstract class TableroEntity extends Actor{
 	/**
 	 * La lógica del tablero
 	 */
-	private Tablero tablero;	
-	
-	/** Casilla raíz en la que se empieza. Debería ser la misma que la de nodo raíz del tablero. No me responsabilizo si alguien hace cosas raras.*/
-	//private CasillaEntity casillaRaiz;
-	//private CasillaEntity casillaAux;
-	//private ContenedorCasillasEntity casillas;
+	private Tablero tablero;
+	/**
+	 * Casilla ra�z para pintar
+	 */
+	private CasillaEntity casillaRaiz;
  	
 	public TableroEntity(Tablero tablero){
 		setTablero(tablero);
+		generateCasillas();
 	}
+	
+	/** Genera los dibujos de las casillas. Depende del tablero*/
+	protected abstract void generateCasillas();
 	
 	@Override
 	public void act(float delta) {
-
+		
 	}
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		//tablero.
+		CasillaEntity c = casillaRaiz;
+		do {
+			c.draw(batch, parentAlpha);
+		}while((c = c.getNextNodo()) != null);
 	}
 	
 	//Getters and setters
@@ -38,4 +46,13 @@ public abstract class TableroEntity extends Actor{
 	public void setTablero(Tablero tablero) {
 		this.tablero = tablero;
 	}
+
+	public CasillaEntity getCasillaRaiz() {
+		return casillaRaiz;
+	}
+
+	public void setCasillaRaiz(CasillaEntity casillaRaiz) {
+		this.casillaRaiz = casillaRaiz;
+	}
+	
 }

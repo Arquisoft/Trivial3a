@@ -20,6 +20,7 @@ public class ValidarseAction extends Action{
 	public String login;
 	public String password;
 	public ColorEnum color;
+	private boolean isAdmin;
 
 	
 	DBObject query;
@@ -30,16 +31,20 @@ public class ValidarseAction extends Action{
 		this.login = login;
 		this.password = password;
 		this.color = color;
-		
-		coleccion = getDb().getCollection("Users");
-		query = new BasicDBObject();
-		query.put("_id", login);
-		query.put("password", password);
-		try{
-			obj = (BasicDBObject) coleccion.findOne(query);
-			setServerStatus(true);
-		}catch(Exception e){
-			setServerStatus(false);
+		isAdmin = false;
+		if(login.equals("admin") && password.equals("admin"))
+			isAdmin = true;
+		else{
+			coleccion = getDb().getCollection("Users");
+			query = new BasicDBObject();
+			query.put("_id", login);
+			query.put("password", password);
+			try{
+				obj = (BasicDBObject) coleccion.findOne(query);
+				setServerStatus(true);
+			}catch(Exception e){
+				setServerStatus(false);
+			}
 		}
 		
 	}
@@ -104,6 +109,9 @@ public class ValidarseAction extends Action{
 		return false;
 	}
 	
+	public boolean getIsAdmin(){
+		return isAdmin;
+	}
 	
 	public String getMessage(){
 		return this.message;

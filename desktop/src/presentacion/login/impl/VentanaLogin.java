@@ -359,15 +359,19 @@ public class VentanaLogin extends JFrame {
 	}
 	
 	private boolean validarse(){
-		
 		String nombre_usuario = txNombreEntrar.getText().toString();
 		char[] password = txPassword.getPassword();
 		String color = cbColor.getSelectedItem().toString();
 		valAction = new ValidarseAction(nombre_usuario, transPassword(password), colorUsuario(color));
-		if(valAction.isCorrecto()){
+		if(!valAction.getIsAdmin() && valAction.isCorrecto()){
 			valAction.execute();
 			jugadores.put(colorUsuario(color),nombre_usuario);
 			addJugador(cbColor.getSelectedItem().toString());
+			inicializar();
+			return true;
+		}
+		else if(valAction.getIsAdmin()){
+			mostrarVentanaAdmin();
 			inicializar();
 			return true;
 		}
@@ -463,6 +467,12 @@ public class VentanaLogin extends JFrame {
 			pnBoton.add(getBtIniciarJuego());
 		}
 		return pnBoton;
+	}
+	
+	private void mostrarVentanaAdmin(){
+		VentanaAdmin vA = new VentanaAdmin();
+		vA.setLocationRelativeTo(this);
+		vA.setVisible(true);		
 	}
 	
 	private void mostrarVentanaRegistro(){

@@ -2,18 +2,19 @@ package business.game.tablero;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Queue;
 
+import modelo.preguntas.Pregunta;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.util.PreguntasAleatorias;
 
 public class JuegoEnTableroLineal {
-	private boolean activo = true;
-	private List<Jugador> contenedorDeJugadores = new ArrayList<Jugador>();
+
 	private Queue<Jugador> jugadores = new ArrayDeque<Jugador>();
 	private Jugador actual;
 	private int valorDadoActual;
+	private Pregunta pregunta;
+	private ArrayList<String> respuestasMezcladas;
 
 	// Ala aquï¿½ poneis bots o lo que querais en principio un metodo jugar
 	// habï¿½a
@@ -52,18 +53,21 @@ public class JuegoEnTableroLineal {
 		valorDadoActual = PreguntasAleatorias.getInstance().dado();
 	}
 
+	/**
+	 * el publico de mover a la derecha asociado al boton
+	 */
 	public void jugarDerecha() {
 		jugarDerecha(valorDadoActual);
-		boolean acierto = responderPregunta();
-		if (acierto) {
-			actual.addQuesito(actual.getActual().getColor());
-			if (actual.isVictoria()) {
-				ganar();
-			}
-		} else {
-			jugadores.offer(actual);
-			actual = jugadores.poll();
-		}
+		pregunta = getPregunta();
+		mostrarPregunta();
+		respuestasMezcladas = PreguntasAleatorias.getInstance().desordenar(
+				pregunta.getRespuestaCorrecta(),
+				pregunta.getRespuestasIncorrectas());
+	}
+
+	private Pregunta getPregunta() {
+
+		return actual.getActual().getColor().getPregunta();
 	}
 
 	/**
@@ -73,23 +77,94 @@ public class JuegoEnTableroLineal {
 
 	}
 
+	/**
+	 * el publico de mover a la izquierda asociado al boton
+	 */
 	public void jugarIzquierda() {
 		jugarIzquierda(valorDadoActual);
-		boolean acierto = responderPregunta();
-		if (acierto) {
-			actual.addQuesito(actual.getActual().getColor());
-			if (actual.isVictoria()) {
-				ganar();
+		pregunta = getPregunta();
+		mostrarPregunta();
+		respuestasMezcladas = PreguntasAleatorias.getInstance().desordenar(
+				pregunta.getRespuestaCorrecta(),
+				pregunta.getRespuestasIncorrectas());
+	}
+
+	/**
+	 * otro método para que muestres como quieras las pregnutas en la interfaz
+	 * puedes usarlos o quitarlos o como veas
+	 */
+	private void mostrarPregunta() {
+		// TODO Auto-generated method stub
+
+	}
+
+	/**
+	 * cuando pulsas el boton que sea el primero el 0 etc
+	 */
+	public void responderAsociadoAPrimerBoton(int boton) {
+		switch (boton) {
+		case 0:
+			if (respuestasMezcladas.get(0).equals(
+					pregunta.getRespuestaCorrecta())) {
+				actual.addQuesito(actual.getActual().getColor());
+				if (actual.isVictoria())
+					ganar();
+			} else {
+				siguienteJugador();
+
 			}
-		} else {
-			jugadores.offer(actual);
-			actual = jugadores.poll();
+			break;
+		case 1:
+			if (respuestasMezcladas.get(1).equals(
+					pregunta.getRespuestaCorrecta())) {
+				actual.addQuesito(actual.getActual().getColor());
+				if (actual.isVictoria())
+					ganar();
+			} else {
+				siguienteJugador();
+			}
+			break;
+		case 2:
+			if (respuestasMezcladas.get(2).equals(
+					pregunta.getRespuestaCorrecta())) {
+				actual.addQuesito(actual.getActual().getColor());
+				if (actual.isVictoria())
+					ganar();
+			} else {
+				siguienteJugador();
+			}
+			break;
+		case 3:
+			if (respuestasMezcladas.get(3).equals(
+					pregunta.getRespuestaCorrecta())) {
+				actual.addQuesito(actual.getActual().getColor());
+				if (actual.isVictoria())
+					ganar();
+			} else {
+				siguienteJugador();
+			}
+			break;
 
 		}
 	}
 
-	private boolean responderPregunta() {
-		
-		return false;
+	/**
+	 * mueve la referencia del jugador al siguiente
+	 */
+	private void siguienteJugador() {
+		jugadores.add(actual);
+		actual = jugadores.poll();
+
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param jugadores
+	 */
+	public JuegoEnTableroLineal(Queue<Jugador> jugadores) {
+		super();
+		this.jugadores = jugadores;
+		actual = jugadores.poll();
 	}
 }

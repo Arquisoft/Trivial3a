@@ -27,21 +27,23 @@ public class JuegoEnTableroLineal {
 	// bastante bien
 
 	private void jugarDerecha(int posiciones) {
-		for (int i = posiciones; i > 0; i++) {
+		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getSiguiente() != null) {
 				actual.setActual(actual.getActual().getSiguiente());
 			} else {
 				jugarIzquierda(i);
+				break;
 			}
 		}
 	}
 
 	private void jugarIzquierda(int posiciones) {
-		for (int i = posiciones; i > 0; i++) {
+		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getAnterior() != null) {
 				actual.setActual(actual.getActual().getAnterior());
 			} else {
 				jugarDerecha(i);
+				break;
 			}
 		}
 	}
@@ -101,7 +103,7 @@ public class JuegoEnTableroLineal {
 	/**
 	 * cuando pulsas el boton que sea el primero el 0 etc
 	 */
-	public void responderAsociadoAPrimerBoton(int boton) {
+	public void responderAsociadoBoton(int boton) {
 		switch (boton) {
 		case 0:
 			if (respuestasMezcladas.get(0).equals(

@@ -28,15 +28,15 @@ public class TableroCircular implements Tablero {
 		// pillamos un nodo con quesito y partimos de �l
 		raiz = aux = cn.getNodosQuesito().get(0);
 		// enlazamos los extremos
-		raiz.setAnterior(cn.getNodosQuesito().get(cn.getNodosQuesito().size()));
+		raiz.setAnterior(cn.getNodosQuesito().get(cn.getNodosQuesito().size() - 1));
 		raiz.setSiguiente(cn.getNodosQuesito().get(1));
-		cn.getNodosQuesito().get(cn.getNodosQuesito().size())
+		cn.getNodosQuesito().get(cn.getNodosQuesito().size() -1)
 				.setSiguiente(raiz);
 		cn.getNodosQuesito()
-				.get(cn.getNodosQuesito().size())
+				.get(cn.getNodosQuesito().size() -1)
 				.setAnterior(
 						cn.getNodosQuesito().get(
-								cn.getNodosQuesito().size() - 1));
+								cn.getNodosQuesito().size() - 2));
 		// enlazamos circularmente
 		for (int i = 1; i < cn.getNodosQuesito().size() - 1; i++) {
 			aux.setAnterior(cn.getNodosQuesito().get(i - 1));

@@ -9,5 +9,5 @@ import modelo.preguntas.Pregunta;
 //base de datos en funciï¿½n de las categorï¿½as de la pregunta
 public interface Color {
 	public com.badlogic.gdx.graphics.Color getColorLibgdx();
-	public Pregunta getPregunta();
+	public Pregunta getPregunta();//TODO conexión a base de datos y sacar pregunta de cada categoría.
 }

@@ -31,7 +31,7 @@ public class TableroLineal implements Tablero{
 			// enlazamos los extremos
 			raiz.setSiguiente(cn.getNodosQuesito().get(1));
 			cn.getNodosQuesito()
-					.get(cn.getNodosQuesito().size())
+					.get(cn.getNodosQuesito().size() - 1)
 					.setAnterior(
 							cn.getNodosQuesito().get(
 									cn.getNodosQuesito().size() - 1));

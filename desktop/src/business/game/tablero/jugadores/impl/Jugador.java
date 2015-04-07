@@ -1,5 +1,6 @@
 package business.game.tablero.jugadores.impl;
 
+import modelo.usuario.Usuario;
 import business.game.tablero.colores.Color;
 import business.game.tablero.nodos.Nodo;
 import business.game.tablero.nodos.impl.NodoQuesito;
@@ -11,6 +12,16 @@ public class Jugador {
 	private Tablero t;
 	private Nodo actual;
 	private boolean victoria = false;
+	private Usuario usuario;
+	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public Tablero getT() {
 		return t;

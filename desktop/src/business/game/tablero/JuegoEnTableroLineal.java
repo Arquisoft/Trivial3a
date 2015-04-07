@@ -45,6 +45,9 @@ public class JuegoEnTableroLineal {
 		}
 	}
 
+	/**
+	 * metodo para lanzar el dado, cuando lo lanzas lo pones disabled
+	 */
 	public void lanzarDado() {
 		valorDadoActual = PreguntasAleatorias.getInstance().dado();
 	}
@@ -52,10 +55,41 @@ public class JuegoEnTableroLineal {
 	public void jugarDerecha() {
 		jugarDerecha(valorDadoActual);
 		boolean acierto = responderPregunta();
+		if (acierto) {
+			actual.addQuesito(actual.getActual().getColor());
+			if (actual.isVictoria()) {
+				ganar();
+			}
+		} else {
+			jugadores.offer(actual);
+			actual = jugadores.poll();
+		}
+	}
+
+	/**
+	 * Para que hagas lo que quieras al ganar
+	 */
+	private void ganar() {
 
 	}
 
+	public void jugarIzquierda() {
+		jugarIzquierda(valorDadoActual);
+		boolean acierto = responderPregunta();
+		if (acierto) {
+			actual.addQuesito(actual.getActual().getColor());
+			if (actual.isVictoria()) {
+				ganar();
+			}
+		} else {
+			jugadores.offer(actual);
+			actual = jugadores.poll();
+
+		}
+	}
+
 	private boolean responderPregunta() {
+		
 		return false;
 	}
 }

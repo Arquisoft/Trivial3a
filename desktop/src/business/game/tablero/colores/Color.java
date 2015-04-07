@@ -1,5 +1,7 @@
 package business.game.tablero.colores;
 
+import modelo.preguntas.Pregunta;
+
 //los colores de las respectivas preguntas
 //est� hecho con implementaci�n de muchas clases 
 //por si se queire hacer lapr�ctica persistente que 
@@ -7,4 +9,5 @@ package business.game.tablero.colores;
 //base de datos en funci�n de las categor�as de la pregunta
 public interface Color {
 	public com.badlogic.gdx.graphics.Color getColorLibgdx();
+	public Pregunta getPregunta();
 }

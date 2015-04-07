@@ -2,7 +2,6 @@ package modelo.preguntas;
 
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Pregunta {
 

@@ -11,7 +11,7 @@ public class Connection {
 	 * Método que conecta la aplicación con el servidor
 	 * @return base de datos con la que se desea trabajar
 	 */
-	@SuppressWarnings({ "deprecation", "resource" })
+
 	public static DB DatabaseConnection(){
 		MongoClient mongo;
 		try {

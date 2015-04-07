@@ -71,7 +71,9 @@ public class ValidarseAction extends Action{
 				obj.getString("email"),
 				obj.getInt("edad"),
 				obj.getInt("numJugadas"),
-				obj.getInt("numGanadas"));
+				obj.getInt("numGanadas"),
+				obj.getInt("preguntasJugadas"),
+				obj.getInt("preguntasAcertadas"));
 		return u;
 	}
 	

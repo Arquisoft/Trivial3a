@@ -11,14 +11,14 @@ import modelo.usuario.Usuario;
 import presentacion.game.DesktopLauncher;
 import business.game.login.Partida;
 import business.game.login.acciones.Action;
-import business.game.login.acciones.util.ColorEnum;
+import business.game.tablero.colores.Color;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
 public class IniciarJuegoAction extends Action{
 	
-	private Map<ColorEnum, Usuario> partida;
+	private Map<Color, Usuario> partida;
 	
 	public IniciarJuegoAction() {
 		super();
@@ -32,9 +32,9 @@ public class IniciarJuegoAction extends Action{
 			
 			DBObject objeto= new BasicDBObject();
 			objeto.put("_id", nextId());
-			Iterator<Entry<ColorEnum, Usuario>> it = partida.entrySet().iterator();
+			Iterator<Entry<Color, Usuario>> it = partida.entrySet().iterator();
 			while (it.hasNext()) {
-				Entry<ColorEnum, Usuario> e = it.next();
+				Entry<Color, Usuario> e = it.next();
 				objeto.put(e.getKey().toString(), e.getValue().getLogin());
 			}
 			coleccion.insert(objeto);

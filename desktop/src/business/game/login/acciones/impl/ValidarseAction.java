@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import modelo.usuario.Usuario;
 import business.game.login.Partida;
 import business.game.login.acciones.Action;
-import business.game.login.acciones.util.ColorEnum;
+import business.game.tablero.colores.Color;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
@@ -19,14 +19,14 @@ public class ValidarseAction extends Action{
 	private String message;
 	public String login;
 	public String password;
-	public ColorEnum color;
+	public Color color;
 	private boolean isAdmin;
 
 	
 	DBObject query;
 	BasicDBObject obj;
 	
-	public ValidarseAction(String login, String password, ColorEnum color){
+	public ValidarseAction(String login, String password, Color color){
 		super();
 		this.login = login;
 		this.password = password;
@@ -76,9 +76,9 @@ public class ValidarseAction extends Action{
 	}
 	
 	private boolean usuarioDuplicado(Usuario u){
-		Iterator<Entry<ColorEnum, Usuario>> it = Partida.getPartida().entrySet().iterator();
+		Iterator<Entry<Color, Usuario>> it = Partida.getPartida().entrySet().iterator();
 		while (it.hasNext()) {
-			Entry<ColorEnum, Usuario> e = it.next();
+			Entry<Color, Usuario> e = it.next();
 			String login = e.getValue().getLogin();
 			if(login.equals(u.getLogin())){
 				

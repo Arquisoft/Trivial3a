@@ -13,6 +13,7 @@ public class Jugador {
 	private Nodo actual;
 	private boolean victoria = false;
 	private Usuario usuario;
+	private Color color;/** El color escogido por el usuario */
 	
 	
 	public Usuario getUsuario() {
@@ -47,10 +48,12 @@ public class Jugador {
 		this.victoria = victoria;
 	}
 
-	public Jugador(int tam, Tablero t) {
-		quesitos = new Color[tam];
+	public Jugador(Tablero t, Usuario usuario, Color color) {
+		quesitos = new Color[t.getTamaño()];
 		this.t = t;
 		actual = t.getReferencia();
+		this.color = color;
+		this.usuario = usuario;
 	}
 
 	public void moverDerecha(int posiciones) {

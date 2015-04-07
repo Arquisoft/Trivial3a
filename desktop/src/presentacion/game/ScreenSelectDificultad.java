@@ -2,12 +2,15 @@ package presentacion.game;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 import modelo.usuario.Usuario;
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
+import business.game.tablero.JuegoEnTableroLineal;
 import business.game.tablero.colores.Azul;
 import business.game.tablero.colores.Color;
 import business.game.tablero.colores.Rojo;
@@ -88,10 +91,17 @@ public class ScreenSelectDificultad implements Screen {
 			}
 		});
 	}
-	private List<Jugador> generateJugadores(Tablero t, Map<Color, Usuario> usuarios){
+	
+	/**
+	 * Transforma los usuarios de la base de datos a una lista de jugadores con sus colores
+	 * @param t
+	 * @param usuarios
+	 * @return
+	 */
+	private List<Jugador> generateJugadores(Tablero tablero, Map<Color, Usuario> usuarios){
 		List<Jugador> jugadores = new ArrayList<Jugador>();
-		for(Color c: usuarios.keySet()){
-			System.out.println(usuarios.get(c).getNombre());
+		for(Color color: usuarios.keySet()){
+			jugadores.add(new Jugador(tablero, usuarios.get(color), color));//
 		}
 		return jugadores;
 	}

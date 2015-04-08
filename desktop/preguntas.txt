@@ -70,7 +70,45 @@
 ~ Los Angeles
 }
 
+::geografia10::
+¿Cuál es el río español de curso más largo?{
+~El Guadiana
+~El Duero
+=El Ebro
+~El Nalón
+]
 
+::geografi11::
+¿Cuál es el primer equinoccio del año?{
+~El de otoño
+=El de primavera
+~El de invierno
+~El de enero
+}
+
+::geografia12::
+¿Qué sistema montañoso se extiende desde Sierra Nevada hasta el cabo de Tarifa?{
+=El Penibético
+~El Bético
+~Sierra Morena
+~Sistema Sub-Betico
+}
+
+::geografia13::
+¿Qué continente es el Novisimo?{
+~Africa
+~America del Norte
+=Oceania
+~Asia
+}
+
+::geografia14::
+¿Cuál es la Capital de Eslovenia?[{
+=Liubliana
+~Minsk
+~Belgrado
+~Kiev
+}
 
 ::deportes1::
 ¿Cuántos jugadores se pueden sustituir en un partido de fútbol amistoso? {
@@ -88,7 +126,45 @@
 ~ Decada de 1980
 }
 
+::deportes3::
+¿En qué deportes se marcan goles acuaticos?{
+~Futbol
+=Water polo
+~Baloncesto
+~Tenis
+}
 
+::deportes4::
+¿Qué país fue campeón olímpico de fútbol en Barcelona 92?{
+~Brasil
+~Holanda
+=España
+~Francia
+}
+
+::deportes5::
+¿cuántos futbolistas como máximo puede inscribir un club al comenzar la Liga?{
+=22
+~20
+~18
+~24
+}
+
+::deportes6::
+¿Qué pieza de ajedrez se mueve en forma de L?{
+~El alfil
+~La torre
+=El caballo
+~El rey
+}
+
+::deportes7::
+¿En qué deporte se juega la Copa Davis?{
+~En badminton
+=En tenis
+~En balonmano
+~En futbol
+}
 
 ::ciencias1::
 ¿Es la araña un insecto? {
@@ -137,8 +213,45 @@
 = 8000 millas
 ~ 2300 millas
 }
+::ciencias7::
+¿Cuántas células tiene una ameba?{
+~5
+~3
+=1
+~7
+}
 
+::ciencias8::
+¿Cómo se llama el árbol cuya semila es el café?{
+~Cafetal
+=Cafeto
+~Cafeina
+~Café
+}
 
+::ciencias9::
+¿Cuántas patas tiene una araña?{
+~2
+~6
+=8
+~10
+}
+
+::ciencias10::
+¿Cuál es el mayor arteria del cuerpo humano?{
+~La Cava
+=La Aorta
+~La iliaca
+~La Carotida
+}
+
+::ciencias11::
+¿A qué astro del Sistema Solar también se le llama Planeta Rojo?{
+~A Plutón
+~A Urano
+=A Marte
+~A la Tierra
+}
 
 ::arte1::
 ¿Cuántos años después de que Mickey Mouse debutó se presentó Minnie Mouse? {
@@ -148,6 +261,45 @@
 ~ 5 años despues
 }
 
+::arte2::
+¿Junto a qué dos agentes secretos aparece el Superintendente Vicente?{
+=A Mortadelo y Filemón
+~A Tom y Jerry
+~A Piolin y Silvestre
+~A Castle y Beckett
+}
+
+::arte3::
+¿Quién era el más presumido y el mejor vestido de los Tres Mosqueteros?{
+~Porthos
+~Athos
+=Aramis
+~Dartagnan
+}
+
+::arte4::
+¿Cuál es el nombre que se le dio en España a Daffy Duck?{
+~Pato Loco
+~Pepito Grillo
+~Tom el pato
+=El pato Lucas
+}
+
+::arte5::
+¿De qué color es el traje de Flash Gordon?{
+=Rojo
+~Azul
+~Negro
+~Verde
+}
+
+::arte6::
+¿Cómo se llama el inventor amigo de Marty en Regreso al futuro?{
+=Doc
+~James
+~Peter
+~Spiderman
+}
 
 
 ::otros1::
@@ -166,12 +318,50 @@
 ~ 9
 }
 
-
-
 ::historia1::
 ¿Qué pie puso primero Neil Amstrong sobre la Luna? {
 ~ Derecho
 = Izquierdo
 ~ Los dos a la vez
 ~ Ninguno, no llego a pisarla
+}
+
+::historia2::
+¿En qué localidad de Burgos nació el Cid?{
+~En Limpias
+=En Vivar
+~En Villarcayo
+~En Bercedo
+}
+
+::historia3::
+¿Qué edad histórica comenzó con la caida de Roma?{
+~La Edad Moderna
+~El Prerománico
+=La Edad Media
+~El Barroco
+}
+
+::historia4::
+¿Cuál fue el pueblo que junto a los celtas, primero pobló la peninsula Ibérica?{
+~Los alanos
+=Los iberos
+~Los vándalos
+~Los francos
+}
+
+::historia5::
+¿Qué nombre de pila tenía el emperador alemán que también reinó en España?{
+~Felipe
+~Juan de Austria
+=Carlos
+~Augusto
+}
+
+::historia6::
+¿Con qué nombre bautizó Cristobal Colón a la primera isla que descubrió?{
+~La Española
+~Las Antillas
+=San Salvador
+~Santo Domingo
 }

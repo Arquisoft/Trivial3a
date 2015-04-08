@@ -66,10 +66,14 @@ header .logo {
  }
  
   h3{
- 	color:#8A2908;
+ 	
  	font-size:45px;
  	text-align:center;
  	padding:15px;
+ }
+ 
+ h3 a{
+ 	color:#8A2908;	
  }
  
  h4{
@@ -79,6 +83,10 @@ header .logo {
  	padding:10px;
  }
  
+  h4 a{
+ 	color:blue;	
+ }
+ 
   h5{
  	color:#0080FF;
  	font-size:35px;
@@ -86,11 +94,18 @@ header .logo {
  	padding:10px;
  }
  
+  h5 a{
+ 	color:#0080FF;	
+ }
+ 
   h6{
  	color:#0B0B3B;
  	font-size:30px;
  	text-align:center;
  	padding:10px;
+ }
+  h6 a{
+ 	color:#0B0B3B;
  }
 
 .tablero {

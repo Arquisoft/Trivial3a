@@ -15,7 +15,7 @@ public class DesktopLauncher {
 //		config.height=768;
 //		config.width=1366;
 		config.resizable=true;
-		config.fullscreen=true;
+		config.fullscreen=false;
 		config.title="Trivial 3A";
 		
 		

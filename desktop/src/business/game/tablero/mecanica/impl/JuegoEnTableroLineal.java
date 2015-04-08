@@ -25,7 +25,7 @@ public class JuegoEnTableroLineal {
 	// est�n hechos dos tableros uno rueda con radios y otro sin ellos
 	// el ganar lo puse con un quesito de cada color creo que se entiende
 	// bastante bien
-
+	
 	private void jugarDerecha(int posiciones) {
 		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getSiguiente() != null) {

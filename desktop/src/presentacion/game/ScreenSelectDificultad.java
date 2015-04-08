@@ -3,18 +3,16 @@ package presentacion.game;
 import infraestructura.Factories;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
 import modelo.usuario.Usuario;
+import presentacion.game.entities.impl.TableroLinealEntity;
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
-import business.game.tablero.colores.Azul;
 import business.game.tablero.colores.Color;
-import business.game.tablero.colores.Rojo;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
 import business.game.tablero.tableros.Tablero;
@@ -81,8 +79,8 @@ public class ScreenSelectDificultad implements Screen {
 				JuegoEnTableroLineal juego = Factories.services
 						.createServiceGame().serviceMecanica()
 						.getJuegoEnTableroLineal(cola);
-				ScreenManager.setScreen(new ScreenJuego(juego, tablero,
-						jugadores));
+				ScreenManager.setScreen(new ScreenJuego(juego,
+						jugadores, new TableroLinealEntity(tablero)));
 			}
 		});
 		final TextButton btMedio = new TextButton(

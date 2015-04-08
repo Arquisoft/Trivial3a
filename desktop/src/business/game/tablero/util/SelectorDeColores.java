@@ -23,19 +23,19 @@ public class SelectorDeColores {
 	// le llega un String y lo convierte en el color que sea
 	public Color getColor(String color) {
 		switch (color) {
-		case "amarillo":
+		case "Amarillo":
 			return new Amarillo();
-		case "azul":
+		case "Azul":
 			return new Azul();
-		case "incoloro":
+		case "Incoloro":
 			return new Incoloro();
-		case "morado":
+		case "Morado":
 			return new Morado();
-		case "naranja":
+		case "Naranja":
 			return new Naranja();
-		case "rojo":
+		case "Rojo":
 			return new Rojo();
-		case "verde":
+		case "Verde":
 			return new Verde();
 		}
 

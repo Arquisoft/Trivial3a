@@ -2,21 +2,24 @@ package presentacion.game.entities;
 
 import business.game.tablero.nodos.Nodo;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 public class CasillaEntity extends Actor{
-	/** La imagen como la que se pintará la casilla*/
+	/** La imagen como la que se pintarï¿½ la casilla*/
 	private Image textura;
 	/**El nodo al que hace referencia*/
 	private Nodo nodo;
 	/**El siguiente nodo a dibujar*/
 	private CasillaEntity nextNodo;
 	public CasillaEntity(Texture textura, Nodo nodo){
+		setNodo(nodo);
 		setTextura(new Image(textura));
-		this.textura.setColor(nodo.getColor().getColorLibgdx());
+		Color color = nodo.getColor().getColorLibgdx();
+		this.textura.setColor(color);
 	}
 	@Override
 	public void draw(Batch batch, float parentAlpha){

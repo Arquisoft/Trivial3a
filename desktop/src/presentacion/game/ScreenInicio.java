@@ -58,7 +58,7 @@ public class ScreenInicio implements Screen {
 		btOpciones.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {	
-
+				//TODO ScreenManager.setScreen(new ScreenOpciones);
 			}
 		});
 		final TextButton btSalir = new TextButton(AssetsManager.LOCALIZATION.get("mainMenuExit"), AssetsManager.skin, "default");

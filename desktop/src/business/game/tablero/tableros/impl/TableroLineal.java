@@ -45,14 +45,12 @@ public class TableroLineal implements Tablero{
 
 		@Override
 		public Nodo getReferencia() {
-			// TODO Auto-generated method stub
 			return raiz;
 		}
 
 		@Override
 		public int getTamano() {
-			// TODO Auto-generated method stub
-			return 0;
+			return 6;
 		}
 	}
 

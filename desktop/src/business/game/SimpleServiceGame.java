@@ -4,6 +4,8 @@ import business.game.login.ServiceLogin;
 import business.game.login.SimpleServiceLogin;
 import business.game.tablero.ServiceTablero;
 import business.game.tablero.SimpleServiceTablero;
+import business.game.tablero.mecanica.ServiceFactoriaMecanica;
+import business.game.tablero.mecanica.impl.SimpleServiceFactoriaMecanica;
 
 public class SimpleServiceGame implements ServiceGame {
 
@@ -17,4 +19,8 @@ public class SimpleServiceGame implements ServiceGame {
 		return new SimpleServiceLogin();
 	}
 
+	@Override
+	public ServiceFactoriaMecanica serviceMecanica() {
+		return new SimpleServiceFactoriaMecanica();
+	}
 }

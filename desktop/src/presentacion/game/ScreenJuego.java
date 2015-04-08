@@ -4,8 +4,8 @@ import java.util.List;
 
 import presentacion.game.entities.TableroEntity;
 import presentacion.game.managers.AssetsManager;
-import business.game.tablero.JuegoEnTableroLineal;
 import business.game.tablero.jugadores.impl.Jugador;
+import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
 import business.game.tablero.tableros.Tablero;
 
 import com.badlogic.gdx.Gdx;

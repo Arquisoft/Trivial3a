@@ -10,11 +10,11 @@ import java.util.Queue;
 import modelo.usuario.Usuario;
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
-import business.game.tablero.JuegoEnTableroLineal;
 import business.game.tablero.colores.Azul;
 import business.game.tablero.colores.Color;
 import business.game.tablero.colores.Rojo;
 import business.game.tablero.jugadores.impl.Jugador;
+import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
 import business.game.tablero.tableros.Tablero;
 import business.game.tablero.tableros.impl.TableroLineal;
 

@@ -1,4 +1,4 @@
-package business.game.tablero;
+package business.game.tablero.mecanica.impl;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public class JuegoEnTableroLineal {
 	}
 
 	/**
-	 * otro método para que muestres como quieras las pregnutas en la interfaz
+	 * otro mï¿½todo para que muestres como quieras las pregnutas en la interfaz
 	 * puedes usarlos o quitarlos o como veas
 	 */
 	private void mostrarPregunta() {

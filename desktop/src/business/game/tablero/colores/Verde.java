@@ -1,5 +1,6 @@
 package business.game.tablero.colores;
 
+import business.game.tablero.util.ObtenerPreguntas;
 import modelo.preguntas.Pregunta;
 
 public class Verde implements Color {
@@ -10,8 +11,7 @@ public class Verde implements Color {
 
 	@Override
 	public Pregunta getPregunta() {
-		// TODO Auto-generated method stub
-		return null;
+		return (Pregunta) ObtenerPreguntas.devolverPregunta("ciencias");
 	}
 
 }

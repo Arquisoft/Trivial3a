@@ -78,7 +78,7 @@
 ~El Nalón
 ]
 
-::geografi11::
+::geografia11::
 ¿Cuál es el primer equinoccio del año?{
 ~El de otoño
 =El de primavera
@@ -300,7 +300,6 @@
 ~Peter
 ~Spiderman
 }
-
 
 ::otros1::
 ¿Cuál es la comida de restaurante que más se vende? {

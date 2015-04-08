@@ -64,6 +64,20 @@ header .logo {
  	color:white;
  	padding:20px;
  }
+ 
+  h3{
+ 	color:#8A2908;
+ 	font-size:45px;
+ 	text-align:center;
+ 	padding:15px;
+ }
+ 
+ h4{
+ 	color:blue;
+ 	font-size:40px;
+ 	text-align:center;
+ 	padding:10px;
+ }
 
 .tablero {
 	background: url(../images/tab.jpg);

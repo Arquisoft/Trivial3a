@@ -35,28 +35,389 @@
 	<h1>Manual de sistema</h1>
 	
 		<article>
-			<h2 class="titulo">Titular del Articulo</h2>
-			<p class="fecha">26 de Enero de 2015</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<div>
+    <h1>
+        <a name="_Toc416210344">Visión general</a>
+    </h1>
+</div>
+<p>
+    En este manual, se describe el funcionamiento del módulo, que permite a un usuario, registrarse en el juego, iniciar una partida de trivial seleccionando
+    el número de jugadores con los que desea jugar y consultar sus estadísticas e información de los jugadores. Nos centraremos en dos tipos diferentes de
+    visiones:
+</p>
+<p>
+    1. <strong>A nivel de usuario</strong>: esta parte de la aplicación está pensada para un usuario cliente haga uso de ella. Se explicará cómo se realiza la
+    interacción con el juego.
+</p>
+<p>
+    2. <strong>A nivel de sistema</strong>: instrucciones para la utilización de este código por distintos desarrolladores. Gracias a éste se permitirá una
+    lectura rápida que nos ayudará a entender el código y funcionamiento del proyecto para su utilización y modificación posterior. Se explicará detalladamente
+    la funcionalidad de las diversas clases que conforman el proyecto. El sistema está formado por una serie de jerarquías de clases que cooperan entre sí para
+    lograr el correcto funcionamiento de la aplicación.
+</p>
+<div>
+    <h1>
+        <a name="_Toc416210345"></a>
+        <a name="_Toc416210035">Manual de usuario</a>
+    </h1>
+</div>
+<p>
+    Descripción del funcionamiento de la interfaz que será utilizada por un usuario cliente, éste usuario podrá registrarse en la aplicación, validarse para
+    poder participar en una partida de trivial y consultar sus estadísticas de las partidas ganadas, preguntas acertadas, etc…
+</p>
+<h2>
+    <a name="_Toc416210346"></a>
+    <a name="_Toc416210036">Usuario cliente</a>
+</h2>
+<div>
+    <h1>
+        <a name="_Toc416210347"></a>
+        <a name="_Toc416210037">Manual de sistema</a>
+    </h1>
+</div>
+<p>
+    El sistema está implementado con un conjunto de paquetes que se irán explicando a continuación. Se utiliza el patrón factoría para comunicar las capas de
+    la lógica de negocio y persistencia con la capa de presentación.
+</p>
+<h2>
+    <a name="_Toc416210348"></a>
+    <a name="_Toc416210038">Paquete business</a>
+</h2>
+<p>
+    En este paquete se almacena toda la lógica del juego, está subdividido en otros tres paquetes.
+</p>
+<h3>
+    <a name="_Toc416210349"></a>
+    <a name="_Toc416210039">Paquete core</a>
+</h3>
+<p>
+    Este paquete contiene la clase Core que es la encargada crear y ejecutar la ventana principal de la aplicación en la que el usuario podrá realizar el
+    registro y comenzar el juego.
+</p>
+<h3>
+    <a name="_Toc416210350"></a>
+    <a name="_Toc416210040">Paquete game</a>
+</h3>
+<p>
+    En este paquete se encuentran las clases encargadas de iniciar el juego.
+</p>
+<h4>
+    <a name="_Toc416210351">Clase IniciarJuegoAction</a>
+</h4>
+<p>
+    Esta clase tiene una lista en la que se guardan los usuarios que van a participar en la partida junto con el color. Métodos:
+</p>
+<p>
+    · IniciarJuego: almacena en la lista anterior los usuarios que van a participar.
+</p>
+<p>
+    · Execute: añade la lista de usuarios a la base de datos.
+</p>
+<h4>
+    <a name="_Toc416210352">Clase RegistrarseAction</a>
+</h4>
+<p>
+    Métodos:
+</p>
+<p>
+    · RegistrarseAction: crea un nuevo Usuario con los datos pasados como parámetros (Login, contraseña, nombre, apellidos, email y edad).
+</p>
+<p>
+    · ExistUserNameEmail: comprueba que en la base de datos no esté ningún usuario con el mismo nombre de usuario, email o nombre.
+</p>
+<p>
+    · Execute: añade a la base de datos el nuevo usuario.
+</p>
+<h4>
+    <a name="_Toc416210353">Clase ValidarseAction</a>
+</h4>
+<p>
+    Métodos:
+</p>
+<p>
+    · GetUsuario: este método obtiene el usuario que se está validando a través de los datos que se le pasan: login y contraseña.
+</p>
+<p>
+    · UsuarioDuplicado: se comprueba que un jugador no se pueda validar dos veces en el juego para que no se repita ninguno en el momento de iniciar la
+    partida.
+</p>
+<p>
+    · IsCorrecto: muestra mensajes de error si el usuario ya se ha validado, si el color ya se ha elegido o si la contraseña o login son incorrectos.
+</p>
+<h4>
+    <a name="_Toc416210354">Clase Action</a>
+</h4>
+<p>
+    Es la encargada de realizar la conexión con la base de datos y obtener los datos alamacenados.
+</p>
+<h4>
+    <a name="_Toc416210355">Clase Partida</a>
+</h4>
+<p>
+    Esta clase tiene los métodos encargados de añadir usuarios a una lista y de eliminarlos.
+</p>
+<h3>
+    <a name="_Toc416210356"></a>
+    <a name="_Toc416210041">Paquete Tablero</a>
+</h3>
+<p>
+    Contiene los diferentes paquetes:
+</p>
+<h4>
+    <a name="_Toc416210357">Paquete colores</a>
+</h4>
+<p>
+    Este paquete tiene la interface color que puede ser amarillo, azul, incoloro, morado, naranja, rojo o verde.
+</p>
+<h4>
+    <a name="_Toc416210358">Paquete jugadores</a>
+</h4>
+<p>
+    Este paquete contiene otro patrón factoría que se utiliza para crear nuevos jugadores.
+</p>
+<h5>
+    <a name="_Toc416210359">Clase jugador</a>
+</h5>
+<p>
+    Tiene los atributos:
+</p>
+<p>
+    · Quesitos: lista de quesitos donde se añadirán los colores de los quesitos que se obtengan.
+</p>
+<p>
+    · Actual: nodo con la posición del tablero en la que se encuentra.
+</p>
+<p>
+    · Tablero: atributo de la clase Tablero.
+</p>
+<p>
+    Métodos:
+</p>
+<p>
+    · MoverDerecha/MoverIzquierda: se le pasa el número de posiciones que se quiere mover y se actualiza la posición del atributo “<em>actual</em>”, al nuevo
+    nodo.
+</p>
+<p>
+    · AñadirQuesito: añade un color a la lista de quesitos.
+</p>
+<p>
+    · ComprobarQuesitos: comprueba si la lista quesitos contiene todos los colores y devuelve true o false.
+</p>
+<p>
+    · RemoveQuesito: quita un quesito de la lista.
+</p>
+<h4>
+    <a name="_Toc416210360">Paquete nodos</a>
+</h4>
+<p>
+    Este paquete tiene una factoría para generar nodos, y las siguientes clases:
+</p>
+<h5>
+    <a name="_Toc416210361">Clase NodoFinal</a>
+</h5>
+<p>
+    Será el último nodo del tablero.
+</p>
+<h5>
+    <a name="_Toc416210362">Clase NodoQuesito</a>
+</h5>
+<p>
+    Serán los nodos en los que se puedan conseguir quesitos.
+</p>
+<h5>
+    <a name="_Toc416210363">Clase NodoNormal</a>
+</h5>
+<p>
+    Serán el resto de nodos del tablero que tendrán un color y un nodo anterior y otro siguiente.
+</p>
+<h4>
+    <a name="_Toc416210364">Paquete tableros</a>
+</h4>
+<p>
+    Éste paquete genera clases tableros que pueden ser circulares, lineales o de tipo rueda. Estos tableros contienen un nodo raíz que será el primero, un nodo
+    pivote y un contenedor donde se encuentran los datos de todos los nodos que se van a enlazar.
+</p>
+<h5>
+    <a name="_Toc416210365">Clase TableroCircular</a>
+</h5>
+<p>
+    El constructor se encarga de enlazar los nodos de los extremos para que el tablero esté en forma de círculo.
+</p>
+<h5>
+    <a name="_Toc416210366">Clase TableroLineal</a>
+</h5>
+<p>
+    No se enlazan los nodos extremos ya que se ponen a null, de esta manera solo se podrá ir y volver en la misma línea.
+</p>
+<h5>
+    <a name="_Toc416210367">Clase TableroRueda</a>
+</h5>
+<p>
+    El constructor se encarga de enlazar los nodos de los extremos para que el tablero esté en forma de círculo y además, los nodos con quesito se enlazan con
+    nodos hacia arriba para que el círculo tenga sus radios.
+</p>
+<h4>
+    <a name="_Toc416210368">Paquete Util</a>
+</h4>
+<p>
+    Este paquete tiene dos clases encargadas de cargar los nodos de los diferentes tipos de tableros.
+</p>
+<h6>
+    <a name="_Toc416210369">Clase LectorCircular</a>
+</h6>
+<p>
+    Crea un contenedor de nodos y lo llena de quesitos.
+</p>
+<h6>
+    <a name="_Toc416210370">Clase LectorFormaRueda</a>
+</h6>
+<p>
+    Carga un fichero que se le pasa como parámetro y va introduciendo cada nodo en el contenedor de nodos.
+</p>
+<h5>
+    <a name="_Toc416210371">Clase ContenedorDeNodos</a>
+</h5>
+<p>
+    Clase que guarda en listas los nodos exteriores del tablero, los interiores y los nodos quesitos.
+</p>
+<h5>
+    <a name="_Toc416210372">Clase PreguntasAleatorias</a>
+</h5>
+<p>
+    Crea una instancia de sí misma y tiene el método dado que obtiene un número aleatorio de 1 a 6.
+</p>
+<h5>
+    <a name="_Toc416210373">Clase SelectorDeColores</a>
+</h5>
+<p>
+    Permite obtener uno de los colores del trivial pasándole un String con su nombre.
+</p>
+<h2>
+    <a name="_Toc416210374"></a>
+    <a name="_Toc416210042">Paquete modelo</a>
+</h2>
+<p>
+    Este paquete contiene las clases que se añadirán a la base de datos.
+</p>
+<h3>
+    <a name="_Toc416210375"></a>
+    <a name="_Toc416210043">Clase Pregunta</a>
+</h3>
+<p>
+    Tiene los atributos id, pregunta, respuestas incorrectas y respuesta correcta.
+</p>
+<h3>
+    <a name="_Toc416210376"></a>
+    <a name="_Toc416210044">Clase Usuario</a>
+</h3>
+<p>
+    Tiene los atributos login, contraseña, nombre, apellidos, email, edad, número de jugadas y número partidas ganadas.
+</p>
+<h2>
+    <a name="_Toc416210377"></a>
+    <a name="_Toc416210045">Paquete persistencia</a>
+</h2>
+<p>
+    Este paquete se encarga del acceso a la base de datos y de realizar las consultas para insertar datos. Esto se realiza mediante las clases:
+</p>
+<h4>
+    <a name="_Toc416210378">Clase Connection</a>
+</h4>
+<p>
+    Conecta con la base de datos.
+</p>
+<h4>
+    <a name="_Toc416210379">Clase Insert</a>
+</h4>
+<p>
+    Inserta elementos en la base de datos.
+</p>
+<h2>
+    <a name="_Toc416210380"></a>
+    <a name="_Toc416210046">Paquete presentación</a>
+</h2>
+<p>
+    Este paquete contiene dos sub paquetes donde se crea toda la parte visual del juego o interfaz.
+</p>
+<h4>
+    <a name="_Toc416210381">Paquete game</a>
+</h4>
+<h5>
+    <a name="_Toc416210382">Clase TableroLinealEntity</a>
+</h5>
+<p>
+    Esta clase se encarga de dibujar el tablero en una ventana mediante diferentes imágenes.
+</p>
+<h5>
+    <a name="_Toc416210383">Clase CasillaEntity</a>
+</h5>
+<p>
+    Dibuja la imagen que se pintará en el nodo correspondiente y obtiene el siguiente nodo a dibujar.
+</p>
+<h5>
+    <a name="_Toc416210384">Clase TableroEntity</a>
+</h5>
+<p>
+    Se encarga de llamar a las clases anteriores y a partir un nodo inicial, va dibujando todas las casillas.
+</p>
+<h5>
+    <a name="_Toc416210385">Clase AssetsManager</a>
+</h5>
+<p>
+    Es la clase que carga toda la configuración de los assets ( fuentes, sonidos, atlas, skins...).
+</p>
+<h5>
+    <a name="_Toc416210386">Clase DesktopLauncher</a>
+</h5>
+<p>
+    Contiene el main que dibuja la ventana principal.
+</p>
+<h5>
+    <a name="_Toc416210387">Clase ScreenInicio</a>
+</h5>
+<p>
+    Esta clase se encarga de cargar la imagen de fondo de la ventana, de pintar todos los botones, posicionarlo todo en la ventana.
+</p>
+<h5>
+    <a name="_Toc416210388">Clase ScreenJuego</a>
+</h5>
+<p>
+    Esta clase se encarga de dibujar el tablero con los diferentes usuarios que se validaran en el juego y mostrar las preguntas con las respuestas.
+</p>
+<h5>
+    <a name="_Toc416210389">Clase ScreenSelectDificultad</a>
+</h5>
+<p>
+    Clase que muestra las diferentes opciones de tablero y permite seleccionar una de ellas (circular, lineal…).
+</p>
+<h4>
+    <a name="_Toc416210390">Paquete login</a>
+</h4>
+<h5>
+    <a name="_Toc416210391">Clase FondoLogin</a>
+</h5>
+<p>
+    Guarda la imagen de fondo de la ventana de login.
+</p>
+<h5>
+    <a name="_Toc416210392">Clase VentanaAdmin</a>
+</h5>
+<p>
+    Carga la ventana del administrador con sus imágenes.
+</p>
+<h5>
+    <a name="_Toc416210393">Clase VentanaLogin</a>
+</h5>
+<p>
+    Esta clase es la encargada de dibujar la ventana de login con diferentes paneles para registrarse o validarse, título, lista de jugadores, botón de inicio
+    de juego, botón de registro, colores de jugadores, botón para ir a la ventana de registro.
+</p>
+<h5>
+    <a name="_Toc416210394">Clase VentanaRegistro</a>
+</h5>
+<p>
+    Esta clase muestra una ventana con campos donde se le pide al usuario que introduzca los datos para realizar el registro.
+</p>
 		</article>
  
 	</div>

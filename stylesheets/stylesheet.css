@@ -78,6 +78,20 @@ header .logo {
  	text-align:center;
  	padding:10px;
  }
+ 
+  h5{
+ 	color:#0080FF;
+ 	font-size:35px;
+ 	text-align:center;
+ 	padding:10px;
+ }
+ 
+  h6{
+ 	color:#0B0B3B;
+ 	font-size:30px;
+ 	text-align:center;
+ 	padding:10px;
+ }
 
 .tablero {
 	background: url(../images/tab.jpg);

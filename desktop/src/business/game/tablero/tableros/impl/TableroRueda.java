@@ -105,7 +105,7 @@ public class TableroRueda implements Tablero{
 	}
 
 	@Override
-	public int getTamaño() {
+	public int getTamano() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -4,7 +4,9 @@ import java.util.List;
 
 import presentacion.game.entities.TableroEntity;
 import presentacion.game.managers.AssetsManager;
+import business.game.tablero.JuegoEnTableroLineal;
 import business.game.tablero.jugadores.impl.Jugador;
+import business.game.tablero.tableros.Tablero;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -37,13 +39,16 @@ public class ScreenJuego implements Screen {
 	private Image bgTablero;
 	
 	private TableroEntity tablero;
+	private JuegoEnTableroLineal juego;
 	private List<Jugador> jugadores;
-	
-	public ScreenJuego(TableroEntity tablero, List<Jugador> jugadores){
+	 
+	public ScreenJuego(JuegoEnTableroLineal juego, Tablero tablero2,
+			List<Jugador> jugadores2) {
 		setTablero(tablero);
-		setJugadores(jugadores);	
+		setJugadores(jugadores);
+		setJuego(juego);
 	}
-	
+
 	@Override
 	public void show () {
 		stage = new Stage();
@@ -88,8 +93,13 @@ public class ScreenJuego implements Screen {
 		stage.addActor(tableTablero);
 		
 		generateUsersTable();
+		generatePlayButtons();
+		generatePreguntasTable();
+		generateTablero();
 	}
-	
+	/**
+	 * Genera el contenido del menú de la izquierda (Listas de jugadores con sus quesitos, y botón menú)
+	 */
 	private void generateUsersTable(){
 		TextButton btMenu = new TextButton(AssetsManager.LOCALIZATION.get("btMenu"), AssetsManager.skin , "default");		
 		tableUsuarios.add(btMenu).height(0.05f*Gdx.graphics.getHeight()).row();
@@ -105,7 +115,24 @@ public class ScreenJuego implements Screen {
 		
 		tableUsuarios.setClip(true);
 	}
-
+	/**
+	 * Genera los botones de moverse y tirar dado
+	 */
+	private void generatePlayButtons(){
+	
+	}
+	/**
+	 * Genera la sección de las preguntas (Su label y botones)
+	 */
+	private void generatePreguntasTable(){
+		
+	}
+	/**
+	 * Genera el tablero en el que se va a jugar
+	 */
+	private void generateTablero(){
+		
+	}
 	@Override
 	public void render (float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -160,5 +187,14 @@ public class ScreenJuego implements Screen {
 	public void setJugadores(List<Jugador> jugadores) {
 		this.jugadores = jugadores;
 	}
+
+	public JuegoEnTableroLineal getJuego() {
+		return juego;
+	}
+
+	public void setJuego(JuegoEnTableroLineal juego) {
+		this.juego = juego;
+	}
+	
 	
 }

@@ -66,12 +66,11 @@ public class ScreenSelectDificultad implements Screen {
 		btPequeno.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				Tablero t = new TableroLineal();//Simulamos una partida pa probar y esas cosas, druida.
-				Map<Color, Usuario> jugadores = new HashMap<Color, Usuario>(); //Simulamos unos jugadores
-				jugadores.put(new Azul(), new Usuario("a", "a", "a", "a", "a",0,0,0,0));
-				jugadores.put(new Rojo(), new Usuario("b", "b", "b", "b", "b",0,0,0,0));
-				generateJugadores(t, jugadores);
-				ScreenManager.setScreen(new ScreenJuego(null, null));
+				Tablero tablero = new TableroLineal();
+				List<Jugador> jugadores = generateJugadores(tablero, DesktopLauncher.jugadores);
+				Queue cola = new LinkedList<Jugador>(jugadores);
+				JuegoEnTableroLineal juego = new JuegoEnTableroLineal(cola);
+				ScreenManager.setScreen(new ScreenJuego(juego, tablero, jugadores));
 			}
 		});
 		final TextButton btMedio = new TextButton(AssetsManager.LOCALIZATION.get("btMedio"), AssetsManager.skin, "default");

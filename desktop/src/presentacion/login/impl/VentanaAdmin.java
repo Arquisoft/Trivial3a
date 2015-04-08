@@ -162,7 +162,7 @@ public class VentanaAdmin extends JFrame {
 			btFiltrar.setFont(new Font("Blackadder ITC", Font.ITALIC, 20));
 			btFiltrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					añadirFilas();
+					anadirFilas();
 				}
 			});
 		}
@@ -196,15 +196,15 @@ public class VentanaAdmin extends JFrame {
 				}
 			});
 			tbInfoUsuarios.setBackground(Color.WHITE);
-			int[] tamaños = {20,20,20,20,30};
+			int[] tamanos = {20,20,20,20,30};
 			for(int i = 0; i < tbInfoUsuarios.getColumnCount(); i++){
-				tbInfoUsuarios.getColumnModel().getColumn(i).setPreferredWidth(tamaños[i]);
+				tbInfoUsuarios.getColumnModel().getColumn(i).setPreferredWidth(tamanos[i]);
 			}	
 		}
 		return tbInfoUsuarios;
 	}
 	
-	private void añadirFilas(){
+	private void anadirFilas(){
 		modeloTabla.getDataVector().clear();
 		
 		String campo = cbFiltrar.getSelectedItem().toString();

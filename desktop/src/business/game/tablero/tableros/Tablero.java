@@ -8,5 +8,5 @@ public interface Tablero {
 	 * @return 
 	 */
 	public Nodo getReferencia();
-	public int getTamaño();
+	public int getTamano();
 }

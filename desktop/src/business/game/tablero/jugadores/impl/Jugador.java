@@ -49,7 +49,7 @@ public class Jugador {
 	}
 
 	public Jugador(Tablero t, Usuario usuario, Color color) {
-		quesitos = new Color[t.getTamaño()];
+		quesitos = new Color[t.getTamano()];
 		this.t = t;
 		actual = t.getReferencia();
 		this.color = color;

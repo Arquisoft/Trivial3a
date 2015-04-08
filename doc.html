@@ -35,29 +35,1299 @@
 	<h1>Documentación del proyecto</h1>
 
 		<article>
-			<h2 class="titulo">Titular del Articulo</h2>
-			<p class="fecha">26 de Enero de 2015</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<h4 class="titulo">Ámbito y alcance del problema</h4>
+			<p>
+			    Para esta segunda practica se nos plantea un problema ligeramente diferente y mas completo al planteado en la primera entrega. Los requisitos han sido
+			    ampliados de manera sustancial con el objetivo de lograr una aplicación completamente funcional para su uso en el escritorio.
+			</p>
+			<p>
+			    Las limitaciones de esta segunda entrega vienen a ser que la aplicación solamente funcionara en el escritorio, siendo además necesario que los jugadores
+			    estén registrados en el juego para poder comenzar una partida.
+			</p>
+			<p>
+			    En cuanto al alcance del problema nos encontramos con que tenemos que llevar a cabo el desarrollo de una aplicación completamente funcional que permita
+			    jugar partidas de trivial a diferentes usuarios y con diferentes modos de juego. Además se plantea que han de registrarse una serie de datos de interés
+			    acerca de las partidas jugadas por cada usuario con el objetivo de conocer datos estadísticos sobre su rendimiento durante las partidas.
+			</p>
 		</article>
+
+		<article>
+			<h4 class="titulo">Planteamiento del problema</h4>
+			<p>
+			    En esta ocasión la empresa NoGame nos plantea la continuación de la primera parte del juego ya desarrollada. Esta vez el desarrollo consistirá en la
+			    realización de una aplicación completa de escritorio.
+			</p>
+			<p>
+			    Dicho aplicación/juego tendrá interfaz grafica y permitirá que los usuarios se registren y loguen en la aplicación. Dado que cada usuario quedara guardado
+			    en el sistema también se guardaran datos relativos a las partidas que haya jugado. De esta forma podremos llevar a cabo un análisis estadístico de su
+			    rendimiento durante el juego. En la interfaz grafica se mostrara un tablero similar al tablero de trivial clásico con el objetivo de que los usuarios
+			    puedan conocer en que posiciones se encuentran y sus puntuaciones. Aparte de esto existirá un usuario administrador que podrá consultar las estadísticas y
+			    las puntuaciones de todos los jugadores registrados en el sistema.
+			</p>
+			<p>
+			    La interfaz grafica llevara a cabo la representación visual de todos los datos contenidos en la base de datos utilizada por la aplicación, tales como
+			    usuarios registrados, preguntas, etc
+			</p>
+		</article>
+
+		<article>
+			<h4 class="titulo">Metodología usada</h4>
+			<p>
+			    El estudio y diseño de esta arquitectura se llevara a cabo mediante la utilización del método Atribute-Driven-Design (ADD) y el estándar del SEI (ANSI/IEEE
+			    1471, 2000).
+			</p>
+			<p>
+			    El método ADD esta basado en la identificación de los atributos de calidad y la creación de una serie de escenarios que esos atributos deben cumplir.
+			</p>
+		</article>
+
+		<article>
+			<h4 class="titulo"> Identificación de los interesados (Stakeholders) </h4>
+			<p>
+			    Este proyecto esta nombrado como “Trivial3a” por lo que los interesados están contextualizados dentro del dicho proyecto.
+			</p>
+			<p>
+			    En este caso los interesados son:
+			</p>
+			<ul>
+			    <li>
+			        Responsables de la empresa:
+			    </li>
+			</ul>
+			<p>
+			    o Los dirigentes que toman las decisiones sobre el proyecto, presupuesto y evolución. Sus tareas son hacer que el sistema sea tan fácil de modificar y
+			    escalar como sea posible. Dicho objetivo viene motivado por el intento de conseguir que el coste de desarrollo sea el mínimo posible.
+			</p>
+			<ul>
+			    <li>
+			        Usuario administrador:
+			    </li>
+			</ul>
+			<p>
+			    o El administrador o administradores son los encargados de tratar con la aplicación de una forma mas amplia que los usuarios corrientes. Tienen la función
+			    de controlar que la aplicación este funcionando bien así como que no se producen efectos inesperados en las estadísticas durante el funcionamiento del
+			    juego.
+			</p>
+			<ul>
+			    <li>
+			        Equipo de desarrollo:
+			    </li>
+			</ul>
+			<p>
+			    o Los programadores tratan de lograr un diseño modular que permita construir la aplicación del modo mas independiente posible para que así los módulos
+			    existentes no se vean influidos por el desarrollo de otros módulos.  
+			</p>
+			<ul>
+			    <li>
+			        Jugadores / Usuarios de la aplicación:
+			    </li>
+			</ul>
+			<p>
+			    o Los usuarios de la aplicación son aquellas personas interesadas en descargar y dar uso al juego que hemos desarrollado. Son la clave para que una
+			    aplicación triunfe o no por lo que el diseño ha de ser tan sencillo como sea posible. Además el usuario tiene que encontrar entretenida la aplicación
+			    porque si no lo hace dejara de usarla.
+			</p>
+		</article>
+
+		<article>
+			<h4 class="titulo">Lista de interesados (Stakeholders)</h4>
+			<table border="1" cellspacing="0" cellpadding="0" width="445">
+			    <tbody>
+			        <tr>
+			            <td width="62">
+			                <p align="center">
+			                    <strong></strong>
+			                </p>
+			                <p align="center">
+			                    <strong>Código</strong>
+			                </p>
+			                <p align="center">
+			                    <strong>
+			                        <img width="3" height="3" src="file:///Users/raulhc/Library/Group%20Containers/UBF8T346G9.Office/msoclip/clip_image002.png"/>
+			                    </strong>
+			                    <strong></strong>
+			                </p>
+			            </td>
+			            <td width="156">
+			                <p align="center">
+			                    <strong>StakeHolder</strong>
+			                </p>
+			            </td>
+			            <td width="227">
+			                <p align="center">
+			                    <strong>Intereses</strong>
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="62">
+			                <p align="center">
+			                    ST-01
+			                </p>
+			            </td>
+			            <td width="156">
+			                <p align="center">
+			                    Responsables de la empresa
+			                </p>
+			            </td>
+			            <td width="227">
+			                <p>
+			                    Bajo coste de desarrollo, esto es, el desarrollo del proyecto debe ser corto y con un coste reducido. Eficiencia e independencia de los
+			                    distintos componentes del juego para poder ampliar funcionalidad en un futuro sin que esto suponga un coste elevado.
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="62">
+			                <p align="center">
+			                    ST-02
+			                </p>
+			            </td>
+			            <td width="156">
+			                <p align="center">
+			                    Usuario administrador
+			                </p>
+			            </td>
+			            <td width="227">
+			                <p>
+			                    Simplificación de aprendizaje y utilización. Fácil interacción con la interfaz.
+			                </p>
+			                <p>
+			                    Rápida detección de posibles problemas y rápida y sencilla solución de ellos
+			                    <img width="3" height="3" src="file:///Users/raulhc/Library/Group%20Containers/UBF8T346G9.Office/msoclip/clip_image004.png"/>
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="62">
+			                <p align="center">
+			                    ST-03
+			                </p>
+			            </td>
+			            <td width="156">
+			                <p align="center">
+			                    Equipo de desarrollo
+			                </p>
+			            </td>
+			            <td width="227">
+			                <p>
+			                    Proyecto escalable y modularizado. Reparto de tareas y desarrollo eficiente.
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="62">
+			                <p align="center">
+			                    ST-04
+			                </p>
+			            </td>
+			            <td width="156">
+			                <p align="center">
+			                    Jugadores / Usuarios de la aplicación
+			                </p>
+			            </td>
+			            <td width="227">
+			                <p>
+			                    Facilidad de uso ante todo.
+			                </p>
+			                <p>
+			                    Entretenimiento además de buena experiencia de uso.
+			                </p>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+		</article>
+
+
+		<article>
+			<h4 class="titulo">Lista de atributos de calidad</h4>
+			<table border="1" cellspacing="0" cellpadding="0">
+			    <tbody>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong>Código</strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p align="center">
+			                    <strong>Tipo de atributo</strong>
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    <strong>Descripción</strong>
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT001</strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Posibilidad de cambio del look&amp;feel del juego.
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Modificabilidad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT002</strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Posibilidad de modificar el tipo de tablero así como el numero de jugadores que participan en una partida.
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Modificabilidad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT003</strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Garantizar que la aplicación procese los datos correctamente y en un tiempo  óptimo
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Rendimiento
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT004</strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Las estadísticas de cada usuario solo pueden ser conocidas por el mismo y por los administradores del juego
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Confidencialidad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT005</strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Coste de desarrollo bajo. Coste-Beneficio
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Coste-Beneficio
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT006</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Facilidad de uso de la aplicación
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Usabilidad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT007</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Facilidad de visualización de las estadísticas
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Usabilidad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT008</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Evitar la inconsistencia de los datos por accesos simultáneos
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Seguridad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT009</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Los usuarios no registrados y logeados no podrán acceder a la aplicación
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Seguridad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT010</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Las BBDD han de funcionar a tiempo completo sin producirse fallos de lectura/escritura
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Disponibilidad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT011</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    Tiempo de desarrollo corto
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Time to market
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT012</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    El juego ha de estar dividido en componentes lo suficientemente pequeños como para ser reutilizados en otras aplicaciones de la empresa
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Adaptabilidad
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="65" valign="top">
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			                <p align="center">
+			                    <strong>AT013</strong>
+			                </p>
+			                <p align="center">
+			                    <strong> </strong>
+			                </p>
+			            </td>
+			            <td width="268" valign="top">
+			                <p>
+			                    La aplicación debe de ser fácilmente probada con el objetivo de encontrar posibles bugs lo mas rápida y fácilmente posible.
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    Testeabilidad
+			                </p>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+		</article>
+
+
+		<article>
+			<h4 class="titulo">Atributos de calidad e interesados</h4>
+			<table border="1" cellspacing="0" cellpadding="0" width="425">
+			    <tbody>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>Atributos vs Interesados </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    <strong>
+			                        <img width="3" height="3" src="file:///Users/raulhc/Library/Group%20Containers/UBF8T346G9.Office/msoclip/clip_image002.png"/>
+			                    </strong>
+			                    <strong>ST-01 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    <strong>ST-02</strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    <strong>ST-03</strong>
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    <strong>ST-04</strong>
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT001 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT002 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT003 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT004 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT005 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT006 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT007</strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT008 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT009 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT010 </strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT011</strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="92" valign="top">
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT012</strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="99" valign="top">
+			                <p align="center">
+			                    <strong>AT013</strong>
+			                </p>
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			            </td>
+			            <td width="78" valign="top">
+			                <p align="center">
+			                    X
+			                </p>
+			            </td>
+			            <td width="92" valign="top">
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+		</article>
+
+
+<!--
+		<article>
+			<h4 class="titulo"> Escenarios de calidad.</h4>
+			<table border="1" cellspacing="0" cellpadding="0" width="546">
+			    <tbody>
+			        <tr>
+			            <td width="64">
+			                <p>
+			                    <strong><em>Escenario Nº </em></strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    <strong><em>Fuente de estímulo </em></strong>
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    <strong><em>Estímulo </em></strong>
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    <strong><em>Entorno </em></strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    <strong><em>Artefacto </em></strong>
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    <strong><em>Respuesta </em></strong>
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p>
+			                    <strong><em>Medición de la respuesta </em></strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    <strong><em>Atributo de calidad afectado </em></strong>
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>1</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Usuario
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Comienzo de una partida
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Explotación
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Sistema
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    El sistema muestra el tablero elegido y le presenta al usuario preguntas
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p>
+			                    Tiempo no superior a 1 segundo desde que se lleva a cabo la acción
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT009
+			                </p>
+			                <p align="center">
+			                    AT006
+			                </p>
+			                <p align="center">
+			                    AT001
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>2</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Usuario
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Seleccionar una apariencia de tablero distinta
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Explotación
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Interfaz
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    Cambio de la interfaz dependiendo de la opción seleccionada
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p>
+			                    Tiempo no superior a 3 segundos desde que se lleva a cabo la acción
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT006
+			                </p>
+			                <p align="center">
+			                    AT002
+			                </p>
+			                <p align="center">
+			                    AT001
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>3</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Usuario
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Acceso a sus estadísticas de juego
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Explotación
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Sistema
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    El sistema muestra al usuario las estadísticas de sus juegos
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p>
+			                    Datos bien calculados a partir de los datos almacenados sobre el usuario
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT010
+			                </p>
+			                <p align="center">
+			                    AT007
+			                </p>
+			                <p align="center">
+			                    AT004
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>4</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Administrador de la aplicación
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Acceso al panel de estadísticas globales
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Explotación
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Sistema
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    Se presentan en pantalla los datos relativos a las estadísticas globales del juego
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p>
+			                    Datos bien calculados a partir de los datos almacenados sobre las partidas jugadas por los usuarios
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT010
+			                </p>
+			                <p align="center">
+			                    AT007
+			                </p>
+			                <p align="center">
+			                    AT006
+			                </p>
+			                <p align="center">
+			                    AT004
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>5</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Directivos
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Cambio de las reglas del juego
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Desarrollo
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Sistema
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    Cambio de la funcionalidad de la aplicación hasta que cumpla con lo pedido
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p align="center">
+			                    Coste desarrollo &lt; 6000€
+			                </p>
+			                <p>
+			                    Tiempo desarrollo &lt; 15 días
+			                </p>
+			                <p>
+			                    Reutilización de módulos ya implementados
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT011
+			                </p>
+			                <p align="center">
+			                    AT012
+			                </p>
+			                <p align="center">
+			                    AT005
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>6</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Directivos
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Ampliación de la funcionalidad del juego
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Desarrollo
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Sistema
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    Implementación de las nuevas características requeridas
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p align="center">
+			                    Coste desarrollo &lt; 9000€
+			                </p>
+			                <p align="center">
+			                    Tiempo desarrollo &lt; 45 días
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT011
+			                </p>
+			                <p align="center">
+			                    AT012
+			                </p>
+			                <p align="center">
+			                    AT005
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>7</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Usuario
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Juego simultaneo de varios usuarios
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Explotación
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    MongoDB
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    No se pueden producir fallos de lectura ni dejar la BBDD en un estado inconsistente
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p>
+			                    Sin errores.
+			                </p>
+			                <p>
+			                    Tiempo de lectura &lt; 500ms
+			                </p>
+			                <p>
+			                    Tiempo de escritura &lt; 800ms
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT008
+			                </p>
+			                <p align="center">
+			                    AT003
+			                </p>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td width="64">
+			                <p align="center">
+			                    <strong>8</strong>
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Herramientas de desarrollo
+			                </p>
+			            </td>
+			            <td width="65">
+			                <p>
+			                    Ejecución de test
+			                </p>
+			            </td>
+			            <td width="62">
+			                <p>
+			                    Explotación
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p>
+			                    Modelo de datos.
+			                </p>
+			                <p>
+			                    Lógica de Negocio
+			                </p>
+			            </td>
+			            <td width="71">
+			                <p>
+			                    El sistema nos produce unos resultados de todo lo ocurrido durante la ejecución de los test
+			                </p>
+			            </td>
+			            <td width="92">
+			                <p>
+			                    Test ejecutados con cada build.
+			                </p>
+			                <p>
+			                    Cobertura de los test &gt; 50%
+			                </p>
+			                <p>
+			                    Test todos en verde
+			                </p>
+			            </td>
+			            <td width="64">
+			                <p align="center">
+			                    AT013
+			                </p>
+			                <p align="center">
+			                    AT011
+			                </p>
+			                <p align="center">
+			                    AT012
+			                </p>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+		</article>
+
+	-->
  
 	</div>
  

@@ -1,6 +1,7 @@
 package business;
 
 import modelo.ServiceModelo;
+import business.game.ServiceGame;
 import business.herramientas.extractor.ServiceExtractor;
 import business.herramientas.parser.ServiceParser;
 import business.herramientas.serializador.ServiceSerializador;
@@ -34,5 +35,11 @@ public interface ServicesFactory {
 	 * @return Clase Serializador
 	 */
 	ServiceSerializador createServiceSerializador();
+	
+	/**
+	 * Crea el servicio del Game
+	 * @return Clase de Game
+	 */
+	ServiceGame createServiceGame();
 	
 }

@@ -1,5 +1,7 @@
 package presentacion.game;
 
+import infraestructura.Factories;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -34,79 +36,102 @@ import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
 public class ScreenSelectDificultad implements Screen {
-	public final static float BUTTON_W=0.3f*Gdx.graphics.getWidth();//Width
-	public final static float BUTTON_H=0.1f*Gdx.graphics.getHeight();//Height
-	public final static float BUTTON_S=0.05f*Gdx.graphics.getHeight();//Spacing
-	
-	private final static Image background = new Image(new Texture(new FileHandle("assets/textures/menuBG.jpg")));
+	public final static float BUTTON_W = 0.3f * Gdx.graphics.getWidth();// Width
+	public final static float BUTTON_H = 0.1f * Gdx.graphics.getHeight();// Height
+	public final static float BUTTON_S = 0.05f * Gdx.graphics.getHeight();// Spacing
+
+	private final static Image background = new Image(new Texture(
+			new FileHandle("assets/textures/menuBG.jpg")));
 	private Stage stage;
 	private Table table;
-	
+
 	@Override
-	public void show () {
-		//8======D💦
-		//		    💦🙆
+	public void show() {
 		stage = new Stage();
-		stage.setViewport(new ScalingViewport(Scaling.fit, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), stage.getCamera()));
-		stage.getViewport().update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		stage.setViewport(new ScalingViewport(Scaling.fit, Gdx.graphics
+				.getWidth(), Gdx.graphics.getHeight(), stage.getCamera()));
+		stage.getViewport().update(Gdx.graphics.getWidth(),
+				Gdx.graphics.getHeight());
 		Gdx.input.setInputProcessor(stage);
-		
+
 		background.setScaling(Scaling.fill);
 		background.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		background.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2, Align.center);
+		background.setPosition(Gdx.graphics.getWidth() / 2,
+				Gdx.graphics.getHeight() / 2, Align.center);
 		stage.addActor(background);
-		
+
 		table = new Table();
 		table.setFillParent(false);
-		table.setPosition(0.15f*Gdx.graphics.getWidth(), Gdx.graphics.getHeight()/2, Align.center);
+		table.setPosition(0.15f * Gdx.graphics.getWidth(),
+				Gdx.graphics.getHeight() / 2, Align.center);
 		stage.addActor(table);
 
-		final TextButton btPequeno = new TextButton(AssetsManager.LOCALIZATION.get("btPequeno"), AssetsManager.skin, "default");
-		table.add(btPequeno).padLeft(BUTTON_S).size(BUTTON_W, BUTTON_H).padBottom(BUTTON_S).row();
-		btPequeno.addListener(new ClickListener(){
+		final TextButton btPequeno = new TextButton(
+				AssetsManager.LOCALIZATION.get("btPequeno"),
+				AssetsManager.skin, "default");
+		table.add(btPequeno).padLeft(BUTTON_S).size(BUTTON_W, BUTTON_H)
+				.padBottom(BUTTON_S).row();
+		btPequeno.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				Tablero tablero = new TableroLineal();
-				List<Jugador> jugadores = generateJugadores(tablero, DesktopLauncher.jugadores);
+				List<Jugador> jugadores = generateJugadores(tablero,
+						DesktopLauncher.jugadores);
 				Queue cola = new LinkedList<Jugador>(jugadores);
-				JuegoEnTableroLineal juego = new JuegoEnTableroLineal(cola);
-				ScreenManager.setScreen(new ScreenJuego(juego, tablero, jugadores));
+				JuegoEnTableroLineal juego = Factories.services
+						.createServiceGame().serviceMecanica()
+						.getJuegoEnTableroLineal(cola);
+				ScreenManager.setScreen(new ScreenJuego(juego, tablero,
+						jugadores));
 			}
 		});
-		final TextButton btMedio = new TextButton(AssetsManager.LOCALIZATION.get("btMedio"), AssetsManager.skin, "default");
-		table.add(btMedio).padLeft(BUTTON_S).size(BUTTON_W, BUTTON_H).padBottom(BUTTON_S).row();
-		btMedio.addListener(new ClickListener(){
+		final TextButton btMedio = new TextButton(
+				AssetsManager.LOCALIZATION.get("btMedio"), AssetsManager.skin,
+				"default");
+		table.add(btMedio).padLeft(BUTTON_S).size(BUTTON_W, BUTTON_H)
+				.padBottom(BUTTON_S).row();
+		btMedio.addListener(new ClickListener() {
 			@Override
-			public void clicked(InputEvent event, float x, float y) {	
+			public void clicked(InputEvent event, float x, float y) {
 				ScreenManager.setScreen(new ScreenSelectDificultad());
 			}
 		});
-		final TextButton btGrande = new TextButton(AssetsManager.LOCALIZATION.get("btGrande"), AssetsManager.skin, "default");
-		table.add(btGrande).padLeft(BUTTON_S).size(BUTTON_W, BUTTON_H).padBottom(BUTTON_S).row();
-		btGrande.addListener(new ClickListener(){
+		final TextButton btGrande = new TextButton(
+				AssetsManager.LOCALIZATION.get("btGrande"), AssetsManager.skin,
+				"default");
+		table.add(btGrande).padLeft(BUTTON_S).size(BUTTON_W, BUTTON_H)
+				.padBottom(BUTTON_S).row();
+		btGrande.addListener(new ClickListener() {
 			@Override
-			public void clicked(InputEvent event, float x, float y) {	
+			public void clicked(InputEvent event, float x, float y) {
 				ScreenManager.setScreen(new ScreenSelectDificultad());
 			}
 		});
 	}
-	
+
 	/**
-	 * Transforma los usuarios de la base de datos a una lista de jugadores con sus colores
+	 * Transforma los usuarios de la base de datos a una lista de jugadores con
+	 * sus colores
+	 * 
 	 * @param t
 	 * @param usuarios
 	 * @return
 	 */
-	private List<Jugador> generateJugadores(Tablero tablero, Map<Color, Usuario> usuarios){
+	private List<Jugador> generateJugadores(Tablero tablero,
+			Map<Color, Usuario> usuarios) {
 		List<Jugador> jugadores = new ArrayList<Jugador>();
-		for(Color color: usuarios.keySet()){
-			jugadores.add(new Jugador(tablero, usuarios.get(color), color));//
+		for (Color color : usuarios.keySet()) {
+			// jugadores.add(new Jugador(tablero, usuarios.get(color),
+			// color));//
+			jugadores.add(Factories.services.createServiceGame()
+					.serviceTablero().getJugador()
+					.getJugador(tablero, usuarios.get(color), color));
 		}
 		return jugadores;
 	}
 
 	@Override
-	public void render (float delta) {
+	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act();
@@ -121,25 +146,25 @@ public class ScreenSelectDificultad implements Screen {
 	@Override
 	public void pause() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

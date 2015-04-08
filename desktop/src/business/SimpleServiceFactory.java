@@ -2,6 +2,8 @@ package business;
 
 import modelo.ServiceModelo;
 import modelo.SimpleServiceModelo;
+import business.game.ServiceGame;
+import business.game.SimpleServiceGame;
 import business.herramientas.extractor.ServiceExtractor;
 import business.herramientas.extractor.impl.SimpleServiceExtractor;
 import business.herramientas.parser.ServiceParser;
@@ -29,6 +31,11 @@ public class SimpleServiceFactory implements ServicesFactory {
 	@Override
 	public ServiceSerializador createServiceSerializador() {
 		return new SimpleServiceSerializador();
+	}
+
+	@Override
+	public ServiceGame createServiceGame() {
+		return new SimpleServiceGame();
 	}
 
 }

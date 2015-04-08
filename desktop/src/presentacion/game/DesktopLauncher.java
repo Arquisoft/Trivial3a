@@ -12,10 +12,10 @@ public class DesktopLauncher {
 	public static Map<Color, Usuario> jugadores;
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.height=768;
-		config.width=1366;
+//		config.height=768;
+//		config.width=1366;
 		config.resizable=true;
-		config.fullscreen=false;
+		config.fullscreen=true;
 		config.title="Trivial 3A";
 		
 		

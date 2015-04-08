@@ -2,6 +2,7 @@ package presentacion.game;
 
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
+import presentacion.login.impl.VentanaLogin;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -64,8 +65,8 @@ public class ScreenInicio implements Screen {
 		table.add(btSalir).size(BUTTON_W, BUTTON_H);
 		btSalir.addListener(new ClickListener(){
 			@Override
-			public void clicked(InputEvent event, float x, float y) {	
-				System.exit(0);
+			public void clicked(InputEvent event, float x, float y) {
+				Gdx.app.exit();
 			}
 		});
 	}
@@ -103,7 +104,7 @@ public class ScreenInicio implements Screen {
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
+		stage.dispose();
 		
 	}
 }

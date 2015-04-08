@@ -27,22 +27,20 @@ public class IniciarJuegoAction extends Action{
 	
 	@Override
 	public Object execute() {
-		try{
-			coleccion = getDb().getCollection("Partida");
-			
-			DBObject objeto= new BasicDBObject();
-			objeto.put("_id", nextId());
-			Iterator<Entry<Color, Usuario>> it = partida.entrySet().iterator();
-			while (it.hasNext()) {
-				Entry<Color, Usuario> e = it.next();
-				objeto.put(e.getKey().toString(), e.getValue().getLogin());
-			}
-			coleccion.insert(objeto);
+		
+//			coleccion = getDb().getCollection("Partida");
+//			
+//			DBObject objeto= new BasicDBObject();
+//			objeto.put("_id", nextId());
+//			Iterator<Entry<Color, Usuario>> it = partida.entrySet().iterator();
+//			while (it.hasNext()) {
+//				Entry<Color, Usuario> e = it.next();
+//				objeto.put(e.getKey().toString(), e.getValue().getLogin());
+//			}
+//			coleccion.insert(objeto);
 			DesktopLauncher.jugadores=partida;//Pasamos el control al DesktopLauncher de libgdx y los jugadores con sus colores.
 			DesktopLauncher.main(new String[0]);
-		}catch(Exception e){
-			JOptionPane.showMessageDialog(null,"Ha ocurrido un error con la base de datos, vuelva a intentarlo.");
-		}
+		
 		return null;
 	}
 	

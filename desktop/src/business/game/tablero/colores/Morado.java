@@ -12,7 +12,7 @@ public class Morado implements Color {
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) ObtenerPreguntas.devolverPregunta("espectaculos");
+		return (Pregunta) ObtenerPreguntas.devolverPregunta("otros");
 	}
 
 }

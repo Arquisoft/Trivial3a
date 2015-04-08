@@ -14,7 +14,7 @@ public class PreguntasAleatorias {
 	}
 
 	public int dado() {
-		return ((int) Math.random()) * 6;
+		return (int)(Math.random() * 6) + 1;
 	}
 
 	public ArrayList<String> desordenar(String respuestaCorrecta,

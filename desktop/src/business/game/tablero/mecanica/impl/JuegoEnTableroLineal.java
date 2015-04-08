@@ -2,6 +2,7 @@ package business.game.tablero.mecanica.impl;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 
 import modelo.preguntas.Pregunta;
@@ -25,6 +26,19 @@ public class JuegoEnTableroLineal {
 	// est�n hechos dos tableros uno rueda con radios y otro sin ellos
 	// el ganar lo puse con un quesito de cada color creo que se entiende
 	// bastante bien
+	/**
+	 * Retorna el texto de  la pregunta actual
+	 * @return
+	 */
+	public String getTextoPregunta(){
+		return pregunta.getPregunta();
+	}
+	public List<String> getRespuestasMezcladas(){
+		return respuestasMezcladas;
+	}
+	public int getValorDado(){
+		return valorDadoActual;
+	}
 	
 	private void jugarDerecha(int posiciones) {
 		for (int i = posiciones; i > 0; i--) {
@@ -66,7 +80,7 @@ public class JuegoEnTableroLineal {
 				pregunta.getRespuestaCorrecta(),
 				pregunta.getRespuestasIncorrectas());
 	}
-
+	
 	private Pregunta getPregunta() {
 
 		return actual.getActual().getColor().getPregunta();

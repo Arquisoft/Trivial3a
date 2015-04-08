@@ -36,6 +36,9 @@ public abstract class TableroEntity extends Actor{
 		}while((c = c.getNextNodo()) != null);
 	}
 	
+	public void mueveFicha(int jugador){
+		
+	}
 	//Getters and setters
 	public Tablero getTablero() {
 		return tablero;

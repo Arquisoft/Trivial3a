@@ -20,6 +20,14 @@ public class Jugador {
 		return usuario;
 	}
 
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}

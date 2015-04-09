@@ -12,7 +12,7 @@ public class Azul implements Color {
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) Factories.persistence.getPreguntas().devolverPregunta("geografia");
+		return Factories.persistence.getPreguntas().devolverPregunta("geografia");
 	}
 
 }

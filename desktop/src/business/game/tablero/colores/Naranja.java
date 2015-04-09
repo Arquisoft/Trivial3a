@@ -12,7 +12,7 @@ public class Naranja implements Color {
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) Factories.persistence.getPreguntas().devolverPregunta("deportes");
+		return Factories.persistence.getPreguntas().devolverPregunta("deportes");
 	}
 
 }

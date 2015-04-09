@@ -11,7 +11,7 @@ public class Verde implements Color {
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) Factories.persistence.getPreguntas().devolverPregunta("ciencias");
+		return Factories.persistence.getPreguntas().devolverPregunta("ciencias");
 	}
 
 }

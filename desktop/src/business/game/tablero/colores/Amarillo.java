@@ -12,7 +12,7 @@ public class Amarillo implements Color{
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) Factories.persistence.getPreguntas().devolverPregunta("historia");
+		return Factories.persistence.getPreguntas().devolverPregunta("historia");
 	}
 
 }

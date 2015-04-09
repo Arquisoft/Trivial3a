@@ -11,7 +11,7 @@ public class Rojo implements Color{
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) Factories.persistence.getPreguntas().devolverPregunta("arte");
+		return Factories.persistence.getPreguntas().devolverPregunta("arte");
 	}
 
 }

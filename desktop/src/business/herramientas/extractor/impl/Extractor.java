@@ -34,11 +34,11 @@ public class Extractor {
 				setParser();
 				HashMap<String, Pregunta> preguntasFinal = par.getPregunta();
 				JsonSerialImpl j = new JsonSerialImpl();
-				
-				j.createFile(preguntasFinal, "src/main/resources/Salida.JSON");
+				String path = "assets/IoFiles/Salida.JSON";
+				j.createFile(preguntasFinal, path);
 				
 				if(ie.getAutomatizado() || ie.handleConnection())
-					new Insert("Salida.JSON");
+					new Insert(path);
 				try {
 				    Thread.sleep(time);                 
 				} catch(InterruptedException ex) {

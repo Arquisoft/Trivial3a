@@ -1,6 +1,6 @@
 package business.game.tablero.colores;
 
-import business.game.tablero.util.ObtenerPreguntas;
+import infraestructura.Factories;
 import modelo.preguntas.Pregunta;
 
 public class Azul implements Color {
@@ -12,7 +12,7 @@ public class Azul implements Color {
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) ObtenerPreguntas.devolverPregunta("geografia");
+		return (Pregunta) Factories.persistence.getPreguntas().devolverPregunta("geografia");
 	}
 
 }

@@ -1,5 +1,6 @@
 package persistencia;
 
+import persistencia.impl.GetPreguntas;
 import persistencia.impl.Insert;
 
 /**
@@ -15,4 +16,10 @@ public interface PersistenceFactory {
 	 * @return instancia Insert
 	 */
 	Insert createInsert(String param);
+	
+	/**
+	 * Crea una instancia de la clase de obtención de preguntas
+	 */
+	GetPreguntas getPreguntas();
+	
 }

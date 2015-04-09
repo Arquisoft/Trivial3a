@@ -1,6 +1,6 @@
 package business.game.tablero.colores;
 
-import business.game.tablero.util.ObtenerPreguntas;
+import infraestructura.Factories;
 import modelo.preguntas.Pregunta;
 
 public class Rojo implements Color{
@@ -11,7 +11,7 @@ public class Rojo implements Color{
 
 	@Override
 	public Pregunta getPregunta() {
-		return (Pregunta) ObtenerPreguntas.devolverPregunta("arte");
+		return (Pregunta) Factories.persistence.getPreguntas().devolverPregunta("arte");
 	}
 
 }

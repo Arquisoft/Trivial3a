@@ -10,4 +10,9 @@ public class SimplePersistenceFactory implements PersistenceFactory{
 		return new Insert(param);
 	}
 
+	@Override
+	public GetPreguntas getPreguntas() {
+		return new GetPreguntas();
+	}
+
 }

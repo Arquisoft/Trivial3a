@@ -3,7 +3,7 @@ apply plugin: "java"
 sourceCompatibility = 1.7
 sourceSets.main.java.srcDirs = [ "src/" ]
 
-project.ext.mainClassName = "presentation.login.impl.VentanaLogin.java"
+project.ext.mainClassName = "Main.java"
 project.ext.assetsDir = new File("assets");
 
 task run(dependsOn: classes, type: JavaExec) {

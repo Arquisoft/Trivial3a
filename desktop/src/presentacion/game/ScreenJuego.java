@@ -196,8 +196,14 @@ public class ScreenJuego implements Screen {
 		moveLeft.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				if(!moveLeft.isDisabled())	
+				if(!moveLeft.isDisabled()){
 					juego.jugarIzquierda();
+					question.setText(juego.getTextoPregunta());
+					answer1.setText(juego.getRespuestasMezcladas().get(0));
+					answer2.setText(juego.getRespuestasMezcladas().get(1));
+					answer3.setText(juego.getRespuestasMezcladas().get(2));
+					answer4.setText(juego.getRespuestasMezcladas().get(3));
+				}
 			}
 		});
 		stage.addActor(moveLeft);
@@ -210,8 +216,14 @@ public class ScreenJuego implements Screen {
 		moveRight.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				if(!moveRight.isDisabled())
+				if(!moveRight.isDisabled()){
 					juego.jugarDerecha();
+					question.setText(juego.getTextoPregunta());
+					answer1.setText(juego.getRespuestasMezcladas().get(0));
+					answer2.setText(juego.getRespuestasMezcladas().get(1));
+					answer3.setText(juego.getRespuestasMezcladas().get(2));
+					answer4.setText(juego.getRespuestasMezcladas().get(3));
+				}
 			}
 		});
 
@@ -244,18 +256,50 @@ public class ScreenJuego implements Screen {
 		float btWidth = 0.8f * 0.2f * Gdx.graphics.getWidth(); 
 		answer1 = new TextButton("Respuesta 1", AssetsManager.skin);
 		answer1.setBounds(width*3, 0, btWidth, height);
+		answer1.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if(!answer1.isDisabled()){
+					juego.responderAsociadoBoton(0);
+				}
+			}
+		});
 		answer2 = new TextButton("Respuesta 2", AssetsManager.skin);
+		answer2.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if(!answer2.isDisabled()){
+					juego.responderAsociadoBoton(0);
+				}
+			}
+		});
 		answer2.setBounds(width*3 + btSpacing + btWidth, 0, btWidth, height);
 		answer3 = new TextButton("Respuesta 3", AssetsManager.skin);
 		answer3.setBounds(width*3 + btSpacing*2 + btWidth*2, 0, btWidth, height);
+		answer3.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if(!answer3.isDisabled()){
+					juego.responderAsociadoBoton(2);
+				}
+			}
+		});
 		answer4 = new TextButton("Respuesta 4", AssetsManager.skin);
 		answer4.setBounds(width*3 + btSpacing*3 + btWidth * 3, 0, btWidth, height);
+		answer4.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if(!answer4.isDisabled()){
+					juego.responderAsociadoBoton(3);
+				}
+			}
+		});
 		stage.addActor(answer1);
 		stage.addActor(answer2);
 		stage.addActor(answer3);
 		stage.addActor(answer4);
 
-		question = new Label("HOLA jaklñsdjfkals djfañslkd", AssetsManager.skin);
+		question = new Label("", AssetsManager.skin);
 		question.setBounds(width*3, height, 0.8f*Gdx.graphics.getWidth(), height);
 		question.setAlignment(Align.center);
 		stage.addActor(question);
@@ -265,7 +309,10 @@ public class ScreenJuego implements Screen {
 	 * Genera el tablero en el que se va a jugar
 	 */
 	private void generateTablero() {
-		//tablero.
+		stage.addActor(tablero);
+		tablero.setWidth(0.8f*0.8f*Gdx.graphics.getWidth());
+		tablero.setHeight(0.15f*Gdx.graphics.getHeight());
+		tablero.setPosition(0.2f*Gdx.graphics.getWidth() + 0.8f*0.1f*Gdx.graphics.getWidth(), 0.8f*Gdx.graphics.getHeight()/2 - tablero.getHeight()/2);
 	}
 
 	@Override

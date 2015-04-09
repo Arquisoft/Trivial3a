@@ -14,7 +14,7 @@ public abstract class TableroEntity extends Actor{
 	 * Casilla raíz para pintar
 	 */
 	private CasillaEntity casillaRaiz;
- 	
+
 	public TableroEntity(Tablero tablero){
 		setTablero(tablero);
 		generateCasillas();
@@ -36,17 +36,8 @@ public abstract class TableroEntity extends Actor{
 		}while((c = c.getNextNodo()) != null);
 	}
 	
-	public void mueveFicha(int jugador){
-		//TODO
-	}
-	@Override
-	public void setWidth(float x){
-		super.setWidth(x);
-		CasillaEntity c = casillaRaiz;
-		do {
-			c.setWidth();
-		}while((c = c.getNextNodo()) != null);
-	}
+	public abstract void mueveFicha(int jugador);
+
 	//Getters and setters
 	public Tablero getTablero() {
 		return tablero;

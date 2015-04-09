@@ -15,15 +15,15 @@ public class DesktopLauncher {
 	public static Map<Color, Usuario> jugadores;
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-//		config.height=768;
-//		config.width=1366;
+		config.height=768;
+		config.width=1366;
 		config.resizable=true;
 		config.fullscreen=false;
 		config.title="Trivial 3A";
 		
 		jugadores = new HashMap<Color, Usuario>();
-		jugadores.put(new Azul(), new Usuario("P3n3", "", "", "", "", 0, 0, 0, 0));
-		jugadores.put(new Rojo(), new Usuario("Vagina", "", "", "", "", 0, 0, 0, 0));
+		jugadores.put(new Azul(), new Usuario("XXXp3n3XXX", "", "", "", "", 0, 0, 0, 0));
+		jugadores.put(new Rojo(), new Usuario("V4g1n0g4m3rxX", "", "", "", "", 0, 0, 0, 0));
 		new LwjglApplication(new TrivialMain(), config);
 	}
 }

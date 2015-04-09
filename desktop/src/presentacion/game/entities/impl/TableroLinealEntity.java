@@ -9,7 +9,8 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 
 public class TableroLinealEntity extends TableroEntity{
-
+	
+	private int casillas;
 	public TableroLinealEntity(Tablero tablero) {
 		super(tablero);
 	}
@@ -19,9 +20,11 @@ public class TableroLinealEntity extends TableroEntity{
 		setCasillaRaiz(new CasillaEntity(new Texture(new FileHandle("assets/textures/game/casillaDefault.jpg")), getTablero().getReferencia()));
 		CasillaEntity aux = getCasillaRaiz();
 		Nodo auxNodo = getTablero().getReferencia();
+		casillas = 1;
 		while((auxNodo = auxNodo.getSiguiente())!=null){
 			aux.setNextNodo(new CasillaEntity(new Texture(new FileHandle("assets/textures/game/casillaDefault.jpg")), auxNodo));
 			aux = aux.getNextNodo();
+			casillas++;
 		}
 	}
 	@Override
@@ -35,14 +38,28 @@ public class TableroLinealEntity extends TableroEntity{
 			i++;
 		}while((c = c.getNextNodo()) != null);
 	}
+	
 	@Override
-	public float getWidth(){
+	public void setWidth(float width){
+		super.setWidth(width);
 		CasillaEntity c = getCasillaRaiz();
-		float width = c.getWidth();
-		int finalWidth = 0;
 		do {
-			finalWidth+=width;
+			c.setWidth(width/casillas);
 		}while((c = c.getNextNodo()) != null);
-		return finalWidth;
+		System.out.println("Casillas:" + casillas + " Width:" + width);
+	}
+	@Override
+	public void setHeight(float height){
+		super.setHeight(height);
+		CasillaEntity c = getCasillaRaiz();
+		do {
+			c.setHeight(height);
+		}while((c = c.getNextNodo()) != null);
+	}
+
+	@Override
+	public void mueveFicha(int jugador) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -38,6 +38,18 @@ public class CasillaEntity extends Actor{
 		super.setPosition(x, y);
 		textura.setPosition(x, y);
 	}
+	@Override
+	public void setWidth(float width){
+		 super.setWidth(width);
+		 textura.setWidth(width);
+		 if(ficha != null)
+			 ficha.setWidth(width);
+	}
+	@Override
+	public void setHeight(float height){
+		super.setHeight(height);
+		textura.setHeight(height);
+	}
 	/**
 	 * Añade una ficha del color especificado a la casilla
 	 * @param c

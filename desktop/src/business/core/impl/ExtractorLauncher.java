@@ -2,14 +2,14 @@ package business.core.impl;
 
 import presentacion.login.impl.VentanaLogin;
 import business.core.Core;
+import business.herramientas.extractor.impl.Extractor;
 
-public class CoreImpl implements Core {
+public class ExtractorLauncher implements Core {
 
 	@Override
 	public void run() {
-		VentanaLogin v = new VentanaLogin();
-		v.setVisible(true);
-		System.out.println("//");
+		Extractor extractor = new Extractor();
+		extractor.run();
 	}
 
 //	public static void main(String[] args) {

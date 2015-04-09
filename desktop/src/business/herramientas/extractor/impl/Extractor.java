@@ -49,6 +49,7 @@ public class Extractor {
 			System.err.println("No existe el archivo.");
 		} catch (IOException e) {
 			System.err.println("No se ha podido realizar la operacion.");
+			e.printStackTrace();
 		}
 
 	}

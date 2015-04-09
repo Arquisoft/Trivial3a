@@ -37,7 +37,15 @@ public abstract class TableroEntity extends Actor{
 	}
 	
 	public void mueveFicha(int jugador){
-		
+		//TODO
+	}
+	@Override
+	public void setWidth(float x){
+		super.setWidth(x);
+		CasillaEntity c = casillaRaiz;
+		do {
+			c.setWidth();
+		}while((c = c.getNextNodo()) != null);
 	}
 	//Getters and setters
 	public Tablero getTablero() {
@@ -55,5 +63,6 @@ public abstract class TableroEntity extends Actor{
 	public void setCasillaRaiz(CasillaEntity casillaRaiz) {
 		this.casillaRaiz = casillaRaiz;
 	}
+
 	
 }

@@ -1,6 +1,5 @@
 package business.herramientas.serializador;
 
-import business.herramientas.serializador.impl.Serializador;
 /**
  * Factoria del serializador
  * @author Inigo Llaneza Aller

@@ -10,7 +10,7 @@ import persistencia.impl.Insert;
 import business.herramientas.parser.impl.Parser;
 import business.herramientas.parser.impl.ParserGIFT;
 import business.herramientas.parser.impl.ParserQTI;
-import business.herramientas.serializador.impl.Serializador;
+import business.herramientas.serializador.Serializador;
 import business.herramientas.serializador.impl.json.JsonSerialImpl;
 
 public class Extractor {

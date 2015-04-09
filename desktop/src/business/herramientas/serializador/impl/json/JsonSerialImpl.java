@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import modelo.preguntas.Pregunta;
-import business.herramientas.serializador.impl.Serializador;
+import business.herramientas.serializador.Serializador;
 
 import com.google.gson.Gson;
 

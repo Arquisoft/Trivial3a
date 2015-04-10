@@ -21,7 +21,7 @@
 						<li><a href="juego.html">Juego</a></li>
 						<li><a href="sistema.html">Manual sistema</a></li>
 						<li><a href="usuario.html">Manual usuario</a></li>
-						<li><a href="doc.html">Documentación</a></li>
+						<li><a href="doc.html">DocumentaciÃ³n</a></li>
 						<li><a href="equipo.html">Equipo</a></li>
 					</ul>
 				</nav>
@@ -33,37 +33,88 @@
 
 		
 	<div class="principal contenedor">
-	<h1>Manual de usuario</h1>
-		<article>
-			<p>Descripción del funcionamiento de la interfaz que será utilizada por un usuario administrador, 
-			a fin de introducir en la base de datos del sistema una lista de preguntas con respuestas 
-			verdaderas y falsas. Esto, nos servirá más adelante, para implementar diferentes tipos de 
-			juegos que puedan hacer uso de estas preguntas.
-			</p>
-		</article>
- 
-		<article>
-			<h2 class="titulo">Administrador</h2>
-			<p>El administrador, al iniciar la aplicación, solo tendrá acceso a una pantalla, en ella, 
-			tendrá una lista de opciones a realizar y se le pedirá que introduzca el número de la opción
-			que desee:</p>
-				<ul>
-				<li>Introduciendo 0: salir de la aplicación.</li>
-				<li>Introduciendo 1: nos pedirá que introduzcamos la ruta del fichero con las preguntas que queramos añadir a
-				la base de datos. Éste fichero debe tener uno de los siguientes formatos:
-				<ul>
-				<li>GIFT</li>
-				<li>XML simple (QTI)</li>
-				</ul>
-				Si la ruta del fichero es correcta, y el fichero no contiene ningún error, las preguntas se almacenarán en 
-				la base de datos.</li>
-				<li>Introduciendo 2: esta opción nos permite leer un fichero de manera automática. Nos pedirá que introduzcamos 
-				cada cuanto tiempo queremos que se actualicen los datos del fichero en la base de datos. Por último, nos pedirá que 
-				introduzcamos la ruta del fichero como en el caso anterior.</li>
-				<li>Introduciendo otra cosa: nos mostrará un mensaje indicando que la opción elegida no es correcta.</li>
-				</ul>
-			</p>
-		</article>
+		<div>
+    <h1>
+        <a name="_Toc416387116"></a>
+        <a name="_Toc416210035">Manual de usuario</a>
+    </h1>
+</div>
+<article class="art">
+<p>
+    Descripción del funcionamiento de la interfaz que será utilizada por un usuario administrador o un usuario cliente, éste usuario podrá registrarse en la
+    aplicación, validarse para poder participar en una partida de trivial y consultar sus estadísticas de las partidas ganadas, preguntas acertadas, etc…
+</p>
+<h2>
+    <a name="_Toc416387117">Instalación de la aplicación</a>
+</h2>
+<p>
+    Debemos descargarnos el archivo .apk que contiene el juego.
+</p>
+<p>
+    Haremos doble click sobre el archivo y se iniciará automáticamente.
+</p>
+<p>
+    Descargar la base de datos mongodb de su página oficial.
+</p>
+<p>
+    Instalarla y abrirla para poder jugar.
+</p>
+<h2>
+    <a name="_Toc416387118"></a>
+    <a name="_Toc416210036">Usuario cliente</a>
+</h2>
+<p>
+    La primera pantalla que se encontrará el usuario al iniciar el juego será esta:
+</p>
+<img src="images/vprincipal.jpg" width=1000px height=500px/>
+<p>
+    En ella, tenemos dos alternativas.
+</p>
+<p>
+    1. Registrarnos como nuevo jugador. Se introducirán el nombre y email y se pulsará el botón de “registrarme”. A continuación se nos abrirá una nueva
+    ventana en la que se nos pedirá que introduzcamos otros datos para completar el registro.
+</p>
+<p>
+    2. Iniciar sesión. Para poder jugar una partida, hace falta iniciar sesión, para ello se nos pedirá que introduzcamos nombre, contraseña y el color que
+    queremos tener. Podrán iniciar sesión varios jugadores a la vez, todos estos, serán los que participarán en juego. Al iniciar sesión dos jugadores no
+    pueden elegir el mismo color.
+</p>
+<p>
+    Para comenzar a jugar, es necesario que inicie sesión al menos un jugador y darle al botón de “iniciar juego”.
+</p>
+<p>
+    Una vez iniciado el juego, nos aparecerá la siguiente ventana:
+</p>
+<img src="images/opciones.jpg" width=1000px height=500px/>
+<p>
+    Si pulsamos sobre el botón de jugar, nos aparecerán tres opciones de tableros que podemos elegir: el tablero pequeño, normal o grande.
+</p>
+<img src="images/tableros.jpg" width=1000px height=500px/>
+<p>
+    Seleccionamos el tablero que queramos, y nos aparecerá la ventana del juego:
+</p>
+<img src="images/juego.jpg" width=1000px height=500px/>
+<p>
+    En esta ventana, tiraremos el dado pulsando sobre el botón con el “+”, nos aparecerá a su izquierda el resultado, elegiremos donde queremos movernos con
+    las flechas y nos aparecerá una pregunta con cuatro posibles respuestas. Si acertamos se nos añadirá un quesito, si no, jugará otro jugador en caso de
+    partidas multijugador. Cuando tengamos los quesitos de todos los colores, finalizará el juego indicando que hemos ganado.
+</p>
+<h2>
+    <a name="_Toc416387119">Usuario administrador</a>
+</h2>
+<p>
+    El usuario administrador, deberá iniciar sesión en la ventana principal, para ello, introducirá su nombre de usuario y contraseña.
+</p>
+<img src="images/vprincipal.jpg" width=1000px height=500px/>
+<p>
+    Una vez introducidos los datos, se nos abrirá una nueva ventana:
+</p>
+<img src="images/admin.jpg" width=1000px height=500px/>
+<p>
+    En esta ventana podemos ver todas las estadísticas de los jugadores, partidas jugadas, ganadas, preguntas contestadas, preguntadas acertadas… Además
+    podremos buscar un jugador en concreto filtrando su búsqueda por nombre, por login, por apellidos, etc.
+</p>
+</article>
 	</div>
  
 	<script src="http://code.jquery.com/jquery-latest.js"></script>

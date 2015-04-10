@@ -28,25 +28,30 @@ public class JuegoEnTableroLineal {
 	// el ganar lo puse con un quesito de cada color creo que se entiende
 	// bastante bien
 	/**
-	 * Retorna el texto de  la pregunta actual
+	 * Retorna el texto de la pregunta actual
+	 * 
 	 * @return
 	 */
-	public String getTextoPregunta(){
+	public String getTextoPregunta() {
 		return pregunta.getPregunta();
 	}
-	public List<String> getRespuestasMezcladas(){
+
+	public List<String> getRespuestasMezcladas() {
 		return respuestasMezcladas;
 	}
-	public int getValorDado(){
+
+	public int getValorDado() {
 		return valorDadoActual;
 	}
-	public Jugador getJugadorActual(){
+
+	public Jugador getJugadorActual() {
 		return actual;
 	}
-	public boolean isGameFinished(){
+
+	public boolean isGameFinished() {
 		return gameFinished;
 	}
-	
+
 	private void jugarDerecha(int posiciones) {
 		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getSiguiente() != null) {
@@ -87,7 +92,7 @@ public class JuegoEnTableroLineal {
 				pregunta.getRespuestaCorrecta(),
 				pregunta.getRespuestasIncorrectas());
 	}
-	
+
 	private Pregunta getPregunta() {
 
 		return actual.getActual().getColor().getPregunta();
@@ -97,7 +102,7 @@ public class JuegoEnTableroLineal {
 	 * Para que hagas lo que quieras al ganar
 	 */
 	private void ganar() {
-
+		gameFinished = true;
 	}
 
 	/**

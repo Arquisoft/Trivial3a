@@ -1,5 +1,6 @@
 package presentacion.game.entities;
 
+import presentacion.game.entities.impl.CasillaEntity;
 import business.game.tablero.tableros.Tablero;
 
 import com.badlogic.gdx.graphics.g2d.Batch;

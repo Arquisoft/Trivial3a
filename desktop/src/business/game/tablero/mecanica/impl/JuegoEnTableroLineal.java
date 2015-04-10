@@ -16,6 +16,7 @@ public class JuegoEnTableroLineal {
 	private int valorDadoActual;
 	private Pregunta pregunta;
 	private ArrayList<String> respuestasMezcladas;
+	private boolean gameFinished;
 
 	// Ala aqu� poneis bots o lo que querais en principio un metodo jugar
 	// hab�a
@@ -38,6 +39,12 @@ public class JuegoEnTableroLineal {
 	}
 	public int getValorDado(){
 		return valorDadoActual;
+	}
+	public Jugador getJugadorActual(){
+		return actual;
+	}
+	public boolean isGameFinished(){
+		return gameFinished;
 	}
 	
 	private void jugarDerecha(int posiciones) {

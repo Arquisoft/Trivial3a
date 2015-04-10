@@ -1,6 +1,5 @@
 package presentacion.game.entities.impl;
 
-import presentacion.game.entities.CasillaEntity;
 import presentacion.game.entities.TableroEntity;
 import business.game.tablero.nodos.Nodo;
 import business.game.tablero.tableros.Tablero;

@@ -9,9 +9,11 @@ import presentacion.game.managers.ScreenManager;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
 
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -38,6 +40,7 @@ public class ScreenJuego implements Screen {
 	private Stage stage;
 
 	private Image bg;
+	private Music winMusic = Gdx.audio.newMusic(new FileHandle("assets/sounds/estoNoEsElTaxi.mp3"));//Pido disculpas de antemano si alguien escucha esta canción por llamarla de alguna manera.
 
 	private Table tableUsuarios;
 	private Image bgUsuarios;
@@ -58,6 +61,8 @@ public class ScreenJuego implements Screen {
 	private TextButton answer2;
 	private TextButton answer3;
 	private TextButton answer4;
+	
+	private boolean alreadyWin = false;
 
 	public ScreenJuego(JuegoEnTableroLineal juego, List<Jugador> jugadores,
 			TableroLinealEntity tablero) {
@@ -178,6 +183,25 @@ public class ScreenJuego implements Screen {
 		moveUp.setDisabled(true);
 		moveDown.setDisabled(true);
 	}
+	private void setAnswerDisabled(boolean v){
+		answer1.setDisabled(v);
+		answer2.setDisabled(v);
+		answer3.setDisabled(v);
+		answer4.setDisabled(v);
+	}
+	private void setMoveDisableD(boolean v){
+		moveLeft.setDisabled(v);
+		moveRight.setDisabled(v);
+		moveUp.setDisabled(v);
+		moveDown.setDisabled(v);
+	}
+	private void setPregunta(){
+		question.setText(juego.getTextoPregunta());
+		answer1.setText(juego.getRespuestasMezcladas().get(0));
+		answer2.setText(juego.getRespuestasMezcladas().get(1));
+		answer3.setText(juego.getRespuestasMezcladas().get(2));
+		answer4.setText(juego.getRespuestasMezcladas().get(3));
+	}
 	/**
 	 * Genera la secciÃ³n de las preguntas (Su label y botones) y los de moverse y dado
 	 */
@@ -198,11 +222,9 @@ public class ScreenJuego implements Screen {
 			public void clicked(InputEvent event, float x, float y) {
 				if(!moveLeft.isDisabled()){
 					juego.jugarIzquierda();
-					question.setText(juego.getTextoPregunta());
-					answer1.setText(juego.getRespuestasMezcladas().get(0));
-					answer2.setText(juego.getRespuestasMezcladas().get(1));
-					answer3.setText(juego.getRespuestasMezcladas().get(2));
-					answer4.setText(juego.getRespuestasMezcladas().get(3));
+					setPregunta();
+					setAnswerDisabled(false);
+					setMoveDisableD(true);
 				}
 			}
 		});
@@ -218,11 +240,9 @@ public class ScreenJuego implements Screen {
 			public void clicked(InputEvent event, float x, float y) {
 				if(!moveRight.isDisabled()){
 					juego.jugarDerecha();
-					question.setText(juego.getTextoPregunta());
-					answer1.setText(juego.getRespuestasMezcladas().get(0));
-					answer2.setText(juego.getRespuestasMezcladas().get(1));
-					answer3.setText(juego.getRespuestasMezcladas().get(2));
-					answer4.setText(juego.getRespuestasMezcladas().get(3));
+					setPregunta();
+					setAnswerDisabled(false);
+					setMoveDisableD(true);
 				}
 			}
 		});
@@ -238,11 +258,8 @@ public class ScreenJuego implements Screen {
 				if(!dice.isDisabled()){
 					juego.lanzarDado();
 					dice.setDisabled(true);
-					moveLeft.setDisabled(false);
-					moveRight.setDisabled(false);
+					setMoveDisableD(false);
 					diceResult.setText(String.valueOf(juego.getValorDado()));
-					moveRight.setDisabled(false);
-					moveLeft.setDisabled(false);
 				}
 			}
 		});
@@ -261,6 +278,7 @@ public class ScreenJuego implements Screen {
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer1.isDisabled()){
 					juego.responderAsociadoBoton(0);
+					dice.setDisabled(false);
 				}
 			}
 		});
@@ -270,6 +288,7 @@ public class ScreenJuego implements Screen {
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer2.isDisabled()){
 					juego.responderAsociadoBoton(0);
+					dice.setDisabled(false);
 				}
 			}
 		});
@@ -281,6 +300,7 @@ public class ScreenJuego implements Screen {
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer3.isDisabled()){
 					juego.responderAsociadoBoton(2);
+					dice.setDisabled(false);
 				}
 			}
 		});
@@ -291,6 +311,7 @@ public class ScreenJuego implements Screen {
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer4.isDisabled()){
 					juego.responderAsociadoBoton(3);
+					dice.setDisabled(false);
 				}
 			}
 		});
@@ -320,13 +341,38 @@ public class ScreenJuego implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act();
+		stage.getBatch().enableBlending();
 		if (Gdx.input.isKeyPressed(Keys.B))
 			stage.setDebugAll(true);
 		if (Gdx.input.isKeyPressed(Keys.A))
 			stage.setDebugAll(false);
+		if(juego.isGameFinished() && !alreadyWin){
+			win();
+		}
 		stage.draw();
+		
 	}
-
+	private void win(){
+		Image win = new Image(new Texture(new FileHandle("assets/textures/game/winBG.png")));
+		win.setBounds(0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		stage.addActor(win);
+		Label winner = new Label(juego.getJugadorActual().getUsuario().getLogin(), AssetsManager.skin);
+		winner.setBounds(0, Gdx.graphics.getHeight()*0.1f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight()*0.1f);
+		winner.setAlignment(Align.center);
+		stage.addActor(winner);
+		Button btSalir = new TextButton("Salir", AssetsManager.skin);
+		btSalir.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				ScreenManager.setScreen(new ScreenInicio());
+			}
+		});
+		btSalir.setSize(Gdx.graphics.getWidth()*0.1f, 0.075f*Gdx.graphics.getHeight());
+		btSalir.setPosition(Gdx.graphics.getWidth()/2 - btSalir.getWidth()/2, Gdx.graphics.getHeight() * 0.0075f);
+		stage.addActor(btSalir);
+		AssetsManager.playMusic(winMusic, false);
+		alreadyWin = true;
+	}
 	@Override
 	public void resize(int width, int height) {
 		// stage.getViewport().update(width, height);
@@ -353,8 +399,7 @@ public class ScreenJuego implements Screen {
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-
+		winMusic.stop();
 	}
 
 	// GETTERS AND SETTERS

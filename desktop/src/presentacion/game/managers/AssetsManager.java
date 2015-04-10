@@ -5,7 +5,9 @@ import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 
@@ -15,17 +17,21 @@ public class AssetsManager {
 	//UI		
 		public static Skin skin;
 		public static TextureAtlas tonyAtlas;
-		
 		private static Preferences prefs = Gdx.app.getPreferences("Opciones");
-	//Sounds and music
 		
+		public static LabelStyle estilo = new LabelStyle();
+	     
+	//Private members
+		private static BitmapFont defaultLabelStyle = new BitmapFont( new FileHandle("assets/font2.fnt"));
 	/**
 	 * M�todo para cargar a pi��n toda la configuraci�n de los assets (fuentes, sonidos, atlas, skins...)	
 	 */
 	 
 	public static void initialize(){
 		LOCALIZATION=I18NBundle.createBundle(new FileHandle("assets/i18n/localization"));	
-		skin = new Skin(new FileHandle("assets/uiskin.json"));		
+		skin = new Skin(new FileHandle("assets/uiskin.json"));	
+		
+		estilo.font = defaultLabelStyle;
 	}
 	
 	/**

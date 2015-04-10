@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-public class CasillaEntity extends Actor{
+public class CasillaEntity extends Actor {
 	/** La imagen como la que se pintarï¿½ la casilla*/
 	private Image textura;
 	/**El nodo al que hace referencia*/
@@ -51,7 +51,7 @@ public class CasillaEntity extends Actor{
 		textura.setHeight(height);
 	}
 	/**
-	 * Añade una ficha del color especificado a la casilla
+	 * Aï¿½ade una ficha del color especificado a la casilla
 	 * @param c
 	 */
 	public void setFicha(Color c){

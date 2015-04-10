@@ -51,6 +51,9 @@ public class JuegoEnTableroLineal {
 	public boolean isGameFinished() {
 		return gameFinished;
 	}
+	public Queue<Jugador> getQueueJugadores(){
+		return jugadores;
+	}
 
 	private void jugarDerecha(int posiciones) {
 		for (int i = posiciones; i > 0; i--) {

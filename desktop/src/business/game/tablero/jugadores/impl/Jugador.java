@@ -95,11 +95,13 @@ public class Jugador {
 	public void addQuesito(Color c) {
 		for (int i = 0; i < tamActual; i++) {
 			if (c.equals(quesitos[i])) {
+				tamActual--;
 				break;
 			}
 		}
 		tamActual++;
 		quesitos[tamActual] = c;
+		System.out.println(getUsuario().getLogin() + " - Quesitos totales:" + tamActual);
 		victoria = comprobarQuesitos();
 	}
 

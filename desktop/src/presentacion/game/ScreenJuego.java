@@ -15,6 +15,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -260,6 +261,10 @@ public class ScreenJuego implements Screen {
 					dice.setDisabled(true);
 					setMoveDisableD(false);
 					diceResult.setText(String.valueOf(juego.getValorDado()));
+					answer1.setColor(Color.WHITE);
+					answer2.setColor(Color.WHITE);
+					answer3.setColor(Color.WHITE);
+					answer4.setColor(Color.WHITE);
 				}
 			}
 		});
@@ -277,7 +282,10 @@ public class ScreenJuego implements Screen {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer1.isDisabled()){
-					juego.responderAsociadoBoton(0);
+					if(juego.responderAsociadoBoton(0))
+						answer1.setColor(Color.GREEN);
+					else
+						answer1.setColor(Color.RED);
 					dice.setDisabled(false);
 				}
 			}
@@ -287,7 +295,10 @@ public class ScreenJuego implements Screen {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer2.isDisabled()){
-					juego.responderAsociadoBoton(0);
+					if(juego.responderAsociadoBoton(1))
+						answer2.setColor(Color.GREEN);
+					else
+						answer2.setColor(Color.RED);
 					dice.setDisabled(false);
 				}
 			}
@@ -299,7 +310,10 @@ public class ScreenJuego implements Screen {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer3.isDisabled()){
-					juego.responderAsociadoBoton(2);
+					if(juego.responderAsociadoBoton(2))
+						answer3.setColor(Color.GREEN);
+					else
+						answer3.setColor(Color.RED);
 					dice.setDisabled(false);
 				}
 			}
@@ -310,7 +324,10 @@ public class ScreenJuego implements Screen {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				if(!answer4.isDisabled()){
-					juego.responderAsociadoBoton(3);
+					if(juego.responderAsociadoBoton(3))
+						answer4.setColor(Color.GREEN);
+					else
+						answer4.setColor(Color.RED);
 					dice.setDisabled(false);
 				}
 			}

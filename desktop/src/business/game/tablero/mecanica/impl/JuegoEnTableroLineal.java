@@ -124,7 +124,7 @@ public class JuegoEnTableroLineal {
 	/**
 	 * cuando pulsas el boton que sea el primero el 0 etc
 	 */
-	public void responderAsociadoBoton(int boton) {
+	public boolean responderAsociadoBoton(int boton) {
 		switch (boton) {
 		case 0:
 			if (respuestasMezcladas.get(0).equals(
@@ -132,6 +132,7 @@ public class JuegoEnTableroLineal {
 				actual.addQuesito(actual.getActual().getColor());
 				if (actual.isVictoria())
 					ganar();
+				return true;
 			} else {
 				siguienteJugador();
 
@@ -143,6 +144,7 @@ public class JuegoEnTableroLineal {
 				actual.addQuesito(actual.getActual().getColor());
 				if (actual.isVictoria())
 					ganar();
+				return true;
 			} else {
 				siguienteJugador();
 			}
@@ -153,6 +155,7 @@ public class JuegoEnTableroLineal {
 				actual.addQuesito(actual.getActual().getColor());
 				if (actual.isVictoria())
 					ganar();
+				return true;
 			} else {
 				siguienteJugador();
 			}
@@ -163,12 +166,14 @@ public class JuegoEnTableroLineal {
 				actual.addQuesito(actual.getActual().getColor());
 				if (actual.isVictoria())
 					ganar();
+				return true;
 			} else {
 				siguienteJugador();
 			}
 			break;
 
 		}
+		return false;
 	}
 
 	/**

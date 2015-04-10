@@ -35,63 +35,25 @@
 	<h1>Manual de sistema</h1>
 	
 		<article class="art">
-			<div>
-    <h1>
-        <a name="_Toc416210344">VisiÃ³n general</a>
-    </h1>
-</div>
+    
+
 <p>
-    En este manual, se describe el funcionamiento del mÃ³dulo, que permite a un usuario, registrarse en el juego, iniciar una partida de trivial seleccionando
-    el nÃºmero de jugadores con los que desea jugar y consultar sus estadÃ­sticas e informaciÃ³n de los jugadores. Nos centraremos en dos tipos diferentes de
-    visiones:
-</p>
-<p>
-    1. <strong>A nivel de usuario</strong>: esta parte de la aplicaciÃ³n estÃ¡ pensada para un usuario cliente haga uso de ella. Se explicarÃ¡ cÃ³mo se realiza la
-    interacciÃ³n con el juego.
-</p>
-<p>
-    2. <strong>A nivel de sistema</strong>: instrucciones para la utilizaciÃ³n de este cÃ³digo por distintos desarrolladores. Gracias a Ã©ste se permitirÃ¡ una
-    lectura rÃ¡pida que nos ayudarÃ¡ a entender el cÃ³digo y funcionamiento del proyecto para su utilizaciÃ³n y modificaciÃ³n posterior. Se explicarÃ¡ detalladamente
-    la funcionalidad de las diversas clases que conforman el proyecto. El sistema estÃ¡ formado por una serie de jerarquÃ­as de clases que cooperan entre sÃ­ para
-    lograr el correcto funcionamiento de la aplicaciÃ³n.
-</p>
-<div>
-    <h1>
-        <a name="_Toc416210345"></a>
-        <a name="_Toc416210035">Manual de usuario</a>
-    </h1>
-</div>
-<p>
-    DescripciÃ³n del funcionamiento de la interfaz que serÃ¡ utilizada por un usuario cliente, Ã©ste usuario podrÃ¡ registrarse en la aplicaciÃ³n, validarse para
-    poder participar en una partida de trivial y consultar sus estadÃ­sticas de las partidas ganadas, preguntas acertadas, etcâ€¦
-</p>
-<h2>
-    <a name="_Toc416210346"></a>
-    <a name="_Toc416210036">Usuario cliente</a>
-</h2>
-<div>
-    <h1>
-        <a name="_Toc416210347"></a>
-        <a name="_Toc416210037">Manual de sistema</a>
-    </h1>
-</div>
-<p>
-    El sistema estÃ¡ implementado con un conjunto de paquetes que se irÃ¡n explicando a continuaciÃ³n. Se utiliza el patrÃ³n factorÃ­a para comunicar las capas de
-    la lÃ³gica de negocio y persistencia con la capa de presentaciÃ³n.
+    El sistema está implementado con un conjunto de paquetes que se irán explicando a continuación. Se utiliza el patrón factoría para comunicar las capas de
+    la lógica de negocio y persistencia con la capa de presentación.
 </p>
 <h2>
     <a name="_Toc416210348"></a>
     <a name="_Toc416210038">Paquete business</a>
 </h2>
 <p>
-    En este paquete se almacena toda la lÃ³gica del juego, estÃ¡ subdividido en otros tres paquetes.
+    En este paquete se almacena toda la lógica del juego, estÃ¡ subdividido en otros tres paquetes.
 </p>
 <h3>
     <a name="_Toc416210349"></a>
     <a name="_Toc416210039">Paquete core</a>
 </h3>
 <p>
-    Este paquete contiene la clase Core que es la encargada crear y ejecutar la ventana principal de la aplicaciÃ³n en la que el usuario podrÃ¡ realizar el
+    Este paquete contiene la clase Core que es la encargada crear y ejecutar la ventana principal de la aplicación en la que el usuario podrÃ¡ realizar el
     registro y comenzar el juego.
 </p>
 <h3>
@@ -105,13 +67,13 @@
     <a name="_Toc416210351">Clase IniciarJuegoAction</a>
 </h4>
 <p>
-    Esta clase tiene una lista en la que se guardan los usuarios que van a participar en la partida junto con el color. MÃ©todos:
+    Esta clase tiene una lista en la que se guardan los usuarios que van a participar en la partida junto con el color. Métodos:
 </p>
 <p>
     Â· IniciarJuego: almacena en la lista anterior los usuarios que van a participar.
 </p>
 <p>
-    Â· Execute: aÃ±ade la lista de usuarios a la base de datos.
+    Â· Execute: añade la lista de usuarios a la base de datos.
 </p>
 <h4>
     <a name="_Toc416210352">Clase RegistrarseAction</a>
@@ -120,41 +82,41 @@
     MÃ©todos:
 </p>
 <p>
-    Â· RegistrarseAction: crea un nuevo Usuario con los datos pasados como parÃ¡metros (Login, contraseÃ±a, nombre, apellidos, email y edad).
+    Â· RegistrarseAction: crea un nuevo Usuario con los datos pasados como parámetros (Login, contraseÃ±a, nombre, apellidos, email y edad).
 </p>
 <p>
-    Â· ExistUserNameEmail: comprueba que en la base de datos no estÃ© ningÃºn usuario con el mismo nombre de usuario, email o nombre.
+    Â· ExistUserNameEmail: comprueba que en la base de datos no está ningún usuario con el mismo nombre de usuario, email o nombre.
 </p>
 <p>
-    Â· Execute: aÃ±ade a la base de datos el nuevo usuario.
+    Â· Execute: añade a la base de datos el nuevo usuario.
 </p>
 <h4>
     <a name="_Toc416210353">Clase ValidarseAction</a>
 </h4>
 <p>
-    MÃ©todos:
+    Métodos:
 </p>
 <p>
-    Â· GetUsuario: este mÃ©todo obtiene el usuario que se estÃ¡ validando a travÃ©s de los datos que se le pasan: login y contraseÃ±a.
+    Â· GetUsuario: este método obtiene el usuario que se está validando a través de los datos que se le pasan: login y contraseña.
 </p>
 <p>
     Â· UsuarioDuplicado: se comprueba que un jugador no se pueda validar dos veces en el juego para que no se repita ninguno en el momento de iniciar la
     partida.
 </p>
 <p>
-    Â· IsCorrecto: muestra mensajes de error si el usuario ya se ha validado, si el color ya se ha elegido o si la contraseÃ±a o login son incorrectos.
+    Â· IsCorrecto: muestra mensajes de error si el usuario ya se ha validado, si el color ya se ha elegido o si la contraseña o login son incorrectos.
 </p>
 <h4>
     <a name="_Toc416210354">Clase Action</a>
 </h4>
 <p>
-    Es la encargada de realizar la conexiÃ³n con la base de datos y obtener los datos alamacenados.
+    Es la encargada de realizar la conexión con la base de datos y obtener los datos alamacenados.
 </p>
 <h4>
     <a name="_Toc416210355">Clase Partida</a>
 </h4>
 <p>
-    Esta clase tiene los mÃ©todos encargados de aÃ±adir usuarios a una lista y de eliminarlos.
+    Esta clase tiene los métodos encargados de añadir usuarios a una lista y de eliminarlos.
 </p>
 <h3>
     <a name="_Toc416210356"></a>
@@ -173,7 +135,7 @@
     <a name="_Toc416210358">Paquete jugadores</a>
 </h4>
 <p>
-    Este paquete contiene otro patrÃ³n factorÃ­a que se utiliza para crear nuevos jugadores.
+    Este paquete contiene otro patrón factoría que se utiliza para crear nuevos jugadores.
 </p>
 <h5>
     <a name="_Toc416210359">Clase jugador</a>
@@ -182,7 +144,7 @@
     Tiene los atributos:
 </p>
 <p>
-    Â· Quesitos: lista de quesitos donde se aÃ±adirÃ¡n los colores de los quesitos que se obtengan.
+    Â· Quesitos: lista de quesitos donde se añadirán los colores de los quesitos que se obtengan.
 </p>
 <p>
     Â· Actual: nodo con la posiciÃ³n del tablero en la que se encuentra.
@@ -194,11 +156,11 @@
     MÃ©todos:
 </p>
 <p>
-    Â· MoverDerecha/MoverIzquierda: se le pasa el nÃºmero de posiciones que se quiere mover y se actualiza la posiciÃ³n del atributo â€œ<em>actual</em>â€�, al nuevo
+    Â· MoverDerecha/MoverIzquierda: se le pasa el número de posiciones que se quiere mover y se actualiza la posición del atributo â€œ<em>actual</em>â€�, al nuevo
     nodo.
 </p>
 <p>
-    Â· AÃ±adirQuesito: aÃ±ade un color a la lista de quesitos.
+    Â· AñadirQuesito: añade un color a la lista de quesitos.
 </p>
 <p>
     Â· ComprobarQuesitos: comprueba si la lista quesitos contiene todos los colores y devuelve true o false.

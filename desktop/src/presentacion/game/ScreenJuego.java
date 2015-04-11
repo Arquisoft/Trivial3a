@@ -1,15 +1,19 @@
 package presentacion.game;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 import presentacion.game.entities.TableroEntity;
+import presentacion.game.entities.impl.CasillaEntity;
 import presentacion.game.entities.impl.TableroLinealEntity;
 import presentacion.game.managers.AssetsManager;
 import presentacion.game.managers.ScreenManager;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
+import business.game.tablero.nodos.Nodo;
 
-import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
@@ -23,7 +27,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -37,18 +40,18 @@ public class ScreenJuego implements Screen {
 	private JuegoEnTableroLineal juego;
 	/** Una referencia a los jugadores */
 	private List<Jugador> jugadores;
+	private Queue<Label> playersLabelQueue;
+	private Queue<Image> playersTokenQueue;
 	
 	private Stage stage;
 
 	private Image bg;
-	private Music winMusic = Gdx.audio.newMusic(new FileHandle("assets/sounds/estoNoEsElTaxi.mp3"));//Pido disculpas de antemano si alguien escucha esta canci髇 por llamarla de alguna manera.
+	private Music winMusic = Gdx.audio.newMusic(new FileHandle("assets/sounds/estoNoEsElTaxi.mp3"));//Pido disculpas de antemano si alguien escucha esta canci锟絥 por llamarla de alguna manera.
 
-	private Table tableUsuarios;
 	private Image bgUsuarios;
-	private Table tablePregunta;
 	private Image bgPregunta;
-	private Table tableTablero;
 	private Image bgTablero;
+	private Image bgActivePlayer;
 
 	private Button moveLeft;
 	private Button moveUp;
@@ -74,6 +77,8 @@ public class ScreenJuego implements Screen {
 
 	@Override
 	public void show() {
+		playersLabelQueue = new ArrayDeque<Label>();
+		playersTokenQueue = new ArrayDeque<Image>();
 		stage = new Stage();
 		stage.setViewport(new ScalingViewport(Scaling.fit, Gdx.graphics
 				.getWidth(), Gdx.graphics.getHeight(), stage.getCamera()));
@@ -109,29 +114,37 @@ public class ScreenJuego implements Screen {
 		bgTablero.setPosition(0, 0, Align.right);
 		stage.addActor(bgTablero);
 
-		tableUsuarios = new Table();
-		tableUsuarios.setFillParent(false);
-		tableUsuarios.setSize(0.2f * Gdx.graphics.getWidth(),
-				0.8f * Gdx.graphics.getHeight());
-		tableUsuarios.setPosition(0, Gdx.graphics.getHeight(), Align.topLeft);
-		stage.addActor(tableUsuarios);
 
-		tablePregunta = new Table();
-		tablePregunta.setFillParent(false);
-		tablePregunta.setPosition(50, 50, Align.bottomLeft);
-		stage.addActor(tablePregunta);
-
-		tableTablero = new Table();
-		tableTablero.setFillParent(false);
-		tableTablero.setPosition(50, 50, Align.topRight);
-		stage.addActor(tableTablero);
-
-		generateUsersTable();
-		generatePreguntasTable();
 		generateTablero();
+		generateUsersTable();
+		generatePreguntasTable();		
 		start();
+		organizeTokens();
 	}
-
+	/**
+	 * Organiza las fichas de los jugadores (tama帽o y posici贸n); TODO optimizaci贸n del c贸digo y updatear de ficha en ficha en vez de todas
+	 */
+	private void organizeTokens(){
+		int i=0;
+		Nodo actual = null;
+		CasillaEntity aux = tablero.getCasillaRaiz();
+		List<Jugador> jList = (List<Jugador>) juego.getQueueJugadores();
+		jList = new ArrayList<Jugador>(jList);
+		jList.add(0, juego.getJugadorActual());
+		for(Image token:playersTokenQueue.toArray(new Image[0])){
+			actual = jList.get(i).getActual();
+			do {
+				if(aux.getNodo().equals(actual)){
+					System.out.println("Coincidencia nodo: " + i);
+					token.setSize(aux.getWidth(), aux.getWidth());
+					token.setPosition(aux.getX(), aux.getY());				
+				}
+			}while((aux = aux.getNextNodo()) != null);	
+			aux = tablero.getCasillaRaiz();
+			i++;
+		}
+	}
+	
 	/**
 	 * Genera el contenido del men煤 de la izquierda (Listas de jugadores con
 	 * sus quesitos, y bot贸n men煤)
@@ -152,23 +165,31 @@ public class ScreenJuego implements Screen {
 		float height = Gdx.graphics.getHeight() * 0.1f; ;
 		btMenu.setSize(width, height);
 		btMenu.setPosition(0, Gdx.graphics.getHeight() - height);
-
-		Label label;
+		
+		Label label = new Label("", AssetsManager.skin);
 		float lbHeight = (0.8f * Gdx.graphics.getHeight() - height)/12;
 		Jugador j;
+		bgActivePlayer = new Image(new Texture("assets/textures/game/activePlayer.png"));	
+		stage.addActor(bgActivePlayer);
+		Image token;
 		for (int i=0; i<jugadores.size(); i++) {
 			j = jugadores.get(i);
+			
 			label = new Label(j.getUsuario().getLogin(), AssetsManager.skin);
 			label.setBounds(0, (Gdx.graphics.getHeight() - height*1.5f - lbHeight*(i+1)), width, lbHeight);
 			label.setColor(j.getColor().getColorLibgdx());
 			label.setAlignment(Align.center, Align.center);
+			playersLabelQueue.offer(label);
 			stage.addActor(label);
-			//tableUsuarios.add(label);
+			
+			token = new Image(new Texture("assets/textures/game/trivialToken.png"));
+			token.setColor(j.getColor().getColorLibgdx());
+			stage.addActor(token);
+			playersTokenQueue.offer(token);			
 		}
-
+		bgActivePlayer.setSize(label.getWidth(), label.getHeight());
+		bgActivePlayer.setPosition(playersLabelQueue.peek().getX(), playersLabelQueue.peek().getY());	
 		stage.addActor(btMenu);
-
-		tableUsuarios.setClip(true);
 	}
 	/**
 	 * Comienza el juego
@@ -226,6 +247,7 @@ public class ScreenJuego implements Screen {
 					setPregunta();
 					setAnswerDisabled(false);
 					setMoveDisableD(true);
+					organizeTokens();
 				}
 			}
 		});
@@ -244,6 +266,7 @@ public class ScreenJuego implements Screen {
 					setPregunta();
 					setAnswerDisabled(false);
 					setMoveDisableD(true);
+					organizeTokens();
 				}
 			}
 		});
@@ -261,10 +284,11 @@ public class ScreenJuego implements Screen {
 					dice.setDisabled(true);
 					setMoveDisableD(false);
 					diceResult.setText(String.valueOf(juego.getValorDado()));
-					answer1.setColor(Color.WHITE);
-					answer2.setColor(Color.WHITE);
-					answer3.setColor(Color.WHITE);
-					answer4.setColor(Color.WHITE);
+					answer1.setColor(Color.WHITE);answer1.setText("");
+					answer2.setColor(Color.WHITE);answer2.setText("");
+					answer3.setColor(Color.WHITE);answer3.setText("");
+					answer4.setColor(Color.WHITE);answer4.setText("");
+					question.setText("");
 				}
 			}
 		});
@@ -284,9 +308,13 @@ public class ScreenJuego implements Screen {
 				if(!answer1.isDisabled()){
 					if(juego.responderAsociadoBoton(0))
 						answer1.setColor(Color.GREEN);
-					else
+					else {
 						answer1.setColor(Color.RED);
+						playersLabelQueue.offer(playersLabelQueue.poll());
+						bgActivePlayer.setY(playersLabelQueue.peek().getY());
+					}
 					dice.setDisabled(false);
+					setAnswerDisabled(true);
 				}
 			}
 		});
@@ -297,9 +325,13 @@ public class ScreenJuego implements Screen {
 				if(!answer2.isDisabled()){
 					if(juego.responderAsociadoBoton(1))
 						answer2.setColor(Color.GREEN);
-					else
-						answer2.setColor(Color.RED);
+					else {
+						answer1.setColor(Color.RED);
+						playersLabelQueue.offer(playersLabelQueue.poll());
+						bgActivePlayer.setY(playersLabelQueue.peek().getY());
+					}
 					dice.setDisabled(false);
+					setAnswerDisabled(true);
 				}
 			}
 		});
@@ -312,9 +344,13 @@ public class ScreenJuego implements Screen {
 				if(!answer3.isDisabled()){
 					if(juego.responderAsociadoBoton(2))
 						answer3.setColor(Color.GREEN);
-					else
-						answer3.setColor(Color.RED);
+					else {
+						answer1.setColor(Color.RED);
+						playersLabelQueue.offer(playersLabelQueue.poll());
+						bgActivePlayer.setY(playersLabelQueue.peek().getY());
+					}
 					dice.setDisabled(false);
+					setAnswerDisabled(true);
 				}
 			}
 		});
@@ -326,9 +362,13 @@ public class ScreenJuego implements Screen {
 				if(!answer4.isDisabled()){
 					if(juego.responderAsociadoBoton(3))
 						answer4.setColor(Color.GREEN);
-					else
-						answer4.setColor(Color.RED);
+					else {
+						answer1.setColor(Color.RED);
+						playersLabelQueue.offer(playersLabelQueue.poll());
+						bgActivePlayer.setY(playersLabelQueue.peek().getY());
+					}
 					dice.setDisabled(false);
+					setAnswerDisabled(true);
 				}
 			}
 		});
@@ -337,7 +377,7 @@ public class ScreenJuego implements Screen {
 		stage.addActor(answer3);
 		stage.addActor(answer4);
 
-		question = new Label("", AssetsManager.skin);
+		question = new Label("", AssetsManager.estilo);
 		question.setBounds(width*3, height, 0.8f*Gdx.graphics.getWidth(), height);
 		question.setAlignment(Align.center);
 		stage.addActor(question);

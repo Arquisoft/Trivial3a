@@ -1,4 +1,0 @@
-TrivialPlay
-================
-
-Using PlayFramework

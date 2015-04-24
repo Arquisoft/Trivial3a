@@ -1,0 +1,116 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+@lightGreyTransparent: rgba(240,240,240,0.25);
+@lightGrey: rgb(200,200,200);
+
+@buttonColor:#FF8E47;
+@buttonTextcolor:white;
+@buttonHoverColor:@buttonColor + #60341D;
+@buttonBorderAddValue: #252525;
+
+
+body {
+	overflow:hidden;
+	height:100vh;
+	width:100vw;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+#menuWrapper {
+	width:100%;
+	height:100%;
+	background:url('../img/blurbg1.jpg') center no-repeat;
+	background-size:cover;
+}
+#logo {
+	position:absolute;
+	top:50px;
+	width:100%;
+	img {
+	}
+}
+#menu {
+	position:absolute;
+	bottom:50px;
+	left:0;
+	right:0;
+	width:90%;
+	margin:0 auto;
+
+	ul {
+	    list-style:none;
+	    padding:0;
+	}
+	ul>li {
+		display: inline;
+		margin-bottom:25px;
+		
+	}
+	ul>li>.defaultButton {
+		width:100%;
+	}
+}
+
+#createGame {
+	height:100%;
+	width:100%;
+	h1 {
+		color:white;
+	}
+	#createGameInputwrapper {
+		float:none;
+		margin: 0 auto;
+		input, select, button {
+			width:100%;
+			margin:15px auto;
+			float:none;
+			height:50px;
+		}
+	}
+}
+
+
+.defaultButton {
+	background:@buttonColor;
+	border:none;
+	border-bottom:6px solid @buttonColor + @buttonBorderAddValue;
+	border-radius:2px;
+	color:@buttonTextcolor;
+	display:block;
+	font-size:20px;
+	height:50px;
+	line-height:30px;
+	outline:none;
+	padding:10px 15px;
+	text-decoration:none;
+	text-align:center;
+	.transitionDefault;
+}
+.defaultButton:hover {
+	background:@buttonHoverColor;
+	border-bottom:3px solid @buttonHoverColor + @buttonBorderAddValue;
+	border-top:3px solid transparent;
+	height:47px;
+	margin-top:3px;
+	line-height: 30px;
+	color:@buttonTextcolor;
+	text-decoration:none;
+	.transitionDefault;
+}
+
+/** HELP CLASSES */
+.transitionDefault {
+	transition:0.25s all ease-in;
+}
+@media(min-width:992px){
+	.col-md-offset-1point5 {
+	    margin-left: 12.5%;
+	}
+}
+@media(min-width:1200px){
+	.col-lg-offset-1point5 {
+    	margin-left: 12.5%;
+	}
+}
+
+

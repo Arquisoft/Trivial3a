@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+@lightGreyTransparent: rgba(240,240,240,0.25);
+@lightGrey: rgb(200,200,200);
+
+@buttonColor:#FF8E47;
+@buttonTextcolor:white;
+@buttonColorHover:@buttonColor + #60341D;
+@buttonBorderAddValue: #252525;
+
+
+body {
+	overflow:hidden;
+	height:100vh;
+	width:100vw;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+#menuWrapper {
+	width:100%;
+	height:100%;
+	background:url('../img/blurbg1.jpg') center no-repeat;
+	background-size:cover;
+}
+#menu {
+	width:90%;
+	margin:0 auto;
+
+	ul{
+		width:100%;
+	}
+	ul>li {
+		display:inline-block;
+		width:25%;
+	}
+	ul>li>.defaultButton {
+		width:100%;
+		height:50px;
+		font-size:20px;
+		line-height:50px;
+	}
+}
+.defaultButton {
+	background:@buttonColor;
+	border:none;
+	border-bottom:5px solid @buttonColor + @buttonBorderAddValue;
+	border-radius:2px;
+	color:@buttonTextcolor;
+	display:block;
+	outline:none;
+	padding:10px 15px;
+	.transitionDefault;
+}
+.defaultButton:hover {
+	background:@buttonHoverColor;
+	border-bottom:5px solid @buttonHoverColor + @buttonBorderAddValue;
+	.transitionDefault;
+}
+
+/** HELP CLASSES */
+.transitionDefault {
+	transition:0.25s all ease-in;
+}
+

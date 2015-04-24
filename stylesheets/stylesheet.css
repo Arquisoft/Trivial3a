@@ -268,3 +268,407 @@ header nav ul li a:hover {
 .principal ul {
 	padding-left: 100px;
 }
+
+@media (min-width: 500px) {
+	nav .background{
+		position: absolute;
+
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.9);
+		background: -webkit-radial-gradient(rgba(0,0,0,1)55%,rgba(0,0,0,0)); /*Safari 5.1-6*/
+		background: -o-radial-gradient(rgba(0,0,0,1)55%,rgba(0,0,0,0)); /*Opera 11.1-12*/
+		background: -moz-radial-gradient(rgba(0,0,0,1)55%,rgba(0,0,0,0)); /*Fx 3.6-15*/
+		background: radial-gradient(rgba(0,0,0,1)55%, rgba(0,0,0,0)); /*Standard*/
+		opacity: 0;
+		transition: all 1s ease-out;
+		-webkit-transition: all 1s ease-out;
+	}
+	nav.active .background{
+		opacity: 0.9;
+		position: fixed;
+
+	}
+
+	nav .wrapper-nav{
+		display: table;
+		height: 100%;
+		width: 100%;
+	}
+	nav header{
+		display: table-row;
+		height: 150px;/*ajustar a tamaño dispositivo*/
+		transition: background 0.5s ease-out;
+		-webkit-transition: background 0.5s ease-out;
+	}
+	nav .nombre{
+		margin-left:-15px;
+		z-index:1;
+	}
+	nav .cabecera{
+		width:100%;
+		position:absolute;
+	}
+	nav .menu{
+		display:none;
+		visibility:hidden;
+		text-align: center;
+		font-size: 18px;
+		opacity: 0;
+		transition: all 0.5s ease-out;
+		-webkit-transition: all 0.5s ease-out;
+		z-index: 2;
+	}
+	nav.active .menu{
+		display: table-row;
+		visibility:visible;
+		opacity: 1;
+	}
+	nav .menu .wrapper-menu{
+		display: table-cell;
+		vertical-align: middle;
+		padding: 30px 0;
+	}
+	nav .menu .item{
+		padding: 10px;
+		font-size: 50px;
+		line-height: 50px;
+		color: white;
+		display: block;
+		position: relative;
+		font-weight: 100;
+		text-transform: uppercase;
+	}
+	nav .menu .item:hover{
+		background: white;
+		background: -webkit-radial-gradient(black 40%,#6E6E6E); /*Safari 5.1-6*/
+		background: -o-radial-gradient(black 40%,#6E6E6E); /*Opera 11.1-12*/
+		background: -moz-radial-gradient(black 40%,#6E6E6E); /*Fx 3.6-15*/
+		background: radial-gradient(black 40%, #6E6E6E); /*Standard*/
+		color: white;
+	}
+
+	/* MENU BOTON */
+	nav header .menu-button{
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		z-index: 2;
+	}
+	nav header .menu-button .text{
+		display: table-cell;
+		vertical-align: middle;
+		height: 55px;
+		text-align: right;
+		position: relative;
+		font-size: 20px;
+		text-transform: uppercase;
+		font-weight: 100;
+	}
+	nav header .menu-button .text a{
+		color:white;
+	}
+	nav header .menu-button .text a:hover{
+		color: white;
+	}
+	nav header .menu-button .text .close,
+	nav header .menu-button .text .open{
+		padding: 10px;
+		transition: 0.5s all ease-out;
+		-webkit-transition: 0.5s all ease-out;
+		color:white;
+	}
+	nav.active header .menu-button .text .close,
+	nav.fixed-section header .menu-button .text .close,
+	nav.active header.active .menu-button .text .open{
+		color:white;
+	}
+	nav header .menu-button .text .open{
+		position: absolute;
+		top: 30px;
+		right: 0px;
+		opacity: 0;
+	}
+	nav.active header .menu-button .text .close{
+		opacity: 0;
+		margin-top: -15px;
+	}
+	nav.active header .menu-button .text .open{
+		opacity: 1;
+		top: 5px;
+		right: 0px;
+	}
+	nav header .menu-button .button{
+		display: table-cell;
+		vertical-align: middle;
+		height: 60px;
+		padding: 0px 20px 20px;
+		cursor: pointer;
+	}
+	nav header .menu-button .lines{
+		display: inline-block;
+		width: 40px;
+		height: 3px;
+		background: white;
+		border-radius: .2rem;
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
+		position: relative;
+	}
+	nav header .menu-button.black .lines,
+	nav header .menu-button.black .lines:before,
+	nav header .menu-button.black .lines:after{
+		background: white;
+	}
+	nav.active header .menu-button .lines{
+		background: 0 0;
+	}
+	nav header .menu-button .lines:before,
+	nav header .menu-button .lines:after{
+		display: inline-block;
+		width: 40px;
+		height: 3px;
+		background: white;
+		border-radius: .2rem;
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
+		position: absolute;
+		left: 0;
+		content: '';
+		-webkit-transform-origin: .1rem center;
+		transform-origin: .1rem center;
+	}
+	nav header .menu-button .lines:before{
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		top: -10px;
+		width: 2.5rem;
+	}
+	nav header .menu-button:hover .lines:before{
+		top: -15px;
+	}
+	nav.active header .menu-button .lines:before{
+		top: 0px;
+		-webkit-transform: rotate3d(0,0,1,45deg);
+		transform: rotate3d(0,0,1,45deg);
+	}
+	nav header .menu-button .lines:after{
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		top: 10px;
+		width: 2.5rem;
+	}
+	nav header .menu-button:hover .lines:after{
+		top: 15px;
+	}
+	nav.active header .menu-button .lines:after{
+		top: 0px;
+		-webkit-transform: rotate3d(0,0,1,-45deg);
+		transform: rotate3d(0,0,1,-45deg);
+	}
+
+}
+
+@media (max-width: 500px) {
+	nav .background{
+		position: absolute;
+
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.9);
+		background: -webkit-radial-gradient(rgba(0,0,0,1)55%,rgba(0,0,0,0)); /*Safari 5.1-6*/
+		background: -o-radial-gradient(rgba(0,0,0,1)55%,rgba(0,0,0,0)); /*Opera 11.1-12*/
+		background: -moz-radial-gradient(rgba(0,0,0,1)55%,rgba(0,0,0,0)); /*Fx 3.6-15*/
+		background: radial-gradient(rgba(0,0,0,1)55%, rgba(0,0,0,0)); /*Standard*/
+		opacity: 0;
+		transition: all 1s ease-out;
+		-webkit-transition: all 1s ease-out;
+	}
+	nav.active .background{
+		opacity: 0.9;
+		position: fixed;
+
+	}
+
+	nav .wrapper-nav{
+		display: table;
+		height: 100%;
+		width: 100%;
+	}
+	nav header{
+		display: table-row;
+		height: 150px;/*ajustar a tamaño dispositivo*/
+		transition: background 0.5s ease-out;
+		-webkit-transition: background 0.5s ease-out;
+	}
+	nav .nombre{
+		margin-left:-15px;
+		z-index:1;
+	}
+	nav .cabecera{
+		width:100%;
+		position:absolute;
+	}
+	nav .menu{
+		display:none;
+		visibility:hidden;
+		text-align: center;
+		font-size: 18px;
+		opacity: 0;
+		transition: all 0.5s ease-out;
+		-webkit-transition: all 0.5s ease-out;
+		z-index: 2;
+	}
+	nav.active .menu{
+		display: table-row;
+		visibility:visible;
+		opacity: 1;
+	}
+	nav .menu .wrapper-menu{
+		display: table-cell;
+		vertical-align: middle;
+		padding: 30px 0;
+	}
+	nav .menu .item{
+		padding: 10px;
+		font-size: 50px;
+		line-height: 50px;
+		color: white;
+		display: block;
+		position: relative;
+		font-weight: 100;
+		text-transform: uppercase;
+	}
+	nav .menu .item:hover{
+		background: white;
+		background: -webkit-radial-gradient(black 40%,rgba(255,255,255,0)); /*Safari 5.1-6*/
+		background: -o-radial-gradient(black 40%,rgba(255,255,255,0)); /*Opera 11.1-12*/
+		background: -moz-radial-gradient(black 40%,rgba(255,255,255,0)); /*Fx 3.6-15*/
+		background: radial-gradient(black 40%, rgba(255,255,255,0)); /*Standard*/
+		color: white;
+	}
+
+	/* MENU BOTON */
+	nav header .menu-button{
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		z-index: 2;
+	}
+	nav header .menu-button .text{
+		display: table-cell;
+		vertical-align: middle;
+		height: 55px;
+		text-align: right;
+		position: relative;
+		font-size: 20px;
+		text-transform: uppercase;
+		font-weight: 100;
+	}
+	nav header .menu-button .text a{
+		color:white;
+	}
+	nav header .menu-button .text a:hover{
+		color: white;
+	}
+	nav header .menu-button .text .close,
+	nav header .menu-button .text .open{
+		padding: 10px;
+		transition: 0.5s all ease-out;
+		-webkit-transition: 0.5s all ease-out;
+		color:white;
+	}
+	nav.active header .menu-button .text .close,
+	nav.fixed-section header .menu-button .text .close,
+	nav.active header.active .menu-button .text .open{
+		color:white;
+	}
+	nav header .menu-button .text .open{
+		position: absolute;
+		top: 30px;
+		right: 0px;
+		opacity: 0;
+	}
+	nav.active header .menu-button .text .close{
+		opacity: 0;
+		margin-top: -15px;
+	}
+	nav.active header .menu-button .text .open{
+		opacity: 1;
+		top: 5px;
+		right: 0px;
+	}
+	nav header .menu-button .button{
+		display: table-cell;
+		vertical-align: middle;
+		height: 60px;
+		padding: 0px 20px 20px;
+		cursor: pointer;
+	}
+	nav header .menu-button .lines{
+		display: inline-block;
+		width: 40px;
+		height: 3px;
+		background: white;
+		border-radius: .2rem;
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
+		position: relative;
+	}
+	nav header .menu-button.black .lines,
+	nav header .menu-button.black .lines:before,
+	nav header .menu-button.black .lines:after{
+		background: white;
+	}
+	nav.active header .menu-button .lines{
+		background: 0 0;
+	}
+	nav header .menu-button .lines:before,
+	nav header .menu-button .lines:after{
+		display: inline-block;
+		width: 40px;
+		height: 3px;
+		background: white;
+		border-radius: .2rem;
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
+		position: absolute;
+		left: 0;
+		content: '';
+		-webkit-transform-origin: .1rem center;
+		transform-origin: .1rem center;
+	}
+	nav header .menu-button .lines:before{
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		top: -10px;
+		width: 2.5rem;
+	}
+	nav header .menu-button:hover .lines:before{
+		top: -15px;
+	}
+	nav.active header .menu-button .lines:before{
+		top: 0px;
+		-webkit-transform: rotate3d(0,0,1,45deg);
+		transform: rotate3d(0,0,1,45deg);
+	}
+	nav header .menu-button .lines:after{
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		top: 10px;
+		width: 2.5rem;
+	}
+	nav header .menu-button:hover .lines:after{
+		top: 15px;
+	}
+	nav.active header .menu-button .lines:after{
+		top: 0px;
+		-webkit-transform: rotate3d(0,0,1,-45deg);
+		transform: rotate3d(0,0,1,-45deg);
+	}
+
+	.texto {	
+		display:none;
+	}
+
+}

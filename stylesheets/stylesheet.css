@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+﻿@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 
 * {
 	padding: 0;
@@ -267,6 +267,11 @@ header nav ul li a:hover {
 
 .principal ul {
 	padding-left: 100px;
+}
+
+ul li { 
+	
+	font-size: 18pt;
 }
 
 @media (min-width: 500px) {

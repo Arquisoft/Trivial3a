@@ -409,6 +409,7 @@ ul li {
 		height: 60px;
 		padding: 0px 20px 20px;
 		cursor: pointer;
+		background:transparent;
 	}
 	nav header .menu-button .lines{
 		display: inline-block;
@@ -609,6 +610,7 @@ ul li {
 		height: 60px;
 		padding: 0px 20px 20px;
 		cursor: pointer;
+		background:transparent;
 	}
 	nav header .menu-button .lines{
 		display: inline-block;

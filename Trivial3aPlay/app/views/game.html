@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trivial 3a</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link  rel="stylesheet" href="css/game.css">
+	<!--<script src="js/less.min.js"></script>-->
+</head>
+<body>
+	<div id="gameWrapper">
+		<div id="gameLeftPanel" class="col-lg-3">
+			<div id="gamePlayers" class="col-lg-12">
+				<div id="actualPlayer">
+					<h1>Turno de:<span class="chatRed"> Ba$$ilon</span></h1>
+				</div>
+				<div id="gameChat">
+					<h1>Chat</h1>
+					<form id="chat">
+						<div id="chatText">
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Le baguette</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+							<p><span class="chatAuthor chatRed">Ba$$ilon:</span><span class="chatMessage">Omg omg report this fucking troll</span></p>
+							<p><span class="chatAuthor chatGreen">xP3n3:</span><span class="chatMessage">Stfu you noob, buy skill and sell your skin</span></p>
+							<p><span class="chatAuthor chatPurple">M4cHaC4h-GlAnd3H:</span><span class="chatMessage">I told you i main yi mid retard</span></p>
+						</div>
+						<div class="input-group">
+							<input id="chatMessage" class="defaultInput" name="chatMessage">
+							<button id="chatSendButton" class="defaultButton"><span class="glyphicon glyphicon-send"></span></button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="gameControls" class="col-lg-12">
+				<form id="gameControlsForm" method="POST" action="#">
+					<div class="buttonWrapper">
+						<label id="diceValue" class="col-lg-4">5</label>
+						<button id="moveUpButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-menu-up"></span></button>
+						<button id="throwDiceButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-retweet"></span></button>
+						<button id="moveLeftButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-menu-left"></span></button>
+						<button id="moveDownButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-menu-down"></span></button>
+						<button id="moveRightButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-menu-right"></span></button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="gameRightPanel" class="col-lg-9">
+			<div id="gameBoard" class="col-lg-12">
+				<div id="board" style="background:url('img/boards/standardBoard.png') center no-repeat; background-size:contain;">
+					<div class="tokenContainer" style="-webkit-transform:scale(0.25, 0.25);transform:scale(0.25, 0.25); right:50%; top:50%;"><!---webkit-transform:scale(0.25, 0.25);transform:scale(0.25, 0.25); right:50%; top:50%; -->
+						<div class="caption">Ba$$ilon<span class="captionRightArrow"></span></div>
+						<div class="token-space-1 tokenRightArrow tokenGreen"></div>
+						<div class="token-space-2 tokenLeftArrow tokenRed"></div>
+						<div class="token-space-3 tokenRightArrow tokenYellow"></div>
+						<div class="token-space-4 tokenLeftArrow tokenPurple"></div>
+						<div class="token-space-5 tokenRightArrow tokenOrange"></div>
+						<div class="token-space-6 tokenLeftArrow tokenBlue"></div>
+					</div>
+				</div>
+			</div>
+			<div id="gameQuestion" class="col-lg-12">
+				<form id="gameQuestionBoard" method="POST" action="#">
+				<p id="gameQuestionText">¿Lorem ipsum dolor sit amet?</p>
+				<div class="buttonWrapper">
+					<button class="defaultButton col-lg-3">Respuesta 1</button>
+					<button class="defaultButton col-lg-3">Respuesta 2</button>
+					<button class="defaultButton col-lg-3">Respuesta 3</button>
+					<button class="defaultButton col-lg-3">Respuesta 4</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/velocity.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/logoAnimation.js"></script>
+	<script src="js/siQuitasEstoLaWebNoTiraArchivoBasicoEImprescindibleParaCumplirConElNormalFuncionamiento.js"></script>
+</body>
+</html>

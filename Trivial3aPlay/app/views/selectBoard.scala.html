@@ -1,0 +1,38 @@
+@main("| Crear partida") {
+	<div id="menuWrapper">
+		<form id="createGame" method="POST" action="#">
+			<div id="createGameInputwrapper" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<h1>Configuración partida</h1>
+				<select name="tablero" class="defaultSelect">
+					<option value="-1">Selecciona Tablero</option>
+					<option value="1">Lineal</option>
+					<option value="2">Círculo</option>
+					<option value="3">Rueda</option>
+				</select>
+				<select name="colorUsuario" class="defaultSelect">
+					<option value="-1">Selecciona Color</option>
+					<option value="1">Verde</option>
+					<option value="2">Amarillo</option>
+					<option value="3">Naranja</option>
+					<option value="4">Rosa</option>
+					<option value="5">Azul</option>
+					<option value="6">Morado</option>
+				</select>
+				<div class="input-group">
+					<span class="input-group-addon-custom" id="userRegisterPassConfIcon"><span class="glyphicon glyphicon-flash"></span></span>
+					<input type="text" class="defaultInput" placeholder="Nombre de partida" name="nombrePartida">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon-custom" id="userRegisterPassConfIcon"><span class="glyphicon glyphicon-lock"></span></span>
+					<input type="text" class="defaultInput" placeholder="Contraseña" name="passPartida">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon-custom" id="userRegisterPassConfIcon"><span class="glyphicon glyphicon-user"></span></span>
+					<input type="number" class="defaultInput" name="maxJugadores" min="1" max="6" placeholder="Maximos jugadores">
+				</div>
+				<button action="#" class="defaultButton col-lg-4 col-md-6 col-sm-8 col-xs-12">Crear partida</button>
+				<div class="clearfix"></div>
+			</div>
+		</form>
+	</div>
+}

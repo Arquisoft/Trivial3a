@@ -1,0 +1,148 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+@lightGreyTransparent: rgba(240,240,240,0.25);
+@lightGrey: rgb(200,200,200);
+@enterButtonColor: #4164FF;
+@registerButtonColor: #FF813A;
+
+
+body {
+	overflow:hidden;
+	height:100vh;
+	width:100vw;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+#loginWrapper {
+	height:100%;
+	width:100%;
+	background:url('../img/blurbg1.jpg') center no-repeat;
+	background-size:cover;
+}
+#loginFormWrapper {
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	height:300px;
+	
+	input[type=text], input[type=password], span.input-group-addon-custom{
+		background:transparent;
+		border-radius:0;
+		border:none;
+		border-bottom:solid 2px @lightGreyTransparent;
+		color:@lightGreyTransparent;
+		font-size:20px;
+		height:50px;
+		line-height:50px;
+		margin:0;
+		padding:0 10px;
+		margin-bottom:15px;
+		box-shadow:none;
+		
+	}
+	input[type=text], input[type=password] {
+		float:right;
+		color:white;
+		width:~"calc(100% - 50px)";
+		text-align:left;
+	}
+	::-webkit-input-placeholder {
+	   color: @lightGreyTransparent;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: @lightGreyTransparent;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: @lightGreyTransparent;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: @lightGreyTransparent;  
+	}
+	img {
+		max-width:80%;
+		margin:0 auto;
+		display:block;
+	}
+	button {
+		height:50px;
+		width:100%;
+		outline:none;
+		border:none;
+		color:white;
+		font-size:20px;
+		margin-bottom:15px;
+		border-radius:2px;
+		transition:0.25s all ease-in;
+	}
+	button.enterButton{
+		background:@enterButtonColor;
+		border-bottom:solid 5px @enterButtonColor + #252525;
+		opacity:0.9;
+	}
+	button.registerButton{
+		background:@registerButtonColor;
+		opacity:0.9;
+		border-bottom:solid 5px @registerButtonColor + #252525;
+	}
+	button.enterButton:hover{
+		background:@enterButtonColor + #111;
+		transition:0.25s all ease-in;
+	}
+	button.registerButton:hover{
+		background:@registerButtonColor + #111;
+		transition:0.25s all ease-in;
+	}
+}
+#registerInputWrapper {
+	width: 100%;
+
+	input[type=text], input[type=password], input[type=email], span.input-group-addon-custom{
+		color: @lightGrey;
+		font-size:20px;
+		height:50px;
+		line-height:50px;
+		margin:0;
+		padding:0 10px;
+		margin-bottom:15px;
+		box-shadow:none;
+		border:none;
+		border-radius:none;
+		border-bottom:solid 1px @lightGrey;	
+	}
+
+	input[type=text], input[type=password], input[type=email] {
+		float:right;
+		color:black;
+		width:~"calc(100% - 50px)";
+		text-align:left;
+	}
+	::-webkit-input-placeholder {
+	   color: @lightGrey;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: @lightGrey;
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: @lightGrey;
+	}
+
+	:-ms-input-placeholder {  
+	   color: @lightGrey;
+	}
+}
+.input-group {
+		width:100%;
+}
+span.input-group-addon-custom {
+		float:left;
+		width:50px;
+		text-align:center;
+}

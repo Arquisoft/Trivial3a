@@ -8,6 +8,7 @@ import com.mongodb.util.JSON;
 import modelo.usuario.Usuario;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.cache.Cache;
 import play.data.Form;
 import views.html.*;
 import business.game.tablero.colores.Rojo;
@@ -65,12 +66,33 @@ public class Application extends Controller {
 		jugadores.add(new Jugador(tablero, u, new Rojo()));
 		JuegoEnTableroLineal juego = new JuegoEnTableroLineal(jugadores);
 		// FIN DE PRUEBA
+		//TODO Generar gameID con nombre de usuario creador y system.currenttimemillis();
+		String gameID = u.getLogin() + "-" + System.currentTimeMillis();
+		session().put("gameID", gameID);
+		Cache.set(session().get("gameID"), juego);
 
 		// PruebaJSON
-		String jsonTab = JSON.serialize(juego);
-		JuegoEnTableroLineal j = (JuegoEnTableroLineal) JSON.parse(jsonTab);
+		//String jsonTab = JSON.serialize(juego);
+		//JuegoEnTableroLineal j = (JuegoEnTableroLineal) JSON.parse(jsonTab);
 
-		return ok(game.render());
+		return ok(game.render(juego));
 	}
-
+	public static Result move(String direction){
+		JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session().get("gameID"));
+		juego.lanzarDado();
+		switch (direction) {
+		case "up":
+			break;
+		case "down":
+			break;
+		case "left":
+			juego.jugarIzquierda();
+			break;
+		case "right":
+			juego.jugarDerecha();
+			break;
+		}
+		
+		return ok(juego.getTextoPregunta());
+	}
 }

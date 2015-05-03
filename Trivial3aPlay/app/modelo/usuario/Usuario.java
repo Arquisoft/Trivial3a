@@ -3,7 +3,7 @@ package modelo.usuario;
 
 public class Usuario {
 
-	private String login;
+	public String login;
 	private String password;
 	private String nombre;
 	private String apellidos;

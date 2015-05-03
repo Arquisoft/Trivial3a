@@ -12,7 +12,7 @@ import business.game.tablero.util.PreguntasAleatorias;
 public class JuegoEnTableroLineal {
 
 	private Queue<Jugador> jugadores = new ArrayDeque<Jugador>();
-	private Jugador actual;
+	public Jugador actual;
 	private int valorDadoActual;
 	private Pregunta pregunta;
 	private ArrayList<String> respuestasMezcladas;
@@ -38,6 +38,14 @@ public class JuegoEnTableroLineal {
 
 	public List<String> getRespuestasMezcladas() {
 		return respuestasMezcladas;
+	}
+	
+	public Jugador getActual() {
+		return actual;
+	}
+
+	public void setActual(Jugador actual) {
+		this.actual = actual;
 	}
 
 	public int getValorDado() {

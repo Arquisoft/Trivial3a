@@ -12,7 +12,7 @@ public class Jugador {
 	private Tablero t;
 	private Nodo actual;
 	private boolean victoria = false;
-	private Usuario usuario;
+	public Usuario usuario;
 	private Color color;/** El color escogido por el usuario */
 	
 	

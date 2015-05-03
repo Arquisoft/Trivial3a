@@ -2,6 +2,7 @@ var tokens;
 $( document ).ready(function() {
    tokens = $(".tokenContainer");
    updateView();
+   bindButtons();
 });
 function updateView(){
 	boardHeight = $("#board").height();
@@ -18,4 +19,18 @@ function updateView(){
 		$(this).css("left", x + "px");
 		$(this).css("top", y + "px");
 	});
+}
+function bindButtons(){
+	$('#moveUpButton').click(move("up"));
+	$('#moveDownButton').click(move("down"));
+	$('#moveLeftButton').click(move("left"));
+	$('#moveRightButton').click(function (event) {
+		event.preventDefault();
+		move("right");
+	});
+}
+function move(dir){
+	$.get("/move/" + dir, function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
 }

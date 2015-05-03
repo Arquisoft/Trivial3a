@@ -3,6 +3,8 @@ package controllers;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+import com.mongodb.util.JSON;
+
 import modelo.usuario.Usuario;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -33,6 +35,12 @@ public class Application extends Controller {
     	jugadores.add(new Jugador(tablero, u, new Rojo()));
     	JuegoEnTableroLineal juego = new JuegoEnTableroLineal(jugadores);
     	//FIN DE PRUEBA
+    	
+    	//PruebaJSON
+    	String jsonTab = JSON.serialize(juego);
+    	JuegoEnTableroLineal j = (JuegoEnTableroLineal) JSON.parse(jsonTab);
+    	
+    	
     	
         return ok(game.render());
     }

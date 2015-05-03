@@ -22,9 +22,10 @@ public class LectorCircular implements LectorTipoTablero {
 			while ((linea = BR.readLine()) != null) {
 				String[] lineas = linea.split(" ");
 				for (int i = 0; i < lineas.length; i++) {
+					String[] lineasAux = lineas[i].split(">");
 					contenedor.getNodosQuesito().add(
 							new NodoQuesito(SelectorDeColores.getIstance()
-									.getColor(lineas[i])));
+									.getColor(lineasAux[0]),Integer.parseInt(lineasAux[1].split(",")[0]),Integer.parseInt(lineasAux[1].split(",")[1])));
 				}
 			}
 		} catch (Exception e) {

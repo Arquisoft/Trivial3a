@@ -22,17 +22,17 @@ public class LectorFormaRueda implements LectorTipoTablero{
 				String[] lineas = linea.split("-");
 				contenedor.getNodosQuesito().add(
 						new NodoQuesito(SelectorDeColores.getIstance()
-								.getColor(lineas[0])));
+								.getColor(lineas[0]),0,0));
 				String[] lineas2 = lineas[1].split(" ");
 				for (String s : lineas2)
 					contenedor.getNodosExteriores().add(
 							new NodoNormal(SelectorDeColores.getIstance()
-									.getColor(s)));
+									.getColor(s),0,0));
 				String[] lineas3 = lineas[2].split(" ");
 				for (String s : lineas3)
 					contenedor.getNodosInteriores().add(
 							new NodoNormal(SelectorDeColores.getIstance()
-									.getColor(s)));
+									.getColor(s),0,0));
 			}
 		} catch (Exception e) {
 		} finally {

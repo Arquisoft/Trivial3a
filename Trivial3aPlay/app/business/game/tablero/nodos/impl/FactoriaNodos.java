@@ -7,7 +7,7 @@ public class FactoriaNodos implements ServiceFactoriaNodos{
 
 	@Override
 	public Nodo getNodoFinal() {
-		return new NodoFinal();
+		return new NodoFinal(0,0);
 	}
 
 	@Override

@@ -7,6 +7,8 @@ public class NodoNormal implements Nodo {
 	private Nodo siguiente;
 	private Nodo anterior;
 	private Color color;
+	private int cy;
+	private int cx;
 
 	public Nodo getSiguiente() {
 		return siguiente;
@@ -24,8 +26,9 @@ public class NodoNormal implements Nodo {
 		this.anterior = anterior;
 	}
 
-	public NodoNormal(Color color) {
-		super();
+	public NodoNormal(Color color,int cx,int cy) {
+		this.cx=cx;
+		this.cx=cy;
 		this.color = color;
 	}
 
@@ -38,5 +41,17 @@ public class NodoNormal implements Nodo {
 
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	@Override
+	public int getCX() {
+		// TODO Auto-generated method stub
+		return cx;
+	}
+
+	@Override
+	public int getCY() {
+		// TODO Auto-generated method stub
+		return cy;
 	}
 }

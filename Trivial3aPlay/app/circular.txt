@@ -1,0 +1,1 @@
+Amarillo>0,0 Azul>1,0 Morado>2,0 Naranja>3,0 Rojo>4,0 Verde>5,0 Rojo>6,0 Verde>7,0 Rojo>8,0 Amarillo>9,0 Azul>10,0 Morado>11,0 Naranja>12,0

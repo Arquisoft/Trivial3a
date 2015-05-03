@@ -1,1 +1,1 @@
-Amarillo Azul Morado Naranja Rojo Verde Rojo Verde Rojo Amarillo Azul Morado Naranja
+Amarillo>-46,0 Azul>-38,0 Morado>-31,0 Naranja>-23,0 Rojo>-15,0 Verde>-8,0 Rojo>0,0 Verde>8,0 Rojo>15,0 Amarillo>23,0 Azul>31,0 Morado>38,0 Naranja>46,0

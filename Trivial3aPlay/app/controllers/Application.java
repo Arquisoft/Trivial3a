@@ -8,9 +8,7 @@ import com.mongodb.util.JSON;
 import modelo.usuario.Usuario;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
-import views.html.menu;
-import views.html.selectBoard;
+import views.html.*;
 import business.game.tablero.colores.Rojo;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
@@ -39,8 +37,6 @@ public class Application extends Controller {
     	//PruebaJSON
     	String jsonTab = JSON.serialize(juego);
     	JuegoEnTableroLineal j = (JuegoEnTableroLineal) JSON.parse(jsonTab);
-    	
-    	
     	
         return ok(game.render());
     }

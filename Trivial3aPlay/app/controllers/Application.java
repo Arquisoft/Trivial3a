@@ -1,9 +1,18 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
-import views.html.*;
+import modelo.usuario.Usuario;
+import play.mvc.Controller;
+import play.mvc.Result;
+import views.html.index;
+import views.html.menu;
+import views.html.selectBoard;
+import business.game.tablero.colores.Rojo;
+import business.game.tablero.jugadores.impl.Jugador;
+import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
+import business.game.tablero.tableros.impl.TableroLineal;
 
 public class Application extends Controller {
 
@@ -17,6 +26,14 @@ public class Application extends Controller {
         return ok(selectBoard.render());
     }
     public static Result game() {
+    	//TODO METIENDO Partida de prueba
+    	Usuario u = new Usuario("Usuario1", "", "Benito", "Camela", "b3ny@taximail.com", 0, 0, 0, 0);
+    	Queue<Jugador> jugadores  = new ArrayDeque<Jugador>();
+    	TableroLineal tablero = new TableroLineal();
+    	jugadores.add(new Jugador(tablero, u, new Rojo()));
+    	JuegoEnTableroLineal juego = new JuegoEnTableroLineal(jugadores);
+    	//FIN DE PRUEBA
+    	
         return ok(game.render());
     }
 

@@ -12,8 +12,8 @@ function updateView(){
 	console.log(centerX + " - " + centerY);
 	$(tokens).each(function( index ) {
 		player = $(this).data("player");
-		x = $(this).data("position-x") * boardWidth + centerX - $(this).width()/2;
-		y = $(this).data("position-y") * boardHeight + centerY - $(this).height()/2;
+		x = $(this).data("position-x")/100 * boardWidth + centerX - $(this).width()/2;
+		y = $(this).data("position-y")/100 * boardHeight + centerY - $(this).height()/2;
 		console.log(x + " - " + y);
 		$(this).css("left", x + "px");
 		$(this).css("top", y + "px");

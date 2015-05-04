@@ -5,9 +5,12 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET     /menu                       controllers.Application.menu()
+GET		/createGame					controllers.Application.createGame()
 GET     /game                       controllers.Application.game()
+GET		/salir						controllers.Application.logout()
+POST	/createGame					controllers.Application.game()
 
-POST    /					        controllers.Application.createGame()
+
 POST	/registro					controllers.Application.newRegister()
 POST	/login						controllers.Application.newLogin()
 

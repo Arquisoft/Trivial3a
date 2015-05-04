@@ -105,13 +105,13 @@ public class ValidarseAction extends Action{
 	public boolean isCorrecto(){
 		if(obj!= null){
 			Usuario u = getUsuario(obj);
-			if(!Partida.getPartida().containsKey(color))
+//			if(!Partida.getPartida().containsKey(color))
 				if(!usuarioDuplicado(u))
 					return true;
-				else
-					JOptionPane.showMessageDialog(null, "Este usuario ya ha sido registrado para esta partida");
-			else
-				JOptionPane.showMessageDialog(null, "El color elegido ya ha sido seleccionado");
+//				else
+//					JOptionPane.showMessageDialog(null, "Este usuario ya ha sido registrado para esta partida");
+//			else
+//				JOptionPane.showMessageDialog(null, "El color elegido ya ha sido seleccionado");
 					
 		}
 		return false;

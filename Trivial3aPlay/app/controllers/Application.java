@@ -11,6 +11,8 @@ import play.mvc.Result;
 import play.cache.Cache;
 import play.data.Form;
 import views.html.*;
+import modelo.*;
+import persistencia.impl.GetUsuario;
 import business.game.tablero.colores.Rojo;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
@@ -63,6 +65,7 @@ public class Application extends Controller {
 		if (!registerForm.hasErrors()) {
 			String login = registerForm.get().loginInicio;
 			String pass = registerForm.get().password;
+			//System.out.println("LOGIN " + login + "PASS " + pass);
 			ValidarseAction validarse = new ValidarseAction(login, pass);
 			Object res = validarse.execute();
 			if(res == null){
@@ -74,11 +77,21 @@ public class Application extends Controller {
 			}
 		return ok(index.render(Form.form(Registro.class), "Debe rellenar todos los campos"));
 	}
+	
+	public static Result logout(){
+		session().clear();
+		return redirect("/");
+	}
 
 	public static Result game() {
 		// TODO METIENDO Partida de prueba
-		Usuario u = new Usuario("Usuario1", "", "Benito", "Camela",
-				"b3ny@taximail.com", 0, 0, 0, 0);
+//		Usuario u = new Usuario("Usuario1", "", "Benito", "Camela",
+//		"b3ny@taximail.com", 0, 0, 0, 0);
+		
+		//Recoge el usuario en sesion
+		String login = session("user");
+		Usuario u = new GetUsuario().getUsuario(login);
+		
 		Queue<Jugador> jugadores = new ArrayDeque<Jugador>();
 		TableroLineal tablero = new TableroLineal();
 		jugadores.add(new Jugador(tablero, u, new Rojo()));
@@ -95,6 +108,8 @@ public class Application extends Controller {
 
 		return ok(game.render(juego));
 	}
+	
+	
 	public static Result move(String direction){
 		JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session().get("gameID"));
 		juego.lanzarDado();

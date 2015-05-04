@@ -66,8 +66,10 @@ public class ValidarseAction extends Action{
 			Partida.addUsuario(color, u);
 			return null;
 		}
-		else
+		else if(!isAdmin)
 			return getMessage();
+		
+		return null;
 	}
 	/**
 	 * numJugadas= numero de partidas jugadas, numGanadas = numero de partidas ganadas

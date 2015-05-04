@@ -22,6 +22,7 @@ public class SelectorDeColores {
 
 	// le llega un String y lo convierte en el color que sea
 	public Color getColor(String color) {
+		System.out.println(color);
 		switch (color) {
 		case "Amarillo":
 			return new Amarillo();

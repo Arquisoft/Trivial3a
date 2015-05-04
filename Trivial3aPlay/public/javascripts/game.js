@@ -38,11 +38,43 @@ function bindButtons(){
 		event.preventDefault();
 		rollDice();
 	});
+	$('#answer1').click(function (event) {
+		event.preventDefault();
+		answer(0);
+	});
+	$('#answer2').click(function (event) {
+		event.preventDefault();
+		answer(1);
+	});
+	$('#answer3').click(function (event) {
+		event.preventDefault();
+		answer(2);
+	});
+	$('#answer4').click(function (event) {
+		event.preventDefault();
+		answer(3);
+	});
+}
+function answer(id){
+	url = "/answer/" + id;
+	$.ajax({url: url,  method: "GET", success: function(result){
+		if(result == 'true'){
+			$('#gameQuestionText').css("color", "green");
+		}
+		else {
+			$('#gameQuestionText').css("color", "red");
+		}
+    }})
 }
 function move(dir){
 	url = "/move/" + dir;
 	$.ajax({url: url,  method: "GET", success: function(result){
-		alert("Data: " + result);
+		res = result.split(" - ");
+		$('#gameQuestionText').html(res[0]);
+		$('#answer1').html(res[1]);
+		$('#answer2').html(res[2]);
+		$('#answer3').html(res[3]);
+		$('#answer4').html(res[4]);
     }});
 }
 function rollDice(){

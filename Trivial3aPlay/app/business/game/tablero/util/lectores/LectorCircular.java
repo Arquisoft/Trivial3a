@@ -20,8 +20,6 @@ public class LectorCircular implements LectorTipoTablero {
 		try {
 			String linea;
 			while ((linea = BR.readLine()) != null) {
-				String[] lineas = linea.split(" ");
-				for (int i = 0; i < lineas.length; i++) {
 					String color = linea.split(">")[0];
 					String pos = linea.split(">")[1];
 					contenedor.getNodosQuesito().add(
@@ -29,7 +27,6 @@ public class LectorCircular implements LectorTipoTablero {
 									Integer.parseInt(pos.split(",")[0]), 
 									Integer.parseInt(pos.split(",")[1])
 									));
-				}
 			}
 		} catch (Exception e) {
 		} finally {

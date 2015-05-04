@@ -76,6 +76,7 @@ function move(dir){
 		$('#answer3').html(res[3]);
 		$('#answer4').html(res[4]);
     }});
+	updatePosition();
 }
 function rollDice(){
 	url = "/rollDice";
@@ -90,6 +91,7 @@ function updatePosition(){
 		for(i=0; i<res.length; i++){
 			res2 = res[i].split("/");
 			token = $('.tokenContainer').find("[data-player='" + res2[0] + "']");
+			console.log(res2[1] + " " + res2[2])
 			$(token).data("position-x", res2[1]);
 			$(token).data("position-y", res2[2]);
 		}

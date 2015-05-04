@@ -20,25 +20,27 @@ public class Estadisticas {
 	public static void actualizar(String option){
 		String login = juego.getActual().getUsuario().getLogin();
 		estadisticas = Connection.DatabaseConnection().getCollection("estadisticas");
-		DBObject jugador  = estadisticas.findOne(login);
-		if(jugador == null) 
+		if(estadisticas.findOne(login) == null) 
 			estadisticas.insert(crearJugador());
 		else{
-			BasicDBObject query = new BasicDBObject("_id",login);
-			jugador = estadisticas.findOne(query);
-			BasicDBObject queryUpdate = actualizacion(option,login);
-			estadisticas.update(query,queryUpdate);
+			actualizacion(option,login);			
 		}
 	}
 	
-	public static BasicDBObject actualizacion(String option,String login){
-		BasicDBObject query = new BasicDBObject();
+	public static void actualizacion(String option,String login){
+		BasicDBObject queryID = new BasicDBObject("_id",login);
+		DBObject query = null;
 		switch(option){
-			case "numJugadas": query.put("$inc", val)
-				break;
-		}
-		
-		return query;
+			case "numJugadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numJugadas' : 1 }}");
+									break;
+			case "numGanadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numJugadas' : 1 } , '$inc' : { 'numGanadas' : 1 } }");
+									break;
+			case "partidasJugadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasJugadas' : 1 }}");
+									break;
+			case "partidasGanadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasJugadas' : 1 } , '$inc' : { 'partidasGanadas' : 1 } }");
+									break;
+		}	
+		estadisticas.update(queryID,query);
 	}
 	public static DBObject crearJugador(){
 		DBObject jugador = new BasicDBObject();

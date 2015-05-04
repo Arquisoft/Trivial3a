@@ -75,8 +75,9 @@ function move(dir){
 		$('#answer2').html(res[2]);
 		$('#answer3').html(res[3]);
 		$('#answer4').html(res[4]);
+		updatePosition();
     }});
-	updatePosition();
+	
 }
 function rollDice(){
 	url = "/rollDice";
@@ -90,7 +91,8 @@ function updatePosition(){
 		res = result.split(" - ");
 		for(i=0; i<res.length; i++){
 			res2 = res[i].split("/");
-			token = $('.tokenContainer').find("[data-player='" + res2[0] + "']");
+			token = '#token' + res2[0];
+			console.log(token);
 			console.log(res2[1] + " " + res2[2])
 			$(token).data("position-x", res2[1]);
 			$(token).data("position-y", res2[2]);

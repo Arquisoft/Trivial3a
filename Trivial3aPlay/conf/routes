@@ -14,7 +14,7 @@ POST	/createGame					controllers.Application.game()
 POST	/registro					controllers.Application.newRegister()
 POST	/login						controllers.Application.newLogin()
 
-PUT		/move/:direction			controllers.Application.move(direction: String)
+GET 	/move/:direction			controllers.Application.move(direction: String)
 #GET    /assets/javascripts/routes  controllers.Application.javascriptRoutes()
 
 # Map static resources from the /public folder to the /assets URL path

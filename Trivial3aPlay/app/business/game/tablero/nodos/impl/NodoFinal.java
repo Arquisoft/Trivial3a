@@ -6,6 +6,8 @@ import business.game.tablero.nodos.Nodo;
 //nodo �ltimo que posee las 6-7-n entradas 
 public class NodoFinal implements Nodo {
 	private Nodo[] n;
+	private int x;
+	private int y;
 
 	
 	public NodoFinal(){};
@@ -56,5 +58,23 @@ public class NodoFinal implements Nodo {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	
 
 }

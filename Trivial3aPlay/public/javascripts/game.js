@@ -21,9 +21,18 @@ function updateView(){
 	});
 }
 function bindButtons(){
-	$('#moveUpButton').click(move("up"));
-	$('#moveDownButton').click(move("down"));
-	$('#moveLeftButton').click(move("left"));
+	$('#moveUpButton').click(function (event) {
+		event.preventDefault();
+		move("up");
+	});
+	$('#moveDownButton').click(function (event) {
+		event.preventDefault();
+		move("down");
+	});
+	$('#moveLeftButton').click(function (event) {
+		event.preventDefault();
+		move("left");
+	});
 	$('#moveRightButton').click(function (event) {
 		event.preventDefault();
 		move("right");

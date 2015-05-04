@@ -105,12 +105,13 @@ END DEFAULT CLASSES
 }
 #logo {
  float:left;
- widhth:70%;
+ widhth:100%;
  margin-top: 50px;
   
 }
 #menu {
   float: right;
+  clear: both;
   margin: 50px;
 }
 #menu ul {

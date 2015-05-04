@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
 import com.mongodb.util.JSON;
 
 import modelo.usuario.Usuario;
@@ -123,6 +124,32 @@ public class Application extends Controller {
 		}
 		return forbidden();
 	}
+	public static Result answer(int id){
+		System.out.println(session("gameID"));
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			juego.responderAsociadoBoton(id);
+			return ok(String.valueOf(juego.responderAsociadoBoton(id)));
+		}
+		return forbidden();
+	}
+	public static Result getPosition(){
+		System.out.println(session("gameID"));
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			String result = "";
+			result += juego.getActual().getUsuario().getLogin() + "/" + juego.getActual().getActual().getX() + "/" + juego.getActual().getActual().getY();
+			Iterator<Jugador> iter = juego.getQueueJugadores().iterator();
+			Jugador j;
+			while(iter.hasNext()){
+				j = iter.next();
+				result += " - " + j.getUsuario().getLogin() + "/" + j.getActual().getX() + "/" + j.getActual().getY();
+			}
+				
+			return ok(result);
+		}
+		return forbidden();
+	}
 	public static Result move(String direction){
 		System.out.println(session("gameID"));
 		if(Cache.get(session("gameID")) != null){
@@ -139,7 +166,8 @@ public class Application extends Controller {
 				juego.jugarDerecha();
 				break;
 			}
-			return ok(juego.getTextoPregunta());
+			List<String> respuestas = juego.getRespuestasMezcladas();
+			return ok(juego.getTextoPregunta() + " - " + respuestas.get(0) + " - " + respuestas.get(1) + " - " + respuestas.get(2) + " - " + respuestas.get(3));
 		}
 		return forbidden();
 	}

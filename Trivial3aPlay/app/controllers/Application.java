@@ -110,12 +110,21 @@ public class Application extends Controller {
 
 		return ok(game.render(juego));
 	}
-	public static Result move(String dir){
-		if(session().containsKey("gameID")){
-			return ok(Game.move(dir));
+	public static Result move(String direction){
+		JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+		juego.lanzarDado();
+		switch (direction) {
+		case "up":
+			break;
+		case "down":
+			break;
+		case "left":
+			juego.jugarIzquierda();
+			break;
+		case "right":
+			juego.jugarDerecha();
+			break;
 		}
-		else{
-			return forbidden();
-		}
+		return ok(juego.getTextoPregunta());
 	}
 }

@@ -19,8 +19,8 @@ public class NodoQuesito extends NodoNormal {
 		this.arriba = arriba;
 	}
 
-	public NodoQuesito(Color color) {
-		super(color);
+	public NodoQuesito(Color color, int x, int y) {
+		super(color, x, y);
 	}
 
 	public NodoQuesito() {}

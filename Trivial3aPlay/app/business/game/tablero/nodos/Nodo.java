@@ -8,6 +8,7 @@ public interface Nodo {
 	 public void setSiguiente(Nodo siguiente);
 	 public void setAnterior(Nodo anterior);
 	 public Color getColor();
-	 
+	 public int getX();
+	 public int getY();
 
 }

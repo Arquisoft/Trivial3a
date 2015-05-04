@@ -7,6 +7,25 @@ public class NodoNormal implements Nodo {
 	private Nodo siguiente;
 	private Nodo anterior;
 	private Color color;
+	private int x;
+	private int y;
+	
+	
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
 
 	public Nodo getSiguiente() {
 		return siguiente;
@@ -24,9 +43,11 @@ public class NodoNormal implements Nodo {
 		this.anterior = anterior;
 	}
 
-	public NodoNormal(Color color) {
+	public NodoNormal(Color color, int x, int y) {
 		super();
 		this.color = color;
+		setX(x);
+		setY(y);
 	}
 
 	public NodoNormal() {

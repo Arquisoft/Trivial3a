@@ -5,6 +5,7 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET     /menu                       controllers.Application.menu()
+GET     /menu_admin                 controllers.Application.menu_admin()
 GET		/createGame					controllers.Application.createGame()
 GET     /game                       controllers.Application.game()
 GET		/salir						controllers.Application.logout()

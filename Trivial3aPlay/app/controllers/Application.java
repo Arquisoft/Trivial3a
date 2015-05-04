@@ -71,6 +71,8 @@ public class Application extends Controller {
 			if(res == null){
 				session("user", login);
 				if(validarse.getIsAdmin())
+					//Incluir aqui informacion de todos los usuarios, para tener
+					//sus estadisticas antes de cargar el menu de administrador
 					return ok(menu_admin.render());
 				return ok(menu.render());
 			}

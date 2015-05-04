@@ -108,4 +108,12 @@ public class Application extends Controller {
 
 		return ok(game.render(juego));
 	}
+	public static Result move(String dir){
+		if(session().containsKey("gameID")){
+			return ok(Game.move(dir));
+		}
+		else{
+			return forbidden();
+		}
+	}
 }

@@ -2,6 +2,7 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
+import play.mvc.Http.Context;
 import play.cache.Cache;
 import play.data.*;
 import static play.data.Form.*;
@@ -28,7 +29,6 @@ public class Game extends Controller{
 			juego.jugarDerecha();
 			break;
 		}
-		
 		return ok(juego.getTextoPregunta());
 	}
 }

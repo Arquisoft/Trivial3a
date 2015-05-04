@@ -13,7 +13,7 @@ import play.cache.Cache;
 import play.data.Form;
 import views.html.*;
 import modelo.*;
-import persistencia.impl.GetUsuario;
+import persistencia.impl.*;
 import business.game.tablero.colores.Rojo;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
@@ -74,7 +74,8 @@ public class Application extends Controller {
 				if(validarse.getIsAdmin()){
 					//Incluir aqui informacion de todos los usuarios, para tener
 					//sus estadisticas antes de cargar el menu de administrador
-					List<Usuario> listaUsuario = new ArrayList<Usuario>();
+					List<Usuario> listaUsuario = new GetUsuarios().get();
+					System.out.println(listaUsuario);
 					return ok(menu_admin.render(listaUsuario));
 				}
 				return ok(menu.render());

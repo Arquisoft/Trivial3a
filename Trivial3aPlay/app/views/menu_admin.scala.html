@@ -9,49 +9,45 @@
 	<title>Trivial 3a Menu de Administrador</title>
 
 	<link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
-	<link  rel="stylesheet" href="@routes.Assets.at("stylesheets/game.css")">
+	<link  rel="stylesheet" href="@routes.Assets.at("stylesheets/admin.css")">
 </head>
 <body>
 
 	<div id="menuWrapper">
 		<div id="logo">
 			<img src="@routes.Assets.at("img/logo.png")" class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 ">
-			<div class="clearfix"></div>
-			<img id="spin" src="@routes.Assets.at("img/spin.png")" class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-4 coll-sm-offset-4 col-xs-4 col-xs-offset-4">
-			<div class="clearfix"></div>
 		</div>
-		<table id="stadistics">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Preguntas acertadas</th>
-					<th>Preguntas contestadas</th>
-				</tr>
-				<tbody>
-					<tr>
-					@for(a <- usuarios) {
-						<td>@a.nombre</td>
-						<td>@a.preguntasAcertadas</td>
-						<td>@a.preguntasJugadas</td>
-					}
-					</tr>
-				</tbody>
-			</thead>
-		</table>
+		
 		<nav id="menu">
 			<ul>
-				<span class="col-md-1point5 col-lg-1point5"></span>
 				<li class="col-lg-3 col-lg-offset-1point5 col-md-3 col-md-offset-1point5 col-sm-12 col-xs-12">
 					<a href="/salir" class="defaultButton">Salir</a>
 				</li>
-				<div class="clearfix"></div>
 			</ul>
 		</nav>
+		
+		
+		<div id="leftPanel" class="col-lg-3">
+			<div id="container">
+				<form role="search" method="get" id="searchform" action="">
+					  <label for="s">
+					    	<i class="glyphicon glyphicon-search"></i>
+					  </label>
+					  <input type="text" value="" placeholder="Search" class="" id="s" />
+				</form>
+			</div>
+			<ol class="rounded-list">
+			@for(a <- usuarios) {
+			    <li><a href=""><td>@a.login</td></a></li>
+			    }                
+			</ol>
+		</div>
 	</div>
+		
+	
+
 	<script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
-	<script src="@routes.Assets.at("javascripts/velocity.min.js")"></script>
 	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
-	<script src="@routes.Assets.at("javascripts/logoAnimation.js")"></script>
 	<script src="@routes.Assets.at("javascripts/jquery.datatables.min.js")"></script>
 </body>
 </html>

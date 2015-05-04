@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
+import persistencia.impl.Estadisticas;
+
 import modelo.preguntas.Pregunta;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.nodos.Nodo;
@@ -123,6 +125,7 @@ public class JuegoEnTableroLineal {
 	 */
 	private void ganar() {
 		gameFinished = true;
+		Estadisticas.actualizar("numGanadas");
 	}
 
 	/**
@@ -150,6 +153,7 @@ public class JuegoEnTableroLineal {
 	 * cuando pulsas el boton que sea el primero el 0 etc
 	 */
 	public boolean responderAsociadoBoton(int boton) {
+		Estadisticas.actualizar("preguntasJugadas");
 		switch (boton) {
 		case 0:
 			if (respuestasMezcladas.get(0).equals(
@@ -196,8 +200,8 @@ public class JuegoEnTableroLineal {
 				siguienteJugador();
 			}
 			break;
-
 		}
+		
 		return false;
 	}
 

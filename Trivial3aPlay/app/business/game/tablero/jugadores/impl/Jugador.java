@@ -1,5 +1,6 @@
 package business.game.tablero.jugadores.impl;
 
+import persistencia.impl.Estadisticas;
 import modelo.usuario.Usuario;
 import business.game.tablero.colores.Color;
 import business.game.tablero.nodos.Nodo;
@@ -97,7 +98,8 @@ public class Jugador {
 			if (c.equals(quesitos[i])) {
 				return;
 			}
-		}		
+		}
+		Estadisticas.actualizar("preguntasAcertadas");
 		quesitos[tamActual] = c;
 		tamActual++;
 		System.out.println(getUsuario().getLogin() + " - Quesitos totales:" + tamActual);

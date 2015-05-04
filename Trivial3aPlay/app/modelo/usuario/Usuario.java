@@ -39,6 +39,15 @@ public class Usuario {
 		
 	}
 	
+	public Usuario (String login,int numJugadas,int numGanadas,int preguntasJugadas,
+			int preguntasAcertadas){
+		this.login = login;
+		this.numJugadas = numJugadas;
+		this.numGanadas = numGanadas;
+		this.preguntasAcertadas = preguntasAcertadas;
+		this.preguntasJugadas = preguntasJugadas;
+	}
+	
 	public String getLogin() {
 		return login;
 	}

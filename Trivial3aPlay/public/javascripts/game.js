@@ -1,7 +1,7 @@
 var tokens;
 $( document ).ready(function() {
    tokens = $(".tokenContainer");
-   updateView();
+   updatePosition();
    bindButtons();
 });
 function updateView(){
@@ -75,11 +75,28 @@ function move(dir){
 		$('#answer2').html(res[2]);
 		$('#answer3').html(res[3]);
 		$('#answer4').html(res[4]);
+		updatePosition();
     }});
+	
 }
 function rollDice(){
 	url = "/rollDice";
 	$.ajax({url: url,  method: "GET", success: function(result){
 		$('#diceValue').html(result);
     }})
+}
+function updatePosition(){
+	url = "/getPosition";
+	$.ajax({url: url,  method: "GET", success: function(result){
+		res = result.split(" - ");
+		for(i=0; i<res.length; i++){
+			res2 = res[i].split("/");
+			token = '#token' + res2[0];
+			console.log(token);
+			console.log(res2[1] + " " + res2[2])
+			$(token).data("position-x", res2[1]);
+			$(token).data("position-y", res2[2]);
+		}
+    }})
+    updateView();
 }

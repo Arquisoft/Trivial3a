@@ -1,7 +1,7 @@
 var tokens;
 $( document ).ready(function() {
    tokens = $(".tokenContainer");
-   updateView();
+   updatePosition();
    bindButtons();
 });
 function updateView(){
@@ -82,4 +82,17 @@ function rollDice(){
 	$.ajax({url: url,  method: "GET", success: function(result){
 		$('#diceValue').html(result);
     }})
+}
+function updatePosition(){
+	url = "/getPosition";
+	$.ajax({url: url,  method: "GET", success: function(result){
+		res = result.split(" - ");
+		for(i=0; i<res.length; i++){
+			res2 = res[i].split("/");
+			token = $('.tokenContainer').find("[data-player='" + res2[0] + "']");
+			$(token).data("position-x", res2[1]);
+			$(token).data("position-y", res2[2]);
+		}
+    }})
+    updateView();
 }

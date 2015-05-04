@@ -74,7 +74,7 @@ public class Application extends Controller {
 				if(validarse.getIsAdmin()){
 					//Incluir aqui informacion de todos los usuarios, para tener
 					//sus estadisticas antes de cargar el menu de administrador
-					List<Usuario> listaUsuario = new ArrayList<Usuario>();
+					List<Usuario> listaUsuario = estadisticasJugadores();
 					return ok(menu_admin.render(listaUsuario));
 				}
 				return ok(menu.render());
@@ -102,6 +102,8 @@ public class Application extends Controller {
 			TableroLineal tablero = new TableroLineal();
 			jugadores.add(new Jugador(tablero, u, new Rojo()));
 			juego = new JuegoEnTableroLineal(jugadores);
+			Estadisticas.setJuego(juego);
+			Estadisticas.inicializar();
 			// FIN DE PRUEBA
 			//TODO Generar gameID con nombre de usuario creador y system.currenttimemillis();
 			String gameID = u.getLogin() + "-" + System.currentTimeMillis();

@@ -100,11 +100,8 @@ public class Application extends Controller {
 		if(Cache.get(session("gameID")) == null){//Miramos si el jugador está jugando (si tiene un atributo gameID en la sesión), si no lo tiene creamos
 			Queue<Jugador> jugadores = new ArrayDeque<Jugador>();
 			TableroLineal tablero = new TableroLineal();
-			
 			jugadores.add(new Jugador(tablero, u, new Rojo()));
 			juego = new JuegoEnTableroLineal(jugadores);
-			juego.setActual(juego.getQueueJugadores().poll());
-			
 			// FIN DE PRUEBA
 			//TODO Generar gameID con nombre de usuario creador y system.currenttimemillis();
 			String gameID = u.getLogin() + "-" + System.currentTimeMillis();

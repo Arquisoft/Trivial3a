@@ -83,24 +83,26 @@ public class Application extends Controller {
 		return redirect("/");
 	}
 
-	public static Result game() {
-		// TODO METIENDO Partida de prueba
-//		Usuario u = new Usuario("Usuario1", "", "Benito", "Camela",
-//		"b3ny@taximail.com", 0, 0, 0, 0);
-		
+	public static Result game() {		
 		//Recoge el usuario en sesion
+		if(!session().containsKey("user"))
+			return index();
 		String login = session("user");
 		Usuario u = new GetUsuario().getUsuario(login);
-		
-		Queue<Jugador> jugadores = new ArrayDeque<Jugador>();
-		TableroLineal tablero = new TableroLineal();
-		jugadores.add(new Jugador(tablero, u, new Rojo()));
-		JuegoEnTableroLineal juego = new JuegoEnTableroLineal(jugadores);
-		// FIN DE PRUEBA
-		//TODO Generar gameID con nombre de usuario creador y system.currenttimemillis();
-		String gameID = u.getLogin() + "-" + System.currentTimeMillis();
-		session().put("gameID", gameID);
-		Cache.set(session().get("gameID"), juego);
+		JuegoEnTableroLineal juego;
+		if(!session().containsKey("gameID")){//Miramos si el jugador está jugando (si tiene un atributo gameID en la sesión), si no lo tiene creamos
+			Queue<Jugador> jugadores = new ArrayDeque<Jugador>();
+			TableroLineal tablero = new TableroLineal();
+			jugadores.add(new Jugador(tablero, u, new Rojo()));
+			juego = new JuegoEnTableroLineal(jugadores);
+			// FIN DE PRUEBA
+			//TODO Generar gameID con nombre de usuario creador y system.currenttimemillis();
+			String gameID = u.getLogin() + "-" + System.currentTimeMillis();
+			session().put("gameID", gameID);
+			Cache.set(session("gameID"), juego);
+		}else {//Si lo tiene está en una partida y sacamos el gameID de su sesión
+			juego = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+		}
 
 		// PruebaJSON
 		//String jsonTab = JSON.serialize(juego);
@@ -111,7 +113,7 @@ public class Application extends Controller {
 	
 	
 	public static Result move(String direction){
-		JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session().get("gameID"));
+		JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 		juego.lanzarDado();
 		switch (direction) {
 		case "up":

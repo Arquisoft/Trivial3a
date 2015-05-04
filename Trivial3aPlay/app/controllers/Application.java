@@ -70,6 +70,8 @@ public class Application extends Controller {
 			Object res = validarse.execute();
 			if(res == null){
 				session("user", login);
+				if(validarse.getIsAdmin())
+					return ok(menu_admin.render());
 				return ok(menu.render());
 			}
 			else

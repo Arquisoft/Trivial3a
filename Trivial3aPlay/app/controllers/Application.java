@@ -2,7 +2,8 @@ package controllers;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-
+import java.util.List;
+import java.util.ArrayList;
 import com.mongodb.util.JSON;
 
 import modelo.usuario.Usuario;
@@ -70,10 +71,12 @@ public class Application extends Controller {
 			Object res = validarse.execute();
 			if(res == null){
 				session("user", login);
-				if(validarse.getIsAdmin())
+				if(validarse.getIsAdmin()){
 					//Incluir aqui informacion de todos los usuarios, para tener
 					//sus estadisticas antes de cargar el menu de administrador
-					return ok(menu_admin.render());
+					List<Usuario> listaUsuario = new ArrayList<Usuario>();
+					return ok(menu_admin.render(listaUsuario));
+				}
 				return ok(menu.render());
 			}
 			else

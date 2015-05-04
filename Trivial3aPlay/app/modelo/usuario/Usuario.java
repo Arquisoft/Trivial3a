@@ -4,15 +4,15 @@ package modelo.usuario;
 public class Usuario {
 
 	public String login;
-	private String password;
-	private String nombre;
-	private String apellidos;
-	private String email;
-	private int edad;
-	private int numJugadas;
-	private int numGanadas;
-	private int preguntasJugadas;
-	private int preguntasAcertadas;
+	public String password;
+	public String nombre;
+	public String apellidos;
+	public String email;
+	public int edad;
+	public int numJugadas;
+	public int numGanadas;
+	public int preguntasJugadas;
+	public int preguntasAcertadas;
 	
 	public Usuario(){}
 	

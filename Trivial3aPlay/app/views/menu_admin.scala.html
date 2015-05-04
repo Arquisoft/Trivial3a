@@ -33,8 +33,10 @@
 		
 			<ol class="rounded-list">
 			@for(a <- usuarios) {
-			    <li><a href=""><td>@a.login</td></a></li>
-			    }                
+			    <li><a onclick="ganadas=@a.numGanadas; jugadas=@a.numJugadas;
+			    pregJugadas=@a.preguntasJugadas; pregGanadas=@a.preguntasAcertadas">@a.login</a>
+			 	</li>   
+			 }                
 			</ol>
 		</div>
 		<div  class="col-md-4" id="partidas" ></div>

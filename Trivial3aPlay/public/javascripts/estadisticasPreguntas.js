@@ -1,6 +1,6 @@
-var jugadas;
-var ganadas;
-	$(function () {
+var pregJugadas;
+var pregGanadas;
+	$("li").click(function () {
 
 		    $(document).ready(function () {
 		
@@ -31,8 +31,8 @@ var ganadas;
 		                type: 'pie',
 		                name: 'Browser share',
 		                data: [
-		                    ['Preguntas jugadas',   jugadas],
-		                    ['Preguntas ganadas',  ganadas],
+		                    ['Preguntas jugadas',   pregJugadas],
+		                    ['Preguntas ganadas',  pregGanadas],
 		               ]
 		            }]
 		        });

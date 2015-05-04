@@ -3,6 +3,7 @@ package persistencia.impl;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import modelo.preguntas.Pregunta;
 import modelo.usuario.Usuario;
@@ -13,6 +14,7 @@ import com.mongodb.DBObject;
 
 public class GetUsuarios {
 	
+	Random r = new Random();
 	
 	@SuppressWarnings("unchecked")
 	public List<Usuario> get(){
@@ -34,6 +36,11 @@ public class GetUsuarios {
 						Integer.valueOf(user.get("numGanadas").toString()),
 						Integer.valueOf(user.get("preguntasAcertadas").toString()),
 						Integer.valueOf(user.get("preguntasJugadas").toString()));
+//						Integer.valueOf(user.get("edad").toString()),
+//						Integer.valueOf( r.nextInt(10)),
+//						Integer.valueOf(r.nextInt(10)),
+//						Integer.valueOf(r.nextInt(10)),
+//						Integer.valueOf(r.nextInt(10)));
 				usuarios.add(u);
 		}
 		return usuarios; 

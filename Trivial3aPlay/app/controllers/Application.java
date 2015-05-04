@@ -86,6 +86,8 @@ public class Application extends Controller {
 		return ok(index.render(Form.form(Registro.class), "Debe rellenar todos los campos"));
 	}
 	
+
+	
 	public static Result logout(){
 		session().clear();
 		return redirect("/");

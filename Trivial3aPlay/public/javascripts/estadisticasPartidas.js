@@ -1,9 +1,10 @@
 var jugadas;
 var ganadas;
-		$(function () {
+		$("li").click(function () {
 
 		    $(document).ready(function () {
 		        // Build the chart
+
 		        $('#partidas').highcharts({
 		            chart: {
 		                plotBackgroundColor: null,

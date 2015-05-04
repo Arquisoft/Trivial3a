@@ -112,18 +112,10 @@ public class Application extends Controller {
 	}
 	public static Result move(String dir){
 		if(session().containsKey("gameID")){
-			return Game.move(dir);
+			return ok(Game.move(dir));
 		}
 		else{
 			return forbidden();
 		}
-	}
-	public static Result javascriptRoutes() {
-	    response().setContentType("text/javascript");
-	    return ok(
-	        Routes.javascriptRouter("jsRoutes",
-	            controllers.Game.move()
-	        )
-	    );
 	}
 }

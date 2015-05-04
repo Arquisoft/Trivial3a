@@ -30,7 +30,6 @@ public class Rojo implements Color{
 		return true;
 	}
 
-
 	@Override
 	public Pregunta getPregunta() {
 		return Factories.persistence.getPreguntas().devolverPregunta("arte");

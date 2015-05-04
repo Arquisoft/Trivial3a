@@ -105,7 +105,7 @@ public class JuegoEnTableroLineal {
 	}
 
 	private Pregunta getPregunta() {
-
+		System.out.println(actual.toString());
 		return actual.getActual().getColor().getPregunta();
 	}
 

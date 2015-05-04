@@ -97,7 +97,7 @@ public class Application extends Controller {
 		String login = session("user");
 		Usuario u = new GetUsuario().getUsuario(login);
 		JuegoEnTableroLineal juego;
-		if(!session().containsKey("gameID")){//Miramos si el jugador está jugando (si tiene un atributo gameID en la sesión), si no lo tiene creamos
+		if(Cache.get(session("gameID")) == null){//Miramos si el jugador está jugando (si tiene un atributo gameID en la sesión), si no lo tiene creamos
 			Queue<Jugador> jugadores = new ArrayDeque<Jugador>();
 			TableroLineal tablero = new TableroLineal();
 			jugadores.add(new Jugador(tablero, u, new Rojo()));
@@ -110,24 +110,36 @@ public class Application extends Controller {
 		}else {//Si lo tiene está en una partida y sacamos el gameID de su sesión
 			juego = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 		}
-
+		System.out.println(session("gameID"));
 		return ok(game.render(juego));
 	}
-	public static Result move(String direction){
-		JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
-		juego.lanzarDado();
-		switch (direction) {
-		case "up":
-			break;
-		case "down":
-			break;
-		case "left":
-			juego.jugarIzquierda();
-			break;
-		case "right":
-			juego.jugarDerecha();
-			break;
+	public static Result rollDice(){
+		System.out.println(session("gameID"));
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			juego.lanzarDado();
+			return ok(juego.getValorDado());
 		}
-		return ok(juego.getTextoPregunta());
+		return forbidden();
+	}
+	public static Result move(String direction){
+		System.out.println(session("gameID"));
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			switch (direction) {
+			case "up":
+				break;
+			case "down":
+				break;
+			case "left":
+				juego.jugarIzquierda();
+				break;
+			case "right":
+				juego.jugarDerecha();
+				break;
+			}
+			return ok(juego.getTextoPregunta());
+		}
+		return forbidden();
 	}
 }

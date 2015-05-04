@@ -118,7 +118,7 @@ public class Application extends Controller {
 		if(Cache.get(session("gameID")) != null){
 			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 			juego.lanzarDado();
-			return ok(juego.getValorDado());
+			return ok(String.valueOf(juego.getValorDado()));
 		}
 		return forbidden();
 	}

@@ -106,42 +106,6 @@ public class Application extends Controller {
 			juego = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 		}
 
-		// PruebaJSON
-		//String jsonTab = JSON.serialize(juego);
-		//JuegoEnTableroLineal j = (JuegoEnTableroLineal) JSON.parse(jsonTab);
-
 		return ok(game.render(juego));
 	}
-	
-	
-	public static Result move(String direction){
-		JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
-		juego.lanzarDado();
-		switch (direction) {
-		case "up":
-			break;
-		case "down":
-			break;
-		case "left":
-			juego.jugarIzquierda();
-			break;
-		case "right":
-			juego.jugarDerecha();
-			break;
-		}
-		
-		return ok(juego.getTextoPregunta());
-	}
-	
-//	public static Result javascriptRoutes() {
-//	    response().setContentType("text/javascript");
-//	    return ok(
-//	        Routes.javascriptRouter("jsRoutes",
-//	            controllers.routes.javascript.Projects.add(),
-//	            controllers.routes.javascript.Projects.delete(),
-//	            controllers.routes.javascript.Projects.rename(),
-//	            controllers.routes.javascript.Projects.addGroup()
-//	        )
-//	    );
-//	}
 }

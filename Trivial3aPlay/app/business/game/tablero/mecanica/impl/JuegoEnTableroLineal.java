@@ -7,6 +7,8 @@ import java.util.Queue;
 
 import modelo.preguntas.Pregunta;
 import business.game.tablero.jugadores.impl.Jugador;
+import business.game.tablero.nodos.Nodo;
+import business.game.tablero.tableros.Tablero;
 import business.game.tablero.util.PreguntasAleatorias;
 
 public class JuegoEnTableroLineal {
@@ -105,10 +107,14 @@ public class JuegoEnTableroLineal {
 	}
 
 	private Pregunta getPregunta() {
-		System.out.println(actual.toString());
-		System.out.println(actual.getActual().toString());
+		Tablero t = actual.getT();
+		Nodo n = t.getReferencia();
+		while((n = n.getSiguiente()) != null){
+			System.out.println(n.toString());
+			System.out.println(n.getColor());
+		}
 		System.out.println(actual.getActual().getColor().toString());
-		System.out.println(actual.getActual().getColor().getPregunta().toString());
+
 		return actual.getActual().getColor().getPregunta();
 	}
 

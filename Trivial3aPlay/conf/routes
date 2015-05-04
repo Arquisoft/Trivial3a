@@ -8,7 +8,8 @@ GET     /menu                       controllers.Application.menu()
 GET     /game                       controllers.Application.game()
 
 POST    /					        controllers.Application.createGame()
-POST	/registro		controllers.Application.newRegister()
+POST	/registro					controllers.Application.newRegister()
+POST	/login						controllers.Application.newLogin()
 
 GET		/move/:direction			controllers.Application.move(direction: String)
 

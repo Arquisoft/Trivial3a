@@ -42,7 +42,7 @@ public class Application extends Controller {
 			String login = registerForm.get().login;
 			String pass = registerForm.get().pass;
 			String pass2 = registerForm.get().pass2;
-			if (!pass.equals(pass2))
+			if (pass!= null && pass2 != null && !pass.equals(pass2))
 				return ok(index.render(Form.form(Registro.class),
 						"Las contrasenias no coinciden"));
 			String name = registerForm.get().nombre;
@@ -54,6 +54,24 @@ public class Application extends Controller {
 			String result = registro.execute();
 			return ok(index.render(Form.form(Registro.class), result));
 		}
+		return ok(index.render(Form.form(Registro.class), "Debe rellenar todos los campos"));
+	}
+	
+	public static Result newLogin() {
+		Form<Registro> registerForm = Form.form(Registro.class)
+				.bindFromRequest();
+		if (!registerForm.hasErrors()) {
+			String login = registerForm.get().loginInicio;
+			String pass = registerForm.get().password;
+			ValidarseAction validarse = new ValidarseAction(login, pass);
+			Object res = validarse.execute();
+			if(res == null){
+				session("user", login);
+				return ok(menu.render());
+			}
+			else
+				return ok(index.render(Form.form(Registro.class), res.toString()));
+			}
 		return ok(index.render(Form.form(Registro.class), "Debe rellenar todos los campos"));
 	}
 

@@ -16,7 +16,9 @@ import com.mongodb.DBObject;
 
 public class ValidarseAction extends Action{
 	
-	private String message;
+	private final static String FRACASO ="Usuario o contraseña incorrectos";
+	private final static String ERRORBASE = "Ha ocurrido un error con la base de datos, vuelva a intentarlo.";
+	
 	public String login;
 	public String password;
 	public Color color;
@@ -26,27 +28,34 @@ public class ValidarseAction extends Action{
 	DBObject query;
 	BasicDBObject obj;
 	
-	public ValidarseAction(String login, String password, Color color){
+	public ValidarseAction(String login, String password){
 		super();
 		this.login = login;
 		this.password = password;
-		this.color = color;
 		isAdmin = false;
+		
 		if(login.equals("admin") && password.equals("admin"))
 			isAdmin = true;
 		else{
+			
 			coleccion = getDb().getCollection("Users");
 			query = new BasicDBObject();
 			query.put("_id", login);
 			query.put("password", password);
+			
 			try{
 				obj = (BasicDBObject) coleccion.findOne(query);
 				setServerStatus(true);
 			}catch(Exception e){
 				setServerStatus(false);
+				
 			}
 		}
-		
+	}
+	
+	public ValidarseAction(String login, String password, Color color){
+		this(login, password);
+		this.color = color;
 	}
 
 	@Override
@@ -55,8 +64,10 @@ public class ValidarseAction extends Action{
 		if(isCorrecto()){
 			Usuario u = getUsuario(obj);
 			Partida.addUsuario(color, u);
+			return null;
 		}
-		return null;
+		else
+			return getMessage();
 	}
 	/**
 	 * numJugadas= numero de partidas jugadas, numGanadas = numero de partidas ganadas
@@ -103,20 +114,22 @@ public class ValidarseAction extends Action{
 				JOptionPane.showMessageDialog(null, "El color elegido ya ha sido seleccionado");
 					
 		}
-		else if(!getServerStatus()){
-			JOptionPane.showMessageDialog(null,"Ha ocurrido un error con la base de datos, vuelva a intentarlo.");
+		return false;
+	}
+	
+	public String getMessage(){
+		
+		if(!getServerStatus()){
+			return ERRORBASE;
 		}
 		else
-			JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-		return false;
+			return FRACASO;
+		
 	}
 	
 	public boolean getIsAdmin(){
 		return isAdmin;
 	}
 	
-	public String getMessage(){
-		return this.message;
-	}
 
 }

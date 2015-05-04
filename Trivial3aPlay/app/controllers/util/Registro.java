@@ -1,7 +1,5 @@
 package controllers;
 
-import play.data.validation.Constraints;
-
 public class Registro {
 
 	
@@ -12,6 +10,9 @@ public class Registro {
 	public String apellidos;
 	public String email;
 	public int edad;
+	
+	public String loginInicio;
+	public String password;
 	
 //	public String validate() {
 //        if(!pass.equals(pass2)) {

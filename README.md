@@ -14,7 +14,7 @@ Instrucciones para poner en funcionamiento el Entregable 2:
 
  5. Nos situamos sobre la clase Main.java y la ejecutamos
 
- 6. Seleccionamos en la consola que opcion queremos ejecutar
+ 6. Seleccionamos en la consola que opción queremos ejecutar
 
  7. Introducimos en la consola el PATH al fichero con las preguntas (assets/IoFiles/preguntas.GIFT)
 

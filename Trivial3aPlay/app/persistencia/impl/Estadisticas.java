@@ -20,43 +20,49 @@ public class Estadisticas {
 	
 	
 	
-	public void setJuego(JuegoEnTableroLineal juego){
+	public static void setJuego(JuegoEnTableroLineal juego){
 		Estadisticas.juego = juego;
 	}
 	
-	public void inicializar(){
+	public static void inicializar(){
 		for(Jugador j : juego.getQueueJugadores()){
-			actualizar("comprobando_si_estan_creados");
-			actualizar("numJugadas");
+			actualizacion("numJugadas",j.getUsuario().getLogin());
 		}
 	}
 	
 	public static void actualizar(String option){
-//		String login = juego.getActual().getUsuario().getLogin();
-//		estadisticas = Connection.DatabaseConnection().getCollection("estadisticas");
-//		if(estadisticas.findOne(login) == null) 
-//			estadisticas.insert(crearJugador());
-//		else{
-//			actualizacion(option,login);			
-//		}
+		String login = juego.getActual().getUsuario().getLogin();
+		actualizacion(option,login);			
 	}
 	
 	private static void actualizacion(String option,String login){
+		estadisticas = Connection.DatabaseConnection().getCollection("Users");
 		BasicDBObject queryID = new BasicDBObject("_id",login);
-		DBObject query = null;
+		BasicDBObject  query = null;
 		switch(option){
-			case "numJugadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numJugadas' : 1 }}");
-									break;
-			case "numGanadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numGanadas' : 1 } }");
-									break;
-			case "partidasJugadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasJugadas' : 1 }}");
-									break;
-			case "partidasGanadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasGanadas' : 1 } }");
-									break;
-			default:
-									return;
+//			case "numJugadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numJugadas' : 1 }}");
+//									break;
+//			case "numGanadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numGanadas' : 1 } }");
+//									break;
+//			case "partidasJugadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasJugadas' : 1 }}");
+//									break;
+//			case "partidasGanadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasGanadas' : 1 } }");
+//									break;
+//			default:
+//									return;
+		case "numJugadas": 		query = new BasicDBObject("$inc",new BasicDBObject("numJugadas",1));
+								break;
+		case "numGanadas": 		query = new BasicDBObject("$inc",new BasicDBObject("numGanadas",1));
+								break;
+		case "preguntasJugadas": query = new BasicDBObject("$inc",new BasicDBObject("partidasJugadas",1));
+								break;
+		case "preguntasAcertadas": query = new BasicDBObject("$inc",new BasicDBObject("partidasGanadas",1));
+								break;
+		default:
+				return;
 		}	
 		estadisticas.update(queryID,query);
+
 	}
 	public static DBObject crearJugador(){
 		DBObject jugador = new BasicDBObject();

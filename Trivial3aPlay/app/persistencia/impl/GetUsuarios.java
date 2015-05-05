@@ -31,16 +31,16 @@ public class GetUsuarios {
 						user.get("nombre").toString(),
 						user.get("apellidos").toString(),
 						user.get("email").toString(),
-//						Integer.valueOf(user.get("edad").toString()),
-//						Integer.valueOf(user.get("numJugadas").toString()),
-//						Integer.valueOf(user.get("numGanadas").toString()),
-//						Integer.valueOf(user.get("preguntasAcertadas").toString()),
-//						Integer.valueOf(user.get("preguntasJugadas").toString()));
 						Integer.valueOf(user.get("edad").toString()),
-						Integer.valueOf( r.nextInt(10)),
-						Integer.valueOf(r.nextInt(10)),
-						Integer.valueOf(r.nextInt(10)),
-						Integer.valueOf(r.nextInt(10)));
+						Integer.valueOf(user.get("numJugadas").toString()),
+						Integer.valueOf(user.get("numGanadas").toString()),
+						Integer.valueOf(user.get("preguntasAcertadas").toString()),
+						Integer.valueOf(user.get("preguntasJugadas").toString()));
+//						Integer.valueOf(user.get("edad").toString()),
+//						Integer.valueOf( r.nextInt(10)),
+//						Integer.valueOf(r.nextInt(10)),
+//						Integer.valueOf(r.nextInt(10)),
+//						Integer.valueOf(r.nextInt(10)));
 				usuarios.add(u);
 		}
 		return usuarios; 

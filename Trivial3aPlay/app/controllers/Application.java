@@ -178,8 +178,10 @@ public class Application extends Controller {
 	public static Result isFinished(){
 		if(Cache.get(session("gameID")) != null){
 			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
-			if(juego.isGameFinished())
-			return ok(juego.getActual().getUsuario().getLogin());
+			if(juego.isGameFinished()){
+				Cache.remove(session("gameID"));
+				return ok(juego.getActual().getUsuario().getLogin());
+			}
 		}
 		return ok();
 	}
@@ -202,5 +204,12 @@ public class Application extends Controller {
 			return ok(result);
 		}
 		return ok();
+	}
+	public static Result getPlayer(){
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			return ok(juego.getActual().getUsuario().getLogin());
+		}
+		return forbidden();
 	}
 }

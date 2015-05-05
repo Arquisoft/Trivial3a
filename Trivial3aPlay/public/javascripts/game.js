@@ -84,9 +84,13 @@ function answer(id){
 			$('#gameQuestionText').css("color", "green");
 			enableButton("roll");
 			updateTokens();
+			printChatServer("Respuesta correcta, sigue jugando");
 		}
 		else {
 			$('#gameQuestionText').css("color", "red");
+			$.ajax({url: "/getPlayer",  method: "GET", success: function(result){
+				printChatServer("Respuesta incorrecta, turno de " + result);
+			}});
 		}
 		enableButton("roll");//BORRAR, ONLY FOR TESTING
 		isFinished();
@@ -184,4 +188,7 @@ function updateTokens(){
 			}
 		}
     }})
+}
+function printChatServer(message){
+	$('#chatText').append('<p><span class="chatAuthor chatServer">SERVIDOR: </span>'+ message +'</p>');
 }

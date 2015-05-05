@@ -244,6 +244,10 @@ END DEFAULT CLASSES
 .chatYellow {
   color: #f9e369;
 }
+.chatServer {
+	font-size:22px;
+	color: #644900;
+}
 #gameControls .buttonWrapper {
   height: calc(100% - 20px);
 }

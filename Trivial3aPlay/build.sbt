@@ -17,3 +17,6 @@ libraryDependencies ++= Seq(
   "net.vz.mongodb.jackson" % "play-mongo-jackson-mapper_2.10" % "1.1.0"
 )
 
+
+
+fork in run := true

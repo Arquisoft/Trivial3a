@@ -132,11 +132,14 @@ function isFinished(){
 	url = "/isFinished";
 	$.ajax({url: url,  method: "GET", success: function(result){
 		if(result != ""){
-			$('#winnerWrapper').append('<audio src="assets/sound/win.mp3" autoplay>');
-			$('#winnerWrapper').fadeIn(500);
-			$('#winnerPlayer').html(result);
+			finish();
 		}
     }})
+}
+function finish(){
+	$('#winnerWrapper').append('<audio src="assets/sound/win.mp3" autoplay>');
+	$('#winnerWrapper').fadeIn(500);
+	$('#winnerPlayer').html(result);
 }
 function updateTokens(){
 	url = "/getTokens";

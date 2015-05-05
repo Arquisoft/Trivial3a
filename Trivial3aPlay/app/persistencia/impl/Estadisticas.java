@@ -32,13 +32,13 @@ public class Estadisticas {
 	}
 	
 	public static void actualizar(String option){
-		String login = juego.getActual().getUsuario().getLogin();
-		estadisticas = Connection.DatabaseConnection().getCollection("estadisticas");
-		if(estadisticas.findOne(login) == null) 
-			estadisticas.insert(crearJugador());
-		else{
-			actualizacion(option,login);			
-		}
+//		String login = juego.getActual().getUsuario().getLogin();
+//		estadisticas = Connection.DatabaseConnection().getCollection("estadisticas");
+//		if(estadisticas.findOne(login) == null) 
+//			estadisticas.insert(crearJugador());
+//		else{
+//			actualizacion(option,login);			
+//		}
 	}
 	
 	private static void actualizacion(String option,String login){

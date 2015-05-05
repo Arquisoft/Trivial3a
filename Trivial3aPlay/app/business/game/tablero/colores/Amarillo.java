@@ -38,5 +38,9 @@ public class Amarillo implements Color {
 		return Factories.persistence.getPreguntas()
 				.devolverPregunta("historia");
 	}
+	@Override
+	public String toString(){
+		return amarillo;
+	}
 
 }

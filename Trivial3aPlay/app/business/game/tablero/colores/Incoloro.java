@@ -36,5 +36,9 @@ public class Incoloro implements Color {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String toString(){
+		return incoloro;
+	}
 
 }

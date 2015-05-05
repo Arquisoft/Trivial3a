@@ -81,6 +81,33 @@ span.input-group-addon-custom {
   text-decoration: none;
   transition: 0.25s all ease-in;
 }
+#winnerWrapper {
+	width:100vw;
+	height:100vh;
+	z-index:99;
+	background:url('../img/winBG.png') center no-repeat;
+	background-size:cover;
+}
+#winnerWrapper button {
+	width:20%;
+	position:absolute;
+	margin:0 auto;
+	left:0;
+	right:0;
+	bottom:10px;
+}
+#winnerPlayer {
+	margin:0 auto;
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:11%;
+	width:34%;
+	height:7.5%;
+	font-size:30px;
+	color:white;
+	text-align:center;
+}
 /** HELP CLASSES */
 .transitionDefault {
   transition: 0.25s all ease-in;

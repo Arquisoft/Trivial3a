@@ -36,5 +36,9 @@ public class Azul implements Color {
 		return Factories.persistence.getPreguntas().devolverPregunta(
 				"geografia");
 	}
+	@Override
+	public String toString(){
+		return azul;
+	}
 
 }

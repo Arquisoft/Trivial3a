@@ -71,6 +71,7 @@ public class JuegoEnTableroLineal {
 		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getSiguiente() != null) {
 				actual.setActual(actual.getActual().getSiguiente());
+				System.out.println("Moviendo Jugador" + i);
 			} else {
 				jugarIzquierda(i);
 				break;
@@ -82,6 +83,7 @@ public class JuegoEnTableroLineal {
 		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getAnterior() != null) {
 				actual.setActual(actual.getActual().getAnterior());
+				System.out.println("Moviendo Jugador" + i);
 			} else {
 				jugarDerecha(i);
 				break;

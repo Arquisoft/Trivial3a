@@ -34,5 +34,9 @@ public class Rojo implements Color{
 	public Pregunta getPregunta() {
 		return Factories.persistence.getPreguntas().devolverPregunta("arte");
 	}
+	@Override
+	public String toString(){
+		return rojo;
+	}
 
 }

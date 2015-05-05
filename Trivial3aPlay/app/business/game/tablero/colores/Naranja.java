@@ -36,5 +36,9 @@ public class Naranja implements Color {
 		return Factories.persistence.getPreguntas()
 				.devolverPregunta("deportes");
 	}
+	@Override
+	public String toString(){
+		return naranja;
+	}
 
 }

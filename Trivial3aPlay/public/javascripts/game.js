@@ -3,7 +3,30 @@ $( document ).ready(function() {
    tokens = $(".tokenContainer");
    updatePosition();
    bindButtons();
+   enableButton("roll");
+   $('#winnerWrapper').hide();
+   updateTokens();
 });
+function enableButton(button){
+	$('.buttonWrapper button').attr("disabled", "disabled");
+	switch(button){
+	case "roll":
+		$('#throwDiceButton').removeAttr("disabled");
+		break;
+	case "move":
+		$('#moveUpButton').removeAttr("disabled");
+		$('#moveDownButton').removeAttr("disabled");
+		$('#moveLeftButton').removeAttr("disabled");
+		$('#moveRightButton').removeAttr("disabled");
+		break;
+	case "answer":
+		$('#answer1').removeAttr("disabled");
+		$('#answer2').removeAttr("disabled");
+		$('#answer3').removeAttr("disabled");
+		$('#answer4').removeAttr("disabled");
+		break;
+	}
+}
 function updateView(){
 	boardHeight = $("#board").height();
 	boardWidth = $("#board").width();
@@ -13,8 +36,7 @@ function updateView(){
 		player = $(this).data("player");
 		x = $(this).data("position-x")/100 * boardWidth + centerX - $(this).width()/2;
 		y = $(this).data("position-y")/100 * boardHeight + centerY - $(this).height()/2;
-		$(this).css("left", x + "px");
-		$(this).css("top", y + "px");
+		$(this).velocity({"left": x + "px", "top": y + "px"}, {duration: 1000});
 	});
 }
 function bindButtons(){
@@ -60,10 +82,14 @@ function answer(id){
 	$.ajax({url: url,  method: "GET", success: function(result){
 		if(result == 'true'){
 			$('#gameQuestionText').css("color", "green");
+			enableButton("roll");
+			updateTokens();
 		}
 		else {
 			$('#gameQuestionText').css("color", "red");
 		}
+		enableButton("roll");//BORRAR, ONLY FOR TESTING
+		isFinished();
     }})
 }
 function move(dir){
@@ -76,6 +102,7 @@ function move(dir){
 		$('#answer3').html(res[3]);
 		$('#answer4').html(res[4]);
 		updatePosition();
+		enableButton("answer");
     }});
 	
 }
@@ -84,6 +111,7 @@ function rollDice(){
 	$.ajax({url: url,  method: "GET", success: function(result){
 		$('#diceValue').html(result);
     }})
+    enableButton("move");
 }
 function updatePosition(){
 	url = "/getPosition";
@@ -96,7 +124,57 @@ function updatePosition(){
 			console.log(res2[1] + " " + res2[2])
 			$(token).data("position-x", res2[1]);
 			$(token).data("position-y", res2[2]);
+			updateView();
 		}
     }})
-    updateView();
+}
+function isFinished(){
+	url = "/isFinished";
+	$.ajax({url: url,  method: "GET", success: function(result){
+		if(result != ""){
+			$('#winnerWrapper').append('<audio src="assets/sound/win.mp3" autoplay>');
+			$('#winnerWrapper').fadeIn(500);
+			$('#winnerPlayer').html(result);
+		}
+    }})
+}
+function updateTokens(){
+	url = "/getTokens";
+	$.ajax({url: url,  method: "GET", success: function(result){
+		if(result != ""){
+			r1 = result.split(" / ");
+			for(i=0; i<r1.length; i++){
+				r2=r1[i].split(" - ");
+				for(j=1; j<r2.length; j++){
+					token = "#token" + r2[0]; 
+					switch(r2[j]){
+						case "amarillo":
+							$(token + " token-space-1").removeClass("tokenBlank");
+							$(token + " token-space-1").addClass("tokenYellow");
+							break;
+						case "azul":
+							$(token + " token-space-2").removeClass("tokenBlank");
+							$(token + " token-space-2").addClass("tokenBlue");
+							break;
+						case "morado":
+							$(token + " token-space-3").removeClass("tokenBlank");
+							$(token + " token-space-3").addClass("tokenPurple");
+							break;
+						case "naranja":
+							$(token + " token-space-4").removeClass("tokenBlank");
+							$(token + " token-space-4").addClass("tokenOrange");
+							break;
+						case "rojo":
+							$(token + " token-space-5").removeClass("tokenBlank");
+							$(token + " token-space-5").addClass("tokenRed");
+							break;
+						case "verde":
+							$(token + " token-space-6").removeClass("tokenBlank");
+							$(token + " token-space-6").addClass("tokenGreen");
+							break;
+					}
+				}
+			}
+		}
+    }})
 }

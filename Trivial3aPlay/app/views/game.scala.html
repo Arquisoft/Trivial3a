@@ -1,5 +1,9 @@
 @(game: business.game.tablero.mecanica.impl.JuegoEnTableroLineal)
 @main("| Juego") {
+	<div id="winnerWrapper">
+		<div id="winnerPlayer"></div>
+		<button class="defaultButton">Salir</div>
+	</div>
 	<div id="gameWrapper">
 		<div id="gameLeftPanel" class="col-lg-3">
 			<div id="gamePlayers" class="col-lg-12">
@@ -40,12 +44,12 @@
 				<div id="board" style="background:url('@routes.Assets.at("img/boards/linealBoard.png")') center no-repeat; background-size:contain;">
 					<div class="tokenContainer" id="token@game.actual.usuario.login" data-position-x="-46" data-position-y="0">
 						<div class="caption">Ba$$ilon<span class="captionRightArrow"></span></div>
-						<div class="token-space-1 tokenRightArrow tokenGreen"></div>
-						<div class="token-space-2 tokenLeftArrow tokenRed"></div>
-						<div class="token-space-3 tokenRightArrow tokenYellow"></div>
-						<div class="token-space-4 tokenLeftArrow tokenPurple"></div>
-						<div class="token-space-5 tokenRightArrow tokenOrange"></div>
-						<div class="token-space-6 tokenLeftArrow tokenBlue"></div>
+						<div class="token-space-1 tokenRightArrow tokenBlank"></div>
+						<div class="token-space-2 tokenLeftArrow tokenBlank"></div>
+						<div class="token-space-3 tokenRightArrow tokenBlank"></div>
+						<div class="token-space-4 tokenLeftArrow tokenBlank"></div>
+						<div class="token-space-5 tokenRightArrow tokenBlank"></div>
+						<div class="token-space-6 tokenLeftArrow tokenBlank"></div>
 					</div>
 	
 				</div>

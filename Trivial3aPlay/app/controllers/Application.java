@@ -5,6 +5,7 @@ import java.util.Queue;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 import com.mongodb.util.JSON;
 
 import modelo.usuario.Usuario;
@@ -15,7 +16,7 @@ import play.data.Form;
 import views.html.*;
 import modelo.*;
 import persistencia.impl.*;
-import business.game.tablero.colores.Rojo;
+import business.game.tablero.colores.*;
 import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
 import business.game.tablero.tableros.impl.TableroLineal;
@@ -173,5 +174,33 @@ public class Application extends Controller {
 			return ok(juego.getTextoPregunta() + " - " + respuestas.get(0) + " - " + respuestas.get(1) + " - " + respuestas.get(2) + " - " + respuestas.get(3));
 		}
 		return forbidden();
+	}
+	public static Result isFinished(){
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			if(juego.isGameFinished())
+			return ok(juego.getActual().getUsuario().getLogin());
+		}
+		return ok();
+	}
+	public static Result getTokens(){
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			String result = "";
+			Jugador j = juego.getActual();
+			result += j.getUsuario().getLogin();
+			for(Color c: j.getQuesitos())
+				if(c!=null)
+					result += " - " + c.toString();
+			Iterator<Jugador> iter = juego.getQueueJugadores().iterator();
+			while(iter.hasNext()){
+				j = iter.next();
+				result += j.getUsuario().getLogin();
+				for(Color c: j.getQuesitos())
+					result += " - " + c.toString();
+			}
+			return ok(result);
+		}
+		return ok();
 	}
 }

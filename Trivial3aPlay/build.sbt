@@ -13,5 +13,5 @@ libraryDependencies ++= Seq(
   javaWs,
   "org.mongodb" % "mongo-java-driver" % "2.13.0",
   "org.jdom" % "jdom2" % "2.0.6",
-  "com.google.code.gson" % "gson" % "2.3.1",
+  "com.google.code.gson" % "gson" % "2.3.1"
 )

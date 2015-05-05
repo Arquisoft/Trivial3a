@@ -147,14 +147,16 @@ function updateTokens(){
 				r2=r1[i].split(" - ");
 				for(j=1; j<r2.length; j++){
 					token = "#token" + r2[0]; 
+					console.log(r2[j]);
 					switch(r2[j]){
 						case "amarillo":
 							$(token + " token-space-1").removeClass("tokenBlank");
 							$(token + " token-space-1").addClass("tokenYellow");
 							break;
 						case "azul":
-							$(token + " token-space-2").removeClass("tokenBlank");
-							$(token + " token-space-2").addClass("tokenBlue");
+							$(token).children("token-space-2").removeClass("tokenBlank");
+							$(token).children("token-space-2").addClass("tokenBlue");
+							console.log(token);
 							break;
 						case "morado":
 							$(token + " token-space-3").removeClass("tokenBlank");

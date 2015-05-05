@@ -70,6 +70,10 @@ span.input-group-addon-custom {
   text-align: center;
   transition: 0.25s all ease-in;
 }
+.defaultButton:disabled {
+  background-color: #dfdfdf;
+  border-color:#949494;
+}
 .defaultButton:hover {
   background: #ffc264;
   border-bottom: 3px solid #ff9d3f;

@@ -110,8 +110,10 @@ function rollDice(){
 	url = "/rollDice";
 	$.ajax({url: url,  method: "GET", success: function(result){
 		$('#diceValue').html(result);
+		enableButton("move");
+		$('#gameQuestionText').css("color", "white");
     }})
-    enableButton("move");
+    
 }
 function updatePosition(){
 	url = "/getPosition";
@@ -132,14 +134,14 @@ function isFinished(){
 	url = "/isFinished";
 	$.ajax({url: url,  method: "GET", success: function(result){
 		if(result != ""){
-			finish();
+			finish(result);
 		}
     }})
 }
-function finish(){
+function finish(winner){
 	$('#winnerWrapper').append('<audio src="assets/sound/win.mp3" autoplay>');
 	$('#winnerWrapper').fadeIn(500);
-	$('#winnerPlayer').html(result);
+	$('#winnerPlayer').html(winner);
 }
 function updateTokens(){
 	url = "/getTokens";

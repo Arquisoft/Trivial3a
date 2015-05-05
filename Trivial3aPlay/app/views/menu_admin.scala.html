@@ -11,20 +11,30 @@
 	<link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
 	<link  rel="stylesheet" href="@routes.Assets.at("stylesheets/admin.css")"> 
 	<link  rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery.dataTables.css")"> 
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <div id="menuWrapper">
-	<div class="container">
-		<div id="logo">
+	<div class="row pad7">
+		<div class="col-md-9" id="logo">
 			<img src="@routes.Assets.at("img/logo.png")" class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 ">
+		</div>
+		
+		<div class="col-md-3">
+			<nav id="menu">
+				<ul>
+					<li class="col-lg-3 col-lg-offset-1point5 col-md-3 col-md-offset-1point5 col-sm-12 col-xs-12">
+						<a href="/salir" class="defaultButton">Salir</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
 		
 	</div>
 		
-	<div class="container">
-    	<div class="row">
-        <div class="col-md-4">
+	<div class="row">
+        <div class="col-md-3 left7">
 		<table class="rounded-list" id="filtro" cellspacing="0" width="100%">
 			<thead>
 	        <tr>
@@ -40,24 +50,10 @@
 			</tbody>
 		</table>
 		</div>
-		<div  class="col-md-4" id="partidas" ></div>
-		<div  class="col-md-4" id="preguntas"></div>
-	</div>
+		<div  class="col-md-3 top10" id="partidas" ></div>
+		<div  class="col-md-3 top10" id="preguntas"></div>
 	</div>
 	
-	
-	<div class="container">
-	<div>
-			<nav id="menu">
-				<ul>
-					<li class="col-lg-3 col-lg-offset-1point5 col-md-3 col-md-offset-1point5 col-sm-12 col-xs-12">
-						<a href="/salir" class="defaultButton">Salir</a>
-					</li>
-				</ul>
-			</nav>
-			</div>
-		</div>
-</div>
 	<script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
 	<script src="@routes.Assets.at("javascripts/jquery-1.11.1.min.js")"></script>
 	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>

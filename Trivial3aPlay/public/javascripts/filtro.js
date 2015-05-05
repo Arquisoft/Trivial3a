@@ -2,6 +2,9 @@ $(document).ready(function() {
     $('#filtro').dataTable( {
         "paging":   false,
         "info":     false,
-        "ordering":	false
+        "ordering":	false,
+        "scrollY":        "30em",
+        "scrollCollapse": true,
+        "paging":         false
     } );
 } );

@@ -104,7 +104,6 @@ public class JuegoEnTableroLineal {
 	public void jugarDerecha() {
 		jugarDerecha(valorDadoActual);
 		pregunta = getPregunta();
-		mostrarPregunta();
 		respuestasMezcladas = PreguntasAleatorias.getInstance().desordenar(
 				pregunta.getRespuestaCorrecta(),
 				pregunta.getRespuestasIncorrectas());
@@ -136,7 +135,7 @@ public class JuegoEnTableroLineal {
 	public void jugarIzquierda() {
 		jugarIzquierda(valorDadoActual);
 		pregunta = getPregunta();
-		mostrarPregunta();
+
 		respuestasMezcladas = PreguntasAleatorias.getInstance().desordenar(
 				pregunta.getRespuestaCorrecta(),
 				pregunta.getRespuestasIncorrectas());
@@ -146,10 +145,7 @@ public class JuegoEnTableroLineal {
 	 * otro m�todo para que muestres como quieras las pregnutas en la interfaz
 	 * puedes usarlos o quitarlos o como veas
 	 */
-	private void mostrarPregunta() {
-		// TODO Auto-generated method stub
 
-	}
 
 	/**
 	 * cuando pulsas el boton que sea el primero el 0 etc

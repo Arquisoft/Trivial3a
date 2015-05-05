@@ -1,0 +1,13 @@
+
+
+## TO-DO
+
+	* Video con una demo de juego
+	* Presentacion (PowerPoint / Keynote / Prezi)
+	* Organizar un poco el Github (readme por cada rama para indicar para que sirve cada una)
+	* Release de Github
+	* Actualizar links de descarga en la web (Links por entregas) + instrucciones de instalación/ejecución
+	* Reorganizar el contenido de la web (documentacion fuera, ¿meter documento embebido?)
+	* Diagramas Visual Paradigm + documentarlos + BPM
+	* ¿Desplegar en heroku?
+	* Pequeños detalles del juego.

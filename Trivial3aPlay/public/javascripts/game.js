@@ -150,29 +150,29 @@ function updateTokens(){
 					console.log(r2[j]);
 					switch(r2[j]){
 						case "amarillo":
-							$(token + " token-space-1").removeClass("tokenBlank");
-							$(token + " token-space-1").addClass("tokenYellow");
+							$(token + "> .token-space-1").removeClass("tokenBlank");
+							$(token + "> .token-space-1").addClass("tokenYellow");
 							break;
 						case "azul":
-							$(token).children("token-space-2").removeClass("tokenBlank");
-							$(token).children("token-space-2").addClass("tokenBlue");
+							$(token + "> .token-space-2").removeClass("tokenBlank");
+							$(token + "> .token-space-2").addClass("tokenBlue");
 							console.log(token);
 							break;
 						case "morado":
-							$(token + " token-space-3").removeClass("tokenBlank");
-							$(token + " token-space-3").addClass("tokenPurple");
+							$(token + "> .token-space-3").removeClass("tokenBlank");
+							$(token + "> .token-space-3").addClass("tokenPurple");
 							break;
 						case "naranja":
-							$(token + " token-space-4").removeClass("tokenBlank");
-							$(token + " token-space-4").addClass("tokenOrange");
+							$(token + "> .token-space-4").removeClass("tokenBlank");
+							$(token + "> .token-space-4").addClass("tokenOrange");
 							break;
 						case "rojo":
-							$(token + " token-space-5").removeClass("tokenBlank");
-							$(token + " token-space-5").addClass("tokenRed");
+							$(token + "> .token-space-5").removeClass("tokenBlank");
+							$(token + "> .token-space-5").addClass("tokenRed");
 							break;
 						case "verde":
-							$(token + " token-space-6").removeClass("tokenBlank");
-							$(token + " token-space-6").addClass("tokenGreen");
+							$(token + "> .token-space-6").removeClass("tokenBlank");
+							$(token + "> .token-space-6").addClass("tokenGreen");
 							break;
 					}
 				}

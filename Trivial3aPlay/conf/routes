@@ -7,6 +7,7 @@ GET     /                           controllers.Application.index()
 GET     /menu                       controllers.Application.menu()
 GET		/createGame					controllers.Application.createGame()
 GET     /game                       controllers.Application.game()
+GET		/leaveGame					controllers.Application.leaveGame()
 GET		/salir						controllers.Application.logout()
 
 POST	/createGame					controllers.Application.game()

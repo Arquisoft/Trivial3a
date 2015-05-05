@@ -2,11 +2,12 @@
 @main("| Juego") {
 	<div id="winnerWrapper">
 		<div id="winnerPlayer"></div>
-		<button class="defaultButton">Salir</div>
+		<a class="defaultButton" href="/menu">Salir</a>
 	</div>
 	<div id="gameWrapper">
 		<div id="gameLeftPanel" class="col-lg-3">
 			<div id="gamePlayers" class="col-lg-12">
+				<a class="defaultButton" id="exitButton" href="/menu"><span class="glyphicon glyphicon-home"></span></a>
 				<div id="actualPlayer">
 					<h1>Turno de:<span class="chatRed">@game.actual.usuario.login</span></h1>
 				</div>
@@ -29,7 +30,7 @@
 			<div id="gameControls" class="col-lg-12">
 				<form id="gameControlsForm" method="POST" action="#">
 					<div class="buttonWrapper">
-						<label id="diceValue" class="col-lg-4">5</label>
+						<label id="diceValue" class="col-lg-4"></label>
 						<button id="moveUpButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-menu-up"></span></button>
 						<button id="throwDiceButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-retweet"></span></button>
 						<button id="moveLeftButton" class="defaultButton col-lg-4"><span class="glyphicon glyphicon-menu-left"></span></button>
@@ -56,12 +57,12 @@
 			</div>
 			<div id="gameQuestion" class="col-lg-12">
 				<form id="gameQuestionBoard" method="POST" action="#">
-				<p id="gameQuestionText">¿Lorem ipsum dolor sit amet?</p>
+				<p id="gameQuestionText"></p>
 				<div class="buttonWrapper">
-					<button id="answer1" class="defaultButton col-lg-3">Respuesta 1</button>
-					<button id="answer2" class="defaultButton col-lg-3">Respuesta 2</button>
-					<button id="answer3" class="defaultButton col-lg-3">Respuesta 3</button>
-					<button id="answer4" class="defaultButton col-lg-3">Respuesta 4</button>
+					<button id="answer1" class="defaultButton col-lg-3"></button>
+					<button id="answer2" class="defaultButton col-lg-3"></button>
+					<button id="answer3" class="defaultButton col-lg-3"></button>
+					<button id="answer4" class="defaultButton col-lg-3"></button>
 				</div>
 				</form>
 			</div>

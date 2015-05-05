@@ -35,6 +35,13 @@ public class Application extends Controller {
 	public static Result createGame() {
 		return ok(selectBoard.render());
 	}
+	public static Result leaveGame() {
+		System.out.println(session("gameID"));
+		if(Cache.get(session("gameID")) != null){
+			Cache.remove(session("gameID"));
+		}
+		return menu();
+	}
 
 	public static Result inicio() {
 		return ok(selectBoard.render());

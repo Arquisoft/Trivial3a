@@ -215,9 +215,12 @@ END DEFAULT CLASSES
   background: rgba(20, 20, 20, 0.5);
   padding: 0;
 }
+#exitButton {
+	width:50px;
+}
 #actualPlayer {
-  width: 80%;
-  margin: 0 auto;
+  width: calc(100% - 50px);
+  margin-left:50px;
   border-bottom: solid 2px rgba(240, 240, 240, 0.25);
 }
 #chatText {
@@ -290,6 +293,10 @@ END DEFAULT CLASSES
 .tokenContainer:hover .caption {
   opacity: 1;
   transition: 0.25s all ease-in;
+}
+#diceValue {
+	font-size:20px;
+	padding:15px;
 }
 #throwDiceButton {
   background: #3B9FFB;

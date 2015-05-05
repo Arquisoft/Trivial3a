@@ -71,8 +71,8 @@ span.input-group-addon-custom {
   transition: 0.25s all ease-in;
 }
 .defaultButton:disabled {
-  background-color: #dfdfdf;
-  border-color:#949494;
+  background-color: #dfdfdf !important;
+  border-color:#949494 !important;
 }
 .defaultButton:hover {
   background: #ffc264;
@@ -292,8 +292,8 @@ END DEFAULT CLASSES
   border-color: #167ad6;
 }
 #throwDiceButton:hover {
-  background: #4A68FB;
-  border-bottom-color: #2543d6;
+  background: #4A68FB !important;
+  border-bottom-color: #2543d6 !important;
 }
 /*.tokenBorder {
 		width: 220px;

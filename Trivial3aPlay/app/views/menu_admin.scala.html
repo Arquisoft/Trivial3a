@@ -9,7 +9,8 @@
 	<title>Trivial 3a Menu de Administrador</title>
 
 	<link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
-	<link  rel="stylesheet" href="@routes.Assets.at("stylesheets/admin.css")">
+	<link  rel="stylesheet" href="@routes.Assets.at("stylesheets/admin.css")"> 
+	<link  rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery.dataTables.css")"> 
 </head>
 <body>
 
@@ -24,20 +25,20 @@
 	<div class="container">
     	<div class="row">
         <div class="col-md-4">
-				<form role="search" method="get" id="searchform" action="">
-					  <label for="s">
-					    	<i class="glyphicon glyphicon-search"></i>
-					  </label>
-					  <input type="text" value="" placeholder="Search" class="" id="s" />
-				</form>
-		
-			<ol class="rounded-list">
-			@for(a <- usuarios) {
-			    <li><a onclick="ganadas=@a.numGanadas; jugadas=@a.numJugadas;
-			    pregJugadas=@a.preguntasJugadas; pregGanadas=@a.preguntasAcertadas">@a.login</a>
-			 	</li>   
-			 }                
-			</ol>
+		<table class="rounded-list" id="filtro" cellspacing="0" width="100%">
+			<thead>
+	        <tr>
+	            <th></th>
+	        </tr>
+	    	</thead>
+			<tbody>
+				@for(a <- usuarios) {
+				    <tr><td><a onclick="ganadas=@a.numGanadas; jugadas=@a.numJugadas;
+				    pregJugadas=@a.preguntasJugadas; pregGanadas=@a.preguntasAcertadas">@a.login</a>
+				 	</td></tr>   
+				 }                
+			</tbody>
+		</table>
 		</div>
 		<div  class="col-md-4" id="partidas" ></div>
 		<div  class="col-md-4" id="preguntas"></div>
@@ -58,9 +59,10 @@
 		</div>
 </div>
 	<script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
+	<script src="@routes.Assets.at("javascripts/jquery-1.11.1.min.js")"></script>
 	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
 	<script src="@routes.Assets.at("javascripts/jquery.datatables.min.js")"></script>
-	
+	<script src="@routes.Assets.at("javascripts/filtro.js")"></script>
 	<script src="@routes.Assets.at("javascripts/highcharts.js")"></script>
 	<script src="@routes.Assets.at("javascripts/highcharts-more.js")"></script>
 	<script src="@routes.Assets.at("javascripts/exporting.js")"></script>

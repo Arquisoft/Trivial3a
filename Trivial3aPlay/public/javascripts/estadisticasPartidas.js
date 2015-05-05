@@ -1,6 +1,6 @@
 var jugadas;
 var ganadas;
-		$("li").click(function () {
+		$("td").click(function () {
 
 		    $(document).ready(function () {
 		        // Build the chart

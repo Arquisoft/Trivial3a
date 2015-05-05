@@ -1,6 +1,6 @@
 var pregJugadas;
 var pregGanadas;
-	$("li").click(function () {
+	$("td").click(function () {
 
 		    $(document).ready(function () {
 		

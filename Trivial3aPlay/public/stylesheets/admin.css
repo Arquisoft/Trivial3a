@@ -516,7 +516,7 @@ ol ol {
   padding:0.3em;
   background:white;
 }
-#s{
+input{
   transition:all 0.2s ease-out;
   width:1px;
   border-radius:0;
@@ -525,10 +525,11 @@ ol ol {
   padding:0;
   margin:0;
   border:0;
-  background-color: transparent;
+  background-color: white;
   opacity:0;
+  color:black;
 }
-#s:focus{
+input:focus{
   width:8em;
   opacity:1;
 }
@@ -536,10 +537,11 @@ label{
   padding-left: 1px;
   display:inline-block;
   margin-top:0.3em;
-  color:rgba(150,208,190,1);
-  text-shadow:0 0 0.1em rgba(150,208,190,0.3);
+  color:transparent;
   position: relative;
   left:0.1em;
+  font-size: 1.5em;
+  background: url("../img/lupa.png") no-repeat;
 }
 }
 /**END GAME**/

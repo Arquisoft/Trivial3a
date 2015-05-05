@@ -30,8 +30,8 @@ public class GetUsuario {
 						Integer.valueOf(user.get("edad").toString()),
 						Integer.valueOf(user.get("numJugadas").toString()),
 						Integer.valueOf(user.get("numGanadas").toString()),
-						Integer.valueOf(user.get("preguntasAcertadas").toString()),
-						Integer.valueOf(user.get("preguntasJugadas").toString()));
+						Integer.valueOf(user.get("preguntasJugadas").toString()),
+						Integer.valueOf(user.get("preguntasAcertadas").toString()));
 		}
 		return null; 
 		

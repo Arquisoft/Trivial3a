@@ -94,12 +94,12 @@ public class Jugador {
 	}
 
 	public void addQuesito(Color c) {
+		Estadisticas.actualizar("preguntasAcertadas");
 		for (int i = 0; i < tamActual; i++) {
 			if (c.equals(quesitos[i])) {
 				return;
 			}
-		}
-		Estadisticas.actualizar("preguntasAcertadas");
+		}	
 		quesitos[tamActual] = c;
 		tamActual++;
 		System.out.println(getUsuario().getLogin() + " - Quesitos totales:" + tamActual);

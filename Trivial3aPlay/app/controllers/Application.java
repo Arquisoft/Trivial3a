@@ -113,8 +113,8 @@ public class Application extends Controller {
 			TableroLineal tablero = new TableroLineal();
 			jugadores.add(new Jugador(tablero, u, new Rojo()));
 			juego = new JuegoEnTableroLineal(jugadores);
-//			Estadisticas.setJuego(juego);
-//			Estadisticas.inicializar();
+			Estadisticas.setJuego(juego);
+			Estadisticas.inicializar();
 			// FIN DE PRUEBA
 			//TODO Generar gameID con nombre de usuario creador y system.currenttimemillis();
 			String gameID = u.getLogin() + "-" + System.currentTimeMillis();
@@ -139,7 +139,7 @@ public class Application extends Controller {
 		System.out.println(session("gameID"));
 		if(Cache.get(session("gameID")) != null){
 			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
-			juego.responderAsociadoBoton(id);
+			//juego.responderAsociadoBoton(id);
 			return ok(String.valueOf(juego.responderAsociadoBoton(id)));
 		}
 		return forbidden();

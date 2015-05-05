@@ -40,28 +40,20 @@ public class Estadisticas {
 		BasicDBObject queryID = new BasicDBObject("_id",login);
 		BasicDBObject  query = null;
 		switch(option){
-//			case "numJugadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numJugadas' : 1 }}");
-//									break;
-//			case "numGanadas": 		query = (DBObject) JSON.parse("{ '$inc' : { 'numGanadas' : 1 } }");
-//									break;
-//			case "partidasJugadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasJugadas' : 1 }}");
-//									break;
-//			case "partidasGanadas": query = (DBObject) JSON.parse("{ '$inc' : { 'partidasGanadas' : 1 } }");
-//									break;
-//			default:
-//									return;
-		case "numJugadas": 		query = new BasicDBObject("$inc",new BasicDBObject("numJugadas",1));
-								break;
-		case "numGanadas": 		query = new BasicDBObject("$inc",new BasicDBObject("numGanadas",1));
-								break;
-		case "preguntasJugadas": query = new BasicDBObject("$inc",new BasicDBObject("partidasJugadas",1));
-								break;
-		case "preguntasAcertadas": query = new BasicDBObject("$inc",new BasicDBObject("partidasGanadas",1));
-								break;
-		default:
-				return;
+			case "numJugadas": 		query = new BasicDBObject("$inc",new BasicDBObject("numJugadas",1));
+									break;
+			case "numGanadas": 		query = new BasicDBObject("$inc",new BasicDBObject("numGanadas",1));
+									break;
+			case "preguntasJugadas": query = new BasicDBObject("$inc",new BasicDBObject("preguntasJugadas",1));
+									break;
+			case "preguntasAcertadas": query = new BasicDBObject("$inc",new BasicDBObject("preguntasAcertadas",1));
+									break;
+			default:
+									return;
 		}	
 		estadisticas.update(queryID,query);
+		System.out.println("Probando pregJugadas:"+estadisticas.findOne(queryID).get("preguntasJugadas"));
+		System.out.println("Probando pregAcertadas:"+estadisticas.findOne(queryID).get("preguntasAcertadas"));
 
 	}
 	public static DBObject crearJugador(){

@@ -29,8 +29,8 @@ function enableButton(button){
 		$('#throwDiceButton').removeAttr("disabled");
 		break;
 	case "move":
-		$('#moveUpButton').removeAttr("disabled");
-		$('#moveDownButton').removeAttr("disabled");
+		//$('#moveUpButton').removeAttr("disabled");
+		//$('#moveDownButton').removeAttr("disabled");
 		$('#moveLeftButton').removeAttr("disabled");
 		$('#moveRightButton').removeAttr("disabled");
 		break;

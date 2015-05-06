@@ -5,14 +5,23 @@ $( document ).ready(function() {
    bindButtons();
    $('#winnerWrapper').hide();
    updateTokens();
-   button = getAction();
-   console.log(button);
-   rollDice(false);
-   move("none");
-   answer(-1);
-   enableButton(button);
-   
+   updateState();
 });
+function updateState(){
+	enableButton("");
+	url = "/state";
+	$.ajax({url: url,  method: "GET", success: function(result){
+		r=result.split(" - ");
+		if(r[0] == r[1])
+			enableButton(r[2]);
+		$('#diceValue').html(r[3]);
+		$('#gameQuestionText').html(r[4]);
+		$('#answer1').html(r[5]);
+		$('#answer2').html(r[6]);
+		$('#answer3').html(r[7]);
+		$('#answer4').html(r[8]);	
+    }})
+}
 function enableButton(button){
 	$('.buttonWrapper button').attr("disabled", "disabled");
 	switch(button){
@@ -86,7 +95,7 @@ function bindButtons(){
 function getAction(){
 	url = "/getAction";
 	$.ajax({url: url,  method: "GET", success: function(result){
-		//console.log(result);
+		console.log(result);
 		r = result.split(" - ");
 		if(r[0] != r[2])
 			enableButton("");

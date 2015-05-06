@@ -16,6 +16,7 @@ POST	/createGame					controllers.Application.game()
 POST	/registro					controllers.Application.newRegister()
 POST	/login						controllers.Application.newLogin()
 
+GET		/state						controllers.Application.state()
 GET		/getAction					controllers.Application.getAction()
 GET		/rollDice/:reroll			controllers.Application.rollDice(reroll: Boolean)
 GET 	/move/:direction			controllers.Application.move(direction: String)

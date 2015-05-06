@@ -80,7 +80,7 @@ public class JuegoEnTableroLineal {
 		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getSiguiente() != null) {
 				actual.setActual(actual.getActual().getSiguiente());
-				System.out.println("Moviendo Jugador" + i);
+				//System.out.println("Moviendo Jugador" + i);
 			} else {
 				jugarIzquierda(i);
 				break;
@@ -92,7 +92,7 @@ public class JuegoEnTableroLineal {
 		for (int i = posiciones; i > 0; i--) {
 			if (actual.getActual().getAnterior() != null) {
 				actual.setActual(actual.getActual().getAnterior());
-				System.out.println("Moviendo Jugador" + i);
+				//System.out.println("Moviendo Jugador" + i);
 			} else {
 				jugarDerecha(i);
 				break;
@@ -123,11 +123,6 @@ public class JuegoEnTableroLineal {
 	private Pregunta getPregunta() {
 		Tablero t = actual.getT();
 		Nodo n = t.getReferencia();
-		while((n = n.getSiguiente()) != null){
-			System.out.println(n.toString());
-			System.out.println(n.getColor());
-		}
-		System.out.println(actual.getActual().getColor().toString());
 
 		return actual.getActual().getColor().getPregunta();
 	}
@@ -237,6 +232,11 @@ public class JuegoEnTableroLineal {
 		super();
 		this.jugadores = jugadores;
 		actual = jugadores.poll();
+		ArrayList<String> respuestasVacias = new ArrayList<String>();
+		respuestasVacias.add("");respuestasVacias.add("");respuestasVacias.add("");respuestasVacias.add("");
+		pregunta = new Pregunta("", "", respuestasVacias , "");
+		respuestasMezcladas = respuestasVacias;
+		valorDadoActual = 0;
 		accion = "roll";
 	}
 }

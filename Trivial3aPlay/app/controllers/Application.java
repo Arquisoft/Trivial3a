@@ -37,8 +37,11 @@ public class Application extends Controller {
 	}
 	public static Result leaveGame() {
 		System.out.println(session("gameID"));
-		if(Cache.get(session("gameID")) != null){
-			Cache.remove(session("gameID"));
+		if(session("gameID") != null){
+			if(Cache.get(session("gameID")) != null){
+				Cache.remove(session("gameID"));
+			}
+			session().remove("gameID");
 		}
 		return menu();
 	}
@@ -123,8 +126,18 @@ public class Application extends Controller {
 		}else {//Si lo tiene está en una partida y sacamos el gameID de su sesión
 			juego = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 		}
-		System.out.println(session("gameID"));
+		//System.out.println(session("gameID"));
 		return ok(game.render(juego));
+	}
+	public static Result state() {
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			String result = session("user") + " - " + juego.getActual().getUsuario().getLogin() + " - " + juego.getAccion() + " - " + juego.getValorDado() + " - " 
+							+ juego.getTextoPregunta() + " - " + juego.getRespuestasMezcladas().get(0) + " - " + juego.getRespuestasMezcladas().get(1) + " - " 
+							+ juego.getRespuestasMezcladas().get(2) + " - " + juego.getRespuestasMezcladas().get(3);
+			return ok(result);
+		}
+		return forbidden();
 	}
 	public static Result getAction(){
 		//System.out.println(session("gameID"));
@@ -147,7 +160,7 @@ public class Application extends Controller {
 		return forbidden();
 	}
 	public static Result answer(int id){
-		System.out.println(session("gameID"));
+		//System.out.println(session("gameID"));
 		if(Cache.get(session("gameID")) != null){
 			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 			//juego.responderAsociadoBoton(id);
@@ -156,7 +169,7 @@ public class Application extends Controller {
 		return forbidden();
 	}
 	public static Result getPosition(){
-		System.out.println(session("gameID"));
+		//System.out.println(session("gameID"));
 		if(Cache.get(session("gameID")) != null){
 			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 			String result = "";

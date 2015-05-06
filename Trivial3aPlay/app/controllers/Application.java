@@ -127,7 +127,7 @@ public class Application extends Controller {
 		return ok(game.render(juego));
 	}
 	public static Result getAction(){
-		System.out.println(session("gameID"));
+		//System.out.println(session("gameID"));
 		if(Cache.get(session("gameID")) != null){
 			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
 			String result = session("user");
@@ -136,11 +136,12 @@ public class Application extends Controller {
 		}
 		return forbidden();
 	}
-	public static Result rollDice(){
-		System.out.println(session("gameID"));
+	public static Result rollDice(boolean reroll){
+		//System.out.println(session("gameID"));
 		if(Cache.get(session("gameID")) != null){
 			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
-			juego.lanzarDado();
+			if(reroll)
+				juego.lanzarDado();
 			return ok(String.valueOf(juego.getValorDado()));
 		}
 		return forbidden();

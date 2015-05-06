@@ -1,5 +1,21 @@
 @(game: business.game.tablero.mecanica.impl.JuegoEnTableroLineal)
 @main("| Juego") {
+	<div class="modal fade" id="exitModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body" id="registerInputWrapper" style="text-align:center;">
+					<h4>¿De verdad desea salir?</h4>
+				</div>	
+				<div class="modal-footer">
+					<a class="defaultButton" href="/menu">Ir al menu</a>
+					<a class="defaultButton" href="/leaveGame">Abandonar partida</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div id="winnerWrapper">
 		<div id="winnerPlayer"></div>
 		<a class="defaultButton" href="/menu">Salir</a>
@@ -7,7 +23,7 @@
 	<div id="gameWrapper">
 		<div id="gameLeftPanel" class="col-lg-3">
 			<div id="gamePlayers" class="col-lg-12">
-				<a class="defaultButton" id="exitButton" href="/menu"><span class="glyphicon glyphicon-home"></span></a>
+				<button class="defaultButton" id="exitButton" data-toggle="modal" data-target="#exitModal"><span class="glyphicon glyphicon-home"></span></button>
 				<div id="actualPlayer">
 					<h1>Turno de:<span class="chatRed">@game.actual.usuario.login</span></h1>
 				</div>

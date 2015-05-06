@@ -3,9 +3,14 @@ $( document ).ready(function() {
    tokens = $(".tokenContainer");
    updatePosition();
    bindButtons();
-   getAction();
    $('#winnerWrapper').hide();
    updateTokens();
+   button = getAction();
+   rollDice(false);
+   move("none");
+   answer(-1);
+   enableButton(button);
+   
 });
 function enableButton(button){
 	$('.buttonWrapper button').attr("disabled", "disabled");
@@ -58,7 +63,7 @@ function bindButtons(){
 	});
 	$('#throwDiceButton').click(function (event) {
 		event.preventDefault();
-		rollDice();
+		rollDice(true);
 	});
 	$('#answer1').click(function (event) {
 		event.preventDefault();
@@ -86,10 +91,12 @@ function getAction(){
 			enableButton("");
 		else {
 			enableButton(r[1]);
+			return r[1];
 		}
     }})
 }
 function answer(id){
+	enableButton("");
 	url = "/answer/" + id;
 	$.ajax({url: url,  method: "GET", success: function(result){
 		if(result == 'true'){
@@ -98,16 +105,19 @@ function answer(id){
 			printChatServer("Respuesta correcta, sigue jugando");
 		}
 		else {
-			$('#gameQuestionText').css("color", "red");
-			$.ajax({url: "/getPlayer",  method: "GET", success: function(result){
-				printChatServer("Respuesta incorrecta, turno de " + result);
-			}});
+			if(id!=-1){
+				$('#gameQuestionText').css("color", "red");
+				$.ajax({url: "/getPlayer",  method: "GET", success: function(result){
+					printChatServer("Respuesta incorrecta, turno de " + result);
+				}});
+			}
 		}
 		getAction();
 		isFinished();
     }})
 }
 function move(dir){
+	enableButton("");
 	url = "/move/" + dir;
 	$.ajax({url: url,  method: "GET", success: function(result){
 		res = result.split(" - ");
@@ -121,8 +131,9 @@ function move(dir){
     }});
 	
 }
-function rollDice(){
-	url = "/rollDice";
+function rollDice(reroll){
+	enableButton("");
+	url = "/rollDice/" + reroll;
 	$.ajax({url: url,  method: "GET", success: function(result){
 		$('#diceValue').html(result);
 		enableButton("move");

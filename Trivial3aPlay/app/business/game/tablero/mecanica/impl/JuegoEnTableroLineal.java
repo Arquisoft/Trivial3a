@@ -163,9 +163,10 @@ public class JuegoEnTableroLineal {
 	 * cuando pulsas el boton que sea el primero el 0 etc
 	 */
 	public boolean responderAsociadoBoton(int boton) {
-		Estadisticas.actualizar("preguntasJugadas");
+		accion = "roll";
 		switch (boton) {
 		case 0:
+			Estadisticas.actualizar("preguntasJugadas");
 			if (respuestasMezcladas.get(0).equals(
 					pregunta.getRespuestaCorrecta())) {
 				actual.addQuesito(actual.getActual().getColor());
@@ -178,6 +179,7 @@ public class JuegoEnTableroLineal {
 			}
 			break;
 		case 1:
+			Estadisticas.actualizar("preguntasJugadas");
 			if (respuestasMezcladas.get(1).equals(
 					pregunta.getRespuestaCorrecta())) {
 				actual.addQuesito(actual.getActual().getColor());
@@ -189,6 +191,7 @@ public class JuegoEnTableroLineal {
 			}
 			break;
 		case 2:
+			Estadisticas.actualizar("preguntasJugadas");
 			if (respuestasMezcladas.get(2).equals(
 					pregunta.getRespuestaCorrecta())) {
 				actual.addQuesito(actual.getActual().getColor());
@@ -200,6 +203,7 @@ public class JuegoEnTableroLineal {
 			}
 			break;
 		case 3:
+			Estadisticas.actualizar("preguntasJugadas");
 			if (respuestasMezcladas.get(3).equals(
 					pregunta.getRespuestaCorrecta())) {
 				actual.addQuesito(actual.getActual().getColor());
@@ -210,8 +214,8 @@ public class JuegoEnTableroLineal {
 				siguienteJugador();
 			}
 			break;
+		
 		}
-		accion = "roll";
 		return false;
 	}
 

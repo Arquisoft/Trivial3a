@@ -18,8 +18,8 @@ public class PartidaSteps {
 		partida = new Partida();
 	}
 	
-	@Cuando("^añado un usuario de nombre \"(.*?)\" y clave \"(.*?)\"$")
-	public void añado_un_usuario_de_nombre_y_clave(String nombre, String clave) throws Throwable {
+	@Cuando("^aÃ±ado un usuario de nombre \"(.*?)\" y clave \"(.*?)\"$")
+	public void aÃ±ado_un_usuario_de_nombre_y_clave(String nombre, String clave) throws Throwable {
 		Color color = new Verde();
 		usuario.setNombre(nombre);
 		usuario.setPassword(clave);

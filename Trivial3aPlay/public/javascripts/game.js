@@ -6,6 +6,7 @@ $( document ).ready(function() {
    $('#winnerWrapper').hide();
    updateTokens();
    button = getAction();
+   console.log(button);
    rollDice(false);
    move("none");
    answer(-1);
@@ -85,7 +86,7 @@ function bindButtons(){
 function getAction(){
 	url = "/getAction";
 	$.ajax({url: url,  method: "GET", success: function(result){
-		console.log(result);
+		//console.log(result);
 		r = result.split(" - ");
 		if(r[0] != r[2])
 			enableButton("");

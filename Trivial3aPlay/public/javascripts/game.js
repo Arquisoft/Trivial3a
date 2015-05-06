@@ -80,6 +80,7 @@ function bindButtons(){
 function getAction(){
 	url = "/getAction";
 	$.ajax({url: url,  method: "GET", success: function(result){
+		console.log(result);
 		r = result.split(" - ");
 		if(r[0] != r[2])
 			enableButton("");

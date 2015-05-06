@@ -77,12 +77,22 @@ function bindButtons(){
 		answer(3);
 	});
 }
+function getAction(){
+	url = "/getAction";
+	$.ajax({url: url,  method: "GET", success: function(result){
+		r = result.split(" - ");
+		if(r[0] != r[2])
+			enableButton("");
+		else {
+			enableButton(r[1]);
+		}
+    }})
+}
 function answer(id){
 	url = "/answer/" + id;
 	$.ajax({url: url,  method: "GET", success: function(result){
 		if(result == 'true'){
 			$('#gameQuestionText').css("color", "green");
-			enableButton("roll");
 			updateTokens();
 			printChatServer("Respuesta correcta, sigue jugando");
 		}
@@ -92,7 +102,7 @@ function answer(id){
 				printChatServer("Respuesta incorrecta, turno de " + result);
 			}});
 		}
-		enableButton("roll");//BORRAR, ONLY FOR TESTING
+		getAction();
 		isFinished();
     }})
 }

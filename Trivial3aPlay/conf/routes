@@ -16,6 +16,7 @@ POST	/createGame					controllers.Application.game()
 POST	/registro					controllers.Application.newRegister()
 POST	/login						controllers.Application.newLogin()
 
+GET		/getAction					controllers.Application.getAction()
 GET		/rollDice					controllers.Application.rollDice()
 GET 	/move/:direction			controllers.Application.move(direction: String)
 GET		/answer/:id					controllers.Application.answer(id: Int)

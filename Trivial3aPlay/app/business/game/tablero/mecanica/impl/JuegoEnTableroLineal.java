@@ -21,6 +21,7 @@ public class JuegoEnTableroLineal {
 	private Pregunta pregunta;
 	private ArrayList<String> respuestasMezcladas;
 	private boolean gameFinished;
+	private String accion;
 
 	// Ala aqu� poneis bots o lo que querais en principio un metodo jugar
 	// hab�a
@@ -38,6 +39,14 @@ public class JuegoEnTableroLineal {
 	 */
 	public String getTextoPregunta() {
 		return pregunta.getPregunta();
+	}
+	
+	public String getAccion() {
+		return accion;
+	}
+
+	public void setAccion(String accion) {
+		this.accion = accion;
 	}
 
 	public List<String> getRespuestasMezcladas() {
@@ -96,6 +105,7 @@ public class JuegoEnTableroLineal {
 	 */
 	public void lanzarDado() {
 		valorDadoActual = PreguntasAleatorias.getInstance().dado();
+		accion = "move";
 	}
 
 	/**
@@ -107,6 +117,7 @@ public class JuegoEnTableroLineal {
 		respuestasMezcladas = PreguntasAleatorias.getInstance().desordenar(
 				pregunta.getRespuestaCorrecta(),
 				pregunta.getRespuestasIncorrectas());
+		accion = "answer"; 
 	}
 
 	private Pregunta getPregunta() {
@@ -139,6 +150,7 @@ public class JuegoEnTableroLineal {
 		respuestasMezcladas = PreguntasAleatorias.getInstance().desordenar(
 				pregunta.getRespuestaCorrecta(),
 				pregunta.getRespuestasIncorrectas());
+		accion = "answer";
 	}
 
 	/**
@@ -199,7 +211,7 @@ public class JuegoEnTableroLineal {
 			}
 			break;
 		}
-		
+		accion = "roll";
 		return false;
 	}
 
@@ -221,5 +233,6 @@ public class JuegoEnTableroLineal {
 		super();
 		this.jugadores = jugadores;
 		actual = jugadores.poll();
+		accion = "roll";
 	}
 }

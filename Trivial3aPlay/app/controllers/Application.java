@@ -126,6 +126,16 @@ public class Application extends Controller {
 		System.out.println(session("gameID"));
 		return ok(game.render(juego));
 	}
+	public static Result getAction(){
+		System.out.println(session("gameID"));
+		if(Cache.get(session("gameID")) != null){
+			JuegoEnTableroLineal juego  = (JuegoEnTableroLineal) Cache.get(session("gameID"));
+			String result = session("user");
+			result += " - " + juego.getAccion() + " - " + juego.getActual().getUsuario().getLogin();
+			return ok(result);
+		}
+		return forbidden();
+	}
 	public static Result rollDice(){
 		System.out.println(session("gameID"));
 		if(Cache.get(session("gameID")) != null){

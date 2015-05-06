@@ -3,7 +3,7 @@ $( document ).ready(function() {
    tokens = $(".tokenContainer");
    updatePosition();
    bindButtons();
-   enableButton("roll");
+   getAction();
    $('#winnerWrapper').hide();
    updateTokens();
 });

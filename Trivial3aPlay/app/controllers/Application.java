@@ -114,7 +114,7 @@ public class Application extends Controller {
 			jugadores.add(new Jugador(tablero, u, new Rojo()));
 			juego = new JuegoEnTableroLineal(jugadores);
 			Estadisticas.setJuego(juego);
-			Estadisticas.inicializar();
+			Estadisticas.actualizar("numJugadas");
 			// FIN DE PRUEBA
 			//TODO Generar gameID con nombre de usuario creador y system.currenttimemillis();
 			String gameID = u.getLogin() + "-" + System.currentTimeMillis();

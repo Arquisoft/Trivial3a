@@ -33,13 +33,13 @@ public class GetUsuarios {
 						user.get("email").toString(),
 						Integer.valueOf(user.get("edad").toString()),
 						//partidas perdidas
-						Integer.valueOf(user.get("numJugadas").toString()),
-//						- Integer.valueOf(user.get("numGanadas").toString()),
+						Integer.valueOf(user.get("numJugadas").toString())
+						- Integer.valueOf(user.get("numGanadas").toString()),
 						//partidas ganadas
 						Integer.valueOf(user.get("numGanadas").toString()),
 						//preguntas falladas
-						Integer.valueOf(user.get("preguntasJugadas").toString()),
-//						- Integer.valueOf(user.get("preguntasAcertadas").toString()),
+						Integer.valueOf(user.get("preguntasJugadas").toString())
+						- Integer.valueOf(user.get("preguntasAcertadas").toString()),
 						//preguntas acertadas
 						Integer.valueOf(user.get("preguntasAcertadas").toString()));
 //						Integer.valueOf(user.get("edad").toString()),

@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.usuario.Usuario;
-import business.game.tablero.jugadores.impl.Jugador;
 import business.game.tablero.mecanica.impl.JuegoEnTableroLineal;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 
 
 public class Estadisticas {
@@ -22,12 +20,6 @@ public class Estadisticas {
 	
 	public static void setJuego(JuegoEnTableroLineal juego){
 		Estadisticas.juego = juego;
-	}
-	
-	public static void inicializar(){
-		for(Jugador j : juego.getQueueJugadores()){
-			actualizacion("numJugadas",j.getUsuario().getLogin());
-		}
 	}
 	
 	public static void actualizar(String option){
@@ -52,8 +44,10 @@ public class Estadisticas {
 									return;
 		}	
 		estadisticas.update(queryID,query);
-		System.out.println("Probando pregJugadas:"+estadisticas.findOne(queryID).get("preguntasJugadas"));
-		System.out.println("Probando pregAcertadas:"+estadisticas.findOne(queryID).get("preguntasAcertadas"));
+//		System.out.println("Partidas jugadas = "+estadisticas.findOne(queryID).get("numJugadas"));
+//		System.out.println("Partidas ganadas = "+estadisticas.findOne(queryID).get("numGanadas"));
+//		System.out.println("Preguntas jugadas = "+estadisticas.findOne(queryID).get("preguntasJugadas"));
+//		System.out.println("Preguntas acertadas = "+estadisticas.findOne(queryID).get("preguntasAcertadas"));
 
 	}
 	public static DBObject crearJugador(){

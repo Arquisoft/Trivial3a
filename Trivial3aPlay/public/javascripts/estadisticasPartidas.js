@@ -31,8 +31,8 @@ var ganadas;
 		                type: 'pie',
 		                name: 'Browser share',
 		                data: [
-		                    ['Partidas jugadas',   jugadas],
-		                    ['Partidas ganadas',  ganadas],
+		                	['Partidas ganadas',  ganadas],
+		                    ['Partidas perdidas',   jugadas],
 		               ]
 		            }]
 		        });

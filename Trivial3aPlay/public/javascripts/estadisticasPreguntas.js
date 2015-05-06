@@ -31,8 +31,8 @@ var pregGanadas;
 		                type: 'pie',
 		                name: 'Browser share',
 		                data: [
-		                    ['Preguntas jugadas',   pregJugadas],
-		                    ['Preguntas ganadas',  pregGanadas],
+		                    ['Preguntas acertadas',   pregGanadas],
+		                    ['Preguntas falladas',  pregJugadas],
 		               ]
 		            }]
 		        });

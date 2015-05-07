@@ -1,97 +1,136 @@
 <!DOCTYPE html>
 <html lang="es-es">
 <head>
-	<meta charset="UTF-8">
-	<title>Trivial3a</title>
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" charset="utf-8">
-	<link rel="stylesheet" href="stylesheets/stylesheet.css">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script type="text/javascript" src="javascripts/javascript.js"></script>
-	<link rel="icon" href="images/favicon-32x32.png">
+<meta charset="UTF-8">
+<title>Trivial3a</title>
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+	charset="utf-8">
+<link rel="stylesheet" href="stylesheets/stylesheet.css">
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/javascript.js"></script>
+<link rel="icon" href="images/favicon-32x32.png">
 </head>
 <body>
 	<div id="particles-js"></div>
-	
-		<nav>
-			<div class="background"></div>
-			<div class="wrapper-nav">
-				<header class="responsive">
-					<div class="cabecera">
-						<div class="logo">  Trivial3a</div>
+
+	<nav>
+		<div class="background"></div>
+		<div class="wrapper-nav">
+			<header class="responsive">
+				<div class="cabecera">
+					<div class="logo">Trivial3a</div>
+				</div>
+				<div class="menu-button">
+					<div class="text">
+						<p class="close">Menú</p>
+						<p class="open">Cerrar</p>
 					</div>
-					<div class="menu-button">
-						<div class="text">
-							<p class="close">Menú</p>
-							<p class="open">Cerrar</p>
-						</div>
-						<div class="button"><span class="lines"></span></div>
-					</div>
-					<div class="clearboth"></div>
-				</header>
-				<div class="menu">
-					<div class="wrapper-menu">
-						<a class="item" href="index.html">Inicio</a>
-						<a class="item" href="juego.html">Proyectos desarrollados</a>
-						<a class="item" href="sistema.html">Manual sistema</a>
-						<a class="item" href="usuario.html">Manual usuario</a>
-						<a class="item" href="doc.html">Documentación</a>
-						<a class="item" href="equipo.html">Equipo</a>
+					<div class="button">
+						<span class="lines"></span>
 					</div>
 				</div>
+				<div class="clearboth"></div>
+			</header>
+			<div class="menu">
+				<div class="wrapper-menu">
+					<a class="item" href="index.html">Inicio</a> <a class="item"
+						href="juego.html">Proyectos</a> <a class="item" href="doc.html">Documentación</a>
+					<a class="item" href="presentacion.html">Presentación</a> <a
+						class="item" href="equipo.html">Equipo</a>
+				</div>
 			</div>
-        </nav>
-
+		</div>
+	</nav>
+	<hr>
 	<div class="principal">
 
-		<h1 class="titulo">Proyectos desarrollados</h1>
-			<article>
-				<p>El tablero está compuesto por casillas que forman una rueda con seis radios.
-				Cada casilla lleva el color de un tipo de preguntas, con una casilla especial 
-				de cada color en el lugar en que los radios se unen a la rueda, donde aparece 
-				el quesito del respectivo color sostenido por dos quesitos.</p>
+		<h1 class="titulo">Proyectos</h1>
+		<article>
 
-				<p>Los jugadores comienzan en el centro de la rueda. Lanzan los dados en orden 
-				y mueven sus fichas con forma de queso en la dirección que elijan, el número de 
-				casillas que indica el dado. Tras mover la ficha, otro jugador coge una carta 
-				del mazo y hace al jugador que ha movido la ficha una pregunta que se corresponde 
-				con el color de la casilla a la que la ficha ha ido a parar. Si el jugador la 
-				responde correctamente puede tirar el dado de nuevo. Si la casilla es una de las 
-				casillas especiales situadas en la intersección, obtiene como premio una de las 
-				seis cuñas (popularmente llamadas "quesitos") del color de la casilla, si es que 
-				no la ha conseguido ya. Si el jugador responde incorrectamente, el turno pasa 
-				al siguiente jugador.</p>
+			<h2>Primer proyecto (Extracción de preguntas)</h2>
 
-				<p>El juego prosigue hasta que un jugador obtiene los quesitos de los seis 
-				colores y se dirige al centro. Una vez que llega allí el jugador debe responder 
-				una pregunta final, cuyo color escogen los rivales. Si la responde correctamente, 
-				gana el juego. Si no, se sigue jugando hasta que alguien lo consiga.</p>
+			<p>Una empresa dedicada a la creación de videojuegos necesita
+				crear un nuevo juego de preguntas/respuestas de naturaleza similar
+				al trivial clásico.</p>
+			<ul>
+				<li>Es primer lugar es necesario procesar los datos relativos a
+					las preguntas y respuestas de las que constará el juego. Durante
+					este primer procesamiento la aplicación debe informarnos de los
+					posibles errores en los ficheros de entrada. Estos ficheros de
+					entrada deberán de usar el formato GIFT, pero posteriormente la
+					aplicación podría requerir del uso de ficheros de entrada con otros
+					formatos como QTI o XML. Una vez procesados los datos han de tener
+					una representación interna JSON en nuestra aplicación.</li>
+				<li>Posteriormente estos datos se serializaran en una base de
+					datos no relacional como MongoDB aunque esto es una decisión aun
+					por tomar y podría haber variaciones.</li>
+			</ul>
+			<p>Los pasos anteriores deberán estar claramente diferenciados
+				para facilitar que una automatización o un operario tengan la
+				posibilidad de ejecutar estas etapas en momentos diferentes. Por el
+				momento no se requiere que ninguna de estas dos etapas ofrezcan un
+				gran rendimiento, ya que solamente van a ser utilizadas en las fase
+				de construcción de una base de preguntas/respuestas.</p>
+			<br> <br> <a
+				href="/Arquisoft/Trivial3a/archive/BancoDePruebas.zip"
+				title="Download the contents of Arquisoft/Trivial3a as a zip file"
+				rel="nofollow"> Descargar proyecto </a>
 
-				<h3>Categorías de las preguntas </h3>
+			<h2>Segundo proyecto (Aplicación de escritorio)</h2>
 
-				<br>				
-					<ul>
-						<li>Geografía</li>
-						<li>Espectáculos</li>
-						<li>Historia</li>
-						<li>Arte y Literatura</li>
-						<li>Ciencias y Naturaleza</li>
-						<li>Deportes</li>
-					</ul>
-				<br>
+			<p>En esta ocasión la empresa “NoGame” nos plantea la
+				continuación de la primera parte del juego ya desarrollada. Esta vez
+				el desarrollo consistirá en la realización de una aplicación
+				completa de escritorio.</p>
+			<p>Dicho aplicación/juego tendrá interfaz gráfica y permitirá que
+				los usuarios se registren y loguen en la aplicación. Dado que cada
+				usuario quedara guardado en el sistema también se guardaran datos
+				relativos a las partidas que haya jugado. De esta forma podremos
+				llevar a cabo un análisis estadístico de su rendimiento durante el
+				juego. En la interfaz gráfica se mostrara un tablero similar al
+				tablero de trivial clásico con el objetivo de que los usuarios
+				puedan conocer en que posiciones se encuentran y sus puntuaciones.
+				Aparte de esto existirá un usuario administrador que podrá consultar
+				las estadísticas y las puntuaciones de todos los jugadores
+				registrados en el sistema.</p>
+			<p>La interfaz gráfica llevara a cabo la representación visual de
+				todos los datos contenidos en la base de datos utilizada por la
+				aplicación, tales como usuarios registrados, preguntas, etc</p>
+			<br> <br> <a href="/Arquisoft/Trivial3a/archive/parser.zip"
+				title="Download the contents of Arquisoft/Trivial3a as a zip file"
+				rel="nofollow"> Descargar proyecto </a>
 
-				<h2 class="titulo">Aplicación de escritorio</h1>
-				<h3>Enlaces de descarga </h3>
+			<h2>Tercer proyecto (Aplicación WEB)</h2>
+			<p>En esta ocasión la empresa “NoGame” nos plantea la
+				continuación de las dos primeras partes del juego ya desarrolladas.
+				Esta vez el desarrollo consistirá en la realización de la versión
+				web del juego trivial con el que habíamos estado trabajando.</p>
+			<p>Dicha aplicación tendrá una interfaz web grafica y permitirá
+				que los usuarios se registren y loguen en la aplicación. Dado que
+				cada usuario quedara guardado en el sistema también se guardaran
+				datos relativos a las partidas que haya jugado. De esta forma el
+				administrador podrá llevar a cabo un análisis estadístico del
+				rendimiento de los jugadores durante las partidas. En la interfaz
+				web se mostrara un tablero similar al tablero de trivial clásico con
+				el objetivo de que los usuarios puedan conocer en que posiciones se
+				encuentran y sus puntuaciones.</p>
+			<p>La interfaz grafica llevara a cabo la representación visual de
+				todos los datos contenidos en la base de datos utilizada por la
+				aplicación, tales como usuarios registrados, preguntas, etc</p>
+			<br> <br> <a
+				href="/Arquisoft/Trivial3a/archive/DesignPlay.zip"
+				title="Download the contents of Arquisoft/Trivial3a as a zip file"
+				rel="nofollow"> Descargar proyecto </a> <img
+				src="images/trivial-game.png" width=150px height=150
+				id="imgDownload" /> <br>
 
-				<br> <img src="images/trivial-game.png" width=150px height=150 id="imgDownload"/> <br>
-
-				<p> Actualmente puedes ver el estado del proyecto en nuestro  <a href="https://github.com/Arquisoft/Trivial3a">repositorio de Github.</a> </p> 
-				<p> Además puedes descargar nuestro proyecto completo <a href="https://codeload.github.com/Arquisoft/Trivial3a/legacy.zip/master">en formato ZIP</a> </p> 
-
-			</article>
+		</article>
 
 	</div>
 
- 
+
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="javascripts/particles.min.js"></script>
 	<script src="javascripts/particulas.js"></script>

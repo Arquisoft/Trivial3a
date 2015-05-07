@@ -5,9 +5,11 @@ import java.util.Queue;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.HashMap;
 
 import com.mongodb.util.JSON;
 
+import controllers.util.SalaEspera;
 import modelo.usuario.Usuario;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -33,7 +35,9 @@ public class Application extends Controller {
 	}
 
 	public static Result createGame() {
-		return ok(selectBoard.render());
+		if(Cache.get(session("gameID")) == null)
+			return ok(selectBoard.render());
+		return game();
 	}
 	public static Result leaveGame() {
 		System.out.println(session("gameID"));
@@ -71,6 +75,7 @@ public class Application extends Controller {
 		}
 		return ok(index.render(Form.form(Registro.class), "Debe rellenar todos los campos"));
 	}
+
 	
 	public static Result newLogin() {
 		Form<Registro> registerForm = Form.form(Registro.class)
@@ -95,6 +100,20 @@ public class Application extends Controller {
 				return ok(index.render(Form.form(Registro.class), res.toString()));
 			}
 		return ok(index.render(Form.form(Registro.class), "Debe rellenar todos los campos"));
+	}
+	public static Result newRoom() {	
+		if (session("user") == null){
+			return index();
+		}
+		Form<SalaEspera> roomForm = Form.form(SalaEspera.class).bindFromRequest();
+		new GetUsuario().getUsuario(session("user"));
+		List<Jugador> players = new ArrayList<Jugador>();
+		players.add(new Jugador(null, new GetUsuario().getUsuario(session("user")), null));
+		Sala sala = new Sala(players, roomForm.get().maxJugadores, roomForm.get().nombrePartida, roomForm.get().passPartida);
+		if(Cache.get("rooms") == null)
+			Cache.set("rooms", new HashMap<String,Sala>());
+		((HashMap<String,Sala>)Cache.get("rooms")).put(sala.getName(), sala);
+		return ok();
 	}
 	
 

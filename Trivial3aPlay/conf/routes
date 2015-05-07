@@ -15,6 +15,7 @@ POST	/createGame					controllers.Application.game()
 
 POST	/registro					controllers.Application.newRegister()
 POST	/login						controllers.Application.newLogin()
+POST	/newRoom					controllers.Application.newRoom()
 
 GET		/state						controllers.Application.state()
 GET		/getAction					controllers.Application.getAction()
